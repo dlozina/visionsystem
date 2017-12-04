@@ -1,0 +1,82 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	mc:Ignorable="d"
+	x:Class="MjerniStolLimovi.TU4"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="670" Height="240">
+    <UserControl.Resources>
+        <x:Array x:Name="measuresArray" x:Key="MeasuresArray"  Type="sys:String">
+            <sys:String>B</sys:String>
+            <sys:String>L1</sys:String>
+            <sys:String>L2</sys:String>
+            
+        </x:Array>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid x:Name="pointArcs" Margin="-52.61,37.5,130.091,67.5">
+            <ed:Arc x:Name="Point1" ArcThickness="1" ArcThicknessUnit="Percent" Fill="Red" HorizontalAlignment="Left" Height="30" Margin="561.103,27.562,0,0" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="-135" VerticalAlignment="Top" Width="30" Opacity="0.7" EndAngle="-45"/>
+            <ed:Arc x:Name="Point2" ArcThickness="1" ArcThicknessUnit="Percent" Fill="Red" HorizontalAlignment="Left" Height="30" Margin="483.157,105.5,0,-0.5" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="-90" VerticalAlignment="Top" Width="30" Opacity="0.7" EndAngle="45"/>
+            <ed:Arc x:Name="Point4" ArcThickness="1" ArcThicknessUnit="Percent" Fill="Red" HorizontalAlignment="Left" Height="30" Margin="350.701,105.498,0,-0.498" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="-90" VerticalAlignment="Top" Width="30" Opacity="0.7" EndAngle="-270"/>
+        </Grid>
+        <Grid x:Name="circleArcs" Margin="-52.61,37.5,130.091,67.5">
+            <ed:Arc x:Name="Point3" ArcThickness="1" ArcThicknessUnit="Percent" Fill="Red" HorizontalAlignment="Left" Height="30" Margin="439,52,0,0" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="-360" VerticalAlignment="Top" Width="30" EndAngle="0" Opacity="0.7"/>
+
+        </Grid>
+        <Grid x:Name="circles" Margin="100.781,91.5,254.719,120">
+            <Ellipse x:Name="Circle1" HorizontalAlignment="Left" Height="25" Stroke="Black" VerticalAlignment="Top" Width="25" StrokeThickness="5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Margin="288.165,0.501,0,0"/>
+        </Grid>
+        <Grid x:Name="mainLines" Margin="-42.719,50,141.719,72">
+            <Path x:Name="Line3" Data="M160,40 L350,40" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Margin="338,108,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="153.5" StrokeThickness="5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <Path x:Name="pLine2" Data="M480,80 L352.20591,207.79409" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="85.304" Margin="486.868,27.634,-1.172,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="85.304" StrokeThickness="5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <Path x:Name="pLine1" Data="M70,83.042 L83.279033,96.321033" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="32.365" Margin="539.806,0.114,-1.172,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="32.366" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="5"/>
+        </Grid>
+        <TextBlock x:Name="TextBlockAIZ6" HorizontalAlignment="Left" Height="22" Margin="305.281,82.5,0,0" TextWrapping="Wrap" Text="TU_4" VerticalAlignment="Top" Width="58.248" TextAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="16"/>
+        <Grid x:Name="dimensionNames" Margin="-72.719,91.833,139.913,37.056">
+            <TextBlock x:Name="TextBlockB" HorizontalAlignment="Left" Height="27.667" TextWrapping="Wrap" Text="{Binding Source={StaticResource MeasuresArray}, Path=[0]}" VerticalAlignment="Top" Width="14.666" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333" Margin="338.053,-1.833,0,0">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="TextBlockL1" HorizontalAlignment="Left" Height="27.667" Margin="518.806,82.11,0,0" TextWrapping="Wrap" Text="{Binding [1], Source={StaticResource MeasuresArray}}" VerticalAlignment="Top" Width="25.166" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333"/>
+            <TextBlock x:Name="TextBlockL2" HorizontalAlignment="Left" Height="27.667" Margin="580.975,82.11,-3.335,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource MeasuresArray}, Path=[2]}" VerticalAlignment="Top" Width="25.166" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333"></TextBlock>
+        </Grid>
+        <Grid x:Name="centerlines" Margin="-2.719,104.5,152.61,125.5">
+        	<Path x:Name="hLine2" Data="M84.5,140 L730,140" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="240.776" StrokeDashArray="50 5 10 5" Margin="279.333,0,0,0"/>
+        </Grid>
+        <Grid x:Name="lines" Margin="-67.719,49.5,141.61,45.5">
+            <Path x:Name="hLine1" Width="226.554" VerticalAlignment="Top" StrokeLineJoin="Round" Stroke="Black" StrokeEndLineCap="Round" Stretch="Fill" StrokeStartLineCap="Round" RenderTransformOrigin="0.5,0.5" Height="1" HorizontalAlignment="Left" Fill="Black" Data="M82.15625,80 L76.78125,80" Margin="337.719,0.542,0,0"/>
+            <Path x:Name="hLine3" Width="23.973" VerticalAlignment="Top" StrokeLineJoin="Round" Stroke="Black" StrokeEndLineCap="Round" Stretch="Fill" StrokeStartLineCap="Round" RenderTransformOrigin="0.5,0.5" Margin="337.719,112.555,0,0" Height="1" HorizontalAlignment="Left" Fill="Black" Data="M82.15625,80 L76.78125,80"/>
+            <Path x:Name="vLine3" Data="M230,135 L230,233.75" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="469,45,0,0"/>
+            <Path x:Name="vLine4" Data="M230,135 L230,233.75" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="90" Margin="568.806,55,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1"/>
+            <Path x:Name="vLine5" Data="M230,135 L230,233.75" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="115" Margin="596.163,30,-1.054,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1"/>
+        </Grid>
+        <Grid x:Name="lineArrows" Margin="-62.719,50.5,142.61,49">
+            <ed:LineArrow x:Name="vLineArrowB" Fill="Black" HorizontalAlignment="Left" Height="110.927" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Stroke="Black" StrokeLineJoin="Round" VerticalAlignment="Top" Width="1" ArrowSize="5" StrokeDashCap="Round" StartArrow="Arrow" Margin="335.469,0.531,0,0"/>
+            <ed:LineArrow x:Name="hLineArrowL1" Fill="Black" HorizontalAlignment="Left" Height="0" Margin="465,140.5,0,0" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Stroke="Black" StrokeLineJoin="Round" VerticalAlignment="Top" Width="98.806" StartArrow="Arrow" ArrowSize="5"/>
+            <ed:LineArrow x:Name="hLineArrowL2" Fill="Black" HorizontalAlignment="Left" Height="0" Margin="564.91,140.5,-0.75,0" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Stroke="Black" StrokeLineJoin="Round" VerticalAlignment="Top" Width="25.949" StartArrow="Arrow" ArrowSize="5"/>
+        </Grid>
+        <Grid x:Name="angleEnumeration" Margin="-20.719,54.213,157.747,97.5">
+            <TextBlock x:Name="TextBlockAngle1" HorizontalAlignment="Left" Height="15.5" Margin="517.806,19,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="15.166" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333" Background="{x:Null}" FontWeight="Bold" FontStyle="Italic"/>
+            <TextBlock x:Name="TextBlockAngle2" HorizontalAlignment="Left" Height="15.5" Margin="465.553,72.787,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="15.166" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333" Background="{x:Null}" FontWeight="Bold" FontStyle="Italic"/>
+            <TextBlock x:Name="TextBlockCircle4" HorizontalAlignment="Left" Height="15.5" Margin="330.719,72.787,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="8.499" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333" Background="{x:Null}" FontWeight="Bold" FontStyle="Italic"/>
+        </Grid>
+        <Grid x:Name="circleEnumeration" Margin="105.281,73.998,259.553,150.502">
+            <TextBlock x:Name="TextBlockAngle3" HorizontalAlignment="Left" Height="15.5" Margin="292.084,0,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="8.249" RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333" Background="{x:Null}" FontWeight="Bold" FontStyle="Italic"/>
+        </Grid>
+        <Grid x:Name="lineEnumeration" Margin="-12.927,38.213,152.019,58.297">
+            <TextBlock x:Name="TextBlockLine1" HorizontalAlignment="Left" Height="15.5" Margin="532.927,11.787,-10.185,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="8.166"  RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333" Background="{x:Null}" FontWeight="Bold" FontStyle="Italic"/>
+            <TextBlock x:Name="TextBlockLine2" HorizontalAlignment="Left" Height="15.5" Margin="503.166,79.25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="15.166"  RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333" Background="{x:Null}" FontWeight="Bold" FontStyle="Italic"><Run Language="hr-hr" Text="2"/></TextBlock>
+            <TextBlock x:Name="TextBlockLine3" HorizontalAlignment="Left" Height="15.5" Margin="382.927,127.99,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="8.166"  RenderTransformOrigin="0.5,0.5" FontFamily="Arial" FontSize="13.333" Background="{x:Null}" FontWeight="Bold" FontStyle="Italic"/>
+        </Grid>
+    </Grid>
+</UserControl>

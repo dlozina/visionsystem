@@ -1,0 +1,159 @@
+﻿<UserControl xmlns:MjerniStolLimovi="clr-namespace:MjerniStolLimovi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"  x:Class="MjerniStolLimovi.OdabirLimova" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" MouseDown="UserControl_MouseDown">
+	<Border Margin="0,0,0,0" BorderBrush="Black" BorderThickness="0" Grid.ColumnSpan="2">
+		<DockPanel Margin="0,0,0,0"  >
+			<Border>
+				<Grid Background="{DynamicResource pozadina2}">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40"/>
+						<RowDefinition Height="500*"/>
+						<RowDefinition Height="40"/>
+					</Grid.RowDefinitions>
+					<TextBox TextWrapping="Wrap" Text="VRSTA LIMA" Background="{DynamicResource pozadina1}" BorderBrush="{DynamicResource pozadina2}" FontWeight="Bold" FontSize="13" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Margin="0" Height="25"/>
+					<Button Style="{DynamicResource ButtonStill1}" Height="40" Click="Button_Click_1" >
+						<StackPanel>
+							<Path Data="M-2,-14 L2.0,-14.0" Stretch="Fill" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="2" Width="10" RenderTransformOrigin="0.535,0.25" Height="2" Margin="0,5"/>
+							<Path Data="M-6.0,-14.0 L6.0,-14.0" Stretch="Fill" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="2" Width="30" RenderTransformOrigin="0.535,0.25" Height="2" Margin="0,0,0,5"/>
+							<Path Data="M-10.0,-10.0 L10.0,-10.0" Stretch="Fill" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="2" Width="50" RenderTransformOrigin="0.535,0.25" Height="2" Margin="0,0,0,5"/>
+						</StackPanel>
+					</Button>
+					<ScrollViewer x:Name="sbr" Margin="0" Grid.Row="1" Padding="0,1" FlowDirection="RightToLeft" VerticalScrollBarVisibility="Hidden">
+						<StackPanel Background="{DynamicResource pozadina1}" Margin="0,0,0,0">
+							<Button x:Name="b_A" Style="{DynamicResource ButtonStill1}" Click="b_A_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="5,5" FontSize="14"><Run Language="hr-hr" Text="A"/></TextBlock>
+								</StackPanel>
+							</Button>
+							<Button x:Name="b_AIZ6" Style="{DynamicResource ButtonStill1}" Click="b_AIZ6_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="A IZ6"/></TextBlock>
+								</StackPanel>
+							</Button>
+							<Button x:Name="b_AIZ1IZ6" Style="{DynamicResource ButtonStill1}" Click="b_AIZ1IZ6_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="A IZ1 IZ6"/></TextBlock>
+								</StackPanel>
+							</Button>
+							<Button x:Name="b_BIZ5" Style="{DynamicResource ButtonStill1}" Click="b_BIZ5_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="B IZ5"/></TextBlock>
+								</StackPanel>
+							</Button>
+                            <Button x:Name="b_BIZ6" Style="{DynamicResource ButtonStill1}" Click="b_BIZ6_Click" Height="40">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="B IZ6"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="b_BIZ2IZ7" Style="{DynamicResource ButtonStill1}" Click="b_BIZ2IZ7_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="B IZ2 IZ7"/></TextBlock>
+								</StackPanel>
+							</Button>
+                            <Button x:Name="b_BIZ10" Style="{DynamicResource ButtonStill1}" Click="b_BIZ10_Click" Height="40">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="B IZ10"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="b_CIZ10" Style="{DynamicResource ButtonStill1}" Click="b_CIZ10_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="C IZ10"/></TextBlock>
+								</StackPanel>
+							</Button>
+                            <Button x:Name="b_CIZ11" Style="{DynamicResource ButtonStill1}" Click="b_CIZ11_Click" Height="40">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="C IZ11"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="b_D" Style="{DynamicResource ButtonStill1}" Click="b_D_Click" Height="40">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="D"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="b_DIZ11" Style="{DynamicResource ButtonStill1}" Click="b_DIZ11_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="D IZ11"/></TextBlock>
+								</StackPanel>
+							</Button>
+							<Button x:Name="b_DIZ15" Style="{DynamicResource ButtonStill1}" Click="b_DIZ15_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="D IZ15"/></TextBlock>
+								</StackPanel>
+							</Button>
+							<Button x:Name="b_EIZ14" Style="{DynamicResource ButtonStill1}" Click="b_EIZ14_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="E IZ14"/></TextBlock>
+								</StackPanel>
+							</Button>
+							<Button x:Name="b_KIZ5IZ8" Style="{DynamicResource ButtonStill1}" Click="b_KIZ5IZ8_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="K IZ5 IZ8"/></TextBlock>
+								</StackPanel>
+							</Button>
+							<Button x:Name="b_MIZ12" Style="{DynamicResource ButtonStill1}" Click="b_MIZ12_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="M IZ12"/></TextBlock>
+								</StackPanel>
+							</Button>
+							<Button x:Name="b_NIZ13" Style="{DynamicResource ButtonStill1}" Click="b_NIZ13_Click" Height="40">
+								<StackPanel Margin="0" Orientation="Horizontal">
+									<TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="N IZ13"/></TextBlock>
+								</StackPanel>
+							</Button>
+                            <Button x:Name="TEST" Style="{DynamicResource ButtonStill1}" Height="40" Click="TEST_Click">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="TU 1"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="b_TU2" Style="{DynamicResource ButtonStill1}" Height="40" Click="b_TU2_Click">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="TU 2"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="b_TU3" Style="{DynamicResource ButtonStill1}" Height="40" Click="b_TU3_Click">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="TU 3"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="b_TU4" Style="{DynamicResource ButtonStill1}" Height="40" Click="b_TU4_Click">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="TU 4"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="b_TU5" Style="{DynamicResource ButtonStill1}" Height="40" Click="b_TU5_Click">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="TU 5"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <!--<Button x:Name="CommonAngle" Style="{DynamicResource ButtonStill1}" Click="CommonAngle_Click" Height="40">
+                                <StackPanel Margin="0" Orientation="Horizontal">
+                                    <TextBlock Foreground="#FF0E0D0D" FontWeight="Normal" FontFamily="Arial" VerticalAlignment="Center" Margin="10,10" FontSize="14"><Run Language="hr-hr" Text="Com Angle"/></TextBlock>
+                                </StackPanel>
+                            </Button>-->
+                        </StackPanel>
+					</ScrollViewer>
+					<Button Style="{DynamicResource ButtonStill1}" Height="40" Grid.Row="2" Click="Button_Click" >
+						<StackPanel>
+							<Path Data="M-10.0,-10.0 L10.0,-10.0" Stretch="Fill" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="2" Width="50" RenderTransformOrigin="0.535,0.25" Height="2" Margin="0,5"/>
+							<Path Data="M-6.0,-14.0 L6.0,-14.0" Stretch="Fill" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="2" Width="30" RenderTransformOrigin="0.535,0.25" Height="2" Margin="0,0,0,5"/>
+							<Path Data="M-2,-14 L2.0,-14.0" Stretch="Fill" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="2" Width="10" RenderTransformOrigin="0.535,0.25" Height="2" Margin="0,0,0,5"/>
+						</StackPanel>
+					</Button>
+				</Grid>
+			</Border>
+			<Border BorderBrush="{DynamicResource pozadina2}" BorderThickness="0">
+                <DockPanel DockPanel.Dock="Right" Background="{DynamicResource pozadina2}" >
+                    <Image Name="im"/>
+                    <Viewbox x:Name="vb_limovi">
+                        <MjerniStolLimovi:A_IZ6/>
+                    </Viewbox>
+                </DockPanel>
+			</Border>
+		</DockPanel>
+	</Border>
+</UserControl>

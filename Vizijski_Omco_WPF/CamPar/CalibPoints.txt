@@ -1,0 +1,11 @@
+* Set the world coordinates of three points
+X := [40,60,120,150]
+Y := [5,0,5,0]
+Z := [0,0,0,0]
+
+* Set the respective image plane coordinates of the three points
+RCoord := [406,385,403,379]
+CCoord := [546,635,898,1022]
+
+* Calibration hight (ex. robot z-position)
+Z := [793.7] [mm]

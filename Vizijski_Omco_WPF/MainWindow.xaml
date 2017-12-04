@@ -1,0 +1,334 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:MjerniStolLimovi="clr-namespace:MjerniStolLimovi;assembly=MjerniStolLimovi" x:Class="VizijskiSustavWPF.MainWindow"
+        Title="VMS5000" Height="768" Width="1024" Background="Black" WindowStyle="None" WindowStartupLocation="CenterScreen" >
+    <Grid Margin="0,0,0,0">
+
+        <StatusBar Height="20" VerticalAlignment="Bottom" Margin="0,0,0,0">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" MinWidth="5" />
+                            <ColumnDefinition Width="134" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem>
+                <TextBlock Text="Camera: Offline" x:Name="tb_cameraOnline" />
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2" HorizontalAlignment="Left" Width="710">
+                <TextBlock x:Name="tb_statusMessage" Text="SPREMAN" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Left" />
+            </StatusBarItem>
+            <Separator Grid.Column="3" />
+            <StatusBarItem Grid.Column="4">
+                <TextBlock x:Name="t_connectionStatus" Text="PLC Status: Offline"/>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="4" Margin="0" HorizontalAlignment="Right">
+                <Ellipse x:Name="onlineFlag" Height="13" Margin="0" Stroke="#00000000" Width="13" VerticalAlignment="Bottom" HorizontalAlignment="Right" RenderTransformOrigin="-1.467,0.467">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF979797" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+            </StatusBarItem>
+        </StatusBar>
+
+        <UniformGrid x:Name="uniformGrid"  HorizontalAlignment="Left" Margin="0,0,0,25" Rows="8" Width="224" Columns="1">
+            <Button x:Name= "postavke" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Padding="1" Click="postavke_Click" MouseEnter="postavke_MouseEnter" MouseLeave="postavke_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="#FF73EFFF" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="{Binding Color, Source={StaticResource pozadina1}}" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Rectangle x:Name="rect" RadiusX="0" RadiusY="0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="MyAnimatedBrush" Color="{Binding Color, Source={StaticResource pozadina1}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ikone/postavke.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" POSTAVKE"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name= "dimenzije" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Click="dimezije_Click" MouseEnter="dimenzije_MouseEnter" MouseLeave="dimenzije_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="#FF73EFFF" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="{Binding Color, Source={StaticResource pozadina1}}" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Rectangle x:Name="rect" RadiusX="0" RadiusY="0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="MyAnimatedBrush" Color="{Binding Color, Source={StaticResource pozadina1}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ikone/robot.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" ROBOT"/></TextBlock>
+                </StackPanel>
+
+            </Button>
+            <Button x:Name= "valovitost" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Click="valovitost_Click" MouseEnter="valovitost_MouseEnter" MouseLeave="valovitost_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="#FF73EFFF" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="{Binding Color, Source={StaticResource pozadina1}}" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Rectangle x:Name="rect" RadiusX="0" RadiusY="0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="MyAnimatedBrush" Color="{Binding Color, Source={StaticResource pozadina1}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ikone/sort-z-to-a.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" STRING"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name= "srh" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Click="srh_Click" MouseEnter="srh_MouseEnter" MouseLeave="srh_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="#FF73EFFF" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="{Binding Color, Source={StaticResource pozadina1}}" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Rectangle x:Name="rect" RadiusX="0" RadiusY="0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="MyAnimatedBrush" Color="{Binding Color, Source={StaticResource pozadina1}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ikone/video-on.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" POROZNOST"/></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name= "sablja" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Click="sablja_Click" MouseEnter="sablja_MouseEnter" MouseLeave="sablja_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="#FF73EFFF" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="{Binding Color, Source={StaticResource pozadina1}}" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Rectangle x:Name="rect" RadiusX="0" RadiusY="0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="MyAnimatedBrush" Color="{Binding Color, Source={StaticResource pozadina1}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ikone/ruler.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" VISINE"/></TextBlock>
+                </StackPanel>
+
+            </Button>
+            <Button x:Name= "kut" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Click="kut_Click" MouseEnter="kut_MouseEnter" MouseLeave="kut_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="#FF73EFFF" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="{Binding Color, Source={StaticResource pozadina1}}" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Rectangle x:Name="rect" RadiusX="0" RadiusY="0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="MyAnimatedBrush" Color="{Binding Color, Source={StaticResource pozadina1}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ikone/dimenzije.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" DIAMETRI"/></TextBlock>
+                </StackPanel>
+
+            </Button>
+            <Button x:Name= "rucno" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Click="rucno_Click" MouseEnter="rucno_MouseEnter" MouseLeave="rucno_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="#FF73EFFF" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="{Binding Color, Source={StaticResource pozadina1}}" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Rectangle x:Name="rect" RadiusX="0" RadiusY="0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="MyAnimatedBrush" Color="{Binding Color, Source={StaticResource pozadina1}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ikone/rucno.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" RUČNO"/></TextBlock>
+                </StackPanel>
+
+            </Button>
+            <Button x:Name= "izvjestaji" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,0" VerticalContentAlignment="Center" FontWeight="Bold" Click="izvjestaji_Click" MouseEnter="izvjestaji_MouseEnter" MouseLeave="izvjestaji_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="#FF73EFFF" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="MyAnimatedBrush" Storyboard.TargetProperty="Color" To="{Binding Color, Source={StaticResource pozadina1}}" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Rectangle x:Name="rect" RadiusX="0" RadiusY="0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="MyAnimatedBrush" Color="{Binding Color, Source={StaticResource pozadina1}}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ikone/izvjestaji.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" IZVJEŠTAJI"/></TextBlock>
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+        <Grid x:Name="glavniGrid"  Margin="224,0,0,25" MouseEnter="glavniGrid_MouseEnter">
+            <Grid.Background>
+                <SolidColorBrush Color="{Binding Color, Source={StaticResource pozadina1}}"/>
+            </Grid.Background>
+            <Frame x:Name="glavniFrame" Content="" Margin="10" NavigationUIVisibility="Hidden" ContentRendered="glavniFrame_ContentRendered"/>
+        </Grid>
+
+    </Grid>
+
+</Window>

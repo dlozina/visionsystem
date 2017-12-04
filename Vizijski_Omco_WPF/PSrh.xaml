@@ -1,0 +1,60 @@
+﻿<Page 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VizijskiSustavWPF" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" xmlns:limovi="clr-namespace:VizijskiSustavWPF.limovi" 
+      xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+    xmlns:MjerniStolLimovi="clr-namespace:MjerniStolLimovi;assembly=MjerniStolLimovi" 
+     x:Class="VizijskiSustavWPF.PSrh"
+    mc:Ignorable="d" 
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+	Title="PSrh" d:DesignWidth="1354" d:DesignHeight="828" Loaded="Page_Loaded">
+
+
+
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >
+            <!--<Grid.DataContext>
+                <local:MainViewModel></local:MainViewModel>
+            </Grid.DataContext>-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="490*"/>
+                <ColumnDefinition Width="490*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="295"/>
+                <RowDefinition Height="293*"/>
+                <RowDefinition Height="102"/>
+            </Grid.RowDefinitions>
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Height="2" Margin="4,0" VerticalAlignment="Top" Width="Auto" Background="Black" Grid.ColumnSpan="3"/>
+
+
+            <Grid  Grid.Column="1" Grid.Row="1" Margin="0,4,4,0" MinHeight="100" Background="black" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="64"/>
+                    <RowDefinition Height="98"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="90"/>
+
+                </Grid.ColumnDefinitions>
+                <UniformGrid Background="Black" Grid.Row="2" Grid.ColumnSpan="2"/>
+            </Grid>
+            <Grid Margin="4,4,4,0" Grid.Row="2">
+                <Border BorderBrush="Black" BorderThickness="0"/>
+            </Grid>
+            <GridSplitter HorizontalAlignment="Left" Height="Auto" Margin="790,0,0,0" VerticalAlignment="Stretch" Width="2" Background="Black" Foreground="Black" BorderThickness="0" Grid.RowSpan="3"/>
+        </Grid>
+        <Grid Height="35" Margin="4,4,4,0" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"><Run Language="hr-hr" Text="POROZNOST"/></TextBlock>
+        </Grid>
+    </Grid>
+</Page>

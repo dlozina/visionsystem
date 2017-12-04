@@ -1,0 +1,57 @@
+﻿<Page 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VizijskiSustavWPF" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" xmlns:limovi="clr-namespace:VizijskiSustavWPF.limovi" 
+      xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+    xmlns:MjerniStolLimovi="clr-namespace:MjerniStolLimovi;assembly=MjerniStolLimovi" 
+     x:Class="VizijskiSustavWPF.PValovitost"
+    mc:Ignorable="d" 
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+	Title="PValovitost" d:DesignWidth="1354" d:DesignHeight="828" Loaded="Page_Loaded">
+
+    <!--<Page.Resources>
+        <lcl:MainViewModel x:Key="Key1"/>
+    </Page.Resources>-->
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >
+            <!--<Grid.DataContext>
+                <local:MainViewModel></local:MainViewModel>
+            </Grid.DataContext>-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="490*"/>
+                <ColumnDefinition Width="490*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="295"/>
+                <RowDefinition Height="293*"/>
+                <RowDefinition Height="102"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="4,4,4,0" Grid.Row="2" Grid.Column="0">
+                <Border BorderBrush="Black" BorderThickness="0"/>
+            </Grid>
+
+
+            <Grid  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="0,4,4,0" MinHeight="100" Background="black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="96"/>
+                    <RowDefinition Height="98"/>
+                    
+                </Grid.RowDefinitions>
+
+                <UniformGrid Background="Black" Grid.Row="2" Grid.Column="1"/>
+            </Grid>
+
+        </Grid>
+        <Grid Height="35" Margin="4,4,4,0" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
+            <TextBlock Text="VALOVITOST" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Page>

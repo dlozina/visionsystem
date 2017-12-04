@@ -1,0 +1,115 @@
+﻿<Page x:Class="VizijskiSustavWPF.PPostavke"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+	Title="Page1" d:DesignWidth="689" d:DesignHeight="525">
+
+    <Grid>
+
+        <Grid Background="Black"     >
+            <Grid Margin="4,43,4,4" Background="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="350"/>
+                    <RowDefinition Height="89*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0" Margin="0,0,2,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="PRIJAVA OPERATERA" Margin="4,0,0,0" FontWeight="Bold"/>
+                    <UniformGrid Margin="49,108" Columns="2" Height="84" Width="240">
+                        <UniformGrid Columns="1" Background="Black">
+                            <Label Margin="1" Content="Korisničko ime" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
+                            <Label Margin="1" Content="Lozinka" Background="{DynamicResource pozadina1}" FontWeight="Bold"/>
+                            <Label Content="" Background="{DynamicResource pozadina1}" Margin="-1,1,1,-1" />
+                        </UniformGrid>
+                        <UniformGrid Columns="1" Background="Black">
+                            <TextBox Margin="1" Name="tb_korisnickoIme" Style="{DynamicResource TextBoxStil1}"/>
+                            <TextBox Margin="1" Name="tb_lozinka" Style="{DynamicResource TextBoxStil1}"/>
+                            <Button Name="b_prijavi" Content="PRIJAVI" Style="{StaticResource ButtonStill1}" Margin="1,0,1,1" FontWeight="Bold" Click="b_prijavi_Click"/>
+                        </UniformGrid>
+                    </UniformGrid>
+                </Grid>
+                <Grid Grid.Column="3" Grid.Row="0" Margin="2,0,0,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
+                    <TextBlock Text="UNOS ZAGLAVLJA" Margin="4,0,0,0" FontWeight="Bold"></TextBlock>
+                    <UniformGrid HorizontalAlignment="Center" Height="294" Margin="10" VerticalAlignment="Center" Width="280" Columns="2">
+                        <UniformGrid Columns="1" Background="Black">
+                            <Label Content="Tip transformatora" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
+                            <Label Content="Objekt" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"/>
+                            <Label Content="Tvornički broj" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
+                            <Label Content="Vrsta lima" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
+                            <!--<Label Content="Oblik" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />-->
+                            <Label Content="Paket broj" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
+                            <Label Content="Broj koluta" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
+                            <Label Content="Crtež broj" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
+                            <Label Content="Proizvođač" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
+                            <Label Content="Širina [mm]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
+                            <Label Content="Nazivna debljina [mm]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
+                            <Button Name="b_spremi" Content="SPREMI ZAGLAVLJE" Style="{StaticResource ButtonStill1}" Margin="1,1,1,1" FontWeight="Bold" Click="b_spremi_Click"/>
+                        </UniformGrid>
+                        <UniformGrid Columns="1" Background="Black" >
+                            <TextBox Name="tbTipTransformatora" Margin="1" Style="{DynamicResource TextBoxStil1}" Loaded="tbTipTransformatora_Loaded"/>
+                            <TextBox Name="tbObjekt" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
+                            <TextBox Name="tbTvornickiBroj" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
+                            <TextBox Name="tbVrstaLima" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
+                            <!--<TextBox Margin="1" Style="{DynamicResource TextBoxStil1}"/>-->
+                            <TextBox Name="tbPaketBroj" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
+                            <TextBox Name="tbBrojKoluta" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
+                            <TextBox Name="tbCrtezBroj" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
+                            <TextBox Name="tbProizvodac" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
+                            <TextBox Name="tbSirina" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
+                            <TextBox Name="tbNazivnaDebljina" Margin="1" Style="{DynamicResource TextBoxStil1}" Text="{Binding Source={StaticResource MainReport}, Path=Valovitost_debljinaLima, Mode=TwoWay}"/>
+                            <Button Name="b_ucitaj" Content="UČITAJ ZAGLAVLJE" Style="{StaticResource ButtonStill1}" Margin="1,1,1,1" FontWeight="Bold" Click="b_ucitaj_Click"/>
+                        </UniformGrid>
+                    </UniformGrid>
+
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,4,2,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
+                    <TextBlock Text="TEMPERATURNA KOMPENZACIJA" Margin="4,0,0,0" FontWeight="Bold">
+                    </TextBlock>
+                    <UniformGrid HorizontalAlignment="Center" Height="140" Margin="10" VerticalAlignment="Center" Width="280" Columns="2">
+                        <UniformGrid Columns="1" Background="Black">
+                            <Label Content="Temperatura letve 1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
+                            <Label Content="Temperatura letve 2" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"/>
+                            <Label Content="Temperatura stakla 1" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
+                            <Label Content="Temperatura stakla 2" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
+                            <Label Content="Kompenzacija" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
+                        </UniformGrid>
+                        <UniformGrid Columns="1" Background="Black" >
+                            <Label Name="lb_tempLG1" Content="-" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                            <Label Name="lb_tempLG2" Content="-" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                            <Label Name="lb_tempGlass1" Content="-" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" HorizontalContentAlignment="Center" />
+                            <Label Name="lb_tempGlass2" Content="-" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" HorizontalContentAlignment="Center" />
+                            <Button Name="b_ukljuci" Content="UKLJUČI" Style="{StaticResource ButtonStill1}" Margin="1,0,1,1" FontWeight="Bold" Click="b_ukljuci_Click"/>
+                        </UniformGrid>
+                    </UniformGrid>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="3" Margin="2,4,0,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
+                    
+                    <UniformGrid Height="56" Width="140">
+                        <UniformGrid Columns="1" Background="Black" >
+                            <Button Name="b_reset" Content="PONIŠTI MJERENJA" Style="{StaticResource ButtonStill1}" Margin="1,1,1,1" FontWeight="Bold" Click="b_reset_Click"/>
+                            <Button Name="b_zatvori" Content="ZATVORI APLIKACIJU" Style="{StaticResource ButtonStill1}" Margin="1,1,1,1" FontWeight="Bold" Click="b_zatvori_Click"/>
+                        </UniformGrid>
+                    </UniformGrid>                                 
+                </Grid>
+                <!--<Label Content="Prijavljeni korisnik:" />-->
+                <!--<Label Content="Nepoznati korisnik" />-->
+            </Grid>
+
+        </Grid>
+        <Grid Height="35" Margin="4,4,4,0" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
+            <TextBlock Text="POSTAVKE" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Page>
