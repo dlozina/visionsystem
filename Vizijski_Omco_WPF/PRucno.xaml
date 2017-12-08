@@ -115,7 +115,7 @@
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="ZADANA POZICIJA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                            <local:InputField Grid.Column="1" x:Name="if_setpointPosX"  ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.ZadanaPozicija, ElementName=if_setpointPosX}" PLCConnection="{DynamicResource PLCinterf}" Loaded="if_setpointPosX_Loaded"/>
+                            <local:InputField Grid.Column="1" x:Name="if_setpointPosX"  ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.ZadanaPozicija, ElementName=if_setpointPosX}" PLCConnection="{DynamicResource PLCinterf}"/>
                         </Grid>
                         <Grid Grid.Row="6" Background="Black">
                             <Grid.ColumnDefinitions>
@@ -280,7 +280,7 @@
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
                                 <local:BitButton  x:Name="bb_rasvjetaString" Text="STRING" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.RasvjetaZaString, ElementName=bb_rasvjetaString}" ButtonFunction="InvertBit"/>
-                                <local:BitButton  Grid.Column="1" x:Name="bb_rasvjetaDimenzije" Text="DIMENZIJE" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.RasvjetaZaDimenzije, ElementName=bb_rasvjetaDimenzije}" ButtonFunction="InvertBit" Loaded="bb_rasvjetaDimenzije_Loaded"/>
+                                <local:BitButton  Grid.Column="1" x:Name="bb_rasvjetaDimenzije" Text="DIMENZIJE" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.RasvjetaZaDimenzije, ElementName=bb_rasvjetaDimenzije}" ButtonFunction="InvertBit"/>
                             </Grid>
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
