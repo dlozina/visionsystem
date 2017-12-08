@@ -9,7 +9,6 @@ using HalconDotNet;
 
 public partial class HDevelopExport
 {
-  public HTuple hv_ExpDefaultWinHandle;
 
   // Main procedure 
   private void diameter4No5S2()
