@@ -5,6 +5,14 @@ public partial class HDevelopExport
 {
   public HTuple hv_ExpDefaultWinHandle;
 
+   private bool exitloop;
+   public bool Exitloop
+   {
+       get { return exitloop; }
+       set { exitloop = value; }
+   }
+
+  // public bool exitloop = false;
   // Main procedure 
   private void livecam2()
   {
@@ -22,8 +30,10 @@ public partial class HDevelopExport
         "default", -1, "false", "default", "GC3851MP_CAM_2", 0, -1, out hv_AcqHandle);
     HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
 	
+    
 	// Goal is to do an exit from loop
-    while ((int)(1) != 0) 
+    // while ((int)(1) != 0)
+    while (exitloop == false)
     {
       ho_Image.Dispose();
 	  //Live image from CAM2

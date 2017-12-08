@@ -27,63 +27,17 @@ namespace VizijskiSustavWPF
         
         public PRucno() // Constructor
         {
-
             InitializeComponent();
             App.HDevExp = new HDevelopExport(); // New Object
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePagePRucno_100ms);
             App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePagePRucno_1s);
-
         }
 
         private void LiveCam2() // Method
         {
             HTuple WindowID = hWindowControlWPF1.HalconID;
-            App.HDevExp.RunHalcon9(WindowID);
-            
+            App.HDevExp.RunHalcon9(WindowID);   
         }
-
-
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-        //    //App.HDevExp.InitHalcon();
-
-
-        //    //Thread exportThread = new Thread(new ThreadStart(this.RunExport));
-        //    //exportThread.Start();
-        //}
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //HDevExp.Hv_cameraID = 1;
-        //}
-
-        //private void Button_Click_2(object sender, RoutedEventArgs e)
-        //{
-        //    //HDevExp.Hv_cameraID = 2;
-        //}
-
-        //private void Button_Click_3(object sender, RoutedEventArgs e)
-        //{
-        //    //HDevExp.Hv_cameraID = 3;
-        //}
-
-        //private void Button_Click_4(object sender, RoutedEventArgs e)
-        //{
-        //    //HDevExp.Hv_cameraID = 4;
-        //}
-
-        //private void Button_Click_5(object sender, RoutedEventArgs e)
-        //{
-           
-            
-        //}
-
-        //private void Button_Click_6(object sender, RoutedEventArgs e)
-        //{
-        //    //App.HDevExp.InitHalcon();
-        //    //Thread exportThread = new Thread(new ThreadStart(this.RunExport));
-        //    //exportThread.Start();
-        //}
 
         private void updatePagePRucno_100ms(object sender, PLCInterfaceEventArgs e)
         {
@@ -98,10 +52,45 @@ namespace VizijskiSustavWPF
 
         }
 
+        private void b_ukljucikameru1_Click(object sender, RoutedEventArgs e)
+        {
+            b_ukljucikameru1.IsEnabled = false;
+            b_ukljucikameru2.IsEnabled = true;
+            b_ukljucikameru3.IsEnabled = true;
+            b_ukljucikameru4.IsEnabled = true;
+            // CAM1 call
+        }
+
         private void b_ukljucikameru2_Click(object sender, RoutedEventArgs e)
         {
+            App.HDevExp.Exitloop = false;
+            b_ukljucikameru1.IsEnabled = true;
+            b_ukljucikameru2.IsEnabled = false;
+            b_ukljucikameru3.IsEnabled = true;
+            b_ukljucikameru4.IsEnabled = true;
+            // CAM2 call
             Thread LiveCam2Thread = new Thread(new ThreadStart(this.LiveCam2));
             LiveCam2Thread.Start();
+        }
+
+
+        private void b_ukljucikameru3_Click(object sender, RoutedEventArgs e)
+        {
+            App.HDevExp.Exitloop = true;
+            b_ukljucikameru1.IsEnabled = true;
+            b_ukljucikameru2.IsEnabled = true;
+            b_ukljucikameru3.IsEnabled = false;
+            b_ukljucikameru4.IsEnabled = true;
+            // CAM3 call
+        }
+
+        private void b_ukljucikameru4_Click(object sender, RoutedEventArgs e)
+        {
+            b_ukljucikameru1.IsEnabled = true;
+            b_ukljucikameru2.IsEnabled = true;
+            b_ukljucikameru3.IsEnabled = true;
+            b_ukljucikameru4.IsEnabled = false;
+            // CAM4 call
         }
 
 

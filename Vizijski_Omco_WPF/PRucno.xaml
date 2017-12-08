@@ -67,10 +67,10 @@
                                 <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="1*" />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" x:Name="b_ukljucikameru1" Style="{DynamicResource ButtonStill1}" Content="KAMERA 1" Margin="2,4,2,0" FontWeight="Bold" />
+                            <Button Grid.Column="0" x:Name="b_ukljucikameru1" Style="{DynamicResource ButtonStill1}" Content="KAMERA 1" Margin="2,4,2,0" FontWeight="Bold" Click="b_ukljucikameru1_Click"/>
                             <Button Grid.Column="1" x:Name="b_ukljucikameru2" Style="{DynamicResource ButtonStill1}" Content="KAMERA 2" Margin="2,4,1,0" FontWeight="Bold" Click="b_ukljucikameru2_Click"/>
-                            <Button Grid.Column="2" x:Name="b_ukljucikameru3" Style="{DynamicResource ButtonStill1}" Content="KAMERA 3" Margin="2,4,2,0" FontWeight="Bold" />
-                            <Button Grid.Column="3" x:Name="b_ukljucikameru4" Style="{DynamicResource ButtonStill1}" Content="KAMERA 4" Margin="2,4,0,0" FontWeight="Bold" />
+                            <Button Grid.Column="2" x:Name="b_ukljucikameru3" Style="{DynamicResource ButtonStill1}" Content="KAMERA 3" Margin="2,4,2,0" FontWeight="Bold" Click="b_ukljucikameru3_Click"/>
+                            <Button Grid.Column="3" x:Name="b_ukljucikameru4" Style="{DynamicResource ButtonStill1}" Content="KAMERA 4" Margin="2,4,0,0" FontWeight="Bold" Click="b_ukljucikameru4_Click"/>
 
                         </Grid>
                     </Grid>
