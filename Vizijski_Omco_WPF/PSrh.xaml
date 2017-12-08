@@ -4,12 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VizijskiSustavWPF" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" xmlns:limovi="clr-namespace:VizijskiSustavWPF.limovi" 
+      xmlns:my="clr-namespace:HalconDotNet;assembly=halcondotnet"
       xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
-    xmlns:MjerniStolLimovi="clr-namespace:MjerniStolLimovi;assembly=MjerniStolLimovi" 
-     x:Class="VizijskiSustavWPF.PSrh"
-    mc:Ignorable="d" 
-    DataContext="{Binding RelativeSource={RelativeSource Self}}"
-	Title="PSrh" d:DesignWidth="1354" d:DesignHeight="828" Loaded="Page_Loaded">
+      xmlns:MjerniStolLimovi="clr-namespace:MjerniStolLimovi;assembly=MjerniStolLimovi" 
+      x:Class="VizijskiSustavWPF.PSrh"
+      mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
+	  Title="PSrh" d:DesignWidth="1354" d:DesignHeight="828" Loaded="Page_Loaded">
 
 
 
@@ -24,32 +25,90 @@
                 <local:MainViewModel></local:MainViewModel>
             </Grid.DataContext>-->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="490*"/>
-                <ColumnDefinition Width="490*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="295"/>
-                <RowDefinition Height="293*"/>
-                <RowDefinition Height="102"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="300*"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Height="2" Margin="4,0" VerticalAlignment="Top" Width="Auto" Background="Black" Grid.ColumnSpan="3"/>
 
+            <!-- Grid ispod naslova -->
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="{DynamicResource pozadina1}" Margin="4,4,4,0">
 
-            <Grid  Grid.Column="1" Grid.Row="1" Margin="0,4,4,0" MinHeight="100" Background="black" Grid.RowSpan="2">
+            </Grid>
+
+            <Grid  Grid.Column="1" Grid.Row="1" Margin="4" MinHeight="100" Background="black" Grid.RowSpan="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="60*"/>
-                    <RowDefinition Height="64"/>
-                    <RowDefinition Height="98"/>
+                    <!-- Nema definiciju -->
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40*"/>
-                    <ColumnDefinition Width="90"/>
-
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <UniformGrid Background="Black" Grid.Row="2" Grid.ColumnSpan="2"/>
+                <UniformGrid Background="Black" Grid.Row="2" Grid.ColumnSpan="1"/>
+                <!-- Slika sa kamere CAM2 -->
+                <my:HWindowControlWPF  Name="hWindowControlWPF1" ImagePart="0,0,1280,1024" PreviewMouseDown="hWindowControlWPF1_PreviewMouseDown" />
+
+                <Grid  Grid.Column="1"  Margin="0" MinHeight="100" Background="{DynamicResource pozadina1}" Grid.RowSpan="1">
+
+
+                </Grid>
+
+
             </Grid>
-            <Grid Margin="4,4,4,0" Grid.Row="2">
-                <Border BorderBrush="Black" BorderThickness="0"/>
+
+            
+
+            <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,4,0,4" Grid.RowSpan="1">
+                <Grid Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="AUTOMATSKO MJERENJE" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                    <Grid Grid.Row="1" Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <local:BitButton Grid.Column="0" x:Name="bb_pautoStart" Text="START" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Start , ElementName=bb_pautoStart}" />
+                        <local:BitButton Grid.Column="1" x:Name="bb_pautoStop" Text="STOP" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Stop , ElementName=bb_pautoStop}" />
+                    </Grid>
+
+                    <Grid Grid.Row="2" Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <local:BitButton Grid.Column="0" x:Name="bb_ppause" Text="PAUZA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Pauza , ElementName=bb_ppause}" />
+                        <local:BitButton Grid.Column="1" x:Name="bb_preset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Reset , ElementName=bb_preset}" />
+                    </Grid>
+
+
+                    <Label Grid.Row="3" Content="TIPOVI KOMADA" FontWeight="Bold"  VerticalAlignment="Bottom" />
+                    <local:BitButton Grid.Row="4" x:Name="bb_pkomadNo4" Text="TIP KOMADA BR.4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_4 , ElementName=bb_pkomadNo4}" />
+                    <local:BitButton Grid.Row="5" x:Name="bb_pkomadNo5" Text="TIP KOMADA BR.5" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_5 , ElementName=bb_pkomadNo5}" />
+                    <local:BitButton Grid.Row="6" x:Name="bb_pkomadNo6" Text="TIP KOMADA BR.6" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_6 , ElementName=bb_pkomadNo6}" />
+                    <local:BitButton Grid.Row="7" x:Name="bb_pkomadNo7" Text="TIP KOMADA BR.7" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_7 , ElementName=bb_pkomadNo7}" />
+
+
+                </Grid>
+            </Grid>
+
+
+
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="{DynamicResource pozadina1}" Margin="4,0,4,4" >
+                
             </Grid>
             <GridSplitter HorizontalAlignment="Left" Height="Auto" Margin="790,0,0,0" VerticalAlignment="Stretch" Width="2" Background="Black" Foreground="Black" BorderThickness="0" Grid.RowSpan="3"/>
         </Grid>
