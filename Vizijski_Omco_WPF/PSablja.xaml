@@ -80,8 +80,7 @@
                     <local:BitButton Grid.Row="4" x:Name="bb_vkomadNo4" Text="TIP KOMADA BR.4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_4 , ElementName=bb_vkomadNo4}" />
                     <local:BitButton Grid.Row="5" x:Name="bb_vkomadNo5" Text="TIP KOMADA BR.5" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_5 , ElementName=bb_vkomadNo5}" />
                     <local:BitButton Grid.Row="6" x:Name="bb_vkomadNo6" Text="TIP KOMADA BR.6" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_6 , ElementName=bb_vkomadNo6}" />
-                    <local:BitButton Grid.Row="7" x:Name="bb_vkomadNo7" Text="TIP KOMADA BR.7" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_7 , ElementName=bb_vkomadNo7}" />
-                    
+
 
                 </Grid>
             </Grid>

@@ -48,14 +48,11 @@
                     <ColumnDefinition Width="9*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <UniformGrid Background="Black" Grid.Row="2" Grid.ColumnSpan="1"/>
+                
                 <!-- Slika sa kamere CAM2 -->
-                <my:HWindowControlWPF  Name="hWindowControlWPF1" ImagePart="0,0,1280,1024" PreviewMouseDown="hWindowControlWPF1_PreviewMouseDown" />
+                <my:HWindowControlWPF  Name="hWindowControlWPF1" Margin="4" ImagePart="0,0,1280,1024" Grid.ColumnSpan="2"/>
 
-                <Grid  Grid.Column="1"  Margin="0" MinHeight="100" Background="{DynamicResource pozadina1}" Grid.RowSpan="1">
-
-
-                </Grid>
+                
 
 
             </Grid>
@@ -99,7 +96,6 @@
                     <local:BitButton Grid.Row="4" x:Name="bb_pkomadNo4" Text="TIP KOMADA BR.4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_4 , ElementName=bb_pkomadNo4}" />
                     <local:BitButton Grid.Row="5" x:Name="bb_pkomadNo5" Text="TIP KOMADA BR.5" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_5 , ElementName=bb_pkomadNo5}" />
                     <local:BitButton Grid.Row="6" x:Name="bb_pkomadNo6" Text="TIP KOMADA BR.6" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_6 , ElementName=bb_pkomadNo6}" />
-                    <local:BitButton Grid.Row="7" x:Name="bb_pkomadNo7" Text="TIP KOMADA BR.7" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_7 , ElementName=bb_pkomadNo7}" />
 
 
                 </Grid>
