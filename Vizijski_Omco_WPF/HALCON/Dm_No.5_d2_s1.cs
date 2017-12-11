@@ -17,6 +17,8 @@ public partial class HDevelopExport
 
     // Local iconic variables 
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
+    HObject ho_EdgeAmplitude = null, ho_EdgeDirection = null, ho_ImageConverted = null;
+    HObject ho_ImageMedian = null, ho_RegionOpening = null;
     HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
     HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
 
@@ -58,13 +60,15 @@ public partial class HDevelopExport
         //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
         //ho_Region.Dispose();
-        HOperatorSet.BinaryThreshold(ho_ImageReduced, out ho_Region, "max_separability", 
-            "dark", out hv_UsedThreshold);
-        //ho_RegionFillUp1.Dispose();
-        HOperatorSet.FillUp(ho_Region, out ho_RegionFillUp1);
-        //ho_Connection.Dispose();
+        HOperatorSet.SobelDir(ho_ImageReduced, out ho_EdgeAmplitude, out ho_EdgeDirection,
+            "sum_sqrt", 13);
+        HOperatorSet.ConvertImageType(ho_EdgeDirection, out ho_ImageConverted, "byte");
+        HOperatorSet.MedianImage(ho_ImageConverted, out ho_ImageMedian, "circle",
+            7, "mirrored");
+        HOperatorSet.Threshold(ho_ImageMedian, out ho_Region, 0, 200);
+        HOperatorSet.OpeningCircle(ho_Region, out ho_RegionOpening, 3.5); 
+        HOperatorSet.FillUp(ho_RegionOpening, out ho_RegionFillUp1);
         HOperatorSet.Connection(ho_RegionFillUp1, out ho_Connection);
-
         //Select Region
         //ho_SelectedRegions1.Dispose();
         HOperatorSet.SelectShape(ho_Connection, out ho_SelectedRegions1, "area", 
