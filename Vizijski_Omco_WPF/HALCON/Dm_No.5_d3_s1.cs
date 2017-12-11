@@ -68,8 +68,8 @@ public partial class HDevelopExport
         //Select Region
         //ho_SelectedRegions1.Dispose();
         HOperatorSet.SelectShape(ho_Connection, out ho_SelectedRegions1, (new HTuple("area")).TupleConcat(
-            "row"), "and", (new HTuple(200000)).TupleConcat(1300), (new HTuple(500000)).TupleConcat(
-            1380));
+            "row"), "and", (new HTuple(100000)).TupleConcat(1380), (new HTuple(300000)).TupleConcat(
+            1480));
         HOperatorSet.CountObj(ho_SelectedRegions1, out hv_SelectNumber);
         //ho_Contours.Dispose();
         HOperatorSet.GenContourRegionXld(ho_SelectedRegions1, out ho_Contours, "border");
