@@ -7,17 +7,6 @@
 using System;
 using HalconDotNet;
 
-public class HalconEventArgs : EventArgs
-{
-
-    private float pXvalue;
-    public float PXvalue
-    {
-        get { return pXvalue; }
-        set { pXvalue = value; }
-    }
-
-}
 
 public partial class HDevelopExport
 {

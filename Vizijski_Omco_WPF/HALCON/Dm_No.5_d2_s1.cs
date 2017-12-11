@@ -55,7 +55,7 @@ public partial class HDevelopExport
 
         //ROI and Threshold
         //ho_Rectangle.Dispose();
-        HOperatorSet.GenRectangle1(out ho_Rectangle, (hv_Height/2)-100, 200, (hv_Height/2)+100, 
+        HOperatorSet.GenRectangle1(out ho_Rectangle, (hv_Height/2)-50, 200, (hv_Height/2)+150, 
             3200);
         //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
