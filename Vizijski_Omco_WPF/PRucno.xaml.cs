@@ -35,8 +35,16 @@ namespace VizijskiSustavWPF
 
         private void LiveCam2() // Method
         {
+            App.HDevExp.InitHalcon();
             HTuple WindowID = hWindowControlWPF1.HalconID;
             App.HDevExp.RunHalcon9(WindowID);   
+        }
+
+        private void LiveCam4() // Method
+        {
+            App.HDevExp.InitHalcon();
+            HTuple WindowID = hWindowControlWPF1.HalconID;
+            App.HDevExp.RunHalcon10(WindowID);
         }
 
         private void updatePagePRucno_100ms(object sender, PLCInterfaceEventArgs e)
@@ -63,7 +71,8 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru2_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Exitloop = false;
+            App.HDevExp.Exitloop4 = true;
+            App.HDevExp.Exitloop2 = false;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = false;
             b_ukljucikameru3.IsEnabled = true;
@@ -76,7 +85,7 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru3_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Exitloop = true;
+            App.HDevExp.Exitloop2 = true;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = false;
@@ -86,11 +95,15 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru4_Click(object sender, RoutedEventArgs e)
         {
+            App.HDevExp.Exitloop2 = true;
+            App.HDevExp.Exitloop4 = false;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = false;
             // CAM4 call
+            Thread LiveCam4Thread = new Thread(new ThreadStart(this.LiveCam4));
+            LiveCam4Thread.Start();
         }
 
 

@@ -3,18 +3,18 @@ using HalconDotNet;
 
 public partial class HDevelopExport
 {
-  public HTuple hv_ExpDefaultWinHandle;
+  //public HTuple hv_ExpDefaultWinHandle;
 
-   private bool exitloop2;
-   public bool Exitloop2
+   private bool exitloop4;
+   public bool Exitloop4
    {
-       get { return exitloop2; }
-       set { exitloop2 = value; }
+       get { return exitloop4; }
+       set { exitloop4 = value; }
    }
 
   // public bool exitloop = false;
   // Main procedure 
-  private void livecam2()
+  private void livecam4()
   {
 
     // Local iconic variables 
@@ -26,14 +26,16 @@ public partial class HDevelopExport
     HOperatorSet.GenEmptyObj(out ho_Image);
 	
     //Image Acquisition OPEN frame
-    HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
-        "default", -1, "false", "default", "GC3851MP_CAM_2", 0, -1, out hv_AcqHandle);
-    HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+    //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
+    //    "default", -1, "false", "default", "GC3851MP_CAM_4", 0, -1, out hv_AcqHandle);
+    //HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
 	
+    HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
+        "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
     
 	// Goal is to do an exit from loop
     // while ((int)(1) != 0)
-    while (exitloop2 == false)
+    while (exitloop4 == false)
     {
       ho_Image.Dispose();
 	  //Live image from CAM2
@@ -48,17 +50,17 @@ public partial class HDevelopExport
 
   }
 
-  public void InitHalcon()
-  {
-    // Default settings used in HDevelop 
-    HOperatorSet.SetSystem("width", 512);
-    HOperatorSet.SetSystem("height", 512);
-  }
+  //public void InitHalcon()
+  //{
+  //  // Default settings used in HDevelop 
+  //  HOperatorSet.SetSystem("width", 512);
+  //  HOperatorSet.SetSystem("height", 512);
+  //}
 
-  public void RunHalcon9(HTuple Window)
+  public void RunHalcon10(HTuple Window)
   {
     hv_ExpDefaultWinHandle = Window;
-    livecam2();
+    livecam4();
   }
 
 }
