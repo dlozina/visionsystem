@@ -33,6 +33,13 @@ namespace VizijskiSustavWPF
             App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePagePRucno_1s);
         }
 
+        private void LiveCam1() // Method
+        {
+            App.HDevExp.InitHalcon();
+            HTuple WindowID = hWindowControlWPF1.HalconID;
+            App.HDevExp.RunHalcon11(WindowID);
+        }
+
         private void LiveCam2() // Method
         {
             App.HDevExp.InitHalcon();
@@ -46,6 +53,7 @@ namespace VizijskiSustavWPF
             HTuple WindowID = hWindowControlWPF1.HalconID;
             App.HDevExp.RunHalcon10(WindowID);
         }
+
 
         private void updatePagePRucno_100ms(object sender, PLCInterfaceEventArgs e)
         {
@@ -62,17 +70,25 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru1_Click(object sender, RoutedEventArgs e)
         {
+            App.HDevExp.Exitloop1 = false;
+            App.HDevExp.Exitloop2 = true;
+            //App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = true; 
             b_ukljucikameru1.IsEnabled = false;
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = true;
             // CAM1 call
+            Thread LiveCam1Thread = new Thread(new ThreadStart(this.LiveCam1));
+            LiveCam1Thread.Start();
         }
 
         private void b_ukljucikameru2_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Exitloop4 = true;
+            App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = false;
+            //App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = true;   
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = false;
             b_ukljucikameru3.IsEnabled = true;
@@ -85,7 +101,10 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru3_Click(object sender, RoutedEventArgs e)
         {
+            App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = true;
+            //App.HDevExp.Exitloop3 = false;
+            App.HDevExp.Exitloop4 = true;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = false;
@@ -95,7 +114,9 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru4_Click(object sender, RoutedEventArgs e)
         {
+            App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = true;
+            //App.HDevExp.Exitloop3 = true;
             App.HDevExp.Exitloop4 = false;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = true;

@@ -25,6 +25,7 @@ public partial class HDevelopExport
     // Initialize local and output iconic variables 
     HOperatorSet.GenEmptyObj(out ho_Image);
 	
+    //HOperatorSet.CloseAllFramegrabbers();
     //Image Acquisition OPEN frame
     HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
         "default", -1, "false", "default", "GC3851MP_CAM_2", 0, -1, out hv_AcqHandle);

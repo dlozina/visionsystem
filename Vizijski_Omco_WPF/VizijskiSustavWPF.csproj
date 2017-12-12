@@ -134,6 +134,7 @@
     </ApplicationDefinition>
     <Compile Include="AutomatskoMjerenje\AutomatskoMjerenje.cs" />
     <Compile Include="BindingNavigator.cs" />
+    <Compile Include="HALCON\CAM1_Live.cs" />
     <Compile Include="HALCON\CAM4_Live.cs" />
     <Compile Include="HALCON\CAM2_live.cs" />
     <Compile Include="HALCON\Dm_No.5_d1_s1.cs" />
