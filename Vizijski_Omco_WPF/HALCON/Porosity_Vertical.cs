@@ -9,7 +9,7 @@ using HalconDotNet;
 
 public partial class HDevelopExport
 {
-  public HTuple hv_ExpDefaultWinHandle;
+  //public HTuple hv_ExpDefaultWinHandle;
 
   // Procedures 
   // Chapter: Develop
@@ -140,8 +140,8 @@ public partial class HDevelopExport
         }
       }
 
-      HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-      HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
+      HOperatorSet.ClearWindow(hv_porosityWinHandle);
+      HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
 
       if ((int)((new HTuple(hv_found.TupleGreater(2))).TupleAnd(new HTuple(hv_bol.TupleEqual(
           1)))) != 0)
@@ -150,7 +150,7 @@ public partial class HDevelopExport
         ho_ContCircle.Dispose();
         HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Row.TupleSelect(hv_index), 
             hv_Column.TupleSelect(hv_index), 30, 0, 6.28318, "positive", 1);
-        HOperatorSet.DispObj(ho_ContCircle, hv_ExpDefaultWinHandle);
+        HOperatorSet.DispObj(ho_ContCircle, hv_porosityWinHandle);
         hv_found = 0;
         hv_cnt = 0;
       }
@@ -183,7 +183,7 @@ public partial class HDevelopExport
 
   public void RunHalcon13(HTuple Window)
   {
-    hv_ExpDefaultWinHandle = Window;
+    hv_porosityWinHandle = Window;
     porosityVertical();
   }
 
