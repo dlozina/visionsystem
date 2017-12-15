@@ -16,6 +16,7 @@ using System.ComponentModel;
 using OxyPlot;
 using OxyPlot.Wpf;
 using System.IO;
+using HalconDotNet;
 
 namespace VizijskiSustavWPF
 {
@@ -59,6 +60,18 @@ namespace VizijskiSustavWPF
    
             App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePage);
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePage_100ms);
+        }
+
+        public void PorosityHorWindow()
+        {
+            HTuple WindowID = hWindowControlWPF2.HalconID;
+            App.HDevExp.RunHalcon14(WindowID);
+        }
+
+        public void PorosityVerWindow()
+        {
+            HTuple WindowID = hWindowControlWPF2.HalconID;
+            App.HDevExp.RunHalcon13(WindowID);
         }
 
         private void p_postaviPrvuTocku_Click(object sender, RoutedEventArgs e)

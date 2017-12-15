@@ -133,14 +133,16 @@ namespace VizijskiSustavWPF
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
             if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!edgeDetection2))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon13));
+                // We call public method in class pShr
+                Thread exportThread = new Thread(new ThreadStart(pSrh.PorosityVerWindow));
                 exportThread.Start();
             }
 
             // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ***********************************************
             if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!edgeDetection2))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon14));
+                // We call public method in class pShr
+                Thread exportThread = new Thread(new ThreadStart(pSrh.PorosityHorWindow));
                 exportThread.Start();
             }
 

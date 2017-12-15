@@ -47,6 +47,13 @@ namespace VizijskiSustavWPF
             App.HDevExp.RunHalcon9(WindowID);   
         }
 
+        private void LiveCam3() // Method
+        {
+            App.HDevExp.InitHalcon();
+            HTuple WindowID = hWindowControlWPF1.HalconID;
+            App.HDevExp.RunHalcon12(WindowID);
+        }
+
         private void LiveCam4() // Method
         {
             App.HDevExp.InitHalcon();
@@ -72,12 +79,13 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.Exitloop1 = false;
             App.HDevExp.Exitloop2 = true;
-            //App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop3 = true;
             App.HDevExp.Exitloop4 = true; 
             b_ukljucikameru1.IsEnabled = false;
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = true;
+            hWindowControlWPF1.ImagePart = new Rect(0, 0, 1280, 1024);
             // CAM1 call
             Thread LiveCam1Thread = new Thread(new ThreadStart(this.LiveCam1));
             LiveCam1Thread.Start();
@@ -87,12 +95,13 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = false;
-            //App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop3 = true;
             App.HDevExp.Exitloop4 = true;   
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = false;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = true;
+            hWindowControlWPF1.ImagePart = new Rect(0, 0, 3856, 2764);
             // CAM2 call
             Thread LiveCam2Thread = new Thread(new ThreadStart(this.LiveCam2));
             LiveCam2Thread.Start();
@@ -103,13 +112,16 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = true;
-            //App.HDevExp.Exitloop3 = false;
+            App.HDevExp.Exitloop3 = false;
             App.HDevExp.Exitloop4 = true;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = false;
             b_ukljucikameru4.IsEnabled = true;
+            hWindowControlWPF1.ImagePart = new Rect(0, 0, 3856, 2764);
             // CAM3 call
+            Thread LiveCam3Thread = new Thread(new ThreadStart(this.LiveCam3));
+            LiveCam3Thread.Start();
         }
 
         private void b_ukljucikameru4_Click(object sender, RoutedEventArgs e)
@@ -122,6 +134,7 @@ namespace VizijskiSustavWPF
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = false;
+            hWindowControlWPF1.ImagePart = new Rect(0, 0, 3856, 2764);
             // CAM4 call
             Thread LiveCam4Thread = new Thread(new ThreadStart(this.LiveCam4));
             LiveCam4Thread.Start();

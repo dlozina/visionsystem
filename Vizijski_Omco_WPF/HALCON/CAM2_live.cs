@@ -45,7 +45,7 @@ public partial class HDevelopExport
 	//Image Acquisition CLOSE frame
     HOperatorSet.CloseFramegrabber(hv_AcqHandle);
     ho_Image.Dispose();
-    
+    HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
 
   }
 
