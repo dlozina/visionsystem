@@ -70,8 +70,6 @@ namespace VizijskiSustavWPF
             // Start analize slike D1 PRVOG RUBA S1 ********************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!edgeDetection1)) //Edge detection
             {
-
-                //HDevExp.InitHalcon(); // Nije potrebno, sluzi samo za prikaz
                 Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon1));
                 exportThread.Start();
             }
@@ -80,20 +78,14 @@ namespace VizijskiSustavWPF
             // Start analize slike D1 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!edgeDetection2))
             {
-
-                //HDevExp.InitHalcon(); // Nije potrebno, sluzi samo za prikaz
-                //Thread exportThread = new Thread(new ThreadStart(this.RunDia1S2));
                 Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon2));
                 exportThread.Start();
-
             }
 
 
             // Start analize slike D2 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && (!edgeDetection1))
             {
-
-                //HDevExp.InitHalcon(); // Nije potrebno, sluzi samo za prikaz
                 Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon3));
                 exportThread.Start();
             }
@@ -102,8 +94,6 @@ namespace VizijskiSustavWPF
             // Start analize slike D2 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && (!edgeDetection2))
             {
-
-                //HDevExp.InitHalcon(); // Nije potrebno, sluzi samo za prikaz
                 Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon4));
                 exportThread.Start();
             }
@@ -112,8 +102,6 @@ namespace VizijskiSustavWPF
             // Start analize slike D3 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && (!edgeDetection1))
             {
-
-                //HDevExp.InitHalcon(); // Nije potrebno, sluzi samo za prikaz
                 Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon5));
                 exportThread.Start();
             }
@@ -122,8 +110,6 @@ namespace VizijskiSustavWPF
             // Start analize slike D3 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && (!edgeDetection2))
             {
-
-                //HDevExp.InitHalcon(); // Nije potrebno, sluzi samo za prikaz
                 Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon6));
                 exportThread.Start();
             }
@@ -132,8 +118,6 @@ namespace VizijskiSustavWPF
             // Start analize slike D4 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && (!edgeDetection1))
             {
-
-                //HDevExp.InitHalcon(); // Nije potrebno, sluzi samo za prikaz
                 Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon7));
                 exportThread.Start();
             }
@@ -142,9 +126,21 @@ namespace VizijskiSustavWPF
             // Start analize slike D4 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && (!edgeDetection2))
             {
-
-                //HDevExp.InitHalcon(); // Nije potrebno, sluzi samo za prikaz
                 Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon8));
+                exportThread.Start();
+            }
+
+            // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
+            if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!edgeDetection2))
+            {
+                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon13));
+                exportThread.Start();
+            }
+
+            // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ***********************************************
+            if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!edgeDetection2))
+            {
+                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon14));
                 exportThread.Start();
             }
 
@@ -160,62 +156,62 @@ namespace VizijskiSustavWPF
 
         }
 
-        // Diametar 1 strana 1
-        private void RunDia1S1()
-        {
+        //// Diametar 1 strana 1
+        //private void RunDia1S1()
+        //{
 
-            HDevExp.RunHalcon1();
+        //    HDevExp.RunHalcon1();
 
-        }
-        // Diametar 1 strana 2
-        private void RunDia1S2()
-        {
+        //}
+        //// Diametar 1 strana 2
+        //private void RunDia1S2()
+        //{
 
-            HDevExp.RunHalcon2();
+        //    HDevExp.RunHalcon2();
 
-        }
-        // Diametar 2 strana 1
-        private void RunDia2S1()
-        {
+        //}
+        //// Diametar 2 strana 1
+        //private void RunDia2S1()
+        //{
 
-            HDevExp.RunHalcon3();
+        //    HDevExp.RunHalcon3();
 
-        }
-        // Diametar 2 strana 2
-        private void RunDia2S2()
-        {
+        //}
+        //// Diametar 2 strana 2
+        //private void RunDia2S2()
+        //{
 
-            HDevExp.RunHalcon4();
+        //    HDevExp.RunHalcon4();
 
-        }
-        // Diametar 3 strana 1
-        private void RunDia3S1()
-        {
+        //}
+        //// Diametar 3 strana 1
+        //private void RunDia3S1()
+        //{
 
-            HDevExp.RunHalcon5();
+        //    HDevExp.RunHalcon5();
 
-        }
-        // Diametar 3 strana 2
-        private void RunDia3S2()
-        {
+        //}
+        //// Diametar 3 strana 2
+        //private void RunDia3S2()
+        //{
 
-            HDevExp.RunHalcon6();
+        //    HDevExp.RunHalcon6();
 
-        }
-        // Diametar 4 strana 1
-        private void RunDia4S1()
-        {
+        //}
+        //// Diametar 4 strana 1
+        //private void RunDia4S1()
+        //{
 
-            HDevExp.RunHalcon7();
+        //    HDevExp.RunHalcon7();
 
-        }
-        // Diametar 4 strana 2
-        private void RunDia4S2()
-        {
+        //}
+        //// Diametar 4 strana 2
+        //private void RunDia4S2()
+        //{
 
-            HDevExp.RunHalcon8();
+        //    HDevExp.RunHalcon8();
 
-        }
+        //}
 
         // Event handler koji se poziva kad zavrsi analiza slike za mjerenje promjera
         private void HalconUpdate(HDevelopExport sender, HalconEventArgs e)

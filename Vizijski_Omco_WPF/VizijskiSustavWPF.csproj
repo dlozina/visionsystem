@@ -135,8 +135,9 @@
     <Compile Include="AutomatskoMjerenje\AutomatskoMjerenje.cs" />
     <Compile Include="BindingNavigator.cs" />
     <Compile Include="HALCON\CAM1_Live.cs" />
+    <Compile Include="HALCON\CAM3_Live.cs" />
     <Compile Include="HALCON\CAM4_Live.cs" />
-    <Compile Include="HALCON\CAM2_live.cs" />
+    <Compile Include="HALCON\CAM2_Live.cs" />
     <Compile Include="HALCON\Dm_No.5_d1_s1.cs" />
     <Compile Include="HALCON\Dm_No.5_d1_s2.cs" />
     <Compile Include="HALCON\Dm_No.5_d2_s1.cs" />
@@ -146,6 +147,8 @@
     <Compile Include="HALCON\Dm_No.5_d4_s1.cs" />
     <Compile Include="HALCON\Dm_No.5_d4_s2.cs" />
     <Compile Include="HALCON\HALCONInterface.cs" />
+    <Compile Include="HALCON\Porosity_Horizontal.cs" />
+    <Compile Include="HALCON\Porosity_Vertical.cs" />
     <Compile Include="RippleDetection.cs" />
     <Compile Include="BurrDetection.cs" />
     <Compile Include="DataTypes.cs" />
