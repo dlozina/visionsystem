@@ -10,6 +10,7 @@ using HalconDotNet;
 
 public partial class HDevelopExport
 {
+    // Event - after execution code we update result
     public delegate void UpdateHandler(HDevelopExport sender, HalconEventArgs e);
     public event UpdateHandler UpdateResult;
     HalconEventArgs argumenti = new HalconEventArgs();

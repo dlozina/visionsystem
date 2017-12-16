@@ -34,8 +34,8 @@ namespace VizijskiSustavWPF
         public static HDevelopExport HDevExp;
         private bool edgeDetection1 =false;
         private bool edgeDetection2 = false;
-
-
+        private bool edgeDetection3 = false;
+        private bool edgeDetection4 = false;
 
         public App()
         {
@@ -131,7 +131,7 @@ namespace VizijskiSustavWPF
             }
 
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
-            if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!edgeDetection2))
+            if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!edgeDetection3))
             {
                 // We call public method in class pShr
                 Thread exportThread = new Thread(new ThreadStart(pSrh.PorosityVerWindow));
@@ -139,7 +139,7 @@ namespace VizijskiSustavWPF
             }
 
             // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ***********************************************
-            if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!edgeDetection2))
+            if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!edgeDetection4))
             {
                 // We call public method in class pShr
                 Thread exportThread = new Thread(new ThreadStart(pSrh.PorosityHorWindow));
@@ -149,6 +149,8 @@ namespace VizijskiSustavWPF
 
             edgeDetection1 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value == true;  //Edge detection help marker
             edgeDetection2 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value == true;  //Edge detection help marker
+            edgeDetection3 = (bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value == true; //Edge detection help marker
+            edgeDetection4 = (bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value == true; //Edge detection help marker
 
             if (mwHandle != null)
             {

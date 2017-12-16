@@ -171,6 +171,7 @@ public partial class HDevelopExport
     ho_RegionClosing.Dispose();
     ho_SmallConnection.Dispose();
     ho_ContCircle.Dispose();
+    HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
 
   }
 

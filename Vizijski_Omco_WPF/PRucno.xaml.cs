@@ -140,6 +140,24 @@ namespace VizijskiSustavWPF
             LiveCam4Thread.Start();
         }
 
+        private void b_izgasiKameru_Click(object sender, RoutedEventArgs e)
+        {
+            b_ukljucikameru1.IsEnabled = true;
+            b_ukljucikameru2.IsEnabled = true;
+            b_ukljucikameru3.IsEnabled = true;
+            b_ukljucikameru4.IsEnabled = true;
+
+            App.HDevExp.Exitloop1 = true;
+            App.HDevExp.Exitloop2 = true;
+            App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = true;
+        }
+
+        private void b_zatvoriKadar_Click(object sender, RoutedEventArgs e)
+        {
+            HOperatorSet.CloseAllFramegrabbers();
+        }
+
 
     }
 

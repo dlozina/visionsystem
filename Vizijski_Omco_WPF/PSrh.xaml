@@ -50,7 +50,7 @@
                 </Grid.ColumnDefinitions>
                 
                 <!-- Slika sa kamere CAM2 -->
-                <my:HWindowControlWPF  x:Name="hWindowControlWPF2" Margin="4" ImagePart="0,0,1280,1024" Grid.ColumnSpan="2"/>
+                <my:HWindowControlWPF  x:Name="hWindowControlWPF2" Margin="4" ImagePart="0,0,3856,2764" Grid.ColumnSpan="2"/>
 
                 
 
