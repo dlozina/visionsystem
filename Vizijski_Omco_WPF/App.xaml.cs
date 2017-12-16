@@ -36,6 +36,7 @@ namespace VizijskiSustavWPF
         private bool edgeDetection2 = false;
         private bool edgeDetection3 = false;
         private bool edgeDetection4 = false;
+        
 
         public App()
         {
@@ -54,10 +55,12 @@ namespace VizijskiSustavWPF
             pRucno = new PRucno();
             pRucno = new PRucno();
 
+
             App.PLC.StartCyclic();
             App.PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
             App.HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
+            App.HDevExp.OnVariableChange += new HDevelopExport.OnVariableChangeDelegate(PorosityUpdate);
 
         }
 
@@ -160,69 +163,17 @@ namespace VizijskiSustavWPF
 
         }
 
-        //// Diametar 1 strana 1
-        //private void RunDia1S1()
-        //{
-
-        //    HDevExp.RunHalcon1();
-
-        //}
-        //// Diametar 1 strana 2
-        //private void RunDia1S2()
-        //{
-
-        //    HDevExp.RunHalcon2();
-
-        //}
-        //// Diametar 2 strana 1
-        //private void RunDia2S1()
-        //{
-
-        //    HDevExp.RunHalcon3();
-
-        //}
-        //// Diametar 2 strana 2
-        //private void RunDia2S2()
-        //{
-
-        //    HDevExp.RunHalcon4();
-
-        //}
-        //// Diametar 3 strana 1
-        //private void RunDia3S1()
-        //{
-
-        //    HDevExp.RunHalcon5();
-
-        //}
-        //// Diametar 3 strana 2
-        //private void RunDia3S2()
-        //{
-
-        //    HDevExp.RunHalcon6();
-
-        //}
-        //// Diametar 4 strana 1
-        //private void RunDia4S1()
-        //{
-
-        //    HDevExp.RunHalcon7();
-
-        //}
-        //// Diametar 4 strana 2
-        //private void RunDia4S2()
-        //{
-
-        //    HDevExp.RunHalcon8();
-
-        //}
-
         // Event handler koji se poziva kad zavrsi analiza slike za mjerenje promjera
         private void HalconUpdate(HDevelopExport sender, HalconEventArgs e)
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4Rezultat, e.PXvalue);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
+        }
+
+        private void PorosityUpdate(HTuple hTuple)
+        {
+            App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, true);
         }
 
         // Event handler koji se poziva kad PLC postane online ili offline (Ethernet kabel se spoji ili odspoji).

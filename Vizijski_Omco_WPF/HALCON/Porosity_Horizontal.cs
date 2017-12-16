@@ -44,7 +44,7 @@ public partial class HDevelopExport
 
     HTuple hv_AcqHandle = null, hv_found = null;
     HTuple hv_cnt = null, hv_bol = null, hv_porosity_area_px = null;
-    HTuple hv_porosity_area_mm = null, hv_porosity_detected = new HTuple();
+    HTuple hv_porosity_area_mm = null; // hv_porosity_detected = new HTuple();
     HTuple hv_UsedThreshold = new HTuple(), hv_Circularity = new HTuple();
     HTuple hv_Area = new HTuple(), hv_Row = new HTuple(), hv_Column = new HTuple();
     HTuple hv_Length = new HTuple(), hv_circ_min = new HTuple();
