@@ -30,19 +30,19 @@ public partial class HDevelopExport
 
   // Output definition
     private HTuple hv_porosity_detected = new HTuple();
-    public HTuple PorosityDetected
+    public int PorosityDetected
     {
-        get { return hv_porosity_detected; }
+        get { return hv_porosity_detected.I; }
         set
         {
-            if (hv_porosity_detected == value) return;
-            hv_porosity_detected = value;
+            if (hv_porosity_detected.I == value) return;
+            hv_porosity_detected.I = value;
             if (OnVariableChange != null)
-                OnVariableChange(hv_porosity_detected);
+                OnVariableChange(hv_porosity_detected.I);
         }
     }
 
-    public delegate void OnVariableChangeDelegate(HTuple hTuple);
+    public delegate void OnVariableChangeDelegate(int por);
     public event OnVariableChangeDelegate OnVariableChange;
  
   // Main procedure 

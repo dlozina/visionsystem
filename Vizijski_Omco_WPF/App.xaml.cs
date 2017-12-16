@@ -171,7 +171,7 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
         }
 
-        private void PorosityUpdate(HTuple hTuple)
+        private void PorosityUpdate(int por)
         {
             App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, true);
         }
