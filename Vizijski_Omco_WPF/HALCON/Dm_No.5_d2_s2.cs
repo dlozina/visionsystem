@@ -50,28 +50,28 @@ public partial class HDevelopExport
         //{
         //Find the edge conture
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
-        ho_Rectangle.Dispose();
+        //ho_Rectangle.Dispose();
         HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Height - 2600, (hv_Width / 2) - 120,
             hv_Height - 200, (hv_Width / 2) + 120);
-        ho_ImageReduced.Dispose();
+        //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
         //* 10-20 za d2
-        ho_Edges.Dispose();
+        //ho_Edges.Dispose();
         HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.0, 10,
             20);
-        ho_Polygons.Dispose();
+        //ho_Polygons.Dispose();
         HOperatorSet.GenPolygonsXld(ho_Edges, out ho_Polygons, "ramer", 2);
-        ho_UnionContours.Dispose();
+        //ho_UnionContours.Dispose();
         HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_UnionContours, 5000,
             10, "attr_keep");
-        ho_SelectedContours.Dispose();
+        //ho_SelectedContours.Dispose();
         HOperatorSet.SelectContoursXld(ho_UnionContours, out ho_SelectedContours,
             "contour_length", 500, 50000, -0.5, 0.5);
         HOperatorSet.GetContourXld(ho_SelectedContours, out hv_Row, out hv_Col);
         HOperatorSet.FitEllipseContourXld(ho_SelectedContours, "geometric", -1, 0,
             0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
             out hv_Radius21, out hv_StartPhi1, out hv_EndPhi1, out hv_PointOrder1);
-        ho_ContEllipse.Dispose();
+        //ho_ContEllipse.Dispose();
         HOperatorSet.GenEllipseContourXld(out ho_ContEllipse, hv_Row1, hv_Column1,
             hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
         HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);

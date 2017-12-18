@@ -59,31 +59,31 @@ public partial class HDevelopExport
 
         //Find the edge conture
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
-        ho_Rectangle.Dispose();
+        //ho_Rectangle.Dispose();
         HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Height - 2600, (hv_Width / 2) - 120,
             hv_Height - 200, (hv_Width / 2) + 120);
-        ho_ImageReduced.Dispose();
+        //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
-        ho_Regions.Dispose();
+        //ho_Regions.Dispose();
         HOperatorSet.Threshold(ho_ImageReduced, out ho_Regions, 0, 40);
-        ho_RegionFillUp1.Dispose();
+        //ho_RegionFillUp1.Dispose();
         HOperatorSet.FillUp(ho_Regions, out ho_RegionFillUp1);
-        ho_Connection.Dispose();
+        //ho_Connection.Dispose();
         HOperatorSet.Connection(ho_RegionFillUp1, out ho_Connection);
-        ho_SelectedRegions1.Dispose();
+        //ho_SelectedRegions1.Dispose();
         HOperatorSet.SelectShape(ho_Connection, out ho_SelectedRegions1, (new HTuple("area")).TupleConcat(
             "row"), "and", (new HTuple(200000)).TupleConcat(1300), (new HTuple(500000)).TupleConcat(
             1380));
         HOperatorSet.CountObj(ho_SelectedRegions1, out hv_SelectNumber);
-        ho_Contours.Dispose();
+        //ho_Contours.Dispose();
         HOperatorSet.GenContourRegionXld(ho_SelectedRegions1, out ho_Contours, "border");
-        ho_SmoothedContours.Dispose();
+        //ho_SmoothedContours.Dispose();
         HOperatorSet.SmoothContoursXld(ho_Contours, out ho_SmoothedContours, 29);
         HOperatorSet.GetContourXld(ho_SmoothedContours, out hv_Row, out hv_Col);
         HOperatorSet.FitEllipseContourXld(ho_SmoothedContours, "geotukey", -1, 0,
             0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
             out hv_Radius21, out hv_StartPhi1, out hv_EndPhi1, out hv_PointOrder1);
-        ho_ContEllipse.Dispose();
+        //ho_ContEllipse.Dispose();
         HOperatorSet.GenEllipseContourXld(out ho_ContEllipse, hv_Row1, hv_Column1,
             hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
         HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
