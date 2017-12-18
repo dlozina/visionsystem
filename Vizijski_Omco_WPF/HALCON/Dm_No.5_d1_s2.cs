@@ -62,7 +62,7 @@ public partial class HDevelopExport
         //ho_Rectangle.Dispose();
         HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Height - 2600, (hv_Width / 2) - 120,
             hv_Height - 200, (hv_Width / 2) + 120);
-        ho_ImageReduced.Dispose();
+        //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
         //ho_Edges.Dispose();
         HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.0, 20,

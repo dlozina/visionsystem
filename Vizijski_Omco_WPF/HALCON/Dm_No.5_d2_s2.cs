@@ -48,6 +48,15 @@ public partial class HDevelopExport
 
         //try
         //{
+        HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1,
+          "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
+        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
+        HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+        //ho_Image.Dispose();
+        HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
+        //Camera communication - Close
+        HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+
         //Find the edge conture
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
         //ho_Rectangle.Dispose();

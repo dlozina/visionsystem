@@ -76,7 +76,7 @@ public partial class HDevelopExport
             30);
         //ho_Polygons.Dispose();
         HOperatorSet.GenPolygonsXld(ho_Edges, out ho_Polygons, "ramer", 2);
-        ho_UnionContours.Dispose();
+        //ho_UnionContours.Dispose();
         HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_UnionContours, 5000,
             10, "attr_keep");
         //ho_SelectedContours.Dispose();
