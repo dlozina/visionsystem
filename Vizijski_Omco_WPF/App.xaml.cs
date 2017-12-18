@@ -60,7 +60,8 @@ namespace VizijskiSustavWPF
             App.PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
             App.HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
-            App.HDevExp.OnVariableChange += new HDevelopExport.OnVariableChangeDelegate(PorosityUpdate);
+            App.HDevExp.PorosityDetected += new HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
+
 
         }
 
@@ -171,9 +172,9 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
         }
 
-        private void PorosityUpdate(int por)
+        private void PorosityIsDetected(object source, EventArgs e)
         {
-            App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, true);
+
         }
 
         // Event handler koji se poziva kad PLC postane online ili offline (Ethernet kabel se spoji ili odspoji).

@@ -28,22 +28,11 @@ public partial class HDevelopExport
   //  return;
   //}
 
-  // Output definition
-    private HTuple hv_porosity_detected = new HTuple();
-    public int PorosityDetected
-    {
-        get { return hv_porosity_detected.I; }
-        set
-        {
-            if (hv_porosity_detected.I == value) return;
-            hv_porosity_detected.I = value;
-            if (OnVariableChange != null)
-                OnVariableChange(hv_porosity_detected.I);
-        }
-    }
+  public delegate void PorosityDetectedEventHandler(object source, EventArgs args);
+  public event PorosityDetectedEventHandler PorosityDetected;
 
-    public delegate void OnVariableChangeDelegate(int por);
-    public event OnVariableChangeDelegate OnVariableChange;
+  // Output definition
+  private HTuple hv_porosity_detected = new HTuple();
  
   // Main procedure 
   private void porosityVertical()
@@ -164,6 +153,7 @@ public partial class HDevelopExport
           1)))) != 0)
       {
         hv_porosity_detected = 1;
+        PorosityIsDetected();
         ho_ContCircle.Dispose();
         HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Row.TupleSelect(hv_index), 
             hv_Column.TupleSelect(hv_index), 30, 0, 6.28318, "positive", 1);
@@ -191,6 +181,12 @@ public partial class HDevelopExport
     HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
 
   }
+
+    protected virtual void PorosityIsDetected()
+    {
+        if (PorosityDetected != null)
+            PorosityDetected(this, EventArgs.Empty);
+    }
 
   //public void InitHalcon()
   //{

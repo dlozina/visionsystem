@@ -66,14 +66,13 @@ public partial class HDevelopExport
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
         //ho_Regions.Dispose();
         HOperatorSet.Threshold(ho_ImageReduced, out ho_Regions, 0, 40);
-        ho_RegionFillUp1.Dispose();
         HOperatorSet.FillUp(ho_Regions, out ho_RegionFillUp1);
         //ho_Connection.Dispose();
         HOperatorSet.Connection(ho_RegionFillUp1, out ho_Connection);
         //ho_SelectedRegions1.Dispose();
         HOperatorSet.SelectShape(ho_Connection, out ho_SelectedRegions1, (new HTuple("area")).TupleConcat(
-            "row"), "and", (new HTuple(200000)).TupleConcat(1300), (new HTuple(500000)).TupleConcat(
-            1380));
+            "column"), "and", (new HTuple(200000)).TupleConcat(1880), (new HTuple(500000)).TupleConcat(
+            2040));
         HOperatorSet.CountObj(ho_SelectedRegions1, out hv_SelectNumber);
         //ho_Contours.Dispose();
         HOperatorSet.GenContourRegionXld(ho_SelectedRegions1, out ho_Contours, "border");

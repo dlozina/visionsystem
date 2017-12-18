@@ -66,16 +66,14 @@ public partial class HDevelopExport
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
         //* 10-20 za d2
         //ho_Edges.Dispose();
-        HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.0, 10,
+        HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.9, 10,
             20);
-        //ho_Polygons.Dispose();
-        HOperatorSet.GenPolygonsXld(ho_Edges, out ho_Polygons, "ramer", 2);
-        //ho_UnionContours.Dispose();
-        HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_UnionContours, 5000,
-            10, "attr_keep");
+        
         //ho_SelectedContours.Dispose();
-        HOperatorSet.SelectContoursXld(ho_UnionContours, out ho_SelectedContours,
+        HOperatorSet.SelectContoursXld(ho_Edges, out ho_SelectedContours,
             "contour_length", 500, 50000, -0.5, 0.5);
+        HOperatorSet.UnionAdjacentContoursXld(ho_SelectedContours, out ho_SelectedContours, 2000,
+            1, "attr_keep");
         HOperatorSet.GetContourXld(ho_SelectedContours, out hv_Row, out hv_Col);
         HOperatorSet.FitEllipseContourXld(ho_SelectedContours, "geometric", -1, 0,
             0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
