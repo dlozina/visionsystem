@@ -87,6 +87,7 @@ public partial class HDevelopExport
             hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
         HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
         HOperatorSet.GetContourXld(ho_ContEllipse, out hv_Row2, out hv_Col2);
+        
         //* Define max value from tuple
         HOperatorSet.TupleMin(hv_Col2, out hv_TupleMax);
         HOperatorSet.TupleFindFirst(hv_Col2, hv_TupleMax, out hv_IndexMax);
@@ -95,7 +96,7 @@ public partial class HDevelopExport
         hv_HalfH = hv_Height / 2;
         hv_HalfW = hv_Width / 2;
         //Result in px
-        hv_output = (-hv_HalfW) + (hv_Col2.TupleSelect(hv_IndexMax));
+        hv_output = hv_HalfW - (hv_Col2.TupleSelect(hv_IndexMax));
         //Result in mm
         hv_outputmm = hv_output * 0.001675;
 

@@ -80,6 +80,7 @@ public partial class HDevelopExport
         //ho_SmoothedContours.Dispose();
         HOperatorSet.SmoothContoursXld(ho_Contours, out ho_SmoothedContours, 29);
         HOperatorSet.GetContourXld(ho_SmoothedContours, out hv_Row, out hv_Col);
+
         //* Define max value from tuple
         HOperatorSet.TupleMin(hv_Col, out hv_TupleMax);
         HOperatorSet.TupleFindFirst(hv_Col, hv_TupleMax, out hv_IndexMax);
@@ -89,9 +90,9 @@ public partial class HDevelopExport
         hv_HalfW = hv_Width / 2;
 
         hv_rowToMax0 = hv_Row.TupleSelect(hv_IndexMax);
-        hv_colToMax0 = (hv_Col.TupleSelect(hv_IndexMax)) + 13;
+        hv_colToMax0 = (hv_Col.TupleSelect(hv_IndexMax)) - 13;
         //Result in px
-        hv_output = (-hv_HalfW) + hv_colToMax0;
+        hv_output = hv_HalfW - hv_colToMax0;
         //Result in mm
         hv_outputmm = hv_output * 0.001675;
 

@@ -67,16 +67,14 @@ public partial class HDevelopExport
         //ho_Edges.Dispose();
         HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.0, 20,
             30);
-        //ho_Polygons.Dispose();
-        HOperatorSet.GenPolygonsXld(ho_Edges, out ho_Polygons, "ramer", 2);
-        //ho_UnionContours.Dispose();
+        
         HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_UnionContours, 5000,
             10, "attr_keep");
         //ho_SelectedContours.Dispose();
         HOperatorSet.SelectContoursXld(ho_UnionContours, out ho_SelectedContours,
             "contour_length", 500, 50000, -0.5, 0.5);
         HOperatorSet.GetContourXld(ho_SelectedContours, out hv_Row, out hv_Col);
-        HOperatorSet.FitEllipseContourXld(ho_SelectedContours, "geometric", -1, 0,
+        HOperatorSet.FitEllipseContourXld(ho_SelectedContours, "geotukey", -1, 0,
             0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
             out hv_Radius21, out hv_StartPhi1, out hv_EndPhi1, out hv_PointOrder1);
         //ho_ContEllipse.Dispose();
@@ -85,17 +83,30 @@ public partial class HDevelopExport
         HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
         HOperatorSet.GetContourXld(ho_ContEllipse, out hv_Row2, out hv_Col2);
 
-        //* Define min value from tuple
-        HOperatorSet.TupleMin(hv_Col2, out hv_TupleMin2);
-        HOperatorSet.TupleFindFirst(hv_Col2, hv_TupleMin2, out hv_IndexMin2);
+        //* Define max value from tuple
+        HOperatorSet.TupleMax(hv_Col2, out hv_Max2);
+        HOperatorSet.TupleFindFirst(hv_Col2, hv_Max2, out hv_IndexMax2);
 
         //Define constants:
         hv_HalfH = hv_Height / 2;
         hv_HalfW = hv_Width / 2;
         //Result in px
-        hv_output = hv_HalfW - (hv_Col2.TupleSelect(hv_IndexMin2));
+        hv_output = (-hv_HalfW) + (hv_Col2.TupleSelect(hv_IndexMax2));
         //Result in mm
         hv_outputmm = hv_output * 0.001675;
+
+
+        ////* Define min value from tuple
+        //HOperatorSet.TupleMin(hv_Col2, out hv_TupleMin2);
+        //HOperatorSet.TupleFindFirst(hv_Col2, hv_TupleMin2, out hv_IndexMin2);
+
+        ////Define constants:
+        //hv_HalfH = hv_Height / 2;
+        //hv_HalfW = hv_Width / 2;
+        ////Result in px
+        //hv_output = hv_HalfW - (hv_Col2.TupleSelect(hv_IndexMin2));
+        ////Result in mm
+        //hv_outputmm = hv_output * 0.001675;
 
         //}
         //catch (HalconException HDevExpDefaultException1)

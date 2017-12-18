@@ -97,9 +97,9 @@ public partial class HDevelopExport
         hv_HalfH = hv_Height / 2;
         hv_HalfW = hv_Width / 2;
         //Result in px
-        hv_output = hv_HalfW - (hv_Col2.TupleSelect(hv_IndexMin));
+        hv_output = (-hv_HalfW) + (hv_Col2.TupleSelect(hv_IndexMin));
         //Result in mm
-        hv_outputmm = (hv_HalfW - (hv_Col2.TupleSelect(hv_IndexMin))) * 0.001675;
+        hv_outputmm = hv_output * 0.001675;
 
         //}
 
