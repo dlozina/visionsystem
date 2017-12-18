@@ -17,9 +17,10 @@ public partial class HDevelopExport
 
     // Local iconic variables
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
-    HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
+    HObject ho_Regions=null, ho_RegionFillUp1=null, ho_Connection=null;
     HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
     HObject ho_RegionOpening = null;
+    HObject ho_ContEllipse=null;
     // Local control variables 
     HTuple hv_AcqHandle = new HTuple(), hv_Width = new HTuple();
     HTuple hv_Height = new HTuple(), hv_SelectNumber = new HTuple();
@@ -27,6 +28,14 @@ public partial class HDevelopExport
     HTuple hv_IndexMax = new HTuple(), hv_ColumMax = new HTuple();
     HTuple hv_rowToMax0 = new HTuple(), hv_colToMax0 = new HTuple();
     HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
+    HTuple hv_Row1 = new HTuple(), hv_Column1 = new HTuple();
+    HTuple hv_Phi1 = new HTuple(), hv_Radius11 = new HTuple();
+    HTuple hv_Radius21 = new HTuple(), hv_StartPhi1 = new HTuple();
+    HTuple hv_EndPhi1 = new HTuple(), hv_PointOrder1 = new HTuple();
+    HTuple hv_Length = new HTuple(), hv_Row2 = new HTuple();
+    HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
+    HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple();
+    HTuple hv_IndexMax2 = new HTuple();
     // HTuple hv_output = new HTuple();
     // HTuple hv_outputmm = new HTuple();
     HTuple hv_Exception = null, hv_MessageError = new HTuple();
@@ -50,61 +59,56 @@ public partial class HDevelopExport
         //{
         //Find the edge conture
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
-
-        //ROI and Threshold
-        //ho_Rectangle.Dispose();
-        HOperatorSet.GenRectangle1(out ho_Rectangle, (hv_Height/2)-100, 200, (hv_Height/2)+100, 
-            3200);
-        //ho_ImageReduced.Dispose();
+        ho_Rectangle.Dispose();
+        HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Height - 2600, (hv_Width / 2) - 120,
+            hv_Height - 200, (hv_Width / 2) + 120);
+        ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
-        //ho_Region.Dispose();
-        HOperatorSet.Threshold(ho_ImageReduced, out ho_Region, 0, 40);
-        HOperatorSet.OpeningCircle(ho_Region, out ho_RegionOpening, 3.5);
-        //ho_RegionFillUp1.Dispose();
-        HOperatorSet.FillUp(ho_RegionOpening, out ho_RegionFillUp1);
-        //ho_Connection.Dispose();
+        ho_Regions.Dispose();
+        HOperatorSet.Threshold(ho_ImageReduced, out ho_Regions, 0, 40);
+        ho_RegionFillUp1.Dispose();
+        HOperatorSet.FillUp(ho_Regions, out ho_RegionFillUp1);
+        ho_Connection.Dispose();
         HOperatorSet.Connection(ho_RegionFillUp1, out ho_Connection);
-
-        //Select Region
-        //ho_SelectedRegions1.Dispose();
+        ho_SelectedRegions1.Dispose();
         HOperatorSet.SelectShape(ho_Connection, out ho_SelectedRegions1, (new HTuple("area")).TupleConcat(
-            "row"), "and", (new HTuple(100000)).TupleConcat(1380), (new HTuple(300000)).TupleConcat(
-            1480));
+            "row"), "and", (new HTuple(200000)).TupleConcat(1300), (new HTuple(500000)).TupleConcat(
+            1380));
         HOperatorSet.CountObj(ho_SelectedRegions1, out hv_SelectNumber);
-        //ho_Contours.Dispose();
+        ho_Contours.Dispose();
         HOperatorSet.GenContourRegionXld(ho_SelectedRegions1, out ho_Contours, "border");
-
-        //Smoth edge conture
-        //ho_SmoothedContours.Dispose();
+        ho_SmoothedContours.Dispose();
         HOperatorSet.SmoothContoursXld(ho_Contours, out ho_SmoothedContours, 29);
         HOperatorSet.GetContourXld(ho_SmoothedContours, out hv_Row, out hv_Col);
-
+        HOperatorSet.FitEllipseContourXld(ho_SmoothedContours, "geotukey", -1, 0,
+            0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
+            out hv_Radius21, out hv_StartPhi1, out hv_EndPhi1, out hv_PointOrder1);
+        ho_ContEllipse.Dispose();
+        HOperatorSet.GenEllipseContourXld(out ho_ContEllipse, hv_Row1, hv_Column1,
+            hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
+        HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
+        HOperatorSet.GetContourXld(ho_ContEllipse, out hv_Row2, out hv_Col2);
         //* Define max value from tuple
-        HOperatorSet.TupleMax(hv_Row, out hv_TupleMax);
-        HOperatorSet.TupleFindFirst(hv_Row, hv_TupleMax, out hv_IndexMax);
-        hv_ColumMax = hv_Col.TupleSelect(hv_IndexMax);
-        hv_rowToMax0 = hv_Row.TupleSelect(hv_IndexMax);
-        hv_colToMax0 = hv_Col.TupleSelect(hv_IndexMax);
+        HOperatorSet.TupleMin(hv_Col2, out hv_TupleMax);
+        HOperatorSet.TupleFindFirst(hv_Col2, hv_TupleMax, out hv_IndexMax);
 
         //Define constants:
-        hv_HalfH = hv_Height/2;
-        hv_HalfW = hv_Width/2;
-
+        hv_HalfH = hv_Height / 2;
+        hv_HalfW = hv_Width / 2;
         //Result in px
-        hv_output = (-hv_HalfH)+(hv_Row.TupleSelect(hv_IndexMax));
-
+        hv_output = (-hv_HalfW) + (hv_Col2.TupleSelect(hv_IndexMax));
         //Result in mm
-        hv_outputmm = hv_output*0.001675;
+        hv_outputmm = hv_output * 0.001675;
 
-      //}
-      //catch (HalconException HDevExpDefaultException1)
-      //{
-      //  HDevExpDefaultException1.ToHTuple(out hv_Exception);
-      //  //Error handling routine
-      //  hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
-      //}
+        //}
+        //catch (HalconException HDevExpDefaultException1)
+        //{
+        //  HDevExpDefaultException1.ToHTuple(out hv_Exception);
+        //  //Error handling routine
+        //  hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
+        //}
 
-  }
+    }
 
   public void RunHalcon5()
   {

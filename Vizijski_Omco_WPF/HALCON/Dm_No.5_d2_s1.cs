@@ -21,6 +21,8 @@ public partial class HDevelopExport
     HObject ho_ImageMedian = null, ho_RegionOpening = null;
     HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
     HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
+    HObject ho_Edges=null, ho_Polygons=null, ho_UnionContours=null;
+    HObject ho_SelectedContours=null, ho_ContEllipse=null;
 
     // Local control variables 
     HTuple hv_AcqHandle = new HTuple(), hv_Width = new HTuple();
@@ -30,6 +32,13 @@ public partial class HDevelopExport
     HTuple hv_IndexMax = new HTuple(), hv_ColumMax = new HTuple();
     HTuple hv_rowToMax0 = new HTuple(), hv_colToMax0 = new HTuple();
     HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
+    HTuple hv_Row1 = new HTuple(), hv_Column1 = new HTuple();
+    HTuple hv_Phi1 = new HTuple(), hv_Radius11 = new HTuple();
+    HTuple hv_Radius21 = new HTuple(), hv_StartPhi1 = new HTuple();
+    HTuple hv_EndPhi1 = new HTuple(), hv_PointOrder1 = new HTuple();
+    HTuple hv_Length = new HTuple(), hv_Row2 = new HTuple();
+    HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
+    HTuple hv_IndexMax2 = new HTuple();
     // HTuple hv_output = new HTuple(); 
     // HTuple hv_outputmm = new HTuple();
     HTuple hv_Exception = null, hv_MessageError = new HTuple();
@@ -52,62 +61,54 @@ public partial class HDevelopExport
 
         //Find the edge conture
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
-
-        //ROI and Threshold
-        //ho_Rectangle.Dispose();
-        HOperatorSet.GenRectangle1(out ho_Rectangle, (hv_Height/2)-50, 200, (hv_Height/2)+150, 
-            3200);
-        //ho_ImageReduced.Dispose();
+        ho_Rectangle.Dispose();
+        HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Height - 2600, (hv_Width / 2) - 120,
+            hv_Height - 200, (hv_Width / 2) + 120);
+        ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
-        //ho_Region.Dispose();
-        HOperatorSet.SobelDir(ho_ImageReduced, out ho_EdgeAmplitude, out ho_EdgeDirection,
-            "sum_sqrt", 13);
-        HOperatorSet.ConvertImageType(ho_EdgeDirection, out ho_ImageConverted, "byte");
-        HOperatorSet.MedianImage(ho_ImageConverted, out ho_ImageMedian, "circle",
-            7, "mirrored");
-        HOperatorSet.Threshold(ho_ImageMedian, out ho_Region, 0, 200);
-        HOperatorSet.OpeningCircle(ho_Region, out ho_RegionOpening, 3.5); 
-        HOperatorSet.FillUp(ho_RegionOpening, out ho_RegionFillUp1);
-        HOperatorSet.Connection(ho_RegionFillUp1, out ho_Connection);
-        //Select Region
-        //ho_SelectedRegions1.Dispose();
-        HOperatorSet.SelectShape(ho_Connection, out ho_SelectedRegions1, "area", 
-            "and", 50000, 2000000);
-        HOperatorSet.CountObj(ho_SelectedRegions1, out hv_SelectNumber);
-        //ho_Contours.Dispose();
-        HOperatorSet.GenContourRegionXld(ho_SelectedRegions1, out ho_Contours, "border");
+        //* 10-20 za d2
+        ho_Edges.Dispose();
+        HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.0, 10,
+            20);
+        ho_Polygons.Dispose();
+        HOperatorSet.GenPolygonsXld(ho_Edges, out ho_Polygons, "ramer", 2);
+        ho_UnionContours.Dispose();
+        HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_UnionContours, 5000,
+            10, "attr_keep");
+        ho_SelectedContours.Dispose();
+        HOperatorSet.SelectContoursXld(ho_UnionContours, out ho_SelectedContours,
+            "contour_length", 500, 50000, -0.5, 0.5);
+        HOperatorSet.GetContourXld(ho_SelectedContours, out hv_Row, out hv_Col);
+        HOperatorSet.FitEllipseContourXld(ho_SelectedContours, "geometric", -1, 0,
+            0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
+            out hv_Radius21, out hv_StartPhi1, out hv_EndPhi1, out hv_PointOrder1);
+        ho_ContEllipse.Dispose();
+        HOperatorSet.GenEllipseContourXld(out ho_ContEllipse, hv_Row1, hv_Column1,
+            hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
+        HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
+        HOperatorSet.GetContourXld(ho_ContEllipse, out hv_Row2, out hv_Col2);
 
-        //Smoth edge conture
-        //ho_SmoothedContours.Dispose();
-        HOperatorSet.SmoothContoursXld(ho_Contours, out ho_SmoothedContours, 29);
-        HOperatorSet.GetContourXld(ho_SmoothedContours, out hv_Row, out hv_Col);
-
-        //Define max value from tuple
-        HOperatorSet.TupleMax(hv_Row, out hv_TupleMax);
-        HOperatorSet.TupleFindFirst(hv_Row, hv_TupleMax, out hv_IndexMax);
-        hv_ColumMax = hv_Col.TupleSelect(hv_IndexMax);
-        hv_rowToMax0 = hv_Row.TupleSelect(hv_IndexMax);
-        hv_colToMax0 = hv_Col.TupleSelect(hv_IndexMax);
+        //* Define max value from tuple
+        HOperatorSet.TupleMax(hv_Col2, out hv_Max2);
+        HOperatorSet.TupleFindFirst(hv_Col2, hv_Max2, out hv_IndexMax2);
 
         //Define constants:
-        hv_HalfH = hv_Height/2;
-        hv_HalfW = hv_Width/2;
-
+        hv_HalfH = hv_Height / 2;
+        hv_HalfW = hv_Width / 2;
         //Result in px
-        hv_output = (-hv_HalfH)+(hv_Row.TupleSelect(hv_IndexMax));
-
+        hv_output = (-hv_HalfW) + (hv_Col2.TupleSelect(hv_IndexMax2));
         //Result in mm
-        hv_outputmm = hv_output*0.001675;
+        hv_outputmm = hv_output * 0.001675;
 
-      //}
+        //}
 
-      //catch (HalconException HDevExpDefaultException1)
-      //{
-      //  HDevExpDefaultException1.ToHTuple(out hv_Exception);
-      //  //Error handling routine
-      //  hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
-      //}
-  }
+        //catch (HalconException HDevExpDefaultException1)
+        //{
+        //  HDevExpDefaultException1.ToHTuple(out hv_Exception);
+        //  //Error handling routine
+        //  hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
+        //}
+    }
 
 
   public void RunHalcon3()
