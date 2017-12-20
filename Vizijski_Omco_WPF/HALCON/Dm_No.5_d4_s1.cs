@@ -29,9 +29,7 @@ public partial class HDevelopExport
     HTuple hv_IndexMax = new HTuple(), hv_ColumMax = new HTuple();
     HTuple hv_rowToMax0 = new HTuple(), hv_colToMax0 = new HTuple();
     HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
-    // HTuple hv_output = new HTuple();
-    // HTuple hv_outputmm = new HTuple();
-    HTuple hv_Exception = null, hv_MessageError = new HTuple();
+    HTuple /*hv_Exception = null,*/ hv_MessageError = new HTuple();
 
       //************************************************************
       //KOMAD NO. 5 D4 S1

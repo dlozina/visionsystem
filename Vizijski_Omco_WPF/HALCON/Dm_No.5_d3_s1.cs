@@ -19,7 +19,7 @@ public partial class HDevelopExport
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
     HObject ho_Regions=null, ho_RegionFillUp1=null, ho_Connection=null;
     HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
-    HObject ho_RegionOpening = null;
+    //HObject ho_RegionOpening = null;
     HObject ho_ContEllipse=null;
     // Local control variables 
     HTuple hv_AcqHandle = new HTuple(), hv_Width = new HTuple();
@@ -37,9 +37,7 @@ public partial class HDevelopExport
     HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple();
     HTuple hv_IndexMax2 = new HTuple();
     HTuple hv_UsedThreshold = new HTuple();
-    // HTuple hv_output = new HTuple();
-    // HTuple hv_outputmm = new HTuple();
-    HTuple hv_Exception = null, hv_MessageError = new HTuple();
+    HTuple /*hv_Exception = null,*/ hv_MessageError = new HTuple();
 
       //************************************************************
       //KOMAD NO. 5 D3 S1

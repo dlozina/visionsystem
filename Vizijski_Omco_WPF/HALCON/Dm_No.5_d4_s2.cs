@@ -30,7 +30,7 @@ public partial class HDevelopExport
     HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
     //HTuple hv_output = new HTuple(); 
     //HTuple hv_outputmm = new HTuple();
-    HTuple hv_Exception = null, hv_MessageError = new HTuple();
+    HTuple /*hv_Exception = null,*/ hv_MessageError = new HTuple();
     
       //************************************************************
       //KOMAD NO. 5 D4 S2

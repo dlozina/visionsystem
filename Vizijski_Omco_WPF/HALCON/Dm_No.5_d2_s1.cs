@@ -17,11 +17,11 @@ public partial class HDevelopExport
 
     // Local iconic variables 
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
-    HObject ho_EdgeAmplitude = null, ho_EdgeDirection = null, ho_ImageConverted = null;
-    HObject ho_ImageMedian = null, ho_RegionOpening = null;
-    HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
-    HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
-    HObject ho_Edges=null, ho_Polygons=null, ho_UnionContours=null;
+    //HObject ho_EdgeAmplitude = null, ho_EdgeDirection = null, ho_ImageConverted = null;
+    //HObject ho_ImageMedian = null, ho_RegionOpening = null;
+    //HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
+    //HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
+    HObject ho_Edges=null; /*ho_Polygons=null, ho_UnionContours=null;*/
     HObject ho_SelectedContours=null, ho_ContEllipse=null;
 
     // Local control variables 
@@ -40,9 +40,7 @@ public partial class HDevelopExport
     HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
     HTuple hv_IndexMax2 = new HTuple();
     HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple();
-    // HTuple hv_output = new HTuple(); 
-    // HTuple hv_outputmm = new HTuple();
-    HTuple hv_Exception = null, hv_MessageError = new HTuple();
+    HTuple /*hv_Exception = null,*/ hv_MessageError = new HTuple();
 
       //************************************************************
       //KOMAD NO. 5 D2 S1
@@ -100,18 +98,6 @@ public partial class HDevelopExport
         hv_output = hv_HalfW - (hv_Col2.TupleSelect(hv_IndexMin2));
         //Result in mm
         hv_outputmm = hv_output * 0.001675;
-
-        ////* Define max value from tuple
-        //HOperatorSet.TupleMax(hv_Col2, out hv_Max2);
-        //HOperatorSet.TupleFindFirst(hv_Col2, hv_Max2, out hv_IndexMax2);
-
-        ////Define constants:
-        //hv_HalfH = hv_Height / 2;
-        //hv_HalfW = hv_Width / 2;
-        ////Result in px
-        //hv_output = (-hv_HalfW) + (hv_Col2.TupleSelect(hv_IndexMax2));
-        ////Result in mm
-        //hv_outputmm = hv_output * 0.001675;
 
         //}
 

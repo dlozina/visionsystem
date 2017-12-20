@@ -74,80 +74,90 @@ namespace VizijskiSustavWPF
             // Start analize slike D1 PRVOG RUBA S1 ********************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!edgeDetection1)) //Edge detection
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon1));
-                exportThread.Start();
+                Thread d1meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon1)); // d1meassureS1.name = "Thread D1S1
+                d1meassureS1.Name = "Thread D1S1";
+                d1meassureS1.Start();
             }
 
 
             // Start analize slike D1 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!edgeDetection2))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon2));
-                exportThread.Start();
+                Thread d1meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon2));
+                d1meassureS2.Name = "Thread D1S2";
+                d1meassureS2.Start();
             }
 
 
             // Start analize slike D2 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && (!edgeDetection1))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon3));
-                exportThread.Start();
+                Thread d2meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon3));
+                d2meassureS1.Name = "Thread D2S1";
+                d2meassureS1.Start();
             }
 
 
             // Start analize slike D2 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && (!edgeDetection2))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon4));
-                exportThread.Start();
+                Thread d2meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon4));
+                d2meassureS2.Name = "Thread D2S2";
+                d2meassureS2.Start();
             }
 
 
             // Start analize slike D3 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && (!edgeDetection1))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon5));
-                exportThread.Start();
+                Thread d3meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon5));
+                d3meassureS1.Name = "Thread D3S1";
+                d3meassureS1.Start();
             }
 
 
             // Start analize slike D3 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && (!edgeDetection2))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon6));
-                exportThread.Start();
+                Thread d3meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon6));
+                d3meassureS2.Name = "Thread D3S2";
+                d3meassureS2.Start();
             }
 
 
             // Start analize slike D4 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && (!edgeDetection1))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon7));
-                exportThread.Start();
+                Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
+                d4meassureS1.Name = "Thread D4S1";
+                d4meassureS1.Start();
             }
 
 
             // Start analize slike D4 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && (!edgeDetection2))
             {
-                Thread exportThread = new Thread(new ThreadStart(HDevExp.RunHalcon8));
-                exportThread.Start();
+                Thread d4meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon8));
+                d4meassureS2.Name = "Thread D4S2";
+                d4meassureS2.Start();
             }
 
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
             if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!edgeDetection3))
             {
                 // We call public method in class pShr
-                Thread exportThread = new Thread(new ThreadStart(pSrh.PorosityVerWindow));
-                exportThread.Start();
+                Thread porosityverth = new Thread(new ThreadStart(pSrh.PorosityVerWindow));
+                porosityverth.Name = "Thread PorosityVer";
+                porosityverth.Start();
             }
 
             // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ***********************************************
             if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!edgeDetection4))
             {
                 // We call public method in class pShr
-                Thread exportThread = new Thread(new ThreadStart(pSrh.PorosityHorWindow));
-                exportThread.Start();
+                Thread porosityhorth = new Thread(new ThreadStart(pSrh.PorosityHorWindow));
+                porosityhorth.Name = "Thread PorosityHor";
+                porosityhorth.Start();
             }
 
 

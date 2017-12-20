@@ -17,9 +17,9 @@ public partial class HDevelopExport
 
     // Local iconic variables 
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
-    HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
-    HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
-    HObject ho_Edges=null, ho_Polygons=null, ho_UnionContours=null;
+    //HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
+    //HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
+    HObject ho_Edges=null, /*ho_Polygons=null,*/ ho_UnionContours=null;
     HObject ho_SelectedContours=null, ho_ContEllipse=null;
 
     // Local control variables
@@ -38,9 +38,7 @@ public partial class HDevelopExport
     HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
     HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple();
     HTuple hv_IndexMax2 = new HTuple();
-    // HTuple hv_output = new HTuple();
-    // HTuple hv_outputmm = new HTuple();
-    HTuple hv_Exception = null, hv_MessageError = new HTuple();
+    HTuple /*hv_Exception = null,*/ hv_MessageError = new HTuple();
 
       //************************************************************
       //KOMAD NO. 5 D1 S2

@@ -25,9 +25,9 @@ public partial class HDevelopExport
 
     // Local iconic variables
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
-    HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
-    HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
-    HObject ho_Edges=null, ho_Polygons=null, ho_UnionContours=null;
+    //HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
+    //HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
+    HObject ho_Edges=null, /*ho_Polygons=null,*/ ho_UnionContours=null;
     HObject ho_SelectedContours=null, ho_ContEllipse=null;
 
     // Local control variables
@@ -46,9 +46,7 @@ public partial class HDevelopExport
     HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
     HTuple hv_IndexMax2 = new HTuple();
     HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple(); 
-    // HTuple hv_output = new HTuple();
-    // HTuple hv_outputmm = new HTuple();
-    HTuple hv_Exception = null, hv_MessageError = new HTuple();
+    HTuple /*hv_Exception = null, */ hv_MessageError = new HTuple();
 
       //************************************************************
       //KOMAD NO. 5 D1 S1
@@ -64,7 +62,6 @@ public partial class HDevelopExport
         HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
         //Camera communication - Close
         HOperatorSet.CloseFramegrabber(hv_AcqHandle);
-
         //Find the edge conture
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
         //ho_Rectangle.Dispose();
@@ -74,8 +71,7 @@ public partial class HDevelopExport
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
         //ho_Edges.Dispose();
         HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.0, 20,
-            30);
-        
+            30);   
         HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_UnionContours, 5000,
             10, "attr_keep");
         //ho_SelectedContours.Dispose();
@@ -90,19 +86,6 @@ public partial class HDevelopExport
             hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
         HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
         HOperatorSet.GetContourXld(ho_ContEllipse, out hv_Row2, out hv_Col2);
-
-        ////* Define max value from tuple
-        //HOperatorSet.TupleMax(hv_Col2, out hv_Max2);
-        //HOperatorSet.TupleFindFirst(hv_Col2, hv_Max2, out hv_IndexMax2);
-
-        ////Define constants:
-        //hv_HalfH = hv_Height / 2;
-        //hv_HalfW = hv_Width / 2;
-        ////Result in px
-        //hv_output = (-hv_HalfW) + (hv_Col2.TupleSelect(hv_IndexMax2));
-        ////Result in mm
-        //hv_outputmm = hv_output * 0.001675;
-
         //* Define min value from tuple
         HOperatorSet.TupleMin(hv_Col2, out hv_TupleMin2);
         HOperatorSet.TupleFindFirst(hv_Col2, hv_TupleMin2, out hv_IndexMin2);
