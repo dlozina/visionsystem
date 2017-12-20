@@ -17,15 +17,11 @@ public partial class HDevelopExport
 
     // Local iconic variables 
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
-    //HObject ho_EdgeAmplitude = null, ho_EdgeDirection = null, ho_ImageConverted = null;
-    //HObject ho_ImageMedian = null, ho_RegionOpening = null;
-    //HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
-    //HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
-    HObject ho_Edges=null; /*ho_Polygons=null, ho_UnionContours=null;*/
+    HObject ho_Edges=null; 
     HObject ho_SelectedContours=null, ho_ContEllipse=null;
 
     // Local control variables 
-    HTuple hv_AcqHandle = new HTuple(), hv_Width = new HTuple();
+    HTuple hv_Width = new HTuple();
     HTuple hv_UsedThreshold = new HTuple();
     HTuple hv_Height = new HTuple(), hv_SelectNumber = new HTuple();
     HTuple hv_Row = new HTuple(), hv_Col = new HTuple(), hv_TupleMax = new HTuple();
@@ -40,39 +36,27 @@ public partial class HDevelopExport
     HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
     HTuple hv_IndexMax2 = new HTuple();
     HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple();
-    HTuple /*hv_Exception = null,*/ hv_MessageError = new HTuple();
+    HTuple hv_MessageError = new HTuple();
 
-      //************************************************************
-      //KOMAD NO. 5 D2 S1
-      //************************************************************
+        //************************************************************
+        //KOMAD NO. 5 D2 S1
+        //************************************************************
 
-      //try
-      //{
         //Camera communication - Open
-        HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", 
-            -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
-        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
-        HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-        //ho_Image.Dispose();
+        openCAMFrame(3500.0);
+        //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
         HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
         //Camera communication - Close
-        HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+        closeCAMFrame();
+        //HOperatorSet.CloseFramegrabber(hv_AcqHandle);
 
         //Find the edge conture
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
-        //ho_Rectangle.Dispose();
         HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Height - 2600, (hv_Width / 2) - 120,
             hv_Height - 200, (hv_Width / 2) + 120);
-        //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
-        //* 10-20 za d2
-        //ho_Edges.Dispose();
         HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.9, 10,
             20);
-        
-        //ho_SelectedContours.Dispose();
-        //HOperatorSet.SelectContoursXld(ho_Edges, out ho_SelectedContours,
-        //    "contour_length", 500, 50000, -0.5, 0.5);
         HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_SelectedContours, 2000,
             10, "attr_keep");
         HOperatorSet.SelectContoursXld(ho_SelectedContours, out ho_SelectedContours,
@@ -81,7 +65,6 @@ public partial class HDevelopExport
         HOperatorSet.FitEllipseContourXld(ho_SelectedContours, "geotukey", -1, 0,
             0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
             out hv_Radius21, out hv_StartPhi1, out hv_EndPhi1, out hv_PointOrder1);
-        //ho_ContEllipse.Dispose();
         HOperatorSet.GenEllipseContourXld(out ho_ContEllipse, hv_Row1, hv_Column1,
             hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
         HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
@@ -99,18 +82,19 @@ public partial class HDevelopExport
         //Result in mm
         hv_outputmm = hv_output * 0.001675;
 
-        //}
-
-        //catch (HalconException HDevExpDefaultException1)
-        //{
-        //  HDevExpDefaultException1.ToHTuple(out hv_Exception);
-        //  //Error handling routine
-        //  hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
-        //}
-    }
+        // Dispose image object
+        ho_Image.Dispose();
+        ho_Rectangle.Dispose();
+        ho_ImageReduced.Dispose();
+        ho_Edges.Dispose();
+        ho_SelectedContours.Dispose();
+        ho_ContEllipse.Dispose();
 
 
-  public void RunHalcon3()
+  }
+
+
+    public void RunHalcon3()
   {
     
         diameter2No5S1();

@@ -10,78 +10,62 @@ using HalconDotNet;
 
 public partial class HDevelopExport
 {
-    // Event - after execution code we update result
-    public delegate void UpdateHandler(HDevelopExport sender, HalconEventArgs e);
-    public event UpdateHandler UpdateResult;
-    HalconEventArgs argumenti = new HalconEventArgs();
-
-    // Output definition
-    private HTuple hv_output = new HTuple();
-    private HTuple hv_outputmm = new HTuple();
-
+    
     // Main procedure 
     private void diameter1No5S1()
     {
 
-    // Local iconic variables
-    HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
-    //HObject ho_Region=null, ho_RegionFillUp1=null, ho_Connection=null;
-    //HObject ho_SelectedRegions1=null, ho_Contours=null, ho_SmoothedContours=null;
-    HObject ho_Edges=null, /*ho_Polygons=null,*/ ho_UnionContours=null;
-    HObject ho_SelectedContours=null, ho_ContEllipse=null;
+        // Local iconic variables
+        HObject ho_Image=null, ho_Rectangle=null, ho_ImageReduced=null;
+        HObject ho_Edges=null, ho_UnionContours=null;
+        HObject ho_SelectedContours=null, ho_ContEllipse=null;
 
-    // Local control variables
-    HTuple hv_AcqHandle = new HTuple(), hv_Width = new HTuple();
-    HTuple hv_UsedThreshold = new HTuple();
-    HTuple hv_Height = new HTuple(), hv_SelectNumber = new HTuple();
-    HTuple hv_Row = new HTuple(), hv_Col = new HTuple(), hv_TupleMax = new HTuple();
-    HTuple hv_IndexMax = new HTuple(), hv_ColumMax = new HTuple();
-    HTuple hv_rowToMax0 = new HTuple(), hv_colToMax0 = new HTuple();
-    HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
-    HTuple hv_Row1 = new HTuple(), hv_Column1 = new HTuple();
-    HTuple hv_Phi1 = new HTuple(), hv_Radius11 = new HTuple();
-    HTuple hv_Radius21 = new HTuple(), hv_StartPhi1 = new HTuple();
-    HTuple hv_EndPhi1 = new HTuple(), hv_PointOrder1 = new HTuple();
-    HTuple hv_Length = new HTuple(), hv_Row2 = new HTuple();
-    HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
-    HTuple hv_IndexMax2 = new HTuple();
-    HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple(); 
-    HTuple /*hv_Exception = null, */ hv_MessageError = new HTuple();
+        // Local control variables
+        HTuple hv_Width = new HTuple();
+        HTuple hv_UsedThreshold = new HTuple();
+        HTuple hv_Height = new HTuple(), hv_SelectNumber = new HTuple();
+        HTuple hv_Row = new HTuple(), hv_Col = new HTuple(), hv_TupleMax = new HTuple();
+        HTuple hv_IndexMax = new HTuple(), hv_ColumMax = new HTuple();
+        HTuple hv_rowToMax0 = new HTuple(), hv_colToMax0 = new HTuple();
+        HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
+        HTuple hv_Row1 = new HTuple(), hv_Column1 = new HTuple();
+        HTuple hv_Phi1 = new HTuple(), hv_Radius11 = new HTuple();
+        HTuple hv_Radius21 = new HTuple(), hv_StartPhi1 = new HTuple();
+        HTuple hv_EndPhi1 = new HTuple(), hv_PointOrder1 = new HTuple();
+        HTuple hv_Length = new HTuple(), hv_Row2 = new HTuple();
+        HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
+        HTuple hv_IndexMax2 = new HTuple();
+        HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple(); 
+        HTuple hv_MessageError = new HTuple();
 
-      //************************************************************
-      //KOMAD NO. 5 D1 S1
-      //************************************************************
+        //************************************************************
+        //KOMAD NO. 5 D1 S1
+        //************************************************************
 
-      //try
-      //{
+        
         //Camera communication - Open
-        HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", 
-            -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
-        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
-        HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+        
+        openCAMFrame(3500.0);
+        //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
         HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
         //Camera communication - Close
-        HOperatorSet.CloseFramegrabber(hv_AcqHandle);
-        //Find the edge conture
+        closeCAMFrame();
+        //HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
-        //ho_Rectangle.Dispose();
         HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Height - 2600, (hv_Width / 2) - 120,
             hv_Height - 200, (hv_Width / 2) + 120);
-        //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
-        //ho_Edges.Dispose();
         HOperatorSet.EdgesSubPix(ho_ImageReduced, out ho_Edges, "canny", 1.0, 20,
             30);   
         HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_UnionContours, 5000,
             10, "attr_keep");
-        //ho_SelectedContours.Dispose();
         HOperatorSet.SelectContoursXld(ho_UnionContours, out ho_SelectedContours,
             "contour_length", 500, 50000, -0.5, 0.5);
         HOperatorSet.GetContourXld(ho_SelectedContours, out hv_Row, out hv_Col);
         HOperatorSet.FitEllipseContourXld(ho_SelectedContours, "geotukey", -1, 0,
             0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
             out hv_Radius21, out hv_StartPhi1, out hv_EndPhi1, out hv_PointOrder1);
-        //ho_ContEllipse.Dispose();
         HOperatorSet.GenEllipseContourXld(out ho_ContEllipse, hv_Row1, hv_Column1,
             hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
         HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
@@ -97,16 +81,15 @@ public partial class HDevelopExport
         hv_output = hv_HalfW - (hv_Col2.TupleSelect(hv_IndexMin2));
         //Result in mm
         hv_outputmm = hv_output * 0.001675;
-
-        //}
-
-        //catch (HalconException HDevExpDefaultException1)
-        //{
-        //  HDevExpDefaultException1.ToHTuple(out hv_Exception);
-        //  //Error handling routine
-        //  hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
-
-        //}
+    
+        // Dispose image object
+        ho_Image.Dispose();
+        ho_Rectangle.Dispose();
+        ho_ImageReduced.Dispose();
+        ho_Edges.Dispose();
+        ho_UnionContours.Dispose();
+        ho_SelectedContours.Dispose();
+        ho_ContEllipse.Dispose();
 
     }
 

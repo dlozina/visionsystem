@@ -43,10 +43,9 @@ public partial class HDevelopExport
       HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
     }
 	//Image Acquisition CLOSE frame
-    HOperatorSet.CloseFramegrabber(hv_AcqHandle);
     ho_Image.Dispose();
     HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-
+    HOperatorSet.CloseFramegrabber(hv_AcqHandle);
   }
 
   public void InitHalcon()
@@ -59,6 +58,7 @@ public partial class HDevelopExport
   public void RunHalcon9(HTuple Window)
   {
     hv_ExpDefaultWinHandle = Window;
+    HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
     livecam2();
   }
 

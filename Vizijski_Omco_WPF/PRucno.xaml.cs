@@ -118,7 +118,7 @@ namespace VizijskiSustavWPF
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = false;
             b_ukljucikameru4.IsEnabled = true;
-            hWindowControlWPF1.ImagePart = new Rect(0, 0, 3856, 2764);
+            hWindowControlWPF1.ImagePart = new Rect(0, 0, 2592, 1944);
             // CAM3 call
             Thread LiveCam3Thread = new Thread(new ThreadStart(this.LiveCam3));
             LiveCam3Thread.Start();
