@@ -36,6 +36,7 @@ public partial class HDevelopExport
     HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
     HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple();
     HTuple hv_IndexMax2 = new HTuple();
+    HTuple hv_UsedThreshold = new HTuple();
     // HTuple hv_output = new HTuple();
     // HTuple hv_outputmm = new HTuple();
     HTuple hv_Exception = null, hv_MessageError = new HTuple();
@@ -65,7 +66,15 @@ public partial class HDevelopExport
         //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
         //ho_Regions.Dispose();
-        HOperatorSet.Threshold(ho_ImageReduced, out ho_Regions, 0, 40);
+        //HOperatorSet.Threshold(ho_ImageReduced, out ho_Regions, 0, 50);
+
+        /////
+        HOperatorSet.BinaryThreshold(ho_ImageReduced, out ho_Regions, "max_separability",
+              "dark", out hv_UsedThreshold);
+        HOperatorSet.OpeningCircle(ho_Regions, out ho_Regions, 37);
+        ////
+
+
         //ho_RegionFillUp1.Dispose();
         HOperatorSet.FillUp(ho_Regions, out ho_RegionFillUp1);
         //ho_Connection.Dispose();

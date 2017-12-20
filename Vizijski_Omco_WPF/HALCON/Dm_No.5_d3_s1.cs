@@ -36,6 +36,7 @@ public partial class HDevelopExport
     HTuple hv_Col2 = new HTuple(), hv_Max2 = new HTuple();
     HTuple hv_TupleMin2 = new HTuple(), hv_IndexMin2 = new HTuple();
     HTuple hv_IndexMax2 = new HTuple();
+    HTuple hv_UsedThreshold = new HTuple();
     // HTuple hv_output = new HTuple();
     // HTuple hv_outputmm = new HTuple();
     HTuple hv_Exception = null, hv_MessageError = new HTuple();
@@ -65,13 +66,20 @@ public partial class HDevelopExport
         //ho_ImageReduced.Dispose();
         HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
         //ho_Regions.Dispose();
-        HOperatorSet.Threshold(ho_ImageReduced, out ho_Regions, 0, 40);
+
+        /////
+        HOperatorSet.BinaryThreshold(ho_ImageReduced, out ho_Regions, "max_separability", 
+              "dark", out hv_UsedThreshold);
+        HOperatorSet.OpeningCircle(ho_Regions, out ho_Regions, 37);
+        ////
+
+        //HOperatorSet.Threshold(ho_ImageReduced, out ho_Regions, 0, 40);
         HOperatorSet.FillUp(ho_Regions, out ho_RegionFillUp1);
         //ho_Connection.Dispose();
         HOperatorSet.Connection(ho_RegionFillUp1, out ho_Connection);
         //ho_SelectedRegions1.Dispose();
         HOperatorSet.SelectShape(ho_Connection, out ho_SelectedRegions1, (new HTuple("area")).TupleConcat(
-            "column"), "and", (new HTuple(200000)).TupleConcat(1880), (new HTuple(500000)).TupleConcat(
+            "column"), "and", (new HTuple(100000)).TupleConcat(1880), (new HTuple(500000)).TupleConcat(
             2040));
         HOperatorSet.CountObj(ho_SelectedRegions1, out hv_SelectNumber);
         //ho_Contours.Dispose();

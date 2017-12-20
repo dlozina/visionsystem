@@ -28,8 +28,8 @@ public partial class HDevelopExport
     HTuple hv_IndexMin = new HTuple(), hv_ColumMin = new HTuple();
     HTuple hv_rowToMin0 = new HTuple(), hv_colToMin0 = new HTuple();
     HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
-    HTuple hv_output = new HTuple(); 
-    HTuple hv_outputmm = new HTuple();
+    //HTuple hv_output = new HTuple(); 
+    //HTuple hv_outputmm = new HTuple();
     HTuple hv_Exception = null, hv_MessageError = new HTuple();
     
       //************************************************************

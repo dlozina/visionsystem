@@ -70,10 +70,12 @@ public partial class HDevelopExport
             20);
         
         //ho_SelectedContours.Dispose();
-        HOperatorSet.SelectContoursXld(ho_Edges, out ho_SelectedContours,
-            "contour_length", 500, 50000, -0.5, 0.5);
-        HOperatorSet.UnionAdjacentContoursXld(ho_SelectedContours, out ho_SelectedContours, 2000,
+        //HOperatorSet.SelectContoursXld(ho_Edges, out ho_SelectedContours,
+        //    "contour_length", 500, 50000, -0.5, 0.5);
+        HOperatorSet.UnionAdjacentContoursXld(ho_Edges, out ho_SelectedContours, 2000,
             1, "attr_keep");
+        HOperatorSet.SelectContoursXld(ho_SelectedContours, out ho_SelectedContours,
+            "contour_length", 500, 50000, -0.5, 0.5);
         HOperatorSet.GetContourXld(ho_SelectedContours, out hv_Row, out hv_Col);
         HOperatorSet.FitEllipseContourXld(ho_SelectedContours, "geotukey", -1, 0,
             0, 200, 5, 2, out hv_Row1, out hv_Column1, out hv_Phi1, out hv_Radius11,
@@ -81,7 +83,7 @@ public partial class HDevelopExport
         //ho_ContEllipse.Dispose();
         HOperatorSet.GenEllipseContourXld(out ho_ContEllipse, hv_Row1, hv_Column1,
             hv_Phi1, hv_Radius11, hv_Radius21, 0, 6.28318, "positive", 1.5);
-        HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
+        //HOperatorSet.LengthXld(ho_ContEllipse, out hv_Length);
         HOperatorSet.GetContourXld(ho_ContEllipse, out hv_Row2, out hv_Col2);
 
         //* Define max value from tuple
