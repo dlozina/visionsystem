@@ -9,6 +9,9 @@ public partial class HDevelopExport
     public event UpdateHandler UpdateResult;
     HalconEventArgs argumenti = new HalconEventArgs();
 
+    public delegate void PorosityDetectedEventHandler(object source, EventArgs args);
+    public event PorosityDetectedEventHandler PorosityDetected;
+
     //Framegrabber Handle definition
     HTuple hv_AcqHandle = new HTuple();
 
@@ -45,6 +48,14 @@ public partial class HDevelopExport
     {
         HOperatorSet.CloseFramegrabber(hv_AcqHandle);
     }
+
+
+    protected virtual void PorosityIsDetected()
+    {
+        if (PorosityDetected != null)
+            PorosityDetected(this, EventArgs.Empty);
+    }
+
 
 
 
