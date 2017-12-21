@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 public class HalconEventArgs : EventArgs
 {
-
     private float pXvalue;
     public float PXvalue
     {
@@ -34,7 +33,4 @@ public class HalconEventArgs : EventArgs
         get { return pCAM2live; }
         set { pCAM2live = value; }
     }
-
-
-
 }

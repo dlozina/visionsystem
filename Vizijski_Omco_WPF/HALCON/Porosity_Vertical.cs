@@ -4,13 +4,11 @@ using HalconDotNet;
 public partial class HDevelopExport
 {
     //public HTuple hv_ExpDefaultWinHandle;
-
     // Procedures 
     // Chapter: Develop
     // Short Description: Switch dev_update_pc, dev_update_var and dev_update_window to 'off'. 
     //public void dev_update_off ()
     //{
-
     //  // Initialize local and output iconic variables 
     //  //This procedure sets different update settings to 'off'.
     //  //This is useful to get the best performance and reduce overhead.
@@ -18,7 +16,6 @@ public partial class HDevelopExport
     //  // dev_update_pc(...); only in hdevelop
     //  // dev_update_var(...); only in hdevelop
     //  // dev_update_window(...); only in hdevelop
-
     //  return;
     //}
     // Output definition
@@ -51,11 +48,12 @@ public partial class HDevelopExport
     HOperatorSet.GenEmptyObj(out ho_RegionClosing);
     HOperatorSet.GenEmptyObj(out ho_SmallConnection);
     HOperatorSet.GenEmptyObj(out ho_ContCircle);
-
+    // Open camera frame
     HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
         "default", -1, "false", "default", "GC3851MP_CAM_2", 0, -1, out hv_AcqHandle);
     HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 20000.0);
-
+    // Information for PLC that frame is opened
+    DetectionStart();
     hv_found = 0;
     hv_cnt = 0;
     hv_bol = 0;
@@ -65,6 +63,7 @@ public partial class HDevelopExport
 
     while ((int)(1) != 0)
     {
+        
         //hv_porosity_detected = 0;
         //* image acquisition and processing
         ho_Image.Dispose();

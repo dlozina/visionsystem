@@ -55,14 +55,12 @@ namespace VizijskiSustavWPF
             pRucno = new PRucno();
             pRucno = new PRucno();
 
-
             App.PLC.StartCyclic();
             App.PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
             App.HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
             App.HDevExp.PorosityDetected += new HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
-
-
+            App.HDevExp.PorosityDetectionStart += new HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
         }
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
@@ -174,7 +172,7 @@ namespace VizijskiSustavWPF
 
         }
 
-        // Event handler koji se poziva kad zavrsi analiza slike za mjerenje promjera
+        // Event handler koji se poziva kad zavrsi analiza slike za mjerenje diametara
         private void HalconUpdate(HDevelopExport sender, HalconEventArgs e)
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4Rezultat, e.PXvalue);
@@ -182,9 +180,14 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
         }
 
-        private void PorosityIsDetected(object source, EventArgs e)
+        private void DetectionStart(object source, EventArgs e)
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, true);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, false);
+        }
+
+        private void PorosityIsDetected(object source, EventArgs e)
+        {
             App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, true);
             App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, false);
         }
