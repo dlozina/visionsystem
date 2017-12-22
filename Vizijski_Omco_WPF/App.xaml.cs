@@ -36,6 +36,7 @@ namespace VizijskiSustavWPF
         private bool edgeDetection2 = false;
         private bool edgeDetection3 = false;
         private bool edgeDetection4 = false;
+        private bool edgeDetection5 = false;
         
 
         public App()
@@ -77,7 +78,6 @@ namespace VizijskiSustavWPF
                 d1meassureS1.Start();
             }
 
-
             // Start analize slike D1 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!edgeDetection2))
             {
@@ -85,7 +85,6 @@ namespace VizijskiSustavWPF
                 d1meassureS2.Name = "Thread D1S2";
                 d1meassureS2.Start();
             }
-
 
             // Start analize slike D2 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && (!edgeDetection1))
@@ -95,7 +94,6 @@ namespace VizijskiSustavWPF
                 d2meassureS1.Start();
             }
 
-
             // Start analize slike D2 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && (!edgeDetection2))
             {
@@ -103,7 +101,6 @@ namespace VizijskiSustavWPF
                 d2meassureS2.Name = "Thread D2S2";
                 d2meassureS2.Start();
             }
-
 
             // Start analize slike D3 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && (!edgeDetection1))
@@ -113,7 +110,6 @@ namespace VizijskiSustavWPF
                 d3meassureS1.Start();
             }
 
-
             // Start analize slike D3 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && (!edgeDetection2))
             {
@@ -122,7 +118,6 @@ namespace VizijskiSustavWPF
                 d3meassureS2.Start();
             }
 
-
             // Start analize slike D4 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && (!edgeDetection1))
             {
@@ -130,7 +125,6 @@ namespace VizijskiSustavWPF
                 d4meassureS1.Name = "Thread D4S1";
                 d4meassureS1.Start();
             }
-
 
             // Start analize slike D4 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && (!edgeDetection2))
@@ -158,18 +152,22 @@ namespace VizijskiSustavWPF
                 porosityhorth.Start();
             }
 
+            if (((bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value) && (!edgeDetection5))
+            {
+                HDevExp.Porositydetectedver = true;
+            }
 
-            edgeDetection1 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value == true;  //Edge detection help marker
-            edgeDetection2 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value == true;  //Edge detection help marker
-            edgeDetection3 = (bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value == true; //Edge detection help marker
-            edgeDetection4 = (bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value == true; //Edge detection help marker
+            // Edge detection help marker
+            edgeDetection1 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value == true;
+            edgeDetection2 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value == true;
+            edgeDetection3 = (bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value == true; 
+            edgeDetection4 = (bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value == true; 
+            edgeDetection5 = (bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value == true;
 
             if (mwHandle != null)
             {
                 mwHandle.tb_statusMessage.Dispatcher.BeginInvoke((Action)(() => { mwHandle.tb_statusMessage.Text = msg; }));
             }
-
-
         }
 
         // Event handler koji se poziva kad zavrsi analiza slike za mjerenje diametara

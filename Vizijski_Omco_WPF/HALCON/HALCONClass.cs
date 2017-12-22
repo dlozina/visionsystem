@@ -17,6 +17,8 @@ public partial class HDevelopExport
 
     //Framegrabber Handle definition
     HTuple hv_AcqHandle = new HTuple();
+    // Framegrabber Handle for live CAM
+    public HTuple hv_ExpDefaultWinHandle;
     // Output definition for all Diameters
     private HTuple hv_output = new HTuple();
     private HTuple hv_outputmm = new HTuple();
@@ -36,6 +38,49 @@ public partial class HDevelopExport
     // Definition of variables D4 S1
 
     // Definition of variables D4 S2
+
+    // HDevelopExport Class properties
+    private bool exitloop1;
+    public bool Exitloop1
+    {
+        get { return exitloop1; }
+        set { exitloop1 = value; }
+    }
+
+    private bool exitloop2;
+    public bool Exitloop2
+    {
+        get { return exitloop2; }
+        set { exitloop2 = value; }
+    }
+
+    private bool exitloop3;
+    public bool Exitloop3
+    {
+        get { return exitloop3; }
+        set { exitloop3 = value; }
+    }
+
+    private bool exitloop4;
+    public bool Exitloop4
+    {
+        get { return exitloop4; }
+        set { exitloop4 = value; }
+    }
+
+    private bool porositydetectedver;
+    public bool Porositydetectedver
+    {
+        get { return porositydetectedver; }
+        set { porositydetectedver = value; }
+    }
+
+    private bool porositydetectedhor;
+    public bool Porositydetectedhor
+    {
+        get { return porositydetectedhor; }
+        set { porositydetectedhor = value; }
+    }
 
     public void openCAMFrame(double exposure)
     {
@@ -62,6 +107,12 @@ public partial class HDevelopExport
             PorosityDetectionStart(this, EventArgs.Empty);
     }
 
+    public void InitHalcon()
+    {
+        // Default settings used in HDevelop 
+        HOperatorSet.SetSystem("width", 512);
+        HOperatorSet.SetSystem("height", 512);
+    }
 
 
 }
