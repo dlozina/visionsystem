@@ -68,8 +68,6 @@ namespace VizijskiSustavWPF
         {
             String msg = "";
 
-
-
             // Start analize slike D1 PRVOG RUBA S1 ********************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!edgeDetection1)) //Edge detection
             {
