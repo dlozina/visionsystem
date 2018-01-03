@@ -38,7 +38,6 @@ namespace VizijskiSustavWPF
         private bool edgeDetection4 = false;
         private bool edgeDetection5 = false;
         
-
         public App()
         {
             System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
@@ -150,6 +149,7 @@ namespace VizijskiSustavWPF
                 porosityhorth.Start();
             }
 
+            // R-Os je prosla 360 i nije nasla porozni dio
             if (((bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value) && (!edgeDetection5))
             {
                 HDevExp.Porositydetectedver = true;
