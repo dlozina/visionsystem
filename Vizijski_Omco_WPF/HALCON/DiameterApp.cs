@@ -53,13 +53,10 @@ public partial class HDevelopExport
                 hv_row_len = hv_Height.Clone();
                 hv_row_outer = new HTuple();
                 hv_col_outer = new HTuple();
-
-        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
-        HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_Image);
-            
-
-        //* Edge detection
-        HOperatorSet.DerivateGauss(ho_Image, out ho_DerivGauss, 1, "x");
+                HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
+                HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_Image);
+                //* Edge detection
+                HOperatorSet.DerivateGauss(ho_Image, out ho_DerivGauss, 1, "x");
 
                 //* diameter 2 doesn't have a clean background => different values
                 if ((int)(new HTuple(hv_dia.TupleEqual(2))) != 0)
@@ -73,10 +70,8 @@ public partial class HDevelopExport
                     HOperatorSet.DualThreshold(ho_DerivGauss, out ho_RegionCrossings, 20, 12, 2);
                     HOperatorSet.Union1(ho_RegionCrossings, out ho_Region);
                 }
-
                 //* Retrieve points from detected edges
                 HOperatorSet.GetRegionPoints(ho_Region, out hv_Rows, out hv_Cols);
-
                 //* Side 2 => upper side closer to probe
                 if ((int)(new HTuple(hv_side.TupleEqual(2))) != 0)
                 {
