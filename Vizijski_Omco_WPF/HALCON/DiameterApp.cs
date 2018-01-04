@@ -4,15 +4,15 @@ using HalconDotNet;
 public partial class HDevelopExport
 {
     // Main procedure 
-    private void DiameterAction()
+    private void DiameterAction(HTuple hv_side, HTuple hv_dia)
     {
         // Local iconic variables 
         HObject ho_Image, ho_DerivGauss=null, ho_RegionCrossings=null;
         HObject ho_Region=null, ho_region_outer=null, ho_contour_outer=null;
         HObject ho_ContCircle=null;
         // Local control variables 
-        HTuple hv_AcqHandle = null, hv_side = null;
-        HTuple hv_dia = null, hv_Width = new HTuple(), hv_Height = new HTuple();
+        HTuple hv_AcqHandle = null;
+        HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
         HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
         HTuple hv_row_len = new HTuple(), hv_row_outer = new HTuple();
         HTuple hv_col_outer = new HTuple(), hv_Rows = new HTuple();
@@ -24,7 +24,7 @@ public partial class HDevelopExport
         HTuple hv_StartPhi = new HTuple(), hv_EndPhi = new HTuple();
         HTuple hv_PointOrder = new HTuple(), hv_TupleMax = new HTuple();
         HTuple hv_IndexMax = new HTuple(), hv_colToMax0 = new HTuple();
-        HTuple hv_output = new HTuple(), hv_outputmm = new HTuple();
+        //HTuple hv_output = new HTuple(), hv_outputmm = new HTuple();
         HTuple hv_TupleMin = new HTuple(), hv_IndexMin = new HTuple();
         HTuple hv_colToMin0 = new HTuple(), hv_Exception = null;
         HTuple hv_MessageError = new HTuple();
@@ -45,8 +45,8 @@ public partial class HDevelopExport
             // Camera communication - Close
             closeCAMFrame();
 
-            hv_side = 2;
-            hv_dia = 1;
+            //hv_side = 2;
+            //hv_dia = 1;
             try
             {
 
@@ -283,7 +283,7 @@ public partial class HDevelopExport
     // D1 S1 Call
     public void RunHalcon1()
     {
-        DiameterAction();
+        DiameterAction(1,1);
         argumenti.PXvalue = (float)hv_output.D;
         // Chech for infinity Double to float conversion
         if (float.IsPositiveInfinity(argumenti.PXvalue))
@@ -301,7 +301,7 @@ public partial class HDevelopExport
     // D1 S2 Call
     public void RunHalcon2()
     {
-        DiameterAction();
+        DiameterAction(1,2);
         argumenti.PXvalue = (float)hv_output.D;
 
         // Chech for infinity Double to float conversion
@@ -320,7 +320,7 @@ public partial class HDevelopExport
     // D2 S1 Call
     public void RunHalcon3()
     {
-        DiameterAction();
+        DiameterAction(2,1);
         argumenti.PXvalue = (float)hv_output.D;
 
         // Chech for infinity Double to float conversion
@@ -339,7 +339,7 @@ public partial class HDevelopExport
     // D2 S2 Call
     public void RunHalcon4()
     {
-        DiameterAction();
+        DiameterAction(2,2);
         argumenti.PXvalue = (float)hv_output.D;
 
         // Chech for infinity Double to float conversion
@@ -358,7 +358,7 @@ public partial class HDevelopExport
     // D3 S1 Call
     public void RunHalcon5()
     {
-        DiameterAction();
+        DiameterAction(3,1);
         argumenti.PXvalue = (float)hv_output.D;
 
         // Chech for infinity Double to float conversion
@@ -377,7 +377,7 @@ public partial class HDevelopExport
     // D3 S2 Call
     public void RunHalcon6()
     {
-        DiameterAction();
+        DiameterAction(3,2);
         argumenti.PXvalue = (float)hv_output.D;
 
         // Chech for infinity Double to float conversion
@@ -396,7 +396,7 @@ public partial class HDevelopExport
     // D4 S1 Call
     public void RunHalcon7()
     {
-        DiameterAction();
+        DiameterAction(4,1);
         argumenti.PXvalue = (float)hv_output.D;
 
         // Chech for infinity Double to float conversion
@@ -415,7 +415,7 @@ public partial class HDevelopExport
     // D4 S2 Call
     public void RunHalcon8()
     {
-        DiameterAction();
+        DiameterAction(4,2);
         argumenti.PXvalue = (float)hv_output.D;
 
         // Chech for infinity Double to float conversion
