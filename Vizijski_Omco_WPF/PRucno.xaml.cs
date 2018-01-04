@@ -36,28 +36,28 @@ namespace VizijskiSustavWPF
         private void LiveCam1() // Method
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hWindowControlWPF1.HalconID;
+            HTuple WindowID = hwindow.HalconID;
             App.HDevExp.RunHalcon11(WindowID);
         }
 
         private void LiveCam2() // Method
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hWindowControlWPF1.HalconID;
+            HTuple WindowID = hwindow.HalconID;
             App.HDevExp.RunHalcon9(WindowID);   
         }
 
         private void LiveCam3() // Method
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hWindowControlWPF1.HalconID;
+            HTuple WindowID = hwindow.HalconID;
             App.HDevExp.RunHalcon12(WindowID);
         }
 
         private void LiveCam4() // Method
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hWindowControlWPF1.HalconID;
+            HTuple WindowID = hwindow.HalconID;
             App.HDevExp.RunHalcon10(WindowID);
         }
 
@@ -85,7 +85,7 @@ namespace VizijskiSustavWPF
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = true;
-            hWindowControlWPF1.ImagePart = new Rect(0, 0, 1280, 1024);
+            hwindow.HImagePart = new Rect(0, 0, 1280, 1024);
             // CAM1 call
             Thread LiveCam1Thread = new Thread(new ThreadStart(this.LiveCam1));
             LiveCam1Thread.Start();
@@ -101,7 +101,7 @@ namespace VizijskiSustavWPF
             b_ukljucikameru2.IsEnabled = false;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = true;
-            hWindowControlWPF1.ImagePart = new Rect(0, 0, 3856, 2764);
+            hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
             // CAM2 call
             Thread LiveCam2Thread = new Thread(new ThreadStart(this.LiveCam2));
             LiveCam2Thread.Start();
@@ -118,7 +118,7 @@ namespace VizijskiSustavWPF
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = false;
             b_ukljucikameru4.IsEnabled = true;
-            hWindowControlWPF1.ImagePart = new Rect(0, 0, 2592, 1944);
+            hwindow.HImagePart = new Rect(0, 0, 2592, 1944);
             // CAM3 call
             Thread LiveCam3Thread = new Thread(new ThreadStart(this.LiveCam3));
             LiveCam3Thread.Start();
@@ -134,7 +134,7 @@ namespace VizijskiSustavWPF
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = false;
-            hWindowControlWPF1.ImagePart = new Rect(0, 0, 3856, 2764);
+            hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
             // CAM4 call
             Thread LiveCam4Thread = new Thread(new ThreadStart(this.LiveCam4));
             LiveCam4Thread.Start();

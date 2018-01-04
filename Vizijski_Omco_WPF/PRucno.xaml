@@ -3,7 +3,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VizijskiSustavWPF" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" xmlns:limovi="clr-namespace:VizijskiSustavWPF.limovi" 
-      xmlns:my="clr-namespace:HalconDotNet;assembly=halcondotnet"
+      xmlns:HalconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
       xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
       xmlns:MjerniStolLimovi="clr-namespace:MjerniStolLimovi;assembly=MjerniStolLimovi" 
       xmlns:Drawing="clr-namespace:DocumentFormat.OpenXml.Drawing;assembly=DocumentFormat.OpenXml" x:Name="page" 
@@ -44,7 +44,11 @@
             <!-- Grid za sliku s kamere ili web kamere -->
             <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
                 <!--my:HWindowControlWPF  Name="hWindowControlWPF1"    ImagePart="0,0,3856,2764" PreviewMouseDown="hWindowControlWPF1_PreviewMouseDown" /-->
-                <my:HWindowControlWPF Name="hWindowControlWPF1" ImagePart="0,0,3856,2764"/>
+                <!-- my:HWindowControlWPF Name="hWindowControlWPF1" ImagePart="0,0,3856,2764"/ -->
+                <HalconDotNet:HSmartWindowControlWPF Name="hwindow" Width="{Binding ElementName=WidthSlider, Path=Value}"
+                                                 Height="{Binding ElementName=HeightSlider, Path=Value}"
+                                                 HImagePart="0,0,3856,2764"
+                                                 />
             </Grid>
             <!--<WPFMediaKit:VideoCaptureElement Grid.Column="0" Grid.Row="1" Margin="4,4,4,4" Grid.RowSpan="2"></WPFMediaKit:VideoCaptureElement>
             <webcam:VideoCaptureElement DesiredPixelWidth="320"
@@ -223,7 +227,6 @@
             </Grid>
 
             <!--GridSplitter HorizontalAlignment="Left" Height="Auto" Margin="790,0,0,0" VerticalAlignment="Stretch" Width="2" Background="Black" Foreground="Black" BorderThickness="0" Grid.RowSpan="3"/-->
-            <GridSplitter Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Height="Auto" VerticalAlignment="Stretch" Width="4" Background="Black" Foreground="Black" BorderThickness="0" />
             <Grid Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" Margin="4,43,4,2">
                 <Grid Margin="0,0,0,0">
                     <Grid.RowDefinitions>

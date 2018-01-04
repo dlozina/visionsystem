@@ -23,8 +23,8 @@ public partial class HDevelopExport
     private HTuple hv_output = new HTuple();
     private HTuple hv_outputmm = new HTuple();
     // Diameter and side definition for all parameters
-    private HTuple hv_side = null;
-    private HTuple hv_dia = null;
+    //private HTuple hv_side = null;
+    //private HTuple hv_dia = null;
 
     // Definition of variables D1 S1
 
