@@ -4,14 +4,13 @@ using HalconDotNet;
 public partial class HDevelopExport
 {
     // Main procedure 
-    private void DiameterAction(HTuple hv_side, HTuple hv_dia)
+    private void DiameterAction(HTuple hv_dia, HTuple hv_side)
     {
         // Local iconic variables 
-        HObject ho_Image, ho_DerivGauss=null, ho_RegionCrossings=null;
+        HObject ho_Image, ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings=null;
         HObject ho_Region=null, ho_region_outer=null, ho_contour_outer=null;
         HObject ho_ContCircle=null;
         // Local control variables 
-        HTuple hv_AcqHandle = null;
         HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
         HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
         HTuple hv_row_len = new HTuple(), hv_row_outer = new HTuple();
@@ -24,7 +23,6 @@ public partial class HDevelopExport
         HTuple hv_StartPhi = new HTuple(), hv_EndPhi = new HTuple();
         HTuple hv_PointOrder = new HTuple(), hv_TupleMax = new HTuple();
         HTuple hv_IndexMax = new HTuple(), hv_colToMax0 = new HTuple();
-        //HTuple hv_output = new HTuple(), hv_outputmm = new HTuple();
         HTuple hv_TupleMin = new HTuple(), hv_IndexMin = new HTuple();
         HTuple hv_colToMin0 = new HTuple(), hv_Exception = null;
         HTuple hv_MessageError = new HTuple();
@@ -37,18 +35,16 @@ public partial class HDevelopExport
         HOperatorSet.GenEmptyObj(out ho_contour_outer);
         HOperatorSet.GenEmptyObj(out ho_ContCircle);
 
-        try
-        {
+        //try
+        //{
             // Camera communication - Open
             openCAMFrame();
             HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
             // Camera communication - Close
             closeCAMFrame();
 
-            //hv_side = 2;
-            //hv_dia = 1;
-            try
-            {
+            //try
+            //{
 
                 HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
                 //* Define constants and tuples:
@@ -57,8 +53,13 @@ public partial class HDevelopExport
                 hv_row_len = hv_Height.Clone();
                 hv_row_outer = new HTuple();
                 hv_col_outer = new HTuple();
-                //* Edge detection
-                HOperatorSet.DerivateGauss(ho_Image, out ho_DerivGauss, 1, "x");
+
+        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
+        HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_Image);
+            
+
+        //* Edge detection
+        HOperatorSet.DerivateGauss(ho_Image, out ho_DerivGauss, 1, "x");
 
                 //* diameter 2 doesn't have a clean background => different values
                 if ((int)(new HTuple(hv_dia.TupleEqual(2))) != 0)
@@ -76,8 +77,8 @@ public partial class HDevelopExport
                 //* Retrieve points from detected edges
                 HOperatorSet.GetRegionPoints(ho_Region, out hv_Rows, out hv_Cols);
 
-                //* Side 1 => upper side closer to probe
-                if ((int)(new HTuple(hv_side.TupleEqual(1))) != 0)
+                //* Side 2 => upper side closer to probe
+                if ((int)(new HTuple(hv_side.TupleEqual(2))) != 0)
                 {
                     //* Extract the points which define the outer or inner edge
                     if ((int)((new HTuple(hv_dia.TupleEqual(3))).TupleOr(new HTuple(hv_dia.TupleEqual(4)))) != 0)
@@ -164,8 +165,8 @@ public partial class HDevelopExport
                     hv_outputmm = hv_output*0.001675;
                 }
 
-                //* Side 2 => side closer to vertical moving axis
-                if ((int)(new HTuple(hv_side.TupleEqual(2))) != 0)
+                //* Side 1 => side closer to vertical moving axis
+                if ((int)(new HTuple(hv_side.TupleEqual(1))) != 0)
                 {
                     //* Extract the points which define the outer or inner edge
                     if ((int)((new HTuple(hv_dia.TupleEqual(3))).TupleOr(new HTuple(hv_dia.TupleEqual(4)))) != 0)
@@ -251,26 +252,27 @@ public partial class HDevelopExport
                     hv_outputmm = hv_output*0.001675;
                 }
 
-            }
-            // catch (Exception) 
-            catch (HalconException HDevExpDefaultException1)
-            {
-            HDevExpDefaultException1.ToHTuple(out hv_Exception);
-            hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
-            }
-        }
-        catch (HalconException HDevExpDefaultException)
-        {
-            ho_Image.Dispose();
-            ho_DerivGauss.Dispose();
-            ho_RegionCrossings.Dispose();
-            ho_Region.Dispose();
-            ho_region_outer.Dispose();
-            ho_contour_outer.Dispose();
-            ho_ContCircle.Dispose();
+            //}
+            //// catch (Exception) 
+            //catch (HalconException HDevExpDefaultException1)
+            //{
+            //HDevExpDefaultException1.ToHTuple(out hv_Exception);
+            //hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
+            //}
 
-            throw HDevExpDefaultException;
-        }
+        //}
+        //catch (HalconException HDevExpDefaultException)
+        //{
+        //    ho_Image.Dispose();
+        //    ho_DerivGauss.Dispose();
+        //    ho_RegionCrossings.Dispose();
+        //    ho_Region.Dispose();
+        //    ho_region_outer.Dispose();
+        //    ho_contour_outer.Dispose();
+        //    ho_ContCircle.Dispose();
+
+        //    throw HDevExpDefaultException;
+        //}
         ho_Image.Dispose();
         ho_DerivGauss.Dispose();
         ho_RegionCrossings.Dispose();
