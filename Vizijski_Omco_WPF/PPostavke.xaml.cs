@@ -104,7 +104,7 @@ namespace VizijskiSustavWPF
         {
             //App.pSablja.reset();
             App.pSrh.reset();
-            App.pValovitost.reset();
+            //App.pValovitost.reset();
             App.pKut.reset();
             App.MainReportInterface.ManualThicknessMeas = 0;
         }

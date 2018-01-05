@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:HalconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
       xmlns:local="clr-namespace:VizijskiSustavWPF" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" xmlns:limovi="clr-namespace:VizijskiSustavWPF.limovi" 
       xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
     xmlns:MjerniStolLimovi="clr-namespace:MjerniStolLimovi;assembly=MjerniStolLimovi" 
@@ -11,9 +12,6 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
 	Title="PValovitost" d:DesignWidth="1354" d:DesignHeight="828" Loaded="Page_Loaded">
 
-    <!--<Page.Resources>
-        <lcl:MainViewModel x:Key="Key1"/>
-    </Page.Resources>-->
 
     <Grid >
         <Grid.RowDefinitions>
@@ -21,37 +19,266 @@
         </Grid.RowDefinitions>
 
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >
-            <!--<Grid.DataContext>
-                <local:MainViewModel></local:MainViewModel>
-            </Grid.DataContext>-->
+            
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="490*"/>
-                <ColumnDefinition Width="490*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="295"/>
-                <RowDefinition Height="293*"/>
-                <RowDefinition Height="102"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="290*"/>
+
             </Grid.RowDefinitions>
-            <Grid Margin="4,4,4,0" Grid.Row="2" Grid.Column="0">
-                <Border BorderBrush="Black" BorderThickness="0"/>
-            </Grid>
-
-
-            <Grid  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="0,4,4,0" MinHeight="100" Background="black">
+            
+            <!-- Unos kota -->
+            <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,43,4,4">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="59*"/>
-                    <RowDefinition Height="96"/>
-                    <RowDefinition Height="98"/>
-                    
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <UniformGrid Background="Black" Grid.Row="2" Grid.Column="1"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UNOS TEORETSKIH KOTA ZA POZICIJU"/></TextBlock>
+
+                <Grid Grid.Row="1" Grid.Column="0" Background="Black" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="DIJAMETAR 1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    <local:InputField Grid.Column="1" x:Name="kota_br1"  ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.ZadanaPozicija, ElementName=if_setpointPosX}" PLCConnection="{DynamicResource PLCinterf}"/>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="0" Background="Black" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="DIJAMETAR 2" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    <local:InputField Grid.Column="1" x:Name="kota_br2"  ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.ZadanaPozicija, ElementName=if_setpointPosX}" PLCConnection="{DynamicResource PLCinterf}"/>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="0" Background="Black" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="DIJAMETAR 3" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    <local:InputField Grid.Column="1" x:Name="kota_br3"  ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.ZadanaPozicija, ElementName=if_setpointPosX}" PLCConnection="{DynamicResource PLCinterf}"/>
+                </Grid>
+
+                <Grid Grid.Row="4" Grid.Column="0" Background="Black" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="DIJAMETAR 4" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    <local:InputField Grid.Column="1" x:Name="kota_br4"  ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.ZadanaPozicija, ElementName=if_setpointPosX}" PLCConnection="{DynamicResource PLCinterf}"/>
+                </Grid>
+
+                <Grid Grid.Row="5" Grid.Column="0" Background="Black" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="MAKSIMALNA VISINA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    <local:InputField Grid.Column="1" x:Name="max_visina"  ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.ZadanaPozicija, ElementName=if_setpointPosX}" PLCConnection="{DynamicResource PLCinterf}"/>
+                </Grid>
+
+                <TextBlock Margin="1" Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="START POZICIONIRANJA"/></TextBlock>
+                <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD1" Text="IDI U POZICIJU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                <local:BitButton Grid.Row="2" Grid.Column="1" x:Name="bb_pozicijaUcenjaD2" Text="IDI U POZICIJU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                <local:BitButton Grid.Row="3" Grid.Column="1" x:Name="bb_pozicijaUcenjaD3" Text="IDI U POZICIJU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                <local:BitButton Grid.Row="4" Grid.Column="1" x:Name="bb_pozicijaUcenjaD4" Text="IDI U POZICIJU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                <local:BitButton Grid.Row="5" Grid.Column="1" x:Name="bb_pozicijaUcenjaV" Text="IDI U POZICIJU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+
+                <TextBlock Margin="1" Grid.Row="0" Grid.Column="2" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="KAMERA"/></TextBlock>
+                <Button Grid.Row="1" Grid.Column="2" x:Name="b_startKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UPALI KAMERU" Click="b_startKamere_Click" />
+                <Button Grid.Row="2" Grid.Column="2" x:Name="b_sTOPKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZGASI KAMERU" Click="b_sTOPKamere_Click" />
+
+                <TextBlock Margin="1" Grid.Row="0" Grid.Column="3" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="ANALIZA SLIKE"/></TextBlock>
+                <Button Grid.Row="1" Grid.Column="3" x:Name="b_analizaSlikeD1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START ANALIZE D1" />
+                <Button Grid.Row="2" Grid.Column="3" x:Name="b_analizaSlikeD2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START ANALIZE D2" />
+                <Button Grid.Row="3" Grid.Column="3" x:Name="b_analizaSlikeD3" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START ANALIZE D3" />
+                <Button Grid.Row="4" Grid.Column="3" x:Name="b_analizaSlikeD4" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START ANALIZE D4" />
+
+                <TextBlock Margin="0" Grid.Row="0" Grid.Column="4" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UČENJE"/></TextBlock>
+                <local:BitButton Grid.Row="1" Grid.Column="4" x:Name="bb_ucenjeD1" Text="NAUČI D1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                <local:BitButton Grid.Row="2" Grid.Column="4" x:Name="bb_ucenjeD2" Text="NAUČI D2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                <local:BitButton Grid.Row="3" Grid.Column="4" x:Name="bb_ucenjeD3" Text="NAUČI D3" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                <local:BitButton Grid.Row="4" Grid.Column="4" x:Name="bb_ucenjeD4" Text="NAUČI D4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+
+
             </Grid>
+
+
+            <!-- Prikaz Slike -->
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
+                
+                <HalconDotNet:HSmartWindowControlWPF x:Name="hwindowTeach" Width="{Binding ElementName=WidthSlider, Path=Value}"
+                                                 Height="{Binding ElementName=HeightSlider, Path=Value}"
+                                                 HImagePart="0,0,3856,2764"
+                                                 />
+            </Grid>
+            <!-- Grid na sredini desno -->
+            <Grid Margin="0,43,4,4" Grid.RowSpan="3" Grid.Column="2"   >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid Background="{DynamicResource pozadina1}" Margin="0,0,0,2">
+                    <Grid Grid.Column="1" Margin="4,4,4,4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="1" Grid.Row="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="  X OS"/></TextBlock>
+                        <Grid Grid.Row="1" Background="Black">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:BitButton Grid.Column="0" x:Name="bb_jogPlusX" Text="JOG +" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.JogPlus, ElementName=bb_jogPlusX}" />
+                            <local:BitButton Grid.Column="1" x:Name="bb_jogMinusX" Text="JOG -" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.JogMinus, ElementName=bb_jogMinusX}"  />
+                        </Grid>
+                        <local:BitButton Grid.Row="2" x:Name="bb_uHomeX" Text="HOME" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUHome, ElementName=bb_uHomeX}" StatusTag="{Binding PLCConnection.STATUS.HorizontalnaOs.UHome, ElementName=bb_uHomeX}" OnColor="LightGreen" OffColor="Black" />
+                        <local:BitButton Grid.Row="3" x:Name="bb_uPozicijuX" Text="IDI U POZICIJU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                        <Grid Grid.Row="4" Background="Black" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="ZADANA POZICIJA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                            <local:InputField Grid.Column="1" x:Name="if_setpointPosX"  ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.ZadanaPozicija, ElementName=if_setpointPosX}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Background="Black">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="AKTUALNA POZICIJA" Margin="1" Background="{DynamicResource pozadina1}"  FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" />
+                            <local:OutputField Grid.Column="1" x:Name="of_actualPosX" ControlTag="{Binding PLCConnection.STATUS.HorizontalnaOs.AktualnaPozicija, ElementName=of_actualPosX}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        </Grid>
+                        <local:BitButton Grid.Row="6" x:Name="bb_reset" Text="GREŠKA/RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.Reset, ElementName=bb_reset}" StatusTag="{Binding PLCConnection.STATUS.HorizontalnaOs.Greska, ElementName=bb_reset}" OnColor="Pink" OffColor="Black"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Background="{DynamicResource pozadina1}" Margin="0,2,0,2">
+                    <Grid Grid.Column="1" Grid.Row="1" Margin="4,4,4,4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="1" Grid.Row="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="  Y OS"/></TextBlock>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:BitButton Grid.Column="0" x:Name="bb_jogPlusY" Text="JOG +" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.VertikalnaOs.JogPlus, ElementName=bb_jogPlusY}"  />
+                            <local:BitButton Grid.Column="1" x:Name="bb_jogMinusY" Text="JOG -" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.VertikalnaOs.JogMinus, ElementName=bb_jogMinusY}"  />
+                        </Grid>
+                        <local:BitButton Grid.Row="2" x:Name="bb_uHomeY" Text="HOME" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.VertikalnaOs.IdiUHome, ElementName=bb_uHomeY}" StatusTag="{Binding PLCConnection.STATUS.VertikalnaOs.UHome, ElementName=bb_uHomeY}" OnColor="LightGreen" OffColor="Black" />
+                        <local:BitButton Grid.Row="3" x:Name="bb_uPozicijuY" Text="IDI U POZICIJU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.VertikalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuY}" />
+                        <Grid Grid.Row="4" Background="Black" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="ZADANA POZICIJA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" />
+                            <local:InputField Grid.Column="1" x:Name="if_setpointPosY"  ControlTag="{Binding PLCConnection.CONTROL.VertikalnaOs.ZadanaPozicija, ElementName=if_setpointPosY}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        </Grid>
+
+                        <Grid Grid.Row="5" Background="Black">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="AKTUALNA POZICIJA" Margin="1" Background="{DynamicResource pozadina1}"  FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" />
+                            <local:OutputField Grid.Column="1" x:Name="of_actualPosY" ControlTag="{Binding PLCConnection.STATUS.VertikalnaOs.AktualnaPozicija, ElementName=of_actualPosY}" PLCConnection="{DynamicResource PLCinterf}"  />
+                        </Grid>
+                        <local:BitButton Grid.Row="6" x:Name="bb_resetY" Text="GREŠKA/RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.VertikalnaOs.Reset, ElementName=bb_resetY}" StatusTag="{Binding PLCConnection.STATUS.VertikalnaOs.Greska, ElementName=bb_resetY}" OnColor="Pink" OffColor="Black"/>
+
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2" Background="{DynamicResource pozadina1}" Margin="0,2,0,0">
+                    <Grid Grid.Column="1" Grid.Row="2" Margin="4,4,4,4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="1" Grid.Row="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="  R OS"/></TextBlock>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:BitButton Grid.Column="0" x:Name="bb_jogPlusR" Text="JOG +" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.RotacijskaOs.JogPlus, ElementName=bb_jogPlusR}"  />
+                            <local:BitButton Grid.Column="1" x:Name="bb_jogMinusR" Text="JOG -" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.RotacijskaOs.JogMinus, ElementName=bb_jogMinusR}"  />
+                        </Grid>
+                        <local:BitButton Grid.Row="2" x:Name="bb_referencirajR" Text="REFERENCIRAJ" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.RotacijskaOs.Referenciraj, ElementName=bb_referencirajR}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.Referencirana, ElementName=bb_referencirajR}" OnColor="LightGreen" OffColor="Black" />
+                        <local:BitButton Grid.Row="3" x:Name="bb_uHomeR" Text="HOME" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.RotacijskaOs.IdiUHome, ElementName=bb_uHomeR}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=bb_uHomeR}" OnColor="LightGreen" OffColor="Black" />
+                        <local:BitButton Grid.Row="4" x:Name="bb_uPozicijuR" Text="IDI U POZICIJU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.RotacijskaOs.IdiUPoziciju, ElementName=bb_uPozicijuR}" />
+                        <Grid Grid.Row="5" Background="Black" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="ZADANA POZICIJA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                            <local:InputField Grid.Column="1" x:Name="if_setpointPosR"  ControlTag="{Binding PLCConnection.CONTROL.RotacijskaOs.ZadanaPozicija, ElementName=if_setpointPosR}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        </Grid>
+
+                        <Grid Grid.Row="6" Background="Black">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="AKTUALNA POZICIJA" Margin="1" Background="{DynamicResource pozadina1}"  FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" />
+                            <local:OutputField Grid.Column="1" x:Name="of_actualPosR" ControlTag="{Binding PLCConnection.STATUS.RotacijskaOs.AktualnaPozicija, ElementName=of_actualPosR}" PLCConnection="{DynamicResource PLCinterf}"  />
+                        </Grid>
+                        <local:BitButton Grid.Row="7" x:Name="bb_resetR" Text="GREŠKA/RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.RotacijskaOs.Reset, ElementName=bb_resetR}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.Greska, ElementName=bb_resetR}" OnColor="Pink" OffColor="Black"/>
+
+                    </Grid>
+                </Grid>
+
+
+
+            </Grid>
+
 
         </Grid>
         <Grid Height="35" Margin="4,4,4,0" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
-            <TextBlock Text="VALOVITOST" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+            <TextBlock Text="UČENJE" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
         </Grid>
     </Grid>
 </Page>

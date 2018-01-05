@@ -520,16 +520,12 @@ namespace VizijskiSustavWPF
             // Slike limova za izvještaj
             App.pDimenzije.GetDimenzijeSheetImage();
             App.pSrh.GetSrhSheetImage();
-            //App.pSablja.GetSabljaSheetImage();
-            App.pValovitost.GetValovitostSheetImage();
 
             // Slike grafova za izvještaj
-            App.pValovitost.GetRipplePlotImage();
             App.pSrh.GetBurrPlotImage();
             App.pSablja.GetCamberPlotImage();
-
+   
             App.PLC.ActiveScreen = 8;
-            //App.pIzvjestaji.lb_temperatura.Content = (((int)App.PLC.STATUS.Temperature.LG1.Value) / 10.0f).ToString();
         }
 
         private void izvjestaji_MouseEnter(object sender, MouseEventArgs e)

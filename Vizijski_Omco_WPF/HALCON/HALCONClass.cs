@@ -19,6 +19,8 @@ public partial class HDevelopExport
     HTuple hv_AcqHandle = new HTuple();
     // Framegrabber Handle for live CAM
     public HTuple hv_ExpDefaultWinHandle;
+    // Framegrabber Handle for teach CAM
+    public HTuple hv_TeachWinHandle;
     // Output definition for all Diameters
     private HTuple hv_output = new HTuple();
     private HTuple hv_outputmm = new HTuple();
@@ -69,6 +71,13 @@ public partial class HDevelopExport
     {
         get { return exitloop4; }
         set { exitloop4 = value; }
+    }
+
+    private bool teachloop;
+    public bool Teachloop
+    {
+        get { return teachloop; }
+        set { teachloop = value; }
     }
 
     private bool porositydetectedver;

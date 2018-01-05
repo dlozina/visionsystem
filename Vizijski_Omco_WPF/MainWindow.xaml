@@ -143,8 +143,8 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/sort-z-to-a.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
-                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" STRING"/></TextBlock>
+                    <Image Source="ikone/kut.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" UČENJE"/></TextBlock>
                 </StackPanel>
             </Button>
             <Button x:Name= "srh" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Click="srh_Click" MouseEnter="srh_MouseEnter" MouseLeave="srh_MouseLeave">
