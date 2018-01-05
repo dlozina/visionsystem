@@ -8,6 +8,7 @@ public partial class HDevelopExport
     {
         // Local iconic variables 
         HObject ho_Image=null;
+        HObject ho_Rectangle = null;
         // Local control variables 
         HTuple hv_AcqHandle = null;
         // Initialize local and output iconic variables 
@@ -18,7 +19,7 @@ public partial class HDevelopExport
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
         HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
 
-        //HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height, hv_HalfW + 150);
+        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 1928 - 150, 2764, 1928 + 150);
 
         while (teachloop == false)
         {
@@ -26,6 +27,9 @@ public partial class HDevelopExport
 	        // Live image from CAM4
             HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
             HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle);
+            HOperatorSet.SetColor(hv_TeachWinHandle, "spring green");
+            HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 - 150, 2764, 1928 - 150);
+            HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 + 150, 2764, 1928 + 150);
         }
 	    // Image Acquisition CLOSE frame
         ho_Image.Dispose();
