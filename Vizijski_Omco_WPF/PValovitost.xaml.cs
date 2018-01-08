@@ -63,5 +63,45 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.Teachloop = true;
         }
+
+        private void b_analizaSlikeD1S1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void b_analizaSlikeD1S2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void b_analizaSlikeD2S1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void b_analizaSlikeD2S2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void b_analizaSlikeD3S1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void b_analizaSlikeD3S2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void b_analizaSlikeD4S1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void b_analizaSlikeD4S2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

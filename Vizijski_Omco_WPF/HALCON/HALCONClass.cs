@@ -27,6 +27,8 @@ public partial class HDevelopExport
     // Diameter and side definition for all parameters
     //private HTuple hv_side = null;
     //private HTuple hv_dia = null;
+    // Test image definition
+    HObject ho_TestImage = null;
 
     // Definition of variables D1 S1
 
