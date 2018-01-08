@@ -36,6 +36,13 @@ namespace VizijskiSustavWPF
             App.HDevExp.RunHalcon15(WindowID);
         }
 
+        private void AnalizeD1S1()
+        {
+            App.HDevExp.InitHalcon();
+            HTuple WindowID = hwindowTeach.HalconID;
+            App.HDevExp.RunHalcon16(WindowID);
+        }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -66,6 +73,10 @@ namespace VizijskiSustavWPF
 
         private void b_analizaSlikeD1S1_Click(object sender, RoutedEventArgs e)
         {
+            App.HDevExp.Teachloop = true;
+            Thread TestAnalizeD1S1 = new Thread(new ThreadStart(this.AnalizeD1S1));
+            Name = "TestAnalizeD1S1Thread";
+            TestAnalizeD1S1.Start();
 
         }
 

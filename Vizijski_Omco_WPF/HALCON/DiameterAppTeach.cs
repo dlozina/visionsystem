@@ -4,12 +4,13 @@ using HalconDotNet;
 public partial class HDevelopExport
 {
     // Main procedure 
-    public void TeachAction(HTuple hv_dia, HTuple hv_side)
+    private void TeachAction(HTuple hv_dia, HTuple hv_side)
     {
+        //ho_TestImage = ho_TempImage;
         // Local iconic variables 
-        HObject ho_TestImage, ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings=null;
+        HObject ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings=null;
         HObject ho_Region=null, ho_region_outer=null, ho_contour_outer=null;
-        HObject ho_ContCircle=null;
+        HObject ho_ContCircle=null, ho_ReducedImage=null;
         // Local control variables 
         HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
         HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
@@ -38,10 +39,10 @@ public partial class HDevelopExport
         //try
         //{
             // Camera communication - Open
-            //openCAMFrame();
-            //HOperatorSet.GrabImageAsync(out ho_TestImage, hv_AcqHandle, -1);
+            openCAMFrame();
+            HOperatorSet.GrabImageAsync(out ho_TestImage, hv_AcqHandle, -1);
             // Camera communication - Close
-            //closeCAMFrame();
+            closeCAMFrame();
 
             //try
             //{
@@ -54,9 +55,9 @@ public partial class HDevelopExport
                 hv_row_outer = new HTuple();
                 hv_col_outer = new HTuple();
                 HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
-                HOperatorSet.ReduceDomain(ho_TestImage, ho_Rectangle, out ho_TestImage);
+                HOperatorSet.ReduceDomain(ho_TestImage, ho_Rectangle, out ho_ReducedImage);
                 //* Edge detection
-                HOperatorSet.DerivateGauss(ho_TestImage, out ho_DerivGauss, 1, "x");
+                HOperatorSet.DerivateGauss(ho_ReducedImage, out ho_DerivGauss, 1, "x");
 
                 //* diameter 2 doesn't have a clean background => different values
                 if ((int)(new HTuple(hv_dia.TupleEqual(2))) != 0)
@@ -236,7 +237,7 @@ public partial class HDevelopExport
                     HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Row, hv_Col, hv_Radius, 
                         0, 6.28318, "positive", 1);
                     HOperatorSet.GetContourXld(ho_ContCircle, out hv_Row, out hv_Col);
-
+                    
                     //* find the minimum of the estimated circle
                     HOperatorSet.TupleMin(hv_Col, out hv_TupleMin);
                     HOperatorSet.TupleFindFirst(hv_Col, hv_TupleMin, out hv_IndexMin);
@@ -245,6 +246,10 @@ public partial class HDevelopExport
                     hv_colToMin0 = hv_Col.TupleSelect(hv_IndexMin);
                     hv_output = hv_HalfW-hv_colToMin0;
                     hv_outputmm = hv_output*0.001675;
+
+                    // Display
+                    HOperatorSet.DispObj(ho_TestImage, hv_TeachWinHandle);
+                    HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
                 }
 
             //}
@@ -275,6 +280,21 @@ public partial class HDevelopExport
         ho_region_outer.Dispose();
         ho_contour_outer.Dispose();
         ho_ContCircle.Dispose();
+    }
+
+    // D1 S1 Call
+    public void RunHalcon16(HTuple Window)
+    {
+        hv_TeachWinHandle = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle);
+        TeachAction(1, 1);
+    }
+    // D1 S2 Call
+    public void RunHalcon17(HTuple Window)
+    {
+        hv_TeachWinHandle = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle);
+        TeachAction(1, 2);
     }
 
 }
