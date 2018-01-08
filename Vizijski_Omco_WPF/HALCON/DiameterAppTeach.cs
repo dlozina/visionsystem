@@ -6,29 +6,9 @@ public partial class HDevelopExport
     // Main procedure 
     private void TeachAction(HTuple hv_dia, HTuple hv_side)
     {
-        //ho_TestImage = ho_TempImage;
-        // Local iconic variables 
-        HObject ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings=null;
-        HObject ho_Region=null, ho_region_outer=null, ho_contour_outer=null;
-        HObject ho_ContCircle=null, ho_ReducedImage=null;
-        // Local control variables 
-        HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
-        HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
-        HTuple hv_row_len = new HTuple(), hv_row_outer = new HTuple();
-        HTuple hv_col_outer = new HTuple(), hv_Rows = new HTuple();
-        HTuple hv_Cols = new HTuple(), hv_i = new HTuple(), hv_Indices = new HTuple();
-        HTuple hv_Length = new HTuple(), hv_col_min = new HTuple();
-        HTuple hv_indice_min = new HTuple(), hv_col_max = new HTuple();
-        HTuple hv_indice_max = new HTuple(), hv_Row = new HTuple();
-        HTuple hv_Col = new HTuple(), hv_Radius = new HTuple();
-        HTuple hv_StartPhi = new HTuple(), hv_EndPhi = new HTuple();
-        HTuple hv_PointOrder = new HTuple(), hv_TupleMax = new HTuple();
-        HTuple hv_IndexMax = new HTuple(), hv_colToMax0 = new HTuple();
-        HTuple hv_TupleMin = new HTuple(), hv_IndexMin = new HTuple();
-        HTuple hv_colToMin0 = new HTuple(), hv_Exception = null;
-        HTuple hv_MessageError = new HTuple();
+        
         // Initialize local and output iconic variables 
-        HOperatorSet.GenEmptyObj(out ho_TestImage);
+        HOperatorSet.GenEmptyObj(out ho_Image);
         HOperatorSet.GenEmptyObj(out ho_DerivGauss);
         HOperatorSet.GenEmptyObj(out ho_RegionCrossings);
         HOperatorSet.GenEmptyObj(out ho_Region);
@@ -40,14 +20,14 @@ public partial class HDevelopExport
         //{
             // Camera communication - Open
             openCAMFrame();
-            HOperatorSet.GrabImageAsync(out ho_TestImage, hv_AcqHandle, -1);
+            HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
             // Camera communication - Close
             closeCAMFrame();
 
             //try
             //{
 
-                HOperatorSet.GetImageSize(ho_TestImage, out hv_Width, out hv_Height);
+                HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
                 //* Define constants and tuples:
                 hv_HalfH = hv_Height/2;
                 hv_HalfW = hv_Width/2;
@@ -55,7 +35,7 @@ public partial class HDevelopExport
                 hv_row_outer = new HTuple();
                 hv_col_outer = new HTuple();
                 HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
-                HOperatorSet.ReduceDomain(ho_TestImage, ho_Rectangle, out ho_ReducedImage);
+                HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ReducedImage);
                 //* Edge detection
                 HOperatorSet.DerivateGauss(ho_ReducedImage, out ho_DerivGauss, 1, "x");
 
@@ -159,6 +139,10 @@ public partial class HDevelopExport
                     hv_colToMax0 = hv_Col.TupleSelect(hv_IndexMax);
                     hv_output = (-hv_HalfW)+hv_colToMax0;
                     hv_outputmm = hv_output*0.001675;
+
+                    // Display S1
+                    HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle);
+                    HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
                 }
 
                 //* Side 1 => side closer to vertical moving axis
@@ -247,8 +231,8 @@ public partial class HDevelopExport
                     hv_output = hv_HalfW-hv_colToMin0;
                     hv_outputmm = hv_output*0.001675;
 
-                    // Display
-                    HOperatorSet.DispObj(ho_TestImage, hv_TeachWinHandle);
+                    // Display S1
+                    HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle);
                     HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
                 }
 
@@ -273,7 +257,7 @@ public partial class HDevelopExport
 
         //    throw HDevExpDefaultException;
         //}
-        ho_TestImage.Dispose();
+        ho_Image.Dispose();
         ho_DerivGauss.Dispose();
         ho_RegionCrossings.Dispose();
         ho_Region.Dispose();
@@ -295,6 +279,48 @@ public partial class HDevelopExport
         hv_TeachWinHandle = Window;
         HOperatorSet.ClearWindow(hv_TeachWinHandle);
         TeachAction(1, 2);
+    }
+    // D2 S1 Call
+    public void RunHalcon18(HTuple Window)
+    {
+        hv_TeachWinHandle = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle);
+        TeachAction(2, 1);
+    }
+    // D2 S2 Call
+    public void RunHalcon19(HTuple Window)
+    {
+        hv_TeachWinHandle = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle);
+        TeachAction(2, 2);
+    }
+    // D3 S1 Call
+    public void RunHalcon20(HTuple Window)
+    {
+        hv_TeachWinHandle = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle);
+        TeachAction(3, 1);
+    }
+    // D3 S2 Call
+    public void RunHalcon21(HTuple Window)
+    {
+        hv_TeachWinHandle = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle);
+        TeachAction(3, 2);
+    }
+    // D4 S1 Call
+    public void RunHalcon22(HTuple Window)
+    {
+        hv_TeachWinHandle = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle);
+        TeachAction(4, 1);
+    }
+    // D4 S2 Call
+    public void RunHalcon23(HTuple Window)
+    {
+        hv_TeachWinHandle = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle);
+        TeachAction(4, 2);
     }
 
 }

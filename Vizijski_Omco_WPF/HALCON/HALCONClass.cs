@@ -27,8 +27,27 @@ public partial class HDevelopExport
     // Diameter and side definition for all parameters
     //private HTuple hv_side = null;
     //private HTuple hv_dia = null;
-    // Test image definition
-    HObject ho_TestImage = null;
+    // Diameter app variables
+    // Local iconic variables 
+    HObject ho_Image = null, ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings = null;
+    HObject ho_Region = null, ho_region_outer = null, ho_contour_outer = null;
+    HObject ho_ContCircle = null, ho_ReducedImage = null;
+    // Local control variables 
+    HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
+    HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
+    HTuple hv_row_len = new HTuple(), hv_row_outer = new HTuple();
+    HTuple hv_col_outer = new HTuple(), hv_Rows = new HTuple();
+    HTuple hv_Cols = new HTuple(), hv_i = new HTuple(), hv_Indices = new HTuple();
+    HTuple hv_Length = new HTuple(), hv_col_min = new HTuple();
+    HTuple hv_indice_min = new HTuple(), hv_col_max = new HTuple();
+    HTuple hv_indice_max = new HTuple(), hv_Row = new HTuple();
+    HTuple hv_Col = new HTuple(), hv_Radius = new HTuple();
+    HTuple hv_StartPhi = new HTuple(), hv_EndPhi = new HTuple();
+    HTuple hv_PointOrder = new HTuple(), hv_TupleMax = new HTuple();
+    HTuple hv_IndexMax = new HTuple(), hv_colToMax0 = new HTuple();
+    HTuple hv_TupleMin = new HTuple(), hv_IndexMin = new HTuple();
+    HTuple hv_colToMin0 = new HTuple(), hv_Exception = null;
+    HTuple hv_MessageError = new HTuple();
 
     // Definition of variables D1 S1
 

@@ -6,26 +6,6 @@ public partial class HDevelopExport
     // Main procedure 
     private void DiameterAction(HTuple hv_dia, HTuple hv_side)
     {
-        // Local iconic variables 
-        HObject ho_Image, ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings=null;
-        HObject ho_Region=null, ho_region_outer=null, ho_contour_outer=null;
-        HObject ho_ContCircle=null;
-        // Local control variables 
-        HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
-        HTuple hv_HalfH = new HTuple(), hv_HalfW = new HTuple();
-        HTuple hv_row_len = new HTuple(), hv_row_outer = new HTuple();
-        HTuple hv_col_outer = new HTuple(), hv_Rows = new HTuple();
-        HTuple hv_Cols = new HTuple(), hv_i = new HTuple(), hv_Indices = new HTuple();
-        HTuple hv_Length = new HTuple(), hv_col_min = new HTuple();
-        HTuple hv_indice_min = new HTuple(), hv_col_max = new HTuple();
-        HTuple hv_indice_max = new HTuple(), hv_Row = new HTuple();
-        HTuple hv_Col = new HTuple(), hv_Radius = new HTuple();
-        HTuple hv_StartPhi = new HTuple(), hv_EndPhi = new HTuple();
-        HTuple hv_PointOrder = new HTuple(), hv_TupleMax = new HTuple();
-        HTuple hv_IndexMax = new HTuple(), hv_colToMax0 = new HTuple();
-        HTuple hv_TupleMin = new HTuple(), hv_IndexMin = new HTuple();
-        HTuple hv_colToMin0 = new HTuple(), hv_Exception = null;
-        HTuple hv_MessageError = new HTuple();
         // Initialize local and output iconic variables 
         HOperatorSet.GenEmptyObj(out ho_Image);
         HOperatorSet.GenEmptyObj(out ho_DerivGauss);
