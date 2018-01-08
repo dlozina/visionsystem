@@ -281,7 +281,7 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button x:Name="b_zatvoriKadar" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI KADAR CAMERE" Click="b_zatvoriKadar_Click"/>
+                                <Button x:Name="b_zatvoriKadar" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI KADAR KAMERE" Click="b_zatvoriKadar_Click"/>
                                 <Button Grid.Column="1" x:Name="b_izgasiKameru" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZGASI KAMERU" Click="b_izgasiKameru_Click"/>
                             </Grid>
                             
