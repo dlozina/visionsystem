@@ -97,32 +97,32 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD1S1" Text="IDI U S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD1S2" Text="IDI U S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD1S1" Text="IDI U D1 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD1S2" Text="IDI U D1 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="2" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD2S1" Text="IDI U S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD2S2" Text="IDI U S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD2S1" Text="IDI U D2 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD2S2" Text="IDI U D2 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="2" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD3S1" Text="IDI U S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD3S2" Text="IDI U S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD3S1" Text="IDI U D3 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD3S2" Text="IDI U D3 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
                 </Grid>
                 <Grid Grid.Row="4" Grid.Column="2" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD4S1" Text="IDI U S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD4S2" Text="IDI U S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD4S1" Text="IDI U D4 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD4S2" Text="IDI U D4 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
                 </Grid>
                 <local:BitButton Grid.Row="5" Grid.Column="2" Margin="4,0,4,4" x:Name="bb_pozicijaUcenjaV" Text="IDI NA VISINU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
                 <!-- Stupac Kamera -->
@@ -137,15 +137,21 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="b_startKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UPALI KAMERU" Click="b_startKamere_Click" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_resetUcenja" Text="RESET UČENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.HorizontalnaOs.IdiUPoziciju, ElementName=bb_uPozicijuX}" />
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="2" Grid.Column="0" Margin="1" x:Name="b_sTOPKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZGASI KAMERU" Click="b_sTOPKamere_Click" />
+                    <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="b_startKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UPALI KAMERU" Click="b_startKamere_Click" />
                 </Grid>
                 <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="2" Grid.Column="0" Margin="1" x:Name="b_sTOPKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZGASI KAMERU" Click="b_sTOPKamere_Click" />
+                </Grid>
+                <Grid Grid.Row="5" Grid.Column="0" Background="Black" Margin="4,0,4,4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
@@ -158,32 +164,32 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_analizaSlikeD1S1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START D1 S1" Click="b_analizaSlikeD1S1_Click" />
-                    <Button Grid.Row="1" Grid.Column="1" Margin="1" x:Name="b_analizaSlikeD1S2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START D1 S2" Click="b_analizaSlikeD1S2_Click" />
+                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_analizaSlikeD1S1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST D1 S1" Click="b_analizaSlikeD1S1_Click" />
+                    <Button Grid.Row="1" Grid.Column="1" Margin="1" x:Name="b_analizaSlikeD1S2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST D1 S2" Click="b_analizaSlikeD1S2_Click" />
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="3" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_analizaSlikeD2S1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START D2 S1" Click="b_analizaSlikeD2S1_Click" />
-                    <Button Grid.Row="1" Grid.Column="1" Margin="1" x:Name="b_analizaSlikeD2S2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START D2 S2" Click="b_analizaSlikeD2S2_Click" />
+                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_analizaSlikeD2S1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST D2 S1" Click="b_analizaSlikeD2S1_Click" />
+                    <Button Grid.Row="1" Grid.Column="1" Margin="1" x:Name="b_analizaSlikeD2S2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST D2 S2" Click="b_analizaSlikeD2S2_Click" />
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="3" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_analizaSlikeD3S1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START D3 S1" Click="b_analizaSlikeD3S1_Click" />
-                    <Button Grid.Row="1" Grid.Column="1" Margin="1" x:Name="b_analizaSlikeD3S2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START D3 S2" Click="b_analizaSlikeD3S2_Click" />
+                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_analizaSlikeD3S1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST D3 S1" Click="b_analizaSlikeD3S1_Click" />
+                    <Button Grid.Row="1" Grid.Column="1" Margin="1" x:Name="b_analizaSlikeD3S2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST D3 S2" Click="b_analizaSlikeD3S2_Click" />
                 </Grid>
                 <Grid Grid.Row="4" Grid.Column="3" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_analizaSlikeD4S1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START D4 S1" Click="b_analizaSlikeD4S1_Click" />
-                    <Button Grid.Row="1" Grid.Column="1" Margin="1" x:Name="b_analizaSlikeD4S2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="START D4 S2" Click="b_analizaSlikeD4S2_Click" />
+                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_analizaSlikeD4S1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST D4 S1" Click="b_analizaSlikeD4S1_Click" />
+                    <Button Grid.Row="1" Grid.Column="1" Margin="1" x:Name="b_analizaSlikeD4S2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST D4 S2" Click="b_analizaSlikeD4S2_Click" />
                 </Grid>
                 <!-- Stupac Ucenje -->
                 <TextBlock Margin="0" Grid.Row="0" Grid.Column="4" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UČENJE"/></TextBlock>
