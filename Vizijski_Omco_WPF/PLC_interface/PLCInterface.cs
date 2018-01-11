@@ -770,7 +770,7 @@ namespace VizijskiSustavWPF
             public plcTag NoviNalog { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(54, 0), false);
             public plcTag ResetUcenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(54, 1), false);
             public plcTag ZadavanjeDijametara1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(56, 0), 0.0f);
-            public plcTag ZadavanjeDijametara2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(62, 0), 0.0f);
+            public plcTag ZadavanjeDijametara2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(60, 0), 0.0f);
             public plcTag ZadavanjeDijametara3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(64, 0), 0.0f);
             public plcTag ZadavanjeDijametara4 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(68, 0), 0.0f);
             public plcTag ZadavanjeMaxVisine { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(72, 0), 0.0f);
@@ -790,7 +790,7 @@ namespace VizijskiSustavWPF
             public plcTag NauciD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 5), false);
             public plcTag NauciD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 6), false);
             public plcTag NauciD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 7), false);
-            public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 7), false);
+            public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(78, 0), false);
         }
 
     }
