@@ -133,7 +133,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 79, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 87, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -223,7 +223,9 @@ namespace VizijskiSustavWPF
                     CONTROL.Ucenje.ZadavanjeDijametara2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.ZadavanjeDijametara3.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.ZadavanjeDijametara4.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ZadavanjeMaxVisine.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Ucenje.ZadavanjeVisineV1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Ucenje.ZadavanjeVisineV2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Ucenje.ZadavanjeVisineV3.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.IdiUD1S1.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.IdiUD1S2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.IdiUD2S1.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -232,7 +234,8 @@ namespace VizijskiSustavWPF
                     CONTROL.Ucenje.IdiUD3S2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.IdiUD4S1.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.IdiUD4S2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiNaVisinu.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Ucenje.IdiNaV1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Ucenje.IdiNaV2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.NauciD1S1.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.NauciD1S2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.NauciD2S1.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -773,24 +776,27 @@ namespace VizijskiSustavWPF
             public plcTag ZadavanjeDijametara2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(60, 0), 0.0f);
             public plcTag ZadavanjeDijametara3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(64, 0), 0.0f);
             public plcTag ZadavanjeDijametara4 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(68, 0), 0.0f);
-            public plcTag ZadavanjeMaxVisine { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(72, 0), 0.0f);
-            public plcTag IdiUD1S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(76, 0), false);
-            public plcTag IdiUD1S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(76, 1), false);
-            public plcTag IdiUD2S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(76, 2), false);
-            public plcTag IdiUD2S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(76, 3), false);
-            public plcTag IdiUD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(76, 4), false);
-            public plcTag IdiUD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(76, 5), false);
-            public plcTag IdiUD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(76, 6), false);
-            public plcTag IdiUD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(76, 7), false);
-            public plcTag IdiNaVisinu { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 0), false);
-            public plcTag NauciD1S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 1), false);
-            public plcTag NauciD1S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 2), false);
-            public plcTag NauciD2S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 3), false);
-            public plcTag NauciD2S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 4), false);
-            public plcTag NauciD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 5), false);
-            public plcTag NauciD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 6), false);
-            public plcTag NauciD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(77, 7), false);
-            public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(78, 0), false);
+            public plcTag ZadavanjeVisineV1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(72, 0), 0.0f);
+            public plcTag ZadavanjeVisineV2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(76, 0), 0.0f);
+            public plcTag ZadavanjeVisineV3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(80, 0), 0.0f);
+            public plcTag IdiUD1S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 0), false);
+            public plcTag IdiUD1S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 1), false);
+            public plcTag IdiUD2S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 2), false);
+            public plcTag IdiUD2S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 3), false);
+            public plcTag IdiUD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 4), false);
+            public plcTag IdiUD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 5), false);
+            public plcTag IdiUD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 6), false);
+            public plcTag IdiUD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 7), false);
+            public plcTag IdiNaV1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 0), false);
+            public plcTag IdiNaV2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 1), false);
+            public plcTag NauciD1S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 2), false);
+            public plcTag NauciD1S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 3), false);
+            public plcTag NauciD2S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 4), false);
+            public plcTag NauciD2S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 5), false);
+            public plcTag NauciD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 6), false);
+            public plcTag NauciD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 7), false);
+            public plcTag NauciD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 0), false);
+            public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 1), false);
         }
 
     }
