@@ -34,7 +34,8 @@ public partial class HDevelopExport
                 hv_row_len = hv_Height.Clone();
                 hv_row_outer = new HTuple();
                 hv_col_outer = new HTuple();
-                HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
+                // HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
+                HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height,hv_HalfW + 250);
                 HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ReducedImage);
                 //* Edge detection
                 HOperatorSet.DerivateGauss(ho_ReducedImage, out ho_DerivGauss, 1, "x");

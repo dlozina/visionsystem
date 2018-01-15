@@ -18,7 +18,8 @@ public partial class HDevelopExport
             "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
         HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 1928 - 150, 2764, 1928 + 150);
+        // HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 1928 - 150, 2764, 1928 + 150);
+        //HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 1928 - 250, 2764, 1928 + 250);
 
         while (teachloop == false)
         {
@@ -27,8 +28,8 @@ public partial class HDevelopExport
             HOperatorSet.GrabImageAsync(out ho_TestImage, hv_AcqHandle, -1);
             HOperatorSet.DispObj(ho_TestImage, hv_TeachWinHandle);
             HOperatorSet.SetColor(hv_TeachWinHandle, "spring green");
-            HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 - 150, 2764, 1928 - 150);
-            HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 + 150, 2764, 1928 + 150);
+            HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 - 250, 2764, 1928 - 250);
+            HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 + 250, 2764, 1928 + 250);
         }
 	    // Image Acquisition CLOSE frame
         ho_TestImage.Dispose();
