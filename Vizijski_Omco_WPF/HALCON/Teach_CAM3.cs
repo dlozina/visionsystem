@@ -15,15 +15,17 @@ public partial class HDevelopExport
         // Image Acquisition OPEN frame
         HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
             "default", -1, "false", "default", "GC2591MP_CAM_3", 0, -1, out hv_AcqHandle);
-        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
+        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 10000.0);
         HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
 
-        while (teachloop2 == false)
+        while (teachloop3 == false)
         {
             ho_Image.Dispose();
 	        // Live image from CAM3
             HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
             HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle3);
+            HOperatorSet.SetColor(hv_TeachWinHandle3, "spring green");
+            HOperatorSet.DispRectangle1(hv_TeachWinHandle3, 690, 300, 1150, 700);
         }
 	    // Image Acquisition CLOSE frame
         ho_Image.Dispose();
