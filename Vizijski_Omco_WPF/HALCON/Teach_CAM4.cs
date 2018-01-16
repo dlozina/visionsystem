@@ -6,9 +6,6 @@ public partial class HDevelopExport
 
     private void Teachcam4()
     {
-        // Local iconic variables 
-        HObject ho_TestImage = null;
-        //HObject ho_Rectangle = null;
         // Local control variables 
         HTuple hv_AcqHandle = null;
         // Initialize local and output iconic variables 

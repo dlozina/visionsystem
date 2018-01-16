@@ -6,10 +6,6 @@ public partial class HDevelopExport
    
     private void livecam1()
     {
-        // Local iconic variables 
-        HObject ho_Image=null;
-        // Local control variables 
-        HTuple hv_AcqHandle = null;
         // Initialize local and output iconic variables 
         HOperatorSet.GenEmptyObj(out ho_Image);
         // Image Acquisition OPEN frame

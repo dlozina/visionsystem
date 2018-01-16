@@ -33,9 +33,7 @@ public partial class HDevelopExport
     private HTuple hv_output = new HTuple();
     private HTuple hv_outputmm = new HTuple();
 
-    // Diameter and side definition for all parameters
-    //private HTuple hv_side = null;
-    //private HTuple hv_dia = null;
+    
     // Diameter app variables
     // Local iconic variables 
     HObject ho_Image = null, ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings = null;
@@ -58,21 +56,8 @@ public partial class HDevelopExport
     HTuple hv_colToMin0 = new HTuple(), hv_Exception = null;
     HTuple hv_MessageError = new HTuple();
 
-    // Definition of variables D1 S1
-
-    // Definition of variables D1 S2
-
-    // Definition of variables D2 S1
-
-    // Definition of variables D2 S2
-
-    // Definition of variables D3 S1
-
-    // Definition of variables D3 S2
-
-    // Definition of variables D4 S1
-
-    // Definition of variables D4 S2
+    // Diameter teach CAM4 image
+    HObject ho_TestImage = null;
 
     // HDevelopExport Class properties
     private bool exitloop1;
