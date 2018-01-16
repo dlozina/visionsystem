@@ -3,7 +3,7 @@ using HalconDotNet;
 
 public partial class HDevelopExport
 {
-    public HTuple hv_porosityWinHandle;
+    
     // Procedures 
     // Chapter: Develop
     // Short Description: Switch dev_update_pc, dev_update_var and dev_update_window to 'off'. 

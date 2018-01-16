@@ -78,7 +78,9 @@ namespace VizijskiSustavWPF
 
         private void b_pstartKamere1_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop = false;
+            App.HDevExp.Teachloop2 = false;
+            App.HDevExp.Teachloop3 = true;
+            hwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
             Thread TeachCAM2Thread = new Thread(new ThreadStart(this.TeachCAM2));
             TeachCAM2Thread.Name = "TeachCAM2Thread";
             TeachCAM2Thread.Start();
@@ -86,10 +88,18 @@ namespace VizijskiSustavWPF
 
         private void b_pstartKamere2_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop = false;
+            App.HDevExp.Teachloop2 = true;
+            App.HDevExp.Teachloop3 = false;
+            hwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
             Thread TeachCAM3Thread = new Thread(new ThreadStart(this.TeachCAM3));
             TeachCAM3Thread.Name = "TeachCAM3Thread";
             TeachCAM3Thread.Start();
+        }
+
+        private void b_psTOPKamere_Click(object sender, RoutedEventArgs e)
+        {
+            App.HDevExp.Teachloop2 = true;
+            App.HDevExp.Teachloop3 = true;
         }
     }
 }

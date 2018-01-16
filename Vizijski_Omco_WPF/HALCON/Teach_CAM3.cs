@@ -18,23 +18,23 @@ public partial class HDevelopExport
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
         HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
 
-        while (exitloop3 == false)
+        while (teachloop2 == false)
         {
             ho_Image.Dispose();
 	        // Live image from CAM3
             HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
-            HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
+            HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle3);
         }
 	    // Image Acquisition CLOSE frame
         ho_Image.Dispose();
-        HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
+        HOperatorSet.ClearWindow(hv_TeachWinHandle3);
         HOperatorSet.CloseFramegrabber(hv_AcqHandle);
     }
 
     public void RunHalcon25(HTuple Window)
     {
-        hv_ExpDefaultWinHandle = Window;
-        HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
+        hv_TeachWinHandle3 = Window;
+        HOperatorSet.ClearWindow(hv_TeachWinHandle3);
         Teachcam3();
     }
 
