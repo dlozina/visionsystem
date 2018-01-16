@@ -42,8 +42,8 @@ namespace VizijskiSustavWPF
         List<DataPoint> points = new List<DataPoint>();
         LineSeries lineSeries = new LineSeries();
         BurrDetection burrDetection = new BurrDetection();
-        float scalex;
-        float scaley;
+        //float scalex;
+        //float scaley;
 
         public PSrh()
         {
@@ -64,13 +64,13 @@ namespace VizijskiSustavWPF
 
         public void PorosityHorWindow()
         {
-            HTuple WindowID = hWindowControlWPF2.HalconID;
+            HTuple WindowID = hwindowPorsity.HalconID;
             App.HDevExp.RunHalcon14(WindowID);
         }
 
         public void PorosityVerWindow()
         {
-            HTuple WindowID = hWindowControlWPF2.HalconID;
+            HTuple WindowID = hwindowPorsity.HalconID;
             App.HDevExp.RunHalcon13(WindowID);
         }
 
