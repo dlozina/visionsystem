@@ -73,8 +73,12 @@
                 </Grid>
                 
                 <Grid Grid.Row="4" Grid.Column="1" Background="Black" Margin="4,0,4,0">
-                    
-                    <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="b_pstartKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UPALI KAMERU" />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="1" Grid.Column="0" Margin="1" x:Name="b_pstartKamere1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UPALI KAMERU 1" Click="b_pstartKamere1_Click" />
+                    <Button Grid.Row="2" Grid.Column="1" Margin="1" x:Name="b_pstartKamere2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UPALI KAMERU 2" Click="b_pstartKamere2_Click" />
                 </Grid>
                 <Grid Grid.Row="5" Grid.Column="1" Background="Black" Margin="4,0,4,0">
                     

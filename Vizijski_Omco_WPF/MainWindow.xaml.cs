@@ -519,10 +519,10 @@ namespace VizijskiSustavWPF
 
             // Slike limova za izvještaj
             App.pDimenzije.GetDimenzijeSheetImage();
-            App.pSrh.GetSrhSheetImage();
+            //App.pSrh.GetSrhSheetImage();
 
             // Slike grafova za izvještaj
-            App.pSrh.GetBurrPlotImage();
+            //App.pSrh.GetBurrPlotImage();
             App.pSablja.GetCamberPlotImage();
    
             App.PLC.ActiveScreen = 8;

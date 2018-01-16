@@ -103,7 +103,7 @@ namespace VizijskiSustavWPF
         private void b_reset_Click(object sender, RoutedEventArgs e)
         {
             //App.pSablja.reset();
-            App.pSrh.reset();
+            //App.pSrh.reset();
             //App.pValovitost.reset();
             App.pKut.reset();
             App.MainReportInterface.ManualThicknessMeas = 0;
