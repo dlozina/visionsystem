@@ -27,9 +27,7 @@ namespace VizijskiSustavWPF
         public static PKut pKut;
         public static PRucno pRucno;
         public static PLCInterface PLC;
-        //public static string  ReportPath = "reports/ControlSheet.xlsx";
         public static MainWindow mwHandle;
-        //public static Algoritmi AutoSearch = new Algoritmi();
         public static HDevelopExport HDevExp;
         private bool edgeDetection1 =false;
         private bool edgeDetection2 = false;
@@ -50,7 +48,6 @@ namespace VizijskiSustavWPF
             pValovitost = new PValovitost();
             pVisine = new PVisine();
             pKut = new PKut();
-            pRucno = new PRucno();
             pRucno = new PRucno();
 
             App.PLC.StartCyclic();
