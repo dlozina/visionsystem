@@ -74,176 +74,17 @@
             <GridSplitter Grid.Column="0" Grid.RowSpan="4" Margin="0" VerticalAlignment="Stretch" Width="4" HorizontalAlignment="Right" Background="Black"/>
 
             <!-- Za sliku lima -->
-            <Grid Margin="4,4,4,0" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}">
-                <Image Name="image" Source="{Binding SheetImageSource , Mode=TwoWay, Source={StaticResource MainReport}}" MouseDown="Image_MouseDown" OpacityMask="#FFFBFBFB" />
-            </Grid>
 
             <GridSplitter Grid.Row="0" HorizontalAlignment="Stretch" Height="4" Margin="0" VerticalAlignment="Bottom" Background="Black"/>
 
             <!-- Za tablicu iz DIMENZIJA -->
-            <Grid Grid.Row="1" Grid.Column="0" Margin="3,0,4,0">
-                <DataGrid x:Name="dataGrid1" Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding Source={StaticResource MainReport}, Path=Dimensions}" Background="{DynamicResource pozadina2}" BorderBrush="{DynamicResource pozadina2}"  BorderThickness="0,2" HorizontalGridLinesBrush="{StaticResource pozadina3}" VerticalGridLinesBrush="{StaticResource pozadina3}" EnableColumnVirtualization="True" ScrollViewer.CanContentScroll="True" Margin="1,0,0,0" AutoGenerateColumns="False" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" DragEnter="dataGrid1_DragEnter" MouseMove="dataGrid1_MouseMove" SelectionMode="Single" MouseRightButtonDown="dataGrid1_MouseRightButtonDown">
-                    <DataGrid.ContextMenu>
-                        <ContextMenu HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
-                            <Button Name="saveValues" Style="{DynamicResource ButtonStill1}" Content="SPREMI VRIJEDNOSTI" FontWeight="Bold"/>
-                            <Button Name="loadValues" Style="{DynamicResource ButtonStill1}" Content="UČITAJ VRIJEDNOSTI" FontWeight="Bold"/>
-                        </ContextMenu>
-                    </DataGrid.ContextMenu>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="KOTE" Binding="{Binding Kote}" Width="30*" IsReadOnly="True" FontWeight="Bold" TextBlock.TextAlignment="Center">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Padding" Value="4,0,0,0"></Setter>
-                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                            <DataGridTextColumn.CellStyle>
-                                <Style TargetType="{x:Type DataGridCell}">
-                                    <Setter Property="Background" Value="{StaticResource pozadina1}"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Style>
-                            </DataGridTextColumn.CellStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="NAZIVNO" Binding="{Binding Nazivno}" Width="50*">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="TextAlignment" Value="Center"></Setter>
-                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="MJERENO" Binding="{Binding Mjereno}" Width="50*" IsReadOnly="True">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                    <Setter Property="TextAlignment" Value="Center"></Setter>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                            <DataGridTextColumn.CellStyle>
-                                <Style TargetType="{x:Type DataGridCell}">
-                                    <Setter Property="Background" Value="{StaticResource pozadina1}"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Style>
-                            </DataGridTextColumn.CellStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="&#916;+" Binding="{Binding DeltaPlus}" Width="30*">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="TextAlignment" Value="Center"></Setter>
-                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="&#916;-" Binding="{Binding DeltaMinus}" Width="30*">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="TextAlignment" Value="Center"></Setter>
-                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="&#916;" Binding="{Binding Delta}" Width="30*" IsReadOnly="True">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Background" Value="{Binding DeltaBrush}"/>
-                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                    <Setter Property="TextAlignment" Value="Center"></Setter>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                            <DataGridTextColumn.CellStyle>
-                                <Style TargetType="{x:Type DataGridCell}">
-                                    <Setter Property="Background" Value="{Binding DeltaBrush}"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Style>
-                            </DataGridTextColumn.CellStyle>
-
-                        </DataGridTextColumn>
-
-                    </DataGrid.Columns>
-                    <DataGrid.ColumnHeaderStyle>
-                        <Style TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="Background" Value="{StaticResource pozadina1}" />
-                            <Setter Property="BorderBrush" Value="{StaticResource pozadina3}"/>
-                            <Setter Property="BorderThickness" Value="0,0,1,2"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                            <Setter Property="Padding" Value="5,5,5,5"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </Style>
-                    </DataGrid.ColumnHeaderStyle>
-                    <DataGrid.RowHeaderStyle>
-                        <Style TargetType="{x:Type DataGridRowHeader}">
-                            <Setter Property="Content" Value="{Binding INDEXNUM}" />
-                            <Setter Property="Background" Value="{StaticResource pozadina2}" />
-                            <Setter Property="BorderBrush" Value="{StaticResource pozadina3}"/>
-                            <Setter Property="BorderThickness" Value="0,0,0,0"/>
-                            <Setter Property="Padding" Value="2,0"/>
-                        </Style>
-                    </DataGrid.RowHeaderStyle>
-                    <DataGrid.CellStyle>
-                        <Style TargetType="DataGridCell">
-                            <Style.Setters>
-                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
-                                <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-                                <Setter Property="TextBlock.Height" Value="20"/>
-
-                            </Style.Setters>
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="Background" Value="#FF73EFFF"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                    <Setter Property="BorderBrush" Value="Aqua"/>
-                                </Trigger>
-                                <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                    <Setter Property="BorderBrush" Value="Red" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.CellStyle>
-
-                </DataGrid>
-            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0" Margin="3,0,4,0"/>
 
             <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Height="4" Margin="0" VerticalAlignment="Bottom" Background="Black"/>
 
             <!-- Graf valovitosti -->
-            <Grid Margin="4,-1" Grid.Row="2" Grid.Column="0" Background="{DynamicResource pozadina1}">
-                <Image Name="img_ripplePlot" Source="{Binding RipplePlotImage , Mode=TwoWay, Source={StaticResource MainReport}}" MouseDown="Image_MouseDown" OpacityMask="#FFFBFBFB" />
-               
-            </Grid>
 
             <!-- Tablica valovitosti -->
-            <Grid Height="96" Grid.Row="4" Background="{DynamicResource pozadina1}" Margin="4,0,4,4">
-                <Border Grid.Row="1" Margin="5,5,5,5" BorderThickness="1" BorderBrush="Black">
-                    <UniformGrid Height="84" Columns="4">
-
-                        <UniformGrid Columns="1" Background="Black">
-                            <Label Content="Debljina [mm]" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
-                            <Label Content="Broj valova" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"/>
-                            <Label Content="Pozicija" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                        </UniformGrid>
-
-                        <UniformGrid Columns="1" Background="Black" >
-                            <TextBox Name="tb_debljina" Margin="1" Style="{DynamicResource TextBoxStil1}" Text="{Binding Source={StaticResource MainReport}, Path=Valovitost_debljinaLima, Mode=TwoWay}"/>
-                            <Label Name="lb_brojValova" Background="{DynamicResource pozadina1}" Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Valovitost_brojValova, Mode=TwoWay}" />
-                            <!--<TextBox Margin="1" Style="{DynamicResource TextBoxStil1}" LostFocus="TextBox_LostFocus" />-->
-                            <Label Content="{Binding Source={StaticResource MainReport}, Path=Valovitost_pozicija, Mode=TwoWay}" Background="{DynamicResource pozadina1}" Margin="1"/>
-                        </UniformGrid>
-
-                        <UniformGrid Columns="1" Background="Black">
-                            <Label Content="Visina vala [mm]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                            <Label Content="Dužina vala [mm]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
-                            <Label Content="Faktor" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
-                        </UniformGrid>
-
-                        <UniformGrid Columns="1" Background="Black" >
-                            <Label Name="lb_visinaVala" Background="{DynamicResource pozadina1}" Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Valovitost_visinaVala, Mode=TwoWay}" />
-                            <Label Name="lb_dužinaVala" Background="{DynamicResource pozadina1}" Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Valovitost_duzinaVala, Mode=TwoWay}"/>
-                            <Label Name="lb_faktorValovitosti" Background="{DynamicResource pozadina1}" Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Valovitost_faktor, Mode=TwoWay}" />
-                        </UniformGrid>
-
-                    </UniformGrid>
-                </Border>
-            </Grid>
 
             <!-- Srh i sablja -->
             <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="4,0,4,4">
@@ -260,151 +101,14 @@
                     </Grid.RowDefinitions>
 
                     <!-- Graf i tablica srha -->
-                    <Grid Background="{DynamicResource pozadina1}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image Name="img_burrPlot" Grid.Column="0" HorizontalAlignment="Left" Source="{Binding BurrPlotImage , Mode=TwoWay, Source={StaticResource MainReport}}" MouseDown="Image_MouseDown" OpacityMask="#FFFBFBFB" Margin="0" />
-
-                        <DataGrid x:Name="dataGridSrh" Grid.Column="1" Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding Source={StaticResource MainReport}, Path=BurrList }" Background="{x:Null}" BorderBrush="{DynamicResource pozadina2}"  BorderThickness="0,2" HorizontalGridLinesBrush="{StaticResource pozadina3}" VerticalGridLinesBrush="{StaticResource pozadina3}" EnableColumnVirtualization="True" ScrollViewer.CanContentScroll="True" Margin="1,0,0,-2" AutoGenerateColumns="False" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" SelectionMode="Single">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="BROJ&#x0a;POZ" Binding="{Binding BrojPozicije}" Width="50*">
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style TargetType="{x:Type TextBlock}">
-                                            <Setter Property="TextAlignment" Value="Center"></Setter>
-                                            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-                                </DataGridTextColumn>
-                                <DataGridTextColumn Header="SRH&#x0a;[um]" Binding="{Binding Srh}" Width="50*">
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style TargetType="{x:Type TextBlock}">
-                                            <Setter Property="Background" Value="{Binding SrhBrush}"/>
-                                            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                            <Setter Property="TextAlignment" Value="Center"></Setter>
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-                                    <DataGridTextColumn.CellStyle>
-                                        <Style TargetType="{x:Type DataGridCell}">
-                                            <Setter Property="Background" Value="{Binding SrhBrush}"/>
-                                            <Setter Property="Foreground" Value="Black"/>
-                                        </Style>
-                                    </DataGridTextColumn.CellStyle>
-                                </DataGridTextColumn>
-                            </DataGrid.Columns>
-                            <DataGrid.ColumnHeaderStyle>
-                                <Style TargetType="{x:Type DataGridColumnHeader}">
-                                    <Setter Property="Background" Value="{StaticResource pozadina1}" />
-                                    <Setter Property="BorderBrush" Value="{StaticResource pozadina3}"/>
-                                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
-                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                    <Setter Property="Padding" Value="5,5,5,5"/>
-                                    <Setter Property="FontWeight" Value="Bold"/>
-                                </Style>
-                            </DataGrid.ColumnHeaderStyle>
-                            <DataGrid.RowHeaderStyle>
-                                <Style TargetType="{x:Type DataGridRowHeader}">
-                                    <Setter Property="Content" Value="" />
-                                    <Setter Property="Background" Value="{StaticResource pozadina2}" />
-                                    <Setter Property="BorderBrush" Value="{StaticResource pozadina3}"/>
-                                    <Setter Property="BorderThickness" Value="0,0,0,0"/>
-                                    <Setter Property="Padding" Value="2,0"/>
-                                </Style>
-                            </DataGrid.RowHeaderStyle>
-                            <DataGrid.CellStyle>
-                                <Style TargetType="DataGridCell">
-                                    <Style.Setters>
-                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
-                                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-                                        <Setter Property="TextBlock.Height" Value="20"/>
-
-                                    </Style.Setters>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="Background" Value="#FF73EFFF"/>
-                                            <Setter Property="Foreground" Value="Black"/>
-                                            <Setter Property="BorderBrush" Value="Aqua"/>
-                                        </Trigger>
-                                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                            <Setter Property="BorderBrush" Value="Red" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </DataGrid.CellStyle>
-
-                        </DataGrid>
-
-                    </Grid>
 
                     <!-- Tablica srha -->
-                    <Grid Height="64" Grid.Row="1" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="2" Margin="0,-1,0,0" >
-                        <Border Grid.Row="1" Margin="5,5,5,5" BorderThickness="1" BorderBrush="Black">
-                            <UniformGrid Height="52" Columns="4">
-
-                                <UniformGrid Columns="1" Background="Black">
-                                    <Label Content="Maks. srh [um]" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
-                                    <Label Content="Pozicija" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"/>
-                                </UniformGrid>
-                                <UniformGrid Columns="1" Background="Black" >
-                                    <Label Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Srh_max, Mode=TwoWay}" Background="{DynamicResource pozadina1}"/>
-                                    <Label Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Srh_pozicija, Mode=TwoWay}" Background="{DynamicResource pozadina1}"/>
-                                </UniformGrid>
-                                <UniformGrid Columns="1" Background="Black">
-                                    <Label Content="Postotak [%]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                                    <Label Content="Broj uzoraka" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                                </UniformGrid>
-                                <UniformGrid Columns="1" Background="Black" >
-                                    <Label Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Srh_postotak, Mode=TwoWay}" Background="{DynamicResource pozadina1}"/>
-                                    <Label Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Srh_brojUzoraka, Mode=TwoWay}" Background="{DynamicResource pozadina1}"/>
-                                </UniformGrid>
-
-                            </UniformGrid>
-                        </Border>
-                    </Grid>
 
                 </Grid>
 
                 <GridSplitter Grid.Row="0" HorizontalAlignment="Stretch" Height="4" Margin="0,0,0,-8" VerticalAlignment="Bottom" Background="Black"/>
 
                 <!-- Sablja -->
-                <Grid Grid.Row="1" Background="{DynamicResource pozadina1}" Margin="-4,8,-4,-4" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <Image Name="img_sabljaPlot" Grid.Row="0" HorizontalAlignment="Center" Source="{Binding SabljaPlotImage , Mode=TwoWay, Source={StaticResource MainReport}}" OpacityMask="#FFFBFBFB" />
-
-                    <Grid Height="64" Grid.Row="1" Background="{DynamicResource pozadina1}">
-                        <Border Grid.Row="1" Margin="5,5,5,5" BorderThickness="1" BorderBrush="Black">
-                            <UniformGrid Height="52" Columns="4">
-
-                                <UniformGrid Columns="1" Background="Black">
-                                    <Label Content="Duljina sablje [mm]" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
-                                    <Label Content="Pozicija" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"/>
-
-                                </UniformGrid>
-                                <UniformGrid Columns="1" Background="Black" >
-
-                                    <Label Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Sablja_duljina, Mode=TwoWay}" Background="{DynamicResource pozadina1}"/>
-                                    <Label Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Sablja_pozicija , Mode=TwoWay}" Background="{DynamicResource pozadina1}"/>
-
-                                </UniformGrid>
-                                <UniformGrid Columns="1" Background="Black">
-                                    <Label Content="Visina sablje [mm]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                                    <Label Content="Sablja [%]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-
-                                </UniformGrid>
-                                <UniformGrid Columns="1" Background="Black" >
-                                    <Label Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Sablja_visina, Mode=TwoWay}" Background="{DynamicResource pozadina1}"/>
-                                    <Label Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=Sablja_posto, Mode=TwoWay}" Background="{DynamicResource pozadina1}"/>
-                                </UniformGrid>
-                            </UniformGrid>
-                        </Border>
-                    </Grid>
-                </Grid>
 
                 <!--<GridSplitter Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Height="4" Margin="0,0,0,-4" VerticalAlignment="Bottom" Background="Black"/>-->
 
@@ -432,22 +136,11 @@
                         <ColumnDefinition Width="1.5*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
-                    <Label Grid.Column="0" Margin="1" Content="Debljina lima [mm]" Background="{DynamicResource pozadina1}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" BorderThickness="0,0,0,0"/>
-                    <Label Grid.Column="1" Margin="1" Content="{Binding Source={StaticResource MainReport}, Path=ManualThicknessMeas}" Background="{DynamicResource pozadina1}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <Label Grid.Column="2" Margin="1" Content="Temperatura" Background="{DynamicResource pozadina1}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <Label Name="lb_temperatura" Grid.Column="3" Margin="1,1,0,1" Content="" Background="{DynamicResource pozadina1}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
                 </Grid>
 
-                <Grid Background="Black" Grid.Row="1" Grid.Column="0">
-                    <Button Name="b_generateReport1"  Margin="-2,4,2,0" Style="{DynamicResource ButtonStill1}" Content="KONTROLNI&#10;  IZVJEŠTAJ" FontWeight="Bold" Click="b_generateReport1_Click" />
-                </Grid>
-                <Grid Background="Black" Grid.Row="1" Grid.Column="1">
-                    <Button Name="b_generateReport2" Style="{DynamicResource ButtonStill1}" Content="REKLAMACIJSKI&#10;      IZVJEŠTAJ" Margin="2,4,2,0" FontWeight="Bold" Click="b_generateReport2_Click" />
-                </Grid>
-                <Grid Background="Black" Grid.Row="1" Grid.Column="2">
-                    <Button Name="b_openReportFolder" Style="{DynamicResource ButtonStill1}" Content="OTVORI&#10; MAPU" Margin="2,4,0,0" FontWeight="Bold" Click="b_openReportFolder_Click" />
-                </Grid>
+                <Grid Background="Black" Grid.Row="1" Grid.Column="0"/>
+                <Grid Background="Black" Grid.Row="1" Grid.Column="1"/>
+                <Grid Background="Black" Grid.Row="1" Grid.Column="2"/>
 
             </Grid>
 

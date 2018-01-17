@@ -501,7 +501,7 @@ namespace VizijskiSustavWPF
         // IZVJESTAJI //////////////////////////////////////////////////////
         private void izvjestaji_Click(object sender, RoutedEventArgs e)
         {
-            App.pIzvjestaji.dataGrid1.Items.Refresh();
+            //App.pIzvjestaji.dataGrid1.Items.Refresh();
             dimenzije.Margin = new Thickness(0, 0, 4, 4);
             srh.Margin = new Thickness(0, 0, 4, 4);
             valovitost.Margin = new Thickness(0, 0, 4, 4);
