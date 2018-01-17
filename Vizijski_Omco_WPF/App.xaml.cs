@@ -27,10 +27,9 @@ namespace VizijskiSustavWPF
         public static PKut pKut;
         public static PRucno pRucno;
         public static PLCInterface PLC;
-        public static string  ReportPath = "reports/ControlSheet.xlsx";
+        //public static string  ReportPath = "reports/ControlSheet.xlsx";
         public static MainWindow mwHandle;
-        public static ReportInterface MainReportInterface;
-        public static Algoritmi AutoSearch = new Algoritmi();
+        //public static Algoritmi AutoSearch = new Algoritmi();
         public static HDevelopExport HDevExp;
         private bool edgeDetection1 =false;
         private bool edgeDetection2 = false;
@@ -42,7 +41,6 @@ namespace VizijskiSustavWPF
         {
             System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
             InitializeComponent();
-            MainReportInterface = ((ReportInterface)Application.Current.FindResource("MainReport"));
            
             PLC = ((PLCInterface)Application.Current.FindResource("PLCinterf"));
             pIzvjestaji = new PIzvjestaji();

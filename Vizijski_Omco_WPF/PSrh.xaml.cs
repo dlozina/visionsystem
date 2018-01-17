@@ -30,8 +30,6 @@ namespace VizijskiSustavWPF
         public PSrh()
         {
             InitializeComponent();
-            App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePage);
-            App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePage_100ms);
         }
 
         public void PorosityHorWindow()
@@ -59,17 +57,6 @@ namespace VizijskiSustavWPF
             HTuple WindowID = hwindowPorsity.HalconID;
             App.HDevExp.RunHalcon25(WindowID);
         }
-
-        private void updatePage(object sender, PLCInterfaceEventArgs e)
-        {
-            
-        }
-
-        private void updatePage_100ms(object sender, PLCInterfaceEventArgs e)
-        {
-            
-        }
-
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

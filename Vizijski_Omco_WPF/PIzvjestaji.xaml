@@ -7,8 +7,7 @@
       xmlns:local="clr-namespace:VizijskiSustavWPF"
       mc:Ignorable="d"
       Background="Black"
-      
-	Title="PIzvjestaji" MouseDown="Page_MouseDown">
+      Title="PIzvjestaji" >
 
     <!--<Grid>
         <Label Content="IZVJESTAJI" HorizontalAlignment="Center" Margin="4,10,4,4" VerticalAlignment="Top" Foreground="Black" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>

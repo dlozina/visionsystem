@@ -31,15 +31,5 @@ namespace VizijskiSustavWPF
             
         }
 
-        private void updatePage(object sender, PLCInterfaceEventArgs e)
-        {
-
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
     }
 }

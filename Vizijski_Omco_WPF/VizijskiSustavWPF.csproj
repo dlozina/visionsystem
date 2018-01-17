@@ -135,7 +135,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AutomatskoMjerenje\AutomatskoMjerenje.cs" />
     <Compile Include="BindingNavigator.cs" />
     <Compile Include="HALCON\CAM1_Live.cs" />
     <Compile Include="HALCON\Teach_CAM3.cs" />
@@ -150,10 +149,6 @@
     <Compile Include="HALCON\HALCONInterface.cs" />
     <Compile Include="HALCON\Porosity_Horizontal.cs" />
     <Compile Include="HALCON\Porosity_Vertical.cs" />
-    <Compile Include="RippleDetection.cs" />
-    <Compile Include="BurrDetection.cs" />
-    <Compile Include="DataTypes.cs" />
-    <Compile Include="MainViewModel.cs" />
     <Compile Include="PLC_interface\PLCInterface.cs" />
     <Compile Include="PLC_interface\snap7.net.cs" />
     <Compile Include="PKut.xaml.cs">
@@ -171,7 +166,6 @@
     <Compile Include="PValovitost.xaml.cs">
       <DependentUpon>PValovitost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="reports\reportInterfaceClass.cs" />
     <Compile Include="UserControls\BitButton.xaml.cs">
       <DependentUpon>BitButton.xaml</DependentUpon>
     </Compile>
@@ -290,24 +284,6 @@
     <Resource Include="ikone\bracket.png" />
     <Resource Include="ikone\ruler.png" />
     <Resource Include="ikone\video-on.png" />
-    <Content Include="reports\ControlSheet.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="reports\ExportToDataTableExample.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="reports\controlSheetReportTemplate.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="reports\controlSheetReportTemplate_v0.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="reports\reclamationReportTemplate.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="reports\reclamationReportTemplate_v0.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

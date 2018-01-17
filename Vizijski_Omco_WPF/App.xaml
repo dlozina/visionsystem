@@ -377,10 +377,9 @@
 
    
         <!--<MjerniStolLimovi:OdabirLimova x:Key="MainLim"/>-->
-      
+
         <local:PLCInterface x:Key="PLCinterf"/>
-        <local:ReportInterface x:Key="MainReport"/>
-        <Image x:Key="LimImage"></Image>
+        <!--<Image x:Key="LimImage"></Image>-->
        
     </Application.Resources>
 </Application>

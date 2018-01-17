@@ -36,42 +36,12 @@
                         <UniformGrid Columns="1" Background="Black">
                             <TextBox Margin="1" Name="tb_korisnickoIme" Style="{DynamicResource TextBoxStil1}"/>
                             <TextBox Margin="1" Name="tb_lozinka" Style="{DynamicResource TextBoxStil1}"/>
-                            <Button Name="b_prijavi" Content="PRIJAVI" Style="{StaticResource ButtonStill1}" Margin="1,0,1,1" FontWeight="Bold" Click="b_prijavi_Click"/>
+                            <Button Name="b_prijavi" Content="PRIJAVI" Style="{StaticResource ButtonStill1}" Margin="1,0,1,1" FontWeight="Bold" />
                         </UniformGrid>
                     </UniformGrid>
                 </Grid>
                 <Grid Grid.Column="3" Grid.Row="0" Margin="2,0,0,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
-                    <TextBlock Text="UNOS ZAGLAVLJA" Margin="4,0,0,0" FontWeight="Bold"></TextBlock>
-                    <UniformGrid HorizontalAlignment="Center" Height="294" Margin="10" VerticalAlignment="Center" Width="280" Columns="2">
-                        <UniformGrid Columns="1" Background="Black">
-                            <Label Content="Tip komada" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
-                            <Label Content="Objekt" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"/>
-                            <Label Content="Tvornički broj" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                            <Label Content="Vrsta komada" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                            <!--<Label Content="Oblik" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />-->
-                            <Label Content="Paket broj" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                            <Label Content="Broj koluta" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
-                            <Label Content="Crtež broj" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
-                            <Label Content="Proizvođač" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
-                            <Label Content="Širina [mm]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
-                            <Label Content="Nazivna debljina [mm]" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
-                            <Button Name="b_spremi" Content="SPREMI ZAGLAVLJE" Style="{StaticResource ButtonStill1}" Margin="1,1,1,1" FontWeight="Bold" Click="b_spremi_Click"/>
-                        </UniformGrid>
-                        <UniformGrid Columns="1" Background="Black" >
-                            <TextBox Name="tbTipTransformatora" Margin="1" Style="{DynamicResource TextBoxStil1}" Loaded="tbTipTransformatora_Loaded"/>
-                            <TextBox Name="tbObjekt" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
-                            <TextBox Name="tbTvornickiBroj" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
-                            <TextBox Name="tbVrstaLima" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
-                            <!--<TextBox Margin="1" Style="{DynamicResource TextBoxStil1}"/>-->
-                            <TextBox Name="tbPaketBroj" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
-                            <TextBox Name="tbBrojKoluta" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
-                            <TextBox Name="tbCrtezBroj" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
-                            <TextBox Name="tbProizvodac" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
-                            <TextBox Name="tbSirina" Margin="1" Style="{DynamicResource TextBoxStil1}"/>
-                            <TextBox Name="tbNazivnaDebljina" Margin="1" Style="{DynamicResource TextBoxStil1}" Text="{Binding Source={StaticResource MainReport}, Path=Valovitost_debljinaLima, Mode=TwoWay}"/>
-                            <Button Name="b_ucitaj" Content="UČITAJ ZAGLAVLJE" Style="{StaticResource ButtonStill1}" Margin="1,1,1,1" FontWeight="Bold" Click="b_ucitaj_Click"/>
-                        </UniformGrid>
-                    </UniformGrid>
+                    <UniformGrid HorizontalAlignment="Center" Height="294" Margin="10" VerticalAlignment="Center" Width="280" Columns="2"/>
 
                 </Grid>
                 <Grid Grid.Row="1" Margin="0,4,2,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">

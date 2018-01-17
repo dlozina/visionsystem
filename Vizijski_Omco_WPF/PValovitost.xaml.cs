@@ -97,16 +97,6 @@ namespace VizijskiSustavWPF
             
         }
 
-        private void updatePage(object sender, PLCInterfaceEventArgs e)
-        {
-           
-        }
-        
-        private void updatePage_100ms(object sender, PLCInterfaceEventArgs e)
-        {
-               
-        }
-
         private void b_startKamere_Click(object sender, RoutedEventArgs e)
         {
             App.HDevExp.Teachloop = false;
