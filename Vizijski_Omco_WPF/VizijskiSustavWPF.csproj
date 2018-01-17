@@ -150,12 +150,6 @@
     <Compile Include="RippleDetection.cs" />
     <Compile Include="BurrDetection.cs" />
     <Compile Include="DataTypes.cs" />
-    <Compile Include="limovi\Lim_A.xaml.cs">
-      <DependentUpon>Lim_A.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="limovi\MiniMap.xaml.cs">
-      <DependentUpon>MiniMap.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainViewModel.cs" />
     <Compile Include="PLC_interface\PLCInterface.cs" />
     <Compile Include="PLC_interface\snap7.net.cs" />
@@ -187,14 +181,6 @@
     <Compile Include="UserControls\InputField.xaml.cs">
       <DependentUpon>InputField.xaml</DependentUpon>
     </Compile>
-    <Page Include="limovi\Lim_A.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="limovi\MiniMap.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -374,18 +360,11 @@
     <Content Include="snap7.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="limovi\Koncar_A lim-tranasparent.png" />
     <Resource Include="ikone\izvjestaji.png" />
     <Content Include="ikone\Koncar_A lim.svg" />
     <Resource Include="ikone\sablja.png" />
     <Resource Include="ikone\rucno.png" />
     <Resource Include="ikone\postavke.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MjerniStolLimovi\MjerniStolLimovi\MjerniStolLimovi.csproj">
-      <Project>{60AF7DF9-F6CF-4C28-B97B-94D836ED0F99}</Project>
-      <Name>MjerniStolLimovi</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
