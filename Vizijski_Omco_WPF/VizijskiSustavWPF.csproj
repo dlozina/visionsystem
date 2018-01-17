@@ -165,8 +165,8 @@
     <Compile Include="PRucno.xaml.cs">
       <DependentUpon>PRucno.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PSablja.xaml.cs">
-      <DependentUpon>PSablja.xaml</DependentUpon>
+    <Compile Include="PVisine.xaml.cs">
+      <DependentUpon>PVisine.xaml</DependentUpon>
     </Compile>
     <Compile Include="PSrh.xaml.cs">
       <DependentUpon>PSrh.xaml</DependentUpon>
@@ -227,7 +227,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PSablja.xaml">
+    <Page Include="PVisine.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

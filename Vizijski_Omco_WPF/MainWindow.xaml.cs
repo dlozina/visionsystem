@@ -310,7 +310,7 @@ namespace VizijskiSustavWPF
             izvjestaji.Margin = new Thickness(0, 0, 4, 0);
 
             pomocniFrame.Visibility = Visibility.Hidden;
-            glavniFrame.Content = App.pSablja;
+            glavniFrame.Content = App.pVisine;
 
             glavniFrame.Visibility = Visibility.Visible;
             //App.CamUI.CameraActive = true;
@@ -321,10 +321,10 @@ namespace VizijskiSustavWPF
 
         private void sablja_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pSablja)
+            if (glavniFrame.Content != App.pVisine)
             {
                 pomocniFrame.Visibility = Visibility.Visible;
-                pomocniFrame.Content = App.pSablja;
+                pomocniFrame.Content = App.pVisine;
 
                 try
                 {
@@ -351,7 +351,7 @@ namespace VizijskiSustavWPF
 
         private void sablja_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pSablja)
+            if (glavniFrame.Content != App.pVisine)
             {
                 pomocniFrame.Visibility = Visibility.Hidden;
                 if (uniformGrid.IsMouseOver)
@@ -523,7 +523,7 @@ namespace VizijskiSustavWPF
 
             // Slike grafova za izvještaj
             //App.pSrh.GetBurrPlotImage();
-            App.pSablja.GetCamberPlotImage();
+            //App.pVisine.GetCamberPlotImage();
    
             App.PLC.ActiveScreen = 8;
         }

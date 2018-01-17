@@ -23,7 +23,7 @@ namespace VizijskiSustavWPF
         public static PDimenzije pDimenzije; 
         public static PSrh pSrh;
         public static PValovitost pValovitost;
-        public static PSablja pSablja;
+        public static PVisine pVisine;
         public static PKut pKut;
         public static PRucno pRucno;
         public static PLCInterface PLC;
@@ -50,7 +50,7 @@ namespace VizijskiSustavWPF
             pDimenzije = new PDimenzije();
             pSrh = new PSrh();
             pValovitost = new PValovitost();
-            pSablja = new PSablja();
+            pVisine = new PVisine();
             pKut = new PKut();
             pRucno = new PRucno();
             pRucno = new PRucno();
