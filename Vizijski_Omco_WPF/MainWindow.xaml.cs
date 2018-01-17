@@ -99,8 +99,8 @@ namespace VizijskiSustavWPF
         }
         #endregion
 
-        #region DIMENZIJE
-        // DIMENZIJE ///////////////////////////////////////////////////
+        #region ROBOT
+        // DIMENZIJE --> ROBOT ///////////////////////////////////////////////////
         private void dimezije_Click(object sender, RoutedEventArgs e)
         {
             dimenzije.Margin = new Thickness(0, 0, 0, 4);
@@ -113,22 +113,19 @@ namespace VizijskiSustavWPF
             izvjestaji.Margin = new Thickness(0, 0, 4, 0);
           
             pomocniFrame.Visibility = Visibility.Hidden;
-            glavniFrame.Content = App.pDimenzije;
+            glavniFrame.Content = App.pRobot;
             glavniFrame.Visibility = Visibility.Visible;
             glavniFrame.NavigationService.RemoveBackEntry();
             pomocniFrame.NavigationService.RemoveBackEntry();
-            //App.CamUI.CameraActive=true;
-            //App.CamUI.UseWebCamera = false;
-            //App.pDimenzije.formsHost.Child = App.CamUI;
             App.PLC.ActiveScreen = 2;
         }
 
         private void dimenzije_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pDimenzije)
+            if (glavniFrame.Content != App.pRobot)
             {
                 pomocniFrame.Visibility = Visibility.Visible;
-                pomocniFrame.Content = App.pDimenzije;
+                pomocniFrame.Content = App.pRobot;
 
                 try
                 {
@@ -154,7 +151,7 @@ namespace VizijskiSustavWPF
 
         private void dimenzije_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pDimenzije)
+            if (glavniFrame.Content != App.pRobot)
             {
                 pomocniFrame.Visibility = Visibility.Hidden;
                 if (uniformGrid.IsMouseOver)
@@ -165,8 +162,8 @@ namespace VizijskiSustavWPF
         }
         #endregion
 
-        #region VALOVITOST
-        // VALOVITOST ///////////////////////////////////////////////////////
+        #region UCENJE
+        // VALOVITOST --> UCENJE ///////////////////////////////////////////////////////
         private void valovitost_Click(object sender, RoutedEventArgs e)
         {
             valovitost.Margin = new Thickness(0, 0, 0, 4);
@@ -179,7 +176,7 @@ namespace VizijskiSustavWPF
             izvjestaji.Margin = new Thickness(0, 0, 4, 0);
           
             pomocniFrame.Visibility = Visibility.Hidden;
-            glavniFrame.Content = App.pValovitost;
+            glavniFrame.Content = App.pUcenje;
             
             glavniFrame.Visibility = Visibility.Visible;
             //App.CamUI.CameraActive = true;
@@ -190,10 +187,10 @@ namespace VizijskiSustavWPF
 
         private void valovitost_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pValovitost)
+            if (glavniFrame.Content != App.pUcenje)
             {
                 pomocniFrame.Visibility = Visibility.Visible;
-                pomocniFrame.Content = App.pValovitost;
+                pomocniFrame.Content = App.pUcenje;
 
                 try
                 {
@@ -219,7 +216,7 @@ namespace VizijskiSustavWPF
 
         private void valovitost_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pValovitost)
+            if (glavniFrame.Content != App.pUcenje)
             {
                 pomocniFrame.Visibility = Visibility.Hidden;
                 if (uniformGrid.IsMouseOver)
@@ -230,8 +227,8 @@ namespace VizijskiSustavWPF
         }
         #endregion
 
-        #region SRH
-        // SRH //////////////////////////////////////////////////////
+        #region POROZNOST
+        // SRH -- > POROZNOST//////////////////////////////////////////////////////
         private void srh_Click(object sender, RoutedEventArgs e)
         {
             srh.Margin = new Thickness(0, 0, 0, 4);
@@ -244,7 +241,7 @@ namespace VizijskiSustavWPF
             izvjestaji.Margin = new Thickness(0, 0, 4, 0);
          
             pomocniFrame.Visibility = Visibility.Hidden;
-            glavniFrame.Content = App.pSrh;
+            glavniFrame.Content = App.pPoroznost;
            
             glavniFrame.Visibility = Visibility.Visible;
             //App.CamUI.CameraActive = true;
@@ -255,10 +252,10 @@ namespace VizijskiSustavWPF
 
         private void srh_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pSrh)
+            if (glavniFrame.Content != App.pPoroznost)
             {
                 pomocniFrame.Visibility = Visibility.Visible;
-                pomocniFrame.Content = App.pSrh;
+                pomocniFrame.Content = App.pPoroznost;
 
                 try
                 {
@@ -284,7 +281,7 @@ namespace VizijskiSustavWPF
 
         private void srh_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pSrh)
+            if (glavniFrame.Content != App.pPoroznost)
             {
                 pomocniFrame.Visibility = Visibility.Hidden;
                 if (uniformGrid.IsMouseOver)
@@ -363,8 +360,8 @@ namespace VizijskiSustavWPF
 
         #endregion
 
-        #region KUT
-        // KUT ///////////////////////////////////////////////////////
+        #region DIJAMETRI
+        // KUT --> DIJAMETRI ///////////////////////////////////////////////////////
 
         private void kut_Click(object sender, RoutedEventArgs e)
         {
@@ -378,7 +375,7 @@ namespace VizijskiSustavWPF
             izvjestaji.Margin = new Thickness(0, 0, 4, 0);
 
             pomocniFrame.Visibility = Visibility.Hidden;
-            glavniFrame.Content = App.pKut;
+            glavniFrame.Content = App.pDijametri;
 
             glavniFrame.Visibility = Visibility.Visible;
             //App.CamUI.CameraActive = true;
@@ -389,10 +386,10 @@ namespace VizijskiSustavWPF
 
         private void kut_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pKut)
+            if (glavniFrame.Content != App.pDijametri)
             {
                 pomocniFrame.Visibility = Visibility.Visible;
-                pomocniFrame.Content = App.pKut;
+                pomocniFrame.Content = App.pDijametri;
 
                 try
                 {
@@ -418,7 +415,7 @@ namespace VizijskiSustavWPF
 
         private void kut_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (glavniFrame.Content != App.pKut)
+            if (glavniFrame.Content != App.pDijametri)
             {
                 pomocniFrame.Visibility = Visibility.Hidden;
                 if (uniformGrid.IsMouseOver)

@@ -20,11 +20,11 @@ namespace VizijskiSustavWPF
     {
         public static PIzvjestaji pIzvjestaji;
         public static PPostavke pPostavke;
-        public static PDimenzije pDimenzije; 
-        public static PSrh pSrh;
-        public static PValovitost pValovitost;
+        public static PRobot pRobot; 
+        public static PPoroznost pPoroznost;
+        public static PUcenje pUcenje;
         public static PVisine pVisine;
-        public static PKut pKut;
+        public static PDijametri pDijametri;
         public static PRucno pRucno;
         public static PLCInterface PLC;
         public static MainWindow mwHandle;
@@ -43,11 +43,11 @@ namespace VizijskiSustavWPF
             PLC = ((PLCInterface)Application.Current.FindResource("PLCinterf"));
             pIzvjestaji = new PIzvjestaji();
             pPostavke = new PPostavke();
-            pDimenzije = new PDimenzije();
-            pSrh = new PSrh();
-            pValovitost = new PValovitost();
+            pRobot = new PRobot();
+            pPoroznost = new PPoroznost();
+            pUcenje = new PUcenje();
             pVisine = new PVisine();
-            pKut = new PKut();
+            pDijametri = new PDijametri();
             pRucno = new PRucno();
 
             App.PLC.StartCyclic();
@@ -130,7 +130,7 @@ namespace VizijskiSustavWPF
             if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!edgeDetection3))
             {
                 // We call public method in class pShr
-                Thread porosityverth = new Thread(new ThreadStart(pSrh.PorosityVerWindow));
+                Thread porosityverth = new Thread(new ThreadStart(pPoroznost.PorosityVerWindow));
                 porosityverth.Name = "Thread PorosityVer";
                 porosityverth.Start();
             }
@@ -139,7 +139,7 @@ namespace VizijskiSustavWPF
             if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!edgeDetection4))
             {
                 // We call public method in class pShr
-                Thread porosityhorth = new Thread(new ThreadStart(pSrh.PorosityHorWindow));
+                Thread porosityhorth = new Thread(new ThreadStart(pPoroznost.PorosityHorWindow));
                 porosityhorth.Name = "Thread PorosityHor";
                 porosityhorth.Start();
             }

@@ -21,9 +21,9 @@ using System.Threading;
 namespace VizijskiSustavWPF
 {
     
-    public partial class PValovitost : Page
+    public partial class PUcenje : Page
     {
-        public PValovitost()
+        public PUcenje()
         {
             InitializeComponent();
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePagePRucno_100ms);

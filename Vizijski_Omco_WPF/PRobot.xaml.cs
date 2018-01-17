@@ -25,12 +25,12 @@ using Microsoft.Win32;
 namespace VizijskiSustavWPF
 {
     /// <summary>
-    /// Interaction logic for PDimenzije.xaml
+    /// Interaction logic for PRobot.xaml
     /// </summary>
-    public partial class PDimenzije : System.Windows.Controls.Page
+    public partial class PRobot : System.Windows.Controls.Page
     {
        
-        public PDimenzije()
+        public PRobot()
         {
             InitializeComponent();
             App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePage);

@@ -24,10 +24,10 @@ namespace VizijskiSustavWPF
     /// <summary>
     /// Interaction logic for PSrh.xaml
     /// </summary>
-    public partial class PSrh : Page
+    public partial class PPoroznost : Page
     {
         
-        public PSrh()
+        public PPoroznost()
         {
             InitializeComponent();
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePagePRucno_100ms);

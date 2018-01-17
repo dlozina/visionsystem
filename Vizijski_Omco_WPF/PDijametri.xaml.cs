@@ -18,9 +18,9 @@ namespace VizijskiSustavWPF
     /// <summary>
     /// Interaction logic for PSrh.xaml
     /// </summary>
-    public partial class PKut : Page
+    public partial class PDijametri : Page
     {
-        public PKut()
+        public PDijametri()
         {
             InitializeComponent();
             App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePage);

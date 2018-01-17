@@ -151,8 +151,8 @@
     <Compile Include="HALCON\Porosity_Vertical.cs" />
     <Compile Include="PLC_interface\PLCInterface.cs" />
     <Compile Include="PLC_interface\snap7.net.cs" />
-    <Compile Include="PKut.xaml.cs">
-      <DependentUpon>PKut.xaml</DependentUpon>
+    <Compile Include="PDijametri.xaml.cs">
+      <DependentUpon>PDijametri.xaml</DependentUpon>
     </Compile>
     <Compile Include="PRucno.xaml.cs">
       <DependentUpon>PRucno.xaml</DependentUpon>
@@ -160,11 +160,11 @@
     <Compile Include="PVisine.xaml.cs">
       <DependentUpon>PVisine.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PSrh.xaml.cs">
-      <DependentUpon>PSrh.xaml</DependentUpon>
+    <Compile Include="PPoroznost.xaml.cs">
+      <DependentUpon>PPoroznost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PValovitost.xaml.cs">
-      <DependentUpon>PValovitost.xaml</DependentUpon>
+    <Compile Include="PUcenje.xaml.cs">
+      <DependentUpon>PUcenje.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\BitButton.xaml.cs">
       <DependentUpon>BitButton.xaml</DependentUpon>
@@ -198,11 +198,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PDimenzije.xaml">
+    <Page Include="PRobot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PKut.xaml">
+    <Page Include="PDijametri.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -214,11 +214,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PSrh.xaml">
+    <Page Include="PPoroznost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PValovitost.xaml">
+    <Page Include="PUcenje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,8 +250,8 @@
     <Compile Include="PPostavke.xaml.cs">
       <DependentUpon>PPostavke.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PDimenzije.xaml.cs">
-      <DependentUpon>PDimenzije.xaml</DependentUpon>
+    <Compile Include="PRobot.xaml.cs">
+      <DependentUpon>PRobot.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
