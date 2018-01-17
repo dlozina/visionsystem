@@ -44,10 +44,10 @@
                     <TextBlock Text="UNOS ZAGLAVLJA" Margin="4,0,0,0" FontWeight="Bold"></TextBlock>
                     <UniformGrid HorizontalAlignment="Center" Height="294" Margin="10" VerticalAlignment="Center" Width="280" Columns="2">
                         <UniformGrid Columns="1" Background="Black">
-                            <Label Content="Tip transformatora" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
+                            <Label Content="Tip komada" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
                             <Label Content="Objekt" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"/>
                             <Label Content="Tvornički broj" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                            <Label Content="Vrsta lima" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
+                            <Label Content="Vrsta komada" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
                             <!--<Label Content="Oblik" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />-->
                             <Label Content="Paket broj" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
                             <Label Content="Broj koluta" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"  />
@@ -75,24 +75,7 @@
 
                 </Grid>
                 <Grid Grid.Row="1" Margin="0,4,2,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
-                    <TextBlock Text="TEMPERATURNA KOMPENZACIJA" Margin="4,0,0,0" FontWeight="Bold">
-                    </TextBlock>
-                    <UniformGrid HorizontalAlignment="Center" Height="140" Margin="10" VerticalAlignment="Center" Width="280" Columns="2">
-                        <UniformGrid Columns="1" Background="Black">
-                            <Label Content="Temperatura letve 1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" />
-                            <Label Content="Temperatura letve 2" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold"/>
-                            <Label Content="Temperatura stakla 1" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                            <Label Content="Temperatura stakla 2" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                            <Label Content="Kompenzacija" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" />
-                        </UniformGrid>
-                        <UniformGrid Columns="1" Background="Black" >
-                            <Label Name="lb_tempLG1" Content="-" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                            <Label Name="lb_tempLG2" Content="-" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                            <Label Name="lb_tempGlass1" Content="-" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" HorizontalContentAlignment="Center" />
-                            <Label Name="lb_tempGlass2" Content="-" Background="{DynamicResource pozadina1}" Margin="1" FontWeight="Bold" HorizontalContentAlignment="Center" />
-                            <Button Name="b_ukljuci" Content="UKLJUČI" Style="{StaticResource ButtonStill1}" Margin="1,0,1,1" FontWeight="Bold" Click="b_ukljuci_Click"/>
-                        </UniformGrid>
-                    </UniformGrid>
+                    <UniformGrid HorizontalAlignment="Center" Height="140" Margin="10" VerticalAlignment="Center" Width="280" Columns="2"/>
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="3" Margin="2,4,0,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
                     

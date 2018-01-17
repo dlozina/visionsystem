@@ -257,11 +257,11 @@ namespace VizijskiSustavWPF
 
         public void WriteControlSheetReport(string filename, string sheet, int rows)
         {
-            if (App.pDimenzije.odabirLimova.SheetName == null)
-            {
-                App.pIzvjestaji.b_generateReport1.Foreground = new SolidColorBrush(System.Windows.Media.Colors.Red);
-                return;
-            }
+            //if (App.pDimenzije.odabirLimova.SheetName == null)
+            //{
+            //    App.pIzvjestaji.b_generateReport1.Foreground = new SolidColorBrush(System.Windows.Media.Colors.Red);
+            //    return;
+            //}
 
             using (SLDocument sl = new SLDocument(filename, sheet))
             {
@@ -298,7 +298,7 @@ namespace VizijskiSustavWPF
                 sl.SetCellValue(7, 4, App.pPostavke.tbObjekt.Text);
                 sl.SetCellValue(8, 4, App.pPostavke.tbTvornickiBroj.Text);
                 sl.SetCellValue(6, 9, App.pPostavke.tbVrstaLima.Text);
-                sl.SetCellValue(7, 9, App.pDimenzije.odabirLimova.SheetName); // Oblik lima (odabran u dimenzijama)
+                /*sl.SetCellValue(7, 9, App.pDimenzije.odabirLimova.SheetName);*/ // Oblik lima (odabran u dimenzijama)
                 sl.SetCellValue(8, 9, App.pPostavke.tbPaketBroj.Text);
                 sl.SetCellValue(7, 12, App.pPostavke.tbBrojKoluta.Text);
                 sl.SetCellValue(9, 12, App.pPostavke.tbCrtezBroj.Text);
@@ -408,7 +408,7 @@ namespace VizijskiSustavWPF
                 }
 
 
-                String ime_lima = App.pDimenzije.odabirLimova.SheetName.Replace("\n", " ");
+                //String ime_lima = App.pDimenzije.odabirLimova.SheetName.Replace("\n", " ");
                 String datum = String.Format("{0:D4}-{1:D2}-{2:D2}", DateAndTime.Now.Year, DateAndTime.Now.Month, DateAndTime.Now.Day);
                 String vrijeme = String.Format("{0:D2}-{1:D2}-{2:D2}", DateAndTime.Now.Hour, DateAndTime.Now.Minute, DateAndTime.Now.Second);
 
@@ -428,7 +428,7 @@ namespace VizijskiSustavWPF
                     Directory.CreateDirectory("Izvjestaji/Kontrolni" + objectname);
                 }
 
-                sl.SaveAs("Izvjestaji/Kontrolni" + objectname + "/" + test_report_no.ToString() + "_" + ime_lima + "_" + datum + "-" + vrijeme + ".xlsx");
+                //sl.SaveAs("Izvjestaji/Kontrolni" + objectname + "/" + test_report_no.ToString() + "_" + ime_lima + "_" + datum + "-" + vrijeme + ".xlsx");
 
                 // Success
                 App.pIzvjestaji.b_generateReport1.Foreground = new SolidColorBrush(System.Windows.Media.Colors.Green);

@@ -295,7 +295,7 @@ namespace VizijskiSustavWPF
         }
         #endregion
 
-        #region SABLJA
+        #region VISINE
         // SABLJA ///////////////////////////////////////////////////////
 
         private void sablja_Click(object sender, RoutedEventArgs e)
@@ -518,7 +518,7 @@ namespace VizijskiSustavWPF
             //App.CamUI.CameraActive = false;
 
             // Slike limova za izvještaj
-            App.pDimenzije.GetDimenzijeSheetImage();
+            //App.pDimenzije.GetDimenzijeSheetImage();
             //App.pSrh.GetSrhSheetImage();
 
             // Slike grafova za izvještaj
