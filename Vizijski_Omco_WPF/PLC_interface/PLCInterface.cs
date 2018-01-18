@@ -86,7 +86,6 @@ namespace VizijskiSustavWPF
         public PLCInterface()
         {
             Client = new S7Client();
-
             Clock_100_ms = new System.Timers.Timer(100); 
             Clock_100_ms.Elapsed += onClock100msTick;
             Clock_100_ms.AutoReset = false;
@@ -94,6 +93,7 @@ namespace VizijskiSustavWPF
             WatchDogTimer = new System.Timers.Timer(2000);
             WatchDogTimer.Elapsed += onClockWatchdogTick;
             WatchDogTimer.AutoReset = false;
+            //Thread.Sleep(3000);
         }
       
         public void StartCyclic()
