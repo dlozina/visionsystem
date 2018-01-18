@@ -27,7 +27,7 @@ namespace VizijskiSustavWPF
     /// <summary>
     /// Interaction logic for PRobot.xaml
     /// </summary>
-    public partial class PRobot : System.Windows.Controls.Page
+    public partial class PRobot : Page
     {
        
         public PRobot()
