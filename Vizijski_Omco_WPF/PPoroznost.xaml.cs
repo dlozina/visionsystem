@@ -13,8 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
-using OxyPlot;
-using OxyPlot.Wpf;
 using System.IO;
 using HalconDotNet;
 using System.Threading;

@@ -6,7 +6,6 @@
       xmlns:HalconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
       xmlns:local="clr-namespace:VizijskiSustavWPF" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon"  
       xmlns:my="clr-namespace:HalconDotNet;assembly=halcondotnet"
-      xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
       x:Class="VizijskiSustavWPF.PPoroznost"
       mc:Ignorable="d" 
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
