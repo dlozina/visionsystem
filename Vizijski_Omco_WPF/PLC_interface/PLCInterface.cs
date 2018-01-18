@@ -510,28 +510,6 @@ namespace VizijskiSustavWPF
             return result;
         }
 
-        //public int WriteCameraOutput(PrepoznavanjeOblika.CameraOutputType cameraOutput)
-        //{
-        //    //byte[] _tempBuffer = new byte[22];
-        //    //int result = -99;
-        //    //lock (PLCInterface.TimerLock)
-        //    //{
-               
-               
-        //    //    if (Client.Connected())
-        //    //    {
-        //    //        S7.SetRealAt(_tempBuffer, 0, cameraOutput.POINT1.X + (float)STATUS.HorizontalnaOs.ActualPosition.X.Value);
-        //    //        S7.SetRealAt(_tempBuffer, 4, cameraOutput.POINT1.Y + (float)STATUS.HorizontalnaOs.ActualPosition.Y.Value);
-        //    //        S7.SetRealAt(_tempBuffer, 8, cameraOutput.POINT2.X + (float)STATUS.HorizontalnaOs.ActualPosition.X.Value);
-        //    //        S7.SetRealAt(_tempBuffer, 12, cameraOutput.POINT2.Y + (float)STATUS.HorizontalnaOs.ActualPosition.Y.Value);
-        //    //        S7.SetRealAt(_tempBuffer, 16, cameraOutput.PARAMETER);
-        //    //        S7.SetIntAt(_tempBuffer, 20, (short)cameraOutput.TYPE);
-        //    //        result = Client.DBWrite(28, 12, 22, _tempBuffer);
-        //    //    }
-        //    //}
-        //    //return result;
-        //}
-
         #endregion
 
         private void onClock100msTick(Object source, System.Timers.ElapsedEventArgs e)
@@ -817,11 +795,6 @@ namespace VizijskiSustavWPF
         public Status()
         {
             
-            //HorizontalnaOs.UHome.Value = false;
-            //HorizontalnaOs.UPoziciji.Value = false;
-            //HorizontalnaOs.UPozicijiTicala.Value = false;
-            //HorizontalnaOs.AktualnaPozicija.Value = false;
-           
         }
 
         public class horizontalnaOs

@@ -9,46 +9,6 @@
       Background="Black"
       Title="PIzvjestaji" >
 
-    <!--<Grid>
-        <Label Content="IZVJESTAJI" HorizontalAlignment="Center" Margin="4,10,4,4" VerticalAlignment="Top" Foreground="Black" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
-        <Grid Margin="10,43,0,0" Background="Black">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            
-            <Grid Grid.Row="0" Grid.Column="0" Margin="4">
-                <Image Name="img_lim" Source="{Binding SheetImageSource , Mode=TwoWay, Source={StaticResource MainReport}}"  MouseDown="Image_MouseDown" OpacityMask="#FFFBFBFB" HorizontalAlignment="Left" VerticalAlignment="Top" />
-            </Grid>
-            
-            
-            -->
-    <!--<Grid Margin="4,4,4,4" MinHeight="100" Background="black">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60*"/>
-                    <RowDefinition Height="40"/>
-
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40*"/>
-                    <ColumnDefinition Width="110"/>
-
-                </Grid.ColumnDefinitions>
-                <Image Name="image" Source="{Binding SheetImageSource , Mode=TwoWay, Source={StaticResource MainReport}}" Width="300" Height="300" MouseDown="Image_MouseDown" OpacityMask="#FFFBFBFB" />
-
-            </Grid>-->
-    <!--
-            
-        </Grid>
-
-    </Grid>-->
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
