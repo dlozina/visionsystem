@@ -7,7 +7,7 @@
     x:Class="VizijskiSustavWPF.PDijametri"
     mc:Ignorable="d" 
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-	Title="PKut" d:DesignWidth="1354" d:DesignHeight="828">
+	Title="PDijametri" d:DesignWidth="1354" d:DesignHeight="828">
 
     <!--<Page.Resources>
         <lcl:MainViewModel x:Key="Key1"/>

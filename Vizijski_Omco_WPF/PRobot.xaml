@@ -4,7 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VizijskiSustavWPF" x:Class="VizijskiSustavWPF.PRobot" 
       mc:Ignorable="d"
-	Title="PDimenzije" d:DesignWidth="969.422" d:DesignHeight="665.625">
+	Title="PRobot" d:DesignWidth="969.422" d:DesignHeight="665.625">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

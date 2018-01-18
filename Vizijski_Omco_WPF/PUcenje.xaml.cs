@@ -101,11 +101,6 @@ namespace VizijskiSustavWPF
             App.HDevExp.RunHalcon23(WindowID);
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void b_startKamere_Click(object sender, RoutedEventArgs e)
         {
             App.HDevExp.Teachloop = false;

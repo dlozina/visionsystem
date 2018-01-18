@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:VizijskiSustavWPF"
       mc:Ignorable="d"
       Background="Black"
-      Title="PIzvjestaji" Loaded="Page_Loaded">
+      Title="PIzvjestaji">
 
     <Grid>
         <Grid.RowDefinitions>

@@ -9,7 +9,7 @@
       x:Class="VizijskiSustavWPF.PPoroznost"
       mc:Ignorable="d" 
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
-	  Title="PSrh" d:DesignWidth="1354" d:DesignHeight="828" Loaded="Page_Loaded">
+	  Title="PPoroznost" d:DesignWidth="1354" d:DesignHeight="828">
 
     <Grid >
         <Grid.RowDefinitions>
