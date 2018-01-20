@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using HalconDotNet;
 using System.Threading;
 
@@ -20,7 +8,7 @@ namespace VizijskiSustavWPF
     /// <summary>
     /// Interaction logic for PRucno.xaml
     /// </summary>
-    public partial class PRucno : Page
+    public partial class PRucno
     {
         //private HDevelopExport HDevExp;
 
@@ -36,29 +24,29 @@ namespace VizijskiSustavWPF
         private void LiveCam1() // Method
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hwindow.HalconID;
-            App.HDevExp.RunHalcon11(WindowID);
+            HTuple windowId = hwindow.HalconID;
+            App.HDevExp.RunHalcon11(windowId);
         }
 
         private void LiveCam2() // Method
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hwindow.HalconID;
-            App.HDevExp.RunHalcon9(WindowID);   
+            HTuple windowId = hwindow.HalconID;
+            App.HDevExp.RunHalcon9(windowId);   
         }
 
         private void LiveCam3() // Method
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hwindow.HalconID;
-            App.HDevExp.RunHalcon12(WindowID);
+            HTuple windowId = hwindow.HalconID;
+            App.HDevExp.RunHalcon12(windowId);
         }
 
         private void LiveCam4() // Method
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hwindow.HalconID;
-            App.HDevExp.RunHalcon10(WindowID);
+            HTuple windowId = hwindow.HalconID;
+            App.HDevExp.RunHalcon10(windowId);
         }
 
 
@@ -84,8 +72,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = true;
             hwindow.HImagePart = new Rect(0, 0, 1280, 1024);
             // CAM1 call
-            Thread LiveCam1Thread = new Thread(new ThreadStart(this.LiveCam1));
-            LiveCam1Thread.Start();
+            Thread liveCam1Thread = new Thread(LiveCam1);
+            liveCam1Thread.Start();
         }
 
         private void b_ukljucikameru2_Click(object sender, RoutedEventArgs e)
@@ -100,8 +88,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = true;
             hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
             // CAM2 call
-            Thread LiveCam2Thread = new Thread(new ThreadStart(this.LiveCam2));
-            LiveCam2Thread.Start();
+            Thread liveCam2Thread = new Thread(LiveCam2);
+            liveCam2Thread.Start();
         }
 
 
@@ -117,8 +105,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = true;
             hwindow.HImagePart = new Rect(0, 0, 2592, 1944);
             // CAM3 call
-            Thread LiveCam3Thread = new Thread(new ThreadStart(this.LiveCam3));
-            LiveCam3Thread.Start();
+            Thread liveCam3Thread = new Thread(LiveCam3);
+            liveCam3Thread.Start();
         }
 
         private void b_ukljucikameru4_Click(object sender, RoutedEventArgs e)
@@ -133,8 +121,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = false;
             hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
             // CAM4 call
-            Thread LiveCam4Thread = new Thread(new ThreadStart(this.LiveCam4));
-            LiveCam4Thread.Start();
+            Thread liveCam4Thread = new Thread(LiveCam4);
+            liveCam4Thread.Start();
         }
 
         private void b_izgasiKameru_Click(object sender, RoutedEventArgs e)

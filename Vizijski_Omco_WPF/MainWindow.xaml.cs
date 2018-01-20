@@ -1,25 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 
 namespace VizijskiSustavWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         private DoubleAnimation animacija1 = new DoubleAnimation();
         private Frame pomocniFrame = new Frame();
@@ -52,7 +43,6 @@ namespace VizijskiSustavWPF
             glavniFrame.Visibility = Visibility.Visible;
             glavniFrame.NavigationService.RemoveBackEntry();
             pomocniFrame.NavigationService.RemoveBackEntry();
-            //App.CamUI.CameraActive = false;
             App.PLC.ActiveScreen = 1;
         }
 
@@ -75,7 +65,7 @@ namespace VizijskiSustavWPF
                 animacija1.From = 0.0;
                 animacija1.To = 1;
                 animacija1.Duration = new Duration(TimeSpan.FromSeconds(0.25));
-                pomocniFrame.BeginAnimation(Frame.OpacityProperty, animacija1);
+                pomocniFrame.BeginAnimation(OpacityProperty, animacija1);
                 glavniFrame.Visibility = Visibility.Hidden;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
@@ -138,7 +128,7 @@ namespace VizijskiSustavWPF
                 animacija1.From = 0.0;
                 animacija1.To = 1;
                 animacija1.Duration = new Duration(TimeSpan.FromSeconds(0.25));
-                pomocniFrame.BeginAnimation(Frame.OpacityProperty, animacija1);
+                pomocniFrame.BeginAnimation(OpacityProperty, animacija1);
                 glavniFrame.Visibility = Visibility.Hidden;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
@@ -179,9 +169,6 @@ namespace VizijskiSustavWPF
             glavniFrame.Content = App.pUcenje;
             
             glavniFrame.Visibility = Visibility.Visible;
-            //App.CamUI.CameraActive = true;
-            //App.CamUI.UseWebCamera = true;
-            //App.pValovitost.formsHost.Child = App.CamUI;
             App.PLC.ActiveScreen = 3;
         }
 
@@ -203,7 +190,7 @@ namespace VizijskiSustavWPF
                 animacija1.From = 0.0;
                 animacija1.To = 1;
                 animacija1.Duration = new Duration(TimeSpan.FromSeconds(0.25));
-                pomocniFrame.BeginAnimation(Frame.OpacityProperty, animacija1);
+                pomocniFrame.BeginAnimation(OpacityProperty, animacija1);
                 glavniFrame.Visibility = Visibility.Hidden;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
@@ -268,7 +255,7 @@ namespace VizijskiSustavWPF
                 animacija1.From = 0.0;
                 animacija1.To = 1;
                 animacija1.Duration = new Duration(TimeSpan.FromSeconds(0.25));
-                pomocniFrame.BeginAnimation(Frame.OpacityProperty, animacija1);
+                pomocniFrame.BeginAnimation(OpacityProperty, animacija1);
                 glavniFrame.Visibility = Visibility.Hidden;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
@@ -310,9 +297,6 @@ namespace VizijskiSustavWPF
             glavniFrame.Content = App.pVisine;
 
             glavniFrame.Visibility = Visibility.Visible;
-            //App.CamUI.CameraActive = true;
-            //App.CamUI.UseWebCamera = false;
-            //App.pSablja.formsHost.Child = App.CamUI;
             App.PLC.ActiveScreen = 5;
         }
 
@@ -334,7 +318,7 @@ namespace VizijskiSustavWPF
                 animacija1.From = 0.0;
                 animacija1.To = 1;
                 animacija1.Duration = new Duration(TimeSpan.FromSeconds(0.25));
-                pomocniFrame.BeginAnimation(Frame.OpacityProperty, animacija1);
+                pomocniFrame.BeginAnimation(OpacityProperty, animacija1);
                 glavniFrame.Visibility = Visibility.Hidden;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
@@ -378,9 +362,6 @@ namespace VizijskiSustavWPF
             glavniFrame.Content = App.pDijametri;
 
             glavniFrame.Visibility = Visibility.Visible;
-            //App.CamUI.CameraActive = true;
-            //App.CamUI.UseWebCamera = false;
-            //App.pKut.formsHost.Child = App.CamUI;
             App.PLC.ActiveScreen = 6;
         }
 
@@ -402,7 +383,7 @@ namespace VizijskiSustavWPF
                 animacija1.From = 0.0;
                 animacija1.To = 1;
                 animacija1.Duration = new Duration(TimeSpan.FromSeconds(0.25));
-                pomocniFrame.BeginAnimation(Frame.OpacityProperty, animacija1);
+                pomocniFrame.BeginAnimation(OpacityProperty, animacija1);
                 glavniFrame.Visibility = Visibility.Hidden;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
@@ -445,10 +426,6 @@ namespace VizijskiSustavWPF
             glavniFrame.Visibility = Visibility.Visible;
             glavniFrame.NavigationService.RemoveBackEntry();
             pomocniFrame.NavigationService.RemoveBackEntry();
-            //App.CamUI.CameraActive = true;
-            //App.pRucno.formsHost.Child = App.CamUI;
-            //if (App.pRucno.ActiveTab == 1) App.CamUI.UseWebCamera = false;
-            //else App.CamUI.UseWebCamera = true;
             App.PLC.ActiveScreen = 7;
         }
 
@@ -470,7 +447,7 @@ namespace VizijskiSustavWPF
                 animacija1.From = 0.0;
                 animacija1.To = 1;
                 animacija1.Duration = new Duration(TimeSpan.FromSeconds(0.25));
-                pomocniFrame.BeginAnimation(Frame.OpacityProperty, animacija1);
+                pomocniFrame.BeginAnimation(OpacityProperty, animacija1);
                 glavniFrame.Visibility = Visibility.Hidden;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
@@ -512,16 +489,6 @@ namespace VizijskiSustavWPF
             glavniFrame.Content = App.pIzvjestaji;
            
             glavniFrame.Visibility = Visibility.Visible;
-            //App.CamUI.CameraActive = false;
-
-            // Slike limova za izvještaj
-            //App.pDimenzije.GetDimenzijeSheetImage();
-            //App.pSrh.GetSrhSheetImage();
-
-            // Slike grafova za izvještaj
-            //App.pSrh.GetBurrPlotImage();
-            //App.pVisine.GetCamberPlotImage();
-   
             App.PLC.ActiveScreen = 8;
         }
 
@@ -543,7 +510,7 @@ namespace VizijskiSustavWPF
                 animacija1.From = 0.0;
                 animacija1.To = 1;
                 animacija1.Duration = new Duration(TimeSpan.FromSeconds(0.25));
-                pomocniFrame.BeginAnimation(Frame.OpacityProperty, animacija1);
+                pomocniFrame.BeginAnimation(OpacityProperty, animacija1);
                 glavniFrame.Visibility = Visibility.Hidden;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
@@ -577,30 +544,7 @@ namespace VizijskiSustavWPF
 
         private void glavniFrame_ContentRendered(object sender, EventArgs e)
         {
-            //if (glavniFrame.Content == App.pRucno)
-            //{
-            //    App.PLC.WriteTag(App.PLC.MANUAL.ManualActive, true);
-            //}
-            //else
-            //{
-            //    App.PLC.WriteTag(App.PLC.MANUAL.ManualActive, false);
-            //}
+
         }
-
-        //private void updateOnlineFlag(object sender, OnlineMarkerEventArgs e)
-        //{
-        //    if (e.OnlineMark)
-        //    {
-        //        this.Dispatcher.Invoke(new Action(() => { t_connectionStatus.Text = "PLC Status: Online"; }));
-        //        onlineFlag.Dispatcher.Invoke(new Action(() => { onlineFlag.Fill = new LinearGradientBrush(Colors.Green, Colors.White, 0.0); }));
-        //        //t_connectionStatus.Dispatcher.Invoke(new Action(() => { t_connectionStatus.Text = "PLC Status: Online"; }));
-        //    }
-        //    else
-        //    {
-        //        onlineFlag.Dispatcher.Invoke(new Action(() => { onlineFlag.Fill = new LinearGradientBrush((Color)ColorConverter.ConvertFromString("#FF979797"), Colors.White, 0.0); }));
-        //        Dispatcher.Invoke(new Action(() => { t_connectionStatus.Text = "PLC Status: Offline"; }));
-        //    }
-        //}
-
     }
 }

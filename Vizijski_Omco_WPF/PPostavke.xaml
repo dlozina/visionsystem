@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="PPostavke" d:DesignWidth="689" d:DesignHeight="525">
+	  Title="PPostavke" d:DesignWidth="689" d:DesignHeight="525">
 
     <Grid>
 
@@ -23,9 +23,6 @@
                     <ColumnDefinition Width="100*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" Grid.Row="0" Margin="0,0,2,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
                     <TextBlock Text="PRIJAVA OPERATERA" Margin="4,0,0,0" FontWeight="Bold"/>
                     <UniformGrid Margin="49,108" Columns="2" Height="84" Width="240">
                         <UniformGrid Columns="1" Background="Black">
@@ -41,12 +38,9 @@
                     </UniformGrid>
                 </Grid>
                 <Grid Grid.Column="3" Grid.Row="0" Margin="2,0,0,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
-                    <UniformGrid HorizontalAlignment="Center" Height="294" Margin="10" VerticalAlignment="Center" Width="280" Columns="2"/>
 
                 </Grid>
-                <Grid Grid.Row="1" Margin="0,4,2,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
-                    <UniformGrid HorizontalAlignment="Center" Height="140" Margin="10" VerticalAlignment="Center" Width="280" Columns="2"/>
-                </Grid>
+
                 <Grid Grid.Row="1" Grid.Column="3" Margin="2,4,0,0" Background="{DynamicResource pozadina1}" Grid.ColumnSpan="3">
                     
                     <UniformGrid Height="56" Width="140">

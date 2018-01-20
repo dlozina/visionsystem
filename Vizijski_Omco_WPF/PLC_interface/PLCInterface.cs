@@ -79,7 +79,6 @@ namespace VizijskiSustavWPF
         private byte[] CyclicStatusBuffer = new byte[65536];
         private byte[] ReadBuffer = new byte[65536];
         private byte[] CyclicControlBuffer = new byte[65536];
-        private byte[] WriteBuffer = new byte[65536];
         private byte[] WatchdogBuffer = new byte[2];
         private short updateCounter = 0;
 
@@ -100,12 +99,6 @@ namespace VizijskiSustavWPF
         {
             Clock_100_ms.Start();
             WatchDogTimer.Start();
-        }
-
-        void StopCyclic()
-        {
-            Clock_100_ms.Stop();
-            WatchDogTimer.Stop();
         }
 
         public void RestartInterface()
@@ -639,10 +632,6 @@ namespace VizijskiSustavWPF
         public odabirkomada Odabirkomada { get; set; } = new odabirkomada();
         public ucenje Ucenje { get; set; } = new ucenje();
 
-        public Control()
-        {
-        }
-
         public class horizontalnaOs
         {
             public plcTag IdiUHome { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(0, 0), false);
@@ -791,11 +780,6 @@ namespace VizijskiSustavWPF
         public cilindri Cilindri { get; set; } = new cilindri();
         public kamere Kamere { get; set; } = new kamere();
 
-
-        public Status()
-        {
-            
-        }
 
         public class horizontalnaOs
         {
@@ -947,7 +931,6 @@ namespace VizijskiSustavWPF
         }
 
 
-        object value;
         public object Value { get; set; }
 
 
@@ -956,7 +939,6 @@ namespace VizijskiSustavWPF
             vType = _vType;
             dType = _dType;
             offset = _offset;
-            value = _value;
             if (dType != dataType.DB)
             {
                 dbNumber = 0;

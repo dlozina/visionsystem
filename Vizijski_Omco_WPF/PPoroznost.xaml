@@ -3,18 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:HalconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
-      xmlns:local="clr-namespace:VizijskiSustavWPF" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon"  
-      xmlns:my="clr-namespace:HalconDotNet;assembly=halcondotnet"
+      xmlns:halconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
+      xmlns:local="clr-namespace:VizijskiSustavWPF"
       x:Class="VizijskiSustavWPF.PPoroznost"
       mc:Ignorable="d" 
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
 	  Title="PPoroznost" d:DesignWidth="1354" d:DesignHeight="828">
 
     <Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >
 
@@ -29,7 +25,7 @@
             </Grid.RowDefinitions>
 
             <!-- Unos kota -->
-            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Background="{DynamicResource pozadina1}" Margin="4,43,4,4">
+            <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,43,4,4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -208,9 +204,9 @@
 
 
             <!-- Prikaz Slike -->
-            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
+            <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
 
-                <HalconDotNet:HSmartWindowControlWPF x:Name="hwindowPorsity" Width="{Binding ElementName=WidthSlider, Path=Value}"
+                <halconDotNet:HSmartWindowControlWPF x:Name="hwindowPorsity" Width="{Binding ElementName=WidthSlider, Path=Value}"
                                                  Height="{Binding ElementName=HeightSlider, Path=Value}"
                                                  HImagePart="0,0,3856,2764"
                                                  />

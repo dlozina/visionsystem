@@ -1,19 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.ComponentModel;
-using System.IO;
+﻿using System.Windows;
 using HalconDotNet;
 using System.Threading;
 
@@ -22,7 +7,7 @@ namespace VizijskiSustavWPF
     /// <summary>
     /// Interaction logic for PSrh.xaml
     /// </summary>
-    public partial class PPoroznost : Page
+    public partial class PPoroznost
     {
         
         public PPoroznost()
@@ -44,28 +29,28 @@ namespace VizijskiSustavWPF
 
         public void PorosityHorWindow()
         {
-            HTuple WindowID = hwindowPorsity.HalconID;
-            App.HDevExp.RunHalcon14(WindowID);
+            HTuple windowId = hwindowPorsity.HalconID;
+            App.HDevExp.RunHalcon14(windowId);
         }
 
         public void PorosityVerWindow()
         {
-            HTuple WindowID = hwindowPorsity.HalconID;
-            App.HDevExp.RunHalcon13(WindowID);
+            HTuple windowId = hwindowPorsity.HalconID;
+            App.HDevExp.RunHalcon13(windowId);
         }
 
-        private void TeachCAM2()
+        private void TeachCam2()
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hwindowPorsity.HalconID;
-            App.HDevExp.RunHalcon24(WindowID);
+            HTuple windowId = hwindowPorsity.HalconID;
+            App.HDevExp.RunHalcon24(windowId);
         }
 
-        private void TeachCAM3()
+        private void TeachCam3()
         {
             App.HDevExp.InitHalcon();
-            HTuple WindowID = hwindowPorsity.HalconID;
-            App.HDevExp.RunHalcon25(WindowID);
+            HTuple windowId = hwindowPorsity.HalconID;
+            App.HDevExp.RunHalcon25(windowId);
         }
 
         private void b_pstartKamere1_Click(object sender, RoutedEventArgs e)
@@ -73,9 +58,8 @@ namespace VizijskiSustavWPF
             App.HDevExp.Teachloop2 = false;
             App.HDevExp.Teachloop3 = true;
             hwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
-            Thread TeachCAM2Thread = new Thread(new ThreadStart(this.TeachCAM2));
-            TeachCAM2Thread.Name = "TeachCAM2Thread";
-            TeachCAM2Thread.Start();
+            Thread teachCam2Thread = new Thread(new ThreadStart(this.TeachCam2)) {Name = "TeachCAM2Thread"};
+            teachCam2Thread.Start();
         }
 
         private void b_pstartKamere2_Click(object sender, RoutedEventArgs e)
@@ -83,9 +67,8 @@ namespace VizijskiSustavWPF
             App.HDevExp.Teachloop2 = true;
             App.HDevExp.Teachloop3 = false;
             hwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
-            Thread TeachCAM3Thread = new Thread(new ThreadStart(this.TeachCAM3));
-            TeachCAM3Thread.Name = "TeachCAM3Thread";
-            TeachCAM3Thread.Start();
+            Thread teachCam3Thread = new Thread(new ThreadStart(this.TeachCam3)) {Name = "TeachCAM3Thread"};
+            teachCam3Thread.Start();
         }
 
         private void b_psTOPKamere_Click(object sender, RoutedEventArgs e)

@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VizijskiSustavWPF"
-    x:Class="VizijskiSustavWPF.PVisine"
+      x:Class="VizijskiSustavWPF.PVisine"
       mc:Ignorable="d"
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
 	  Title="PVisine" d:DesignWidth="1354" d:DesignHeight="828" >
@@ -14,9 +14,6 @@
     </Page.Resources>-->
 
     <Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
         <!-- Glavni grid -->
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1">

@@ -1,14 +1,11 @@
 ﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:VizijskiSustavWPF" x:Class="VizijskiSustavWPF.PRobot" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      x:Class="VizijskiSustavWPF.PRobot" 
       mc:Ignorable="d"
 	Title="PRobot" d:DesignWidth="969.422" d:DesignHeight="665.625">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >
             <Grid.ColumnDefinitions>
@@ -21,12 +18,11 @@
                 <RowDefinition Height="102"/>
             </Grid.RowDefinitions>
             
-            <Grid Margin="4,4,4,0" Grid.Row="1" Grid.RowSpan="1" >
+            <Grid Margin="4,4,4,0" Grid.Row="1">
                 <!--<Border BorderBrush="Black" BorderThickness="0">-->
                 <!--</Border>-->
 
             </Grid>
-            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Height="2" Margin="4,0" VerticalAlignment="Top" Width="Auto" Background="Black" Grid.ColumnSpan="2"/>
             <UniformGrid Background="Black" Grid.Column="0" Grid.Row="2"/>
             <GridSplitter Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Height="2" Margin="0,2,0,0" VerticalAlignment="Top" Width="Auto" Background="Black"/>
             <GridSplitter Grid.Row="1" HorizontalAlignment="Left" Height="Auto" Margin="-2,0,0,0" VerticalAlignment="Stretch" Width="2" Background="Black" Foreground="Black" BorderThickness="0" Grid.RowSpan="2" Grid.Column="1"/>

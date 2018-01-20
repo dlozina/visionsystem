@@ -2,16 +2,12 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:VizijskiSustavWPF"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
       Background="Black"
       Title="PIzvjestaji">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
         <!-- Glavni grid -->
         <Grid MinHeight="600" MinWidth="700"  Background="Black" Grid.RowSpan="1" Margin="0,39,4,0">
@@ -33,12 +29,8 @@
 
             <!-- Za sliku lima -->
 
-            <GridSplitter Grid.Row="0" HorizontalAlignment="Stretch" Height="4" Margin="0" VerticalAlignment="Bottom" Background="Black"/>
-
             <!-- Za tablicu iz DIMENZIJA -->
             <Grid Grid.Row="1" Grid.Column="0" Margin="3,0,4,0"/>
-
-            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Height="4" Margin="0" VerticalAlignment="Bottom" Background="Black"/>
 
             <!-- Graf valovitosti -->
 

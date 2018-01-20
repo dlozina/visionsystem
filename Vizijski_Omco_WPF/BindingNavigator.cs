@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
@@ -111,13 +102,7 @@ namespace VizijskiSustavWPF
 
 
         private readonly CommandBindingCollection commandBindings = new CommandBindingCollection();
-        public CommandBindingCollection CommandBindings
-        {
-            get
-            {
-                return commandBindings;
-            }
-        }
+        public CommandBindingCollection CommandBindings => commandBindings;
 
         public static void OnNextRecord(object sender, ExecutedRoutedEventArgs e)
         {
@@ -144,9 +129,6 @@ namespace VizijskiSustavWPF
 
 
     }
-
-
-
 
     public class CommandBindingsAttachedProperty : DependencyObject
     {
@@ -203,77 +185,23 @@ namespace VizijskiSustavWPF
             DeleteRecord = 8
         }
 
-        public static RoutedUICommand NullRecord
-        {
-            get
-            {
-                return EnsureCommand(CommandId.NullRecord);
-            }
-        }
+        public static RoutedUICommand NullRecord => EnsureCommand(CommandId.NullRecord);
 
-        public static RoutedUICommand NextRecord
-        {
-            get
-            {
-                return EnsureCommand(CommandId.NextRecord);
-            }
-        }
+        public static RoutedUICommand NextRecord => EnsureCommand(CommandId.NextRecord);
 
-        public static RoutedUICommand PreviousRecord
-        {
-            get
-            {
-                return EnsureCommand(CommandId.PreviousRecord);
-            }
-        }
+        public static RoutedUICommand PreviousRecord => EnsureCommand(CommandId.PreviousRecord);
 
-        public static RoutedUICommand FirstRecord
-        {
-            get
-            {
-                return EnsureCommand(CommandId.FirstRecord);
-            }
-        }
+        public static RoutedUICommand FirstRecord => EnsureCommand(CommandId.FirstRecord);
 
-        public static RoutedUICommand LastRecord
-        {
-            get
-            {
-                return EnsureCommand(CommandId.LastRecord);
-            }
-        }
+        public static RoutedUICommand LastRecord => EnsureCommand(CommandId.LastRecord);
 
-        public static RoutedUICommand GoToRecord
-        {
-            get
-            {
-                return EnsureCommand(CommandId.GoToRecord);
-            }
-        }
+        public static RoutedUICommand GoToRecord => EnsureCommand(CommandId.GoToRecord);
 
-        public static RoutedUICommand AddRecord
-        {
-            get
-            {
-                return EnsureCommand(CommandId.AddRecord);
-            }
-        }
+        public static RoutedUICommand AddRecord => EnsureCommand(CommandId.AddRecord);
 
-        public static RoutedUICommand Save
-        {
-            get
-            {
-                return EnsureCommand(CommandId.Save);
-            }
-        }
+        public static RoutedUICommand Save => EnsureCommand(CommandId.Save);
 
-        public static RoutedUICommand DeleteRecord
-        {
-            get
-            {
-                return EnsureCommand(CommandId.DeleteRecord);
-            }
-        }
+        public static RoutedUICommand DeleteRecord => EnsureCommand(CommandId.DeleteRecord);
 
         private static RoutedUICommand EnsureCommand(CommandId idCommand)
         {
