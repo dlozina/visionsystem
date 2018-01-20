@@ -1,10 +1,9 @@
-using System;
 using HalconDotNet;
 
 public partial class HDevelopExport
 {
     // Main procedure 
-    private void DiameterAction(HTuple hv_dia, HTuple hv_side)
+    private void DiameterAction(HTuple hvDia, HTuple hvSide)
     {
         // Initialize local and output iconic variables 
         HOperatorSet.GenEmptyObj(out ho_Image);
@@ -18,18 +17,17 @@ public partial class HDevelopExport
         //try
         //{
             // Camera communication - Open
-            openCAMFrame();
+            OpenCamFrame();
             HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
             // Camera communication - Close
-            closeCAMFrame();
+            CloseCamFrame();
 
             //try
             //{
 
                 HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
                 //* Define constants and tuples:
-                hv_HalfH = hv_Height/2;
-                hv_HalfW = hv_Width/2;
+        hv_HalfW = hv_Width/2;
                 hv_row_len = hv_Height.Clone();
                 hv_row_outer = new HTuple();
                 hv_col_outer = new HTuple();
@@ -40,7 +38,7 @@ public partial class HDevelopExport
                 HOperatorSet.DerivateGauss(ho_Image, out ho_DerivGauss, 1, "x");
 
                 //* diameter 2 doesn't have a clean background => different values
-                if ((int)(new HTuple(hv_dia.TupleEqual(2))) != 0)
+                if ((int)(new HTuple(hvDia.TupleEqual(2))) != 0)
                 {
                     HOperatorSet.DualThreshold(ho_DerivGauss, out ho_RegionCrossings, 20, 2, 2);
                     HOperatorSet.Union1(ho_RegionCrossings, out ho_Region);
@@ -54,14 +52,14 @@ public partial class HDevelopExport
                 //* Retrieve points from detected edges
                 HOperatorSet.GetRegionPoints(ho_Region, out hv_Rows, out hv_Cols);
                 //* Side 2 => upper side closer to probe
-                if ((int)(new HTuple(hv_side.TupleEqual(2))) != 0)
+                if ((int)(new HTuple(hvSide.TupleEqual(2))) != 0)
                 {
                     //* Extract the points which define the outer or inner edge
-                    if ((int)((new HTuple(hv_dia.TupleEqual(3))).TupleOr(new HTuple(hv_dia.TupleEqual(4)))) != 0)
+                    if ((int)((new HTuple(hvDia.TupleEqual(3))).TupleOr(new HTuple(hvDia.TupleEqual(4)))) != 0)
                     {
-                        HTuple end_val35 = hv_row_len;
-                        HTuple step_val35 = 1;
-                        for (hv_i=1; hv_i.Continue(end_val35, step_val35); hv_i = hv_i.TupleAdd(step_val35))
+                        HTuple endVal35 = hv_row_len;
+                        HTuple stepVal35 = 1;
+                        for (hv_i=1; hv_i.Continue(endVal35, stepVal35); hv_i = hv_i.TupleAdd(stepVal35))
                         {
                             HOperatorSet.TupleFind(hv_Rows, hv_i-1, out hv_Indices);
                             //* if none point exists in this row replace it with an incremental interpolation
@@ -76,7 +74,7 @@ public partial class HDevelopExport
                                 continue;
                             }
 
-                            HOperatorSet.TupleLength(hv_Indices, out hv_Length);
+                            HOperatorSet.TupleLength(hv_Indices, out _);
                             HOperatorSet.TupleMin(hv_Cols.TupleSelect(hv_Indices), out hv_col_min);
                             HOperatorSet.TupleFind(hv_Cols.TupleSelect(hv_Indices), hv_col_min, 
                                 out hv_indice_min);
@@ -89,11 +87,11 @@ public partial class HDevelopExport
                         }
                     }
 
-                    else if ((int)((new HTuple(hv_dia.TupleEqual(1))).TupleOr(new HTuple(hv_dia.TupleEqual(2)))) != 0)
+                    else if ((int)((new HTuple(hvDia.TupleEqual(1))).TupleOr(new HTuple(hvDia.TupleEqual(2)))) != 0)
                     {
-                        HTuple end_val50 = hv_row_len;
-                        HTuple step_val50 = 1;
-                        for (hv_i=1; hv_i.Continue(end_val50, step_val50); hv_i = hv_i.TupleAdd(step_val50))
+                        HTuple endVal50 = hv_row_len;
+                        HTuple stepVal50 = 1;
+                        for (hv_i=1; hv_i.Continue(endVal50, stepVal50); hv_i = hv_i.TupleAdd(stepVal50))
                         {
                             HOperatorSet.TupleFind(hv_Rows, hv_i-1, out hv_Indices);
                             //* if none point exists in this row replace it with an incremental interpolation
@@ -108,7 +106,7 @@ public partial class HDevelopExport
                                 continue;
                             }
 
-                            HOperatorSet.TupleLength(hv_Indices, out hv_Length);
+                            HOperatorSet.TupleLength(hv_Indices, out _);
                             HOperatorSet.TupleMax(hv_Cols.TupleSelect(hv_Indices), out hv_col_max);
                             HOperatorSet.TupleFind(hv_Cols.TupleSelect(hv_Indices), hv_col_max, 
                                 out hv_indice_max);
@@ -125,8 +123,8 @@ public partial class HDevelopExport
                     HOperatorSet.GenRegionPoints(out ho_region_outer, hv_row_outer, hv_col_outer);
                     HOperatorSet.GenContourPolygonXld(out ho_contour_outer, hv_row_outer, hv_col_outer);
                     HOperatorSet.FitCircleContourXld(ho_contour_outer, "geotukey", -1, 0, 0, 
-                        3, 2, out hv_Row, out hv_Col, out hv_Radius, out hv_StartPhi, out hv_EndPhi, 
-                        out hv_PointOrder);
+                        3, 2, out hv_Row, out hv_Col, out hv_Radius, out _, out _, 
+                        out _);
                     HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Row, hv_Col, hv_Radius, 
                         0, 6.28318, "positive", 1);
                     HOperatorSet.GetContourXld(ho_ContCircle, out hv_Row, out hv_Col);
@@ -138,18 +136,17 @@ public partial class HDevelopExport
                     //* calculate pixel and mm outputs
                     hv_colToMax0 = hv_Col.TupleSelect(hv_IndexMax);
                     hv_output = (-hv_HalfW)+hv_colToMax0;
-                    hv_outputmm = hv_output*0.001675;
                 }
 
                 //* Side 1 => side closer to vertical moving axis
-                if ((int)(new HTuple(hv_side.TupleEqual(1))) != 0)
+                if ((int)(new HTuple(hvSide.TupleEqual(1))) != 0)
                 {
                     //* Extract the points which define the outer or inner edge
-                    if ((int)((new HTuple(hv_dia.TupleEqual(3))).TupleOr(new HTuple(hv_dia.TupleEqual(4)))) != 0)
+                    if ((int)((new HTuple(hvDia.TupleEqual(3))).TupleOr(new HTuple(hvDia.TupleEqual(4)))) != 0)
                     {
-                        HTuple end_val87 = hv_row_len;
-                        HTuple step_val87 = 1;
-                        for (hv_i=1; hv_i.Continue(end_val87, step_val87); hv_i = hv_i.TupleAdd(step_val87))
+                        HTuple endVal87 = hv_row_len;
+                        HTuple stepVal87 = 1;
+                        for (hv_i=1; hv_i.Continue(endVal87, stepVal87); hv_i = hv_i.TupleAdd(stepVal87))
                         {
                             HOperatorSet.TupleFind(hv_Rows, hv_i-1, out hv_Indices);
                             //* if none point exists in this row replace it with an incremental interpolation
@@ -164,7 +161,7 @@ public partial class HDevelopExport
                                 continue;
                             }
 
-                            HOperatorSet.TupleLength(hv_Indices, out hv_Length);
+                            HOperatorSet.TupleLength(hv_Indices, out _);
                             HOperatorSet.TupleMax(hv_Cols.TupleSelect(hv_Indices), out hv_col_max);
                             HOperatorSet.TupleFind(hv_Cols.TupleSelect(hv_Indices), hv_col_max, 
                                 out hv_indice_max);
@@ -176,11 +173,11 @@ public partial class HDevelopExport
                             hv_col_outer[hv_i-1] = hv_Cols.TupleSelect(hv_Indices.TupleSelect(hv_indice_max));
                         }
                     }
-                    else if ((int)((new HTuple(hv_dia.TupleEqual(1))).TupleOr(new HTuple(hv_dia.TupleEqual(2)))) != 0)
+                    else if ((int)((new HTuple(hvDia.TupleEqual(1))).TupleOr(new HTuple(hvDia.TupleEqual(2)))) != 0)
                     {
-                        HTuple end_val102 = hv_row_len;
-                        HTuple step_val102 = 1;
-                        for (hv_i=1; hv_i.Continue(end_val102, step_val102); hv_i = hv_i.TupleAdd(step_val102))
+                        HTuple endVal102 = hv_row_len;
+                        HTuple stepVal102 = 1;
+                        for (hv_i=1; hv_i.Continue(endVal102, stepVal102); hv_i = hv_i.TupleAdd(stepVal102))
                         {
                             HOperatorSet.TupleFind(hv_Rows, hv_i-1, out hv_Indices);
                             //* if none point exists in this row replace it with an incremental interpolation
@@ -195,7 +192,7 @@ public partial class HDevelopExport
                             continue;
                             }
 
-                            HOperatorSet.TupleLength(hv_Indices, out hv_Length);
+                            HOperatorSet.TupleLength(hv_Indices, out _);
                             HOperatorSet.TupleMin(hv_Cols.TupleSelect(hv_Indices), out hv_col_min);
                             HOperatorSet.TupleFind(hv_Cols.TupleSelect(hv_Indices), hv_col_min, 
                                 out hv_indice_min);
@@ -212,8 +209,8 @@ public partial class HDevelopExport
                     HOperatorSet.GenRegionPoints(out ho_region_outer, hv_row_outer, hv_col_outer);
                     HOperatorSet.GenContourPolygonXld(out ho_contour_outer, hv_row_outer, hv_col_outer);
                     HOperatorSet.FitCircleContourXld(ho_contour_outer, "geotukey", -1, 0, 0, 
-                        3, 2, out hv_Row, out hv_Col, out hv_Radius, out hv_StartPhi, out hv_EndPhi, 
-                        out hv_PointOrder);
+                        3, 2, out hv_Row, out hv_Col, out hv_Radius, out _, out _, 
+                        out _);
                     HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Row, hv_Col, hv_Radius, 
                         0, 6.28318, "positive", 1);
                     HOperatorSet.GetContourXld(ho_ContCircle, out hv_Row, out hv_Col);
@@ -225,7 +222,6 @@ public partial class HDevelopExport
                     //* calculate pixel and mm outputs
                     hv_colToMin0 = hv_Col.TupleSelect(hv_IndexMin);
                     hv_output = hv_HalfW-hv_colToMin0;
-                    hv_outputmm = hv_output*0.001675;
                 }
 
             //}

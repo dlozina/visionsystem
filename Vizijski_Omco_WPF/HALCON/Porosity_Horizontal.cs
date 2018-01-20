@@ -1,4 +1,3 @@
-using System;
 using HalconDotNet;
 
 public partial class HDevelopExport
@@ -52,7 +51,7 @@ public partial class HDevelopExport
         hv_porosity_area_mm = 0;
         dev_update_off();
 
-        while (porositydetectedhor == false)
+        while (Porositydetectedhor == false)
         {
             ho_Image.Dispose();
             HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
@@ -90,8 +89,6 @@ public partial class HDevelopExport
                     hv_index = hv_i-1;
                     hv_found = hv_found+1;
                     hv_bol = 1;
-                    hv_porosity_area_px = hv_Area.TupleSelect(hv_i-1);
-                    hv_porosity_area_mm = (hv_porosity_area_px*0.001675)*0.001675;
                     break;
                 }
                 else
@@ -129,9 +126,9 @@ public partial class HDevelopExport
         ho_ContCircle.Dispose();
     }
 
-    public void RunHalcon14(HTuple Window)
+    public void RunHalcon14(HTuple window)
     {
-        hv_porosityWinHandle = Window;
+        hv_porosityWinHandle = window;
         porosityHorizonatal();
     }
 

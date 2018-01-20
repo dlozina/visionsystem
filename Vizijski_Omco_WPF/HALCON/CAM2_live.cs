@@ -1,10 +1,9 @@
-using System;
 using HalconDotNet;
 
 public partial class HDevelopExport
 {
 
-    private void livecam2()
+    private void Livecam2()
     {
         // Initialize local and output iconic variables 
         HOperatorSet.GenEmptyObj(out ho_Image);
@@ -14,7 +13,7 @@ public partial class HDevelopExport
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 15000.0);
         HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
     
-        while (exitloop2 == false)
+        while (Exitloop2 == false)
         {
             ho_Image.Dispose();
 	        // Live image from CAM2
@@ -27,11 +26,11 @@ public partial class HDevelopExport
         HOperatorSet.CloseFramegrabber(hv_AcqHandle);
     }
 
-    public void RunHalcon9(HTuple Window)
+    public void RunHalcon9(HTuple window)
     {
-        hv_ExpDefaultWinHandle = Window;
+        hv_ExpDefaultWinHandle = window;
         HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-        livecam2();
+        Livecam2();
     }
 }
 

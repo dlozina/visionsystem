@@ -1,4 +1,3 @@
-using System;
 using HalconDotNet;
 
 public partial class HDevelopExport
@@ -6,8 +5,6 @@ public partial class HDevelopExport
 
     private void Teachcam4()
     {
-        // Local control variables 
-        HTuple hv_AcqHandle = null;
         // Initialize local and output iconic variables 
         HOperatorSet.GenEmptyObj(out ho_TestImage);
         // Image Acquisition OPEN frame
@@ -18,7 +15,7 @@ public partial class HDevelopExport
         // HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 1928 - 150, 2764, 1928 + 150);
         //HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 1928 - 250, 2764, 1928 + 250);
 
-        while (teachloop == false)
+        while (Teachloop == false)
         {
             ho_TestImage.Dispose();
 	        // Live image from CAM4

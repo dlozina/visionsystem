@@ -1,15 +1,10 @@
-using System;
 using HalconDotNet;
 
 public partial class HDevelopExport
 {
 
-    private void livecam4()
+    private void Livecam4()
     {
-        // Local iconic variables 
-        HObject ho_Image=null;
-        // Local control variables 
-        HTuple hv_AcqHandle = null;
         // Initialize local and output iconic variables 
         HOperatorSet.GenEmptyObj(out ho_Image);
         // Image Acquisition OPEN frame
@@ -18,7 +13,7 @@ public partial class HDevelopExport
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
         HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
 
-        while (exitloop4 == false)
+        while (Exitloop4 == false)
         {
             ho_Image.Dispose();
 	        // Live image from CAM4
@@ -31,11 +26,11 @@ public partial class HDevelopExport
         HOperatorSet.CloseFramegrabber(hv_AcqHandle);
     }
 
-    public void RunHalcon10(HTuple Window)
+    public void RunHalcon10(HTuple window)
     {
-        hv_ExpDefaultWinHandle = Window;
+        hv_ExpDefaultWinHandle = window;
         HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-        livecam4();
+        Livecam4();
     }
 
 }

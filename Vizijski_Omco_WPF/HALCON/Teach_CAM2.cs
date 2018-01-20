@@ -1,4 +1,3 @@
-using System;
 using HalconDotNet;
 
 public partial class HDevelopExport
@@ -14,7 +13,7 @@ public partial class HDevelopExport
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 15000.0);
         HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
 
-        while (teachloop2 == false)
+        while (Teachloop2 == false)
         {
             ho_Image.Dispose();
 	        // Live image from CAM2
