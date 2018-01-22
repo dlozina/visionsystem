@@ -122,7 +122,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BindingNavigator.cs" />
     <Compile Include="HALCON\CAM1_Live.cs" />
     <Compile Include="HALCON\Teach_CAM3.cs" />
     <Compile Include="HALCON\Teach_CAM2.cs" />
@@ -328,7 +327,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="ikone\izvjestaji.png" />
-    <Content Include="ikone\Koncar_A lim.svg" />
     <Resource Include="ikone\sablja.png" />
     <Resource Include="ikone\rucno.png" />
     <Resource Include="ikone\postavke.png" />
