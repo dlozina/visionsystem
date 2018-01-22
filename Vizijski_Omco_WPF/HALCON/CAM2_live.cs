@@ -10,7 +10,7 @@ public partial class HDevelopExport
         // Image Acquisition OPEN frame
         HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
             "default", -1, "false", "default", "GC3851MP_CAM_2", 0, -1, out hv_AcqHandle);
-        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 15000.0);
+        HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 10000.0);
         HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
     
         while (Exitloop2 == false)
