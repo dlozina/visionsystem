@@ -28,9 +28,9 @@ public partial class HDevelopExport
         HOperatorSet.CloseFramegrabber(hv_AcqHandle);
     }
 
-    public void RunHalcon25(HTuple Window)
+    public void RunHalcon25(HTuple window)
     {
-        hv_TeachWinHandle3 = Window;
+        hv_TeachWinHandle3 = window;
         HOperatorSet.ClearWindow(hv_TeachWinHandle3);
         Teachcam3();
     }

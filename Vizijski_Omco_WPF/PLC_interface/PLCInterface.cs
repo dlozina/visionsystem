@@ -105,7 +105,10 @@ namespace VizijskiSustavWPF
                 Thread.Sleep(1000);
                 while (!Client.Connected())
                 {
-                    Client.ConnectTo("192.168.0.1", 0, 1);
+                    // Real PLC
+                    //Client.ConnectTo("192.168.0.1", 0, 1);
+                    // Simulation
+                    Client.ConnectTo("192.168.1.250", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
