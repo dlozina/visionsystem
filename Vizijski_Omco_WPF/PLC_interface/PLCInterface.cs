@@ -393,8 +393,8 @@ namespace VizijskiSustavWPF
                 }
                 try
                 {
-                    if (result != 0)
-                        throw new System.InvalidOperationException("write error");
+                    //if (result != 0)
+                    //    throw new System.InvalidOperationException("write error");
                 }
                 finally
                 {
@@ -452,8 +452,8 @@ namespace VizijskiSustavWPF
                 }
                 try
                 {
-                    if (result != 0)
-                        throw new System.InvalidOperationException("write error");
+                    //if (result != 0)
+                    //    throw new System.InvalidOperationException("write error");
                 }
                 catch { }
                 finally
@@ -490,8 +490,8 @@ namespace VizijskiSustavWPF
                 }
                 try
                 {
-                    if (result != 0)
-                        throw new System.InvalidOperationException("write error");
+                    //if (result != 0)
+                    //    throw new System.InvalidOperationException("write error");
                 }
                 catch { }
                 finally
