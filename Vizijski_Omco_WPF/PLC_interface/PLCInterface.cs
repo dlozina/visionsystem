@@ -10,7 +10,7 @@ namespace VizijskiSustavWPF
 
     public class PLCInterfaceEventArgs : EventArgs
     {
-        private Control controlData; // Propertie
+        private Control controlData;
 
         public Control ControlData
         {
@@ -19,7 +19,6 @@ namespace VizijskiSustavWPF
         }
 
         private Status statusData;
-
         public Status StatusData
         {
             get { return statusData; }
@@ -106,9 +105,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    Client.ConnectTo("192.168.0.1", 0, 1);
+                    //Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    //Client.ConnectTo("192.168.111.108", 0, 1);
+                    Client.ConnectTo("192.168.1.250", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
