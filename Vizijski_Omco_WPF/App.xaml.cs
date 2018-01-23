@@ -43,7 +43,7 @@ namespace VizijskiSustavWPF
             pDijametri = new PDijametri();
             pRucno = new PRucno();
 
-            App.PLC.StartCyclic();
+            PLC.StartCyclic();
             App.PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
             App.HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
