@@ -123,6 +123,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="HALCON\CAM1_Live.cs" />
+    <Compile Include="HALCON\Pick.cs" />
     <Compile Include="HALCON\Teach_CAM3.cs" />
     <Compile Include="HALCON\Teach_CAM2.cs" />
     <Compile Include="HALCON\CAM3_Live.cs" />
@@ -264,26 +265,26 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Resource Include="ikone\robot.png" />
-    <Resource Include="ikone\book.png" />
-    <Resource Include="ikone\sort-z-to-a.png" />
-    <Resource Include="ikone\bracket.png" />
-    <Resource Include="ikone\ruler.png" />
-    <Resource Include="ikone\video-on.png" />
+    <Resource Include="Photos\robot.png" />
+    <Resource Include="Photos\book.png" />
+    <Resource Include="Photos\sort-z-to-a.png" />
+    <Resource Include="Photos\bracket.png" />
+    <Resource Include="Photos\ruler.png" />
+    <Resource Include="Photos\video-on.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ikone\odrzavanje.png" />
-    <Resource Include="ikone\proizvodnja.png" />
+    <Resource Include="Photos\odrzavanje.png" />
+    <Resource Include="Photos\proizvodnja.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ikone\administracija.png" />
-    <Resource Include="ikone\kalendar.png" />
-    <Resource Include="ikone\statusi.png" />
-    <Resource Include="ikone\trendovi.png" />
-    <Resource Include="ikone\zastoji.png" />
+    <Resource Include="Photos\administracija.png" />
+    <Resource Include="Photos\kalendar.png" />
+    <Resource Include="Photos\statusi.png" />
+    <Resource Include="Photos\trendovi.png" />
+    <Resource Include="Photos\zastoji.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -303,13 +304,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ikone\osvjezi.png" />
+    <Resource Include="Photos\osvjezi.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ikone\dimenzije.png" />
-    <Resource Include="ikone\kut.png" />
-    <Resource Include="ikone\srh.png" />
-    <Resource Include="ikone\valovitost.png" />
+    <Resource Include="Photos\dimenzije.png" />
+    <Resource Include="Photos\kut.png" />
+    <Resource Include="Photos\srh.png" />
+    <Resource Include="Photos\valovitost.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -319,17 +320,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="video_on_icon.ico" />
-    <Resource Include="ikone\fast44_black.png" />
-    <Resource Include="ikone\fast44_red.png" />
-    <Resource Include="ikone\play106_black.png" />
-    <Resource Include="ikone\play106_blue.png" />
+    <Resource Include="Photos\fast44_black.png" />
+    <Resource Include="Photos\fast44_red.png" />
+    <Resource Include="Photos\play106_black.png" />
+    <Resource Include="Photos\play106_blue.png" />
     <Content Include="snap7.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="ikone\izvjestaji.png" />
-    <Resource Include="ikone\sablja.png" />
-    <Resource Include="ikone\rucno.png" />
-    <Resource Include="ikone\postavke.png" />
+    <Resource Include="Photos\izvjestaji.png" />
+    <Resource Include="Photos\sablja.png" />
+    <Resource Include="Photos\rucno.png" />
+    <Resource Include="Photos\postavke.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

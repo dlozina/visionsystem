@@ -23,10 +23,5 @@ public class HalconEventArgs : EventArgs
         set { rYcord = value; }
     }
 
-    private float pCAM2live;
-    public float PCAM2live
-    {
-        get { return pCAM2live; }
-        set { pCAM2live = value; }
-    }
+    
 }

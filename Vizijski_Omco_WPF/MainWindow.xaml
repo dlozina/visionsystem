@@ -74,7 +74,7 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/postavke.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <Image Source="Photos/postavke.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" POSTAVKE"/></TextBlock>
                 </StackPanel>
             </Button>
@@ -108,7 +108,7 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/robot.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <Image Source="Photos/robot.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" ROBOT"/></TextBlock>
                 </StackPanel>
 
@@ -143,7 +143,7 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/kut.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <Image Source="Photos/kut.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" UČENJE"/></TextBlock>
                 </StackPanel>
             </Button>
@@ -177,7 +177,7 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/video-on.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <Image Source="Photos/video-on.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" POROZNOST"/></TextBlock>
                 </StackPanel>
             </Button>
@@ -212,7 +212,7 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/ruler.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <Image Source="Photos/ruler.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" VISINE"/></TextBlock>
                 </StackPanel>
 
@@ -247,7 +247,7 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/dimenzije.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <Image Source="Photos/dimenzije.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" DIJAMETRI"/></TextBlock>
                 </StackPanel>
 
@@ -282,7 +282,7 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/rucno.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <Image Source="Photos/rucno.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" RUČNO"/></TextBlock>
                 </StackPanel>
 
@@ -317,7 +317,7 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="ikone/izvjestaji.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <Image Source="Photos/izvjestaji.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" IZVJEŠTAJI"/></TextBlock>
                 </StackPanel>
             </Button>
