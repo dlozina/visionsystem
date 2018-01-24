@@ -232,7 +232,6 @@ public partial class HDevelopExport
     HTuple hv_o = new HTuple(), hv_Pow_x = new HTuple(), hv_Pow_y = new HTuple();
     HTuple hv_d_eukl = new HTuple(), hv_x_pom = new HTuple();
     HTuple hv_y_pom = new HTuple(), hv_coor_len = new HTuple();
-    HTuple hv_x_cross = new HTuple(), hv_y_cross = new HTuple();
     HTuple hv_Exception = null;
 
     // Initialize local and output iconic variables 
@@ -601,8 +600,25 @@ public partial class HDevelopExport
 
     public void RunHalcon(HTuple window)
     {
-    hv_ExpDefaultWinHandle = window;
-    action();
+        hv_ExpDefaultWinHandle = window;
+        action();
+
+        argumenti.RXcord = (float) hv_x_cross.D;
+        argumenti.RYcord = (float) hv_y_cross.D;
+        // Chech for infinity Double to float conversion
+        if (float.IsPositiveInfinity(argumenti.PXvalue))
+        {
+            argumenti.RXcord = float.MaxValue;
+            argumenti.RYcord = float.MaxValue;
+        }
+        else if (float.IsNegativeInfinity(argumenti.PXvalue))
+        {
+            argumenti.RXcord = float.MinValue;
+            argumenti.RYcord = float.MinValue;
+        }
+
+        if (UpdateResult != null)
+            UpdateResult(this, argumenti);
     }
 
 }

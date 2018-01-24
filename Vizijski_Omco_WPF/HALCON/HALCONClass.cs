@@ -8,6 +8,8 @@ public partial class HDevelopExport
     public delegate void UpdateHandler(HDevelopExport sender, HalconEventArgs e);
     public event UpdateHandler UpdateResult;
     HalconEventArgs argumenti = new HalconEventArgs();
+    // Event - Update pick result
+
     // Event - Porosity detection started
     public delegate void PorosityDetectionStartEventHandler(object source, EventArgs args);
     public event PorosityDetectionStartEventHandler PorosityDetectionStart;
@@ -31,6 +33,8 @@ public partial class HDevelopExport
 
     // Output definition for all Diameters
     private HTuple hv_output = new HTuple();
+    // Output from pick
+    HTuple hv_x_cross = new HTuple(), hv_y_cross = new HTuple();
 
     // Diameter app variables
     // Local iconic variables 

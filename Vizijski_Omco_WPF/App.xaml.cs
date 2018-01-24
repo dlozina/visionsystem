@@ -163,6 +163,7 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
         }
+        // Event handler koji se poziva kada zavrsi analiza slike za pick
 
         private static void DetectionStart(object source, EventArgs e)
         {
