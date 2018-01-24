@@ -161,8 +161,7 @@
             <!-- Prikaz Slike -->
             <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
 
-                <halconDotNet:HSmartWindowControlWPF x:Name="hwindowPorsity" Width="{Binding ElementName=WidthSlider, Path=Value}"
-                                                 Height="{Binding ElementName=HeightSlider, Path=Value}"
+                <halconDotNet:HSmartWindowControlWPF x:Name="hwindowPorsity" 
                                                  HImagePart="0,0,3856,2764"
                                                  />
             </Grid>

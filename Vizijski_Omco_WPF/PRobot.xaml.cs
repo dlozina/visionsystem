@@ -36,11 +36,18 @@ namespace VizijskiSustavWPF
             App.HDevExp.RunHalcon11(windowId);
         }
 
-        private void RobotPickStart()
+        public void RobotPickStartT1()
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = HwindowRobot.HalconID;
-            App.HDevExp.RobotPick(windowId);
+            App.HDevExp.RobotPick(windowId, false);
+        }
+
+        public void RobotPickStartT2()
+        {
+            App.HDevExp.InitHalcon();
+            HTuple windowId = HwindowRobot.HalconID;
+            App.HDevExp.RobotPick(windowId, true);
         }
 
         private void BStartKamere_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -55,10 +62,16 @@ namespace VizijskiSustavWPF
             App.HDevExp.Exitloop1 = true;
         }
 
-        private void BUzmiSliku_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void BUzmiSliku1_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Thread robotPickThread = new Thread(RobotPickStart);
-            robotPickThread.Start();
+            Thread robotPick1Thread = new Thread(RobotPickStartT1);
+            robotPick1Thread.Start();
+        }
+
+        private void BUzmiSliku2_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Thread robotPick2Thread = new Thread(RobotPickStartT2);
+            robotPick2Thread.Start();
         }
     }
 }

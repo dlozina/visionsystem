@@ -27,6 +27,8 @@ namespace VizijskiSustavWPF
         private bool _edgeDetection3 = false;
         private bool _edgeDetection4 = false;
         private bool _edgeDetection5 = false;
+        private bool _edgeDetection6 = false;
+        private bool _edgeDetection7 = false;
         
         public App()
         {
@@ -123,20 +125,37 @@ namespace VizijskiSustavWPF
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
             if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!_edgeDetection3))
             {
-                // We call public method in class pShr
+                // We call public method in class pPoroznost
                 Thread porosityverth = new Thread(new ThreadStart(pPoroznost.PorosityVerWindow));
                 porosityverth.Name = "Thread PorosityVer";
                 porosityverth.Start();
             }
 
-            // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ***********************************************
+            // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ************************************************
             if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!_edgeDetection4))
             {
-                // We call public method in class pShr
+                // We call public method in class pPoroznost
                 Thread porosityhorth = new Thread(new ThreadStart(pPoroznost.PorosityHorWindow));
                 porosityhorth.Name = "Thread PorosityHor";
                 porosityhorth.Start();
             }
+
+            //// Start analize slike za robot PICK - TRIGGER 1 ***********************************************************
+            //if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value) && (!_edgeDetection6))
+            //{
+            //    // We call public method in class pRobot
+            //    Thread pickTriggerT1 = new Thread(pRobot.RobotPickStartT1);
+            //    pickTriggerT1.Name = "Thread pickTriggerT1";
+            //    pickTriggerT1.Start();
+            //}
+            //// Start analize slike za robot PICK - TRIGGER 2 ***********************************************************
+            //if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value) && (!_edgeDetection7))
+            //{
+            //    // We call public method in class pRobot
+            //    Thread pickTriggerT2 = new Thread(pRobot.RobotPickStartT2);
+            //    pickTriggerT2.Name = "Thread pickTriggerT2";
+            //    pickTriggerT2.Start();
+            //}
 
             // R-Os je prosla 360 i nije nasla porozni dio
             if (((bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value) && (!_edgeDetection5))
@@ -150,6 +169,8 @@ namespace VizijskiSustavWPF
             _edgeDetection3 = (bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value == true; 
             _edgeDetection4 = (bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value == true; 
             _edgeDetection5 = (bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value == true;
+            _edgeDetection6 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value == true;
+            _edgeDetection7 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value == true;
 
             if (mwHandle != null)
             {

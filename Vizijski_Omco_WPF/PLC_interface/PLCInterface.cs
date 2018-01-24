@@ -319,7 +319,8 @@ namespace VizijskiSustavWPF
                     STATUS.Cilindri.StegaZatvorena.GetValueFromGroupBuffer(CyclicStatusBuffer);
 
                     // Kamere
-                    STATUS.Kamere.CAM1ZahtjevZaAnalizom.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Kamere.CAM1ZahtjevZaAnalizomT1.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Kamere.CAM1ZahtjevZaAnalizomT2.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM2ZahtjevZaAnalizom.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM3ZahtjevZaAnalizom.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM4ZahtjevZaAnalizomS1.GetValueFromGroupBuffer(CyclicStatusBuffer);
@@ -868,19 +869,20 @@ namespace VizijskiSustavWPF
 
         public class kamere
         {
-            public plcTag CAM1ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 0), false);
-            public plcTag CAM2ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 1), false);
-            public plcTag CAM3ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 2), false);
-            public plcTag CAM4ZahtjevZaAnalizomS1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 3), false);
-            public plcTag CAM4ZahtjevZaAnalizomS2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 4), false);
-            public plcTag CAM1AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 5), false);
-            public plcTag CAM2AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 6), false);
-            public plcTag CAM3AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 7), false);
-            public plcTag CAM4AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 0), false);
-            public plcTag CAM1AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 1), false);
-            public plcTag CAM2AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 2), false);
-            public plcTag CAM3AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 3), false);
-            public plcTag CAM4AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 4), false);
+            public plcTag CAM1ZahtjevZaAnalizomT1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 0), false);
+            public plcTag CAM1ZahtjevZaAnalizomT2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 1), false);
+            public plcTag CAM2ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 2), false);
+            public plcTag CAM3ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 3), false);
+            public plcTag CAM4ZahtjevZaAnalizomS1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 4), false);
+            public plcTag CAM4ZahtjevZaAnalizomS2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 5), false);
+            public plcTag CAM1AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 6), false);
+            public plcTag CAM2AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 7), false);
+            public plcTag CAM3AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 0), false);
+            public plcTag CAM4AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 1), false);
+            public plcTag CAM1AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 2), false);
+            public plcTag CAM2AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 3), false);
+            public plcTag CAM3AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 4), false);
+            public plcTag CAM4AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 5), false);
             public plcTag CAM1RezultatX { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(124, 0), 0.0f);
             public plcTag CAM1RezultatY { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(128, 0), 0.0f);
             public plcTag CAM2Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(132, 0), 0.0f);

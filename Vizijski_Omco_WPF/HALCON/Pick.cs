@@ -205,7 +205,7 @@ public partial class HDevelopExport
     }
 
     // Main procedure 
-    private void RunPick()
+    private void RunPick(bool camtrigger)
     {
     // Local iconic variables 
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageRectified=null;
@@ -599,10 +599,19 @@ public partial class HDevelopExport
 
     }
 
-    public void RobotPick(HTuple window)
+    public void RobotPick(HTuple window, bool trigger = false)
     {
         hv_ExpDefaultWinHandle = window;
-        RunPick();
+
+        if (trigger == false)
+        {
+            RunPick(false);
+        }
+        else if (trigger)
+        {
+            RunPick(true);
+        }
+
         koordinate.RXcord = (float) hv_X.D;
         koordinate.RYcord = (float) hv_Y.D;
         // Chech for infinity Double to float conversion
