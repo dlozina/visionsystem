@@ -2,30 +2,76 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:halconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
       x:Class="VizijskiSustavWPF.PRobot" 
       mc:Ignorable="d"
-	Title="PRobot" d:DesignWidth="969.422" d:DesignHeight="665.625">
+	Title="PRobot" d:DesignWidth="1354" d:DesignHeight="828">
     <Grid>
 
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="490*"/>
-                <ColumnDefinition Width="490*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="295"/>
-                <RowDefinition Height="293*"/>
-                <RowDefinition Height="102"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="290*"/>
             </Grid.RowDefinitions>
             
-            <Grid Margin="4,4,4,0" Grid.Row="1">
-                <!--<Border BorderBrush="Black" BorderThickness="0">-->
-                <!--</Border>-->
+            <!-- Unos kota -->
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" Margin="4,43,4,4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0" Background="Black" Margin="4,4,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Margin="1" x:Name="BStartKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UKLJUCI KAMERU" Click="BStartKamere_Click"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Margin="1" x:Name="BStopKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISKLJUCI KAMERU" Click="BStopKamere_Click" />
+                </Grid>
+                
+                <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Margin="1" x:Name="BUzmiSliku" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UZMI SLIKU" Click="BUzmiSliku_Click"/>
+                </Grid>
             </Grid>
-            <UniformGrid Background="Black" Grid.Column="0" Grid.Row="2"/>
-            <GridSplitter Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Height="2" Margin="0,2,0,0" VerticalAlignment="Top" Width="Auto" Background="Black"/>
-            <GridSplitter Grid.Row="1" HorizontalAlignment="Left" Height="Auto" Margin="-2,0,0,0" VerticalAlignment="Stretch" Width="2" Background="Black" Foreground="Black" BorderThickness="0" Grid.RowSpan="2" Grid.Column="1"/>
+            
+            
+            
+            <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
+
+                <halconDotNet:HSmartWindowControlWPF x:Name="HwindowRobot" Width="{Binding ElementName=WidthSlider, Path=Value}"
+                                                     Height="{Binding ElementName=HeightSlider, Path=Value}"
+                                                     HImagePart="0,0,1280,1024"
+                />
+            </Grid>
+            
+            
+            
         </Grid>
         <Grid Height="35" Margin="4,4,4,0" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
             <TextBlock Text="ROBOT" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>

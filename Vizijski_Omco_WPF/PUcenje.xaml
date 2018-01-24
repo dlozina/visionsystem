@@ -44,6 +44,7 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
+
                 <!-- Stupac Unos Teoretskih Kota -->
                 <TextBlock Margin="1" Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UNOS TEORETSKIH KOTA ZA POZICIJU"/></TextBlock>
                 <Grid Grid.Row="1" Grid.Column="1" Background="Black" Margin="4,0,4,0">

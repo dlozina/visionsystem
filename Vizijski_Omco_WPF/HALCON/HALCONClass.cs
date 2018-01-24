@@ -9,7 +9,9 @@ public partial class HDevelopExport
     public event UpdateHandler UpdateResult;
     HalconEventArgs argumenti = new HalconEventArgs();
     // Event - Update pick result
-
+    public delegate void UpdateHandlerPick(HDevelopExport sender, HalconEventArgs e);
+    public event UpdateHandlerPick UpdateResultPick;
+    HalconEventArgs koordinate = new HalconEventArgs();
     // Event - Porosity detection started
     public delegate void PorosityDetectionStartEventHandler(object source, EventArgs args);
     public event PorosityDetectionStartEventHandler PorosityDetectionStart;

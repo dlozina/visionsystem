@@ -205,7 +205,7 @@ public partial class HDevelopExport
     }
 
     // Main procedure 
-    private void action()
+    private void RunPick()
     {
     // Local iconic variables 
     HObject ho_Image=null, ho_Rectangle=null, ho_ImageRectified=null;
@@ -252,8 +252,7 @@ public partial class HDevelopExport
         hv_pi = 3.14159265359;
 
         //* Read camera intrinsics
-        HOperatorSet.ReadCamPar("C:/Users/Bare Luka/Desktop/Kontak doo/Vizijski/Halcon programi/Vizijski_kalibracija_v01/camera_parameters.dat", 
-            out hv_CamParam);
+        HOperatorSet.ReadCamPar("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/intrinsics.cal", out hv_CamParam);
 
         //* create GMM classifier
         HOperatorSet.CreateClassGmm(6, 1, 1, "spherical", "normalization", 10, 42, 
@@ -598,27 +597,26 @@ public partial class HDevelopExport
 
     }
 
-    public void RunHalcon(HTuple window)
+    public void RobotPick(HTuple window)
     {
         hv_ExpDefaultWinHandle = window;
-        action();
-
-        argumenti.RXcord = (float) hv_x_cross.D;
-        argumenti.RYcord = (float) hv_y_cross.D;
+        RunPick();
+        koordinate.RXcord = (float) hv_x_cross.D;
+        koordinate.RYcord = (float) hv_y_cross.D;
         // Chech for infinity Double to float conversion
         if (float.IsPositiveInfinity(argumenti.PXvalue))
         {
-            argumenti.RXcord = float.MaxValue;
-            argumenti.RYcord = float.MaxValue;
+            koordinate.RXcord = float.MaxValue;
+            koordinate.RYcord = float.MaxValue;
         }
         else if (float.IsNegativeInfinity(argumenti.PXvalue))
         {
-            argumenti.RXcord = float.MinValue;
-            argumenti.RYcord = float.MinValue;
+            koordinate.RXcord = float.MinValue;
+            koordinate.RYcord = float.MinValue;
         }
 
-        if (UpdateResult != null)
-            UpdateResult(this, argumenti);
+        if (UpdateResultPick != null)
+            UpdateResultPick(this, koordinate);
     }
 
 }

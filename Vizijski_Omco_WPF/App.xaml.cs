@@ -47,6 +47,7 @@ namespace VizijskiSustavWPF
             App.PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
             App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
             App.HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
+            App.HDevExp.UpdateResultPick += new HDevelopExport.UpdateHandlerPick(PickUpdate);
             App.HDevExp.PorosityDetected += new HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
             App.HDevExp.PorosityDetectionStart += new HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
         }
@@ -164,6 +165,13 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
         }
         // Event handler koji se poziva kada zavrsi analiza slike za pick
+        private static void PickUpdate(HDevelopExport sender, HalconEventArgs e)
+        {
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1RezultatX, e.RXcord);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1RezultatY, e.RYcord);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1AnalizaOk, true);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1AnalizaOk, false);
+        }
 
         private static void DetectionStart(object source, EventArgs e)
         {

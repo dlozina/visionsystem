@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Threading;
+using System.Windows.Controls;
+using HalconDotNet;
 
 
 namespace VizijskiSustavWPF
@@ -27,6 +29,36 @@ namespace VizijskiSustavWPF
 
         //}
 
+        private void LiveCam1()
+        {
+            App.HDevExp.InitHalcon();
+            HTuple windowId = HwindowRobot.HalconID;
+            App.HDevExp.RunHalcon11(windowId);
+        }
 
+        private void RobotPickStart()
+        {
+            App.HDevExp.InitHalcon();
+            HTuple windowId = HwindowRobot.HalconID;
+            App.HDevExp.RobotPick(windowId);
+        }
+
+        private void BStartKamere_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            App.HDevExp.Exitloop1 = false;
+            Thread liveCam1Thread = new Thread(LiveCam1);
+            liveCam1Thread.Start();
+        }
+
+        private void BStopKamere_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            App.HDevExp.Exitloop1 = true;
+        }
+
+        private void BUzmiSliku_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Thread robotPickThread = new Thread(RobotPickStart);
+            robotPickThread.Start();
+        }
     }
 }
