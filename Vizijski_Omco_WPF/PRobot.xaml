@@ -10,16 +10,14 @@
 
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="290*"/>
             </Grid.RowDefinitions>
             
-            <!-- Unos kota -->
-            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" Margin="4,43,4,4">
+            <!-- Kontrola Kamere -->
+            <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,43,4,4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -37,29 +35,34 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-
-                <Grid Grid.Row="0" Grid.Column="0" Background="Black" Margin="4,4,4,0">
+                <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="KAMERA"/></TextBlock>
+                
+                <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,4,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Button Margin="1" x:Name="BStartKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UKLJUCI KAMERU" Click="BStartKamere_Click"/>
                 </Grid>
 
-                <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Button Margin="1" x:Name="BStopKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISKLJUCI KAMERU" Click="BStopKamere_Click" />
                 </Grid>
                 
-                <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,4">
+                <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Button Margin="1" x:Name="BUzmiSliku" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UZMI SLIKU" Click="BUzmiSliku_Click"/>
                 </Grid>
+                
+                <TextBlock Margin="1" Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="ROBOT"/></TextBlock>
+
             </Grid>
             
+
             
             
             <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >

@@ -213,6 +213,7 @@ public partial class HDevelopExport
 
     // Local control variables 
     HTuple hv_AcqHandle = null, hv_pi = null, hv_CamParam = null;
+    HTuple hv_CamPose = null;
     HTuple hv_GMMHandle = null, hv_Classes = null, hv_Index1 = null;
     HTuple hv_Index = null, hv_Width = new HTuple(), hv_Height = new HTuple();
     HTuple hv_CamParamOut = new HTuple(), hv_Centers = null;
@@ -253,7 +254,7 @@ public partial class HDevelopExport
 
         //* Read camera intrinsics
         HOperatorSet.ReadCamPar("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/intrinsics.cal", out hv_CamParam);
-
+        HOperatorSet.ReadPose("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/extrinsics.dat", out hv_CamPose);
         //* create GMM classifier
         HOperatorSet.CreateClassGmm(6, 1, 1, "spherical", "normalization", 10, 42, 
             out hv_GMMHandle);
@@ -277,7 +278,7 @@ public partial class HDevelopExport
         for (hv_Index=1; (int)hv_Index<=7; hv_Index = (int)hv_Index + 1)
         {
         ho_Image.Dispose();
-        HOperatorSet.ReadImage(out ho_Image, ("C:/Users/Bare Luka/Desktop/Kontak doo/Vizijski/Halcon programi/pick_images_h/image_No3_"+(hv_Index-1))+".ima.tif");
+        HOperatorSet.ReadImage(out ho_Image, ("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/PickImage/image_No3_"+(hv_Index-1))+".ima.tif");
         HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
         ho_Rectangle.Dispose();
         HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 0, hv_Height, hv_Width);
@@ -563,7 +564,8 @@ public partial class HDevelopExport
             HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_y_cross.TupleInt());
         }
 
-        HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
+        HOperatorSet.ImagePointsToWorldPlane(hv_CamParam, hv_CamPose, hv_x_cross,hv_y_cross,"mm", out hv_X, out hv_Y);
+        //HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
 
         }
         // catch (Exception) 
@@ -601,8 +603,8 @@ public partial class HDevelopExport
     {
         hv_ExpDefaultWinHandle = window;
         RunPick();
-        koordinate.RXcord = (float) hv_x_cross.D;
-        koordinate.RYcord = (float) hv_y_cross.D;
+        koordinate.RXcord = (float) hv_X.D;
+        koordinate.RYcord = (float) hv_Y.D;
         // Chech for infinity Double to float conversion
         if (float.IsPositiveInfinity(argumenti.PXvalue))
         {
