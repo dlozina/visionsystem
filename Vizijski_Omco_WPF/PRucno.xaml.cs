@@ -16,7 +16,7 @@ namespace VizijskiSustavWPF
         public PRucno() // Constructor
         {
             InitializeComponent();
-            App.HDevExp = new HDevelopExport(); // New Object
+            /*App.HDevExp = new HDevelopExport();*/ // New Object
             //App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePagePRucno_100ms);
             //App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePagePRucno_1s);
         }
@@ -113,7 +113,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = true;
-            //App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop3 = true;
             App.HDevExp.Exitloop4 = false;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = true;

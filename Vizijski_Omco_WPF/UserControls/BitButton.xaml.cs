@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace VizijskiSustavWPF
 {
@@ -20,8 +11,6 @@ namespace VizijskiSustavWPF
     /// </summary>
     public partial class BitButton : UserControl
     {
-      
-       
         public buttonFunction ButtonFunction { get; set; }
 
         public static readonly DependencyProperty controlTag = DependencyProperty.Register("ControlTag", typeof(plcTag), typeof(BitButton), new PropertyMetadata());
@@ -37,7 +26,6 @@ namespace VizijskiSustavWPF
             get { return (plcTag)GetValue(statusTag); }
             set { SetValue(statusTag, value); }
         }
-
 
         public static readonly DependencyProperty pLCConnection = DependencyProperty.Register("PLCConnection", typeof(PLCInterface), typeof(BitButton), new PropertyMetadata(null, new PropertyChangedCallback(OnPLCAssign)));
 
@@ -68,13 +56,10 @@ namespace VizijskiSustavWPF
             set { SetValue(offColor, value); }
         }
 
-
         public BitButton()
         {
             InitializeComponent();
         }
-
-
 
         private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -109,7 +94,6 @@ namespace VizijskiSustavWPF
                 case buttonFunction.ResetBit:
                     break;
             }
-           
         }
 
         public void Connect()
@@ -119,9 +103,7 @@ namespace VizijskiSustavWPF
         }
 
         private void updateStatus(object sender, PLCInterfaceEventArgs e)
-        {
-           
-                
+        { 
             Dispatcher.BeginInvoke((Action)(() =>
             {
                     try
@@ -145,7 +127,6 @@ namespace VizijskiSustavWPF
             ));
         }
 
-
         private static void OnPLCAssign(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             BitButton promjenaKontrola = (BitButton)d;
@@ -157,8 +138,5 @@ namespace VizijskiSustavWPF
             BitButton promjenaKontrola = (BitButton)d;
             promjenaKontrola.Connect();
         }
-
-       
-
     }
 }

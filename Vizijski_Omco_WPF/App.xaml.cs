@@ -32,10 +32,11 @@ namespace VizijskiSustavWPF
         
         public App()
         {
-            System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
             InitializeComponent();
-           
+            System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
+
             PLC = ((PLCInterface)Application.Current.FindResource("PLCinterf"));
+            HDevExp = new HDevelopExport();
             pIzvjestaji = new PIzvjestaji();
             pPostavke = new PPostavke();
             pRobot = new PRobot();
@@ -45,13 +46,13 @@ namespace VizijskiSustavWPF
             pDijametri = new PDijametri();
             pRucno = new PRucno();
 
-            PLC.StartCyclic(); // Pogledati sta se ovdije desava
-            App.PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
-            App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
-            App.HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
-            App.HDevExp.UpdateResultPick += new HDevelopExport.UpdateHandlerPick(PickUpdate);
-            App.HDevExp.PorosityDetected += new HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
-            App.HDevExp.PorosityDetectionStart += new HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
+            PLC.StartCyclic(); // Possible system null reference
+            PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
+            PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
+            HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
+            HDevExp.UpdateResultPick += new HDevelopExport.UpdateHandlerPick(PickUpdate);
+            HDevExp.PorosityDetected += new HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
+            HDevExp.PorosityDetectionStart += new HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
         }
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)

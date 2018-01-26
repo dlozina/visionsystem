@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace VizijskiSustavWPF
 {
@@ -20,7 +9,6 @@ namespace VizijskiSustavWPF
     /// </summary>
     public partial class InputField : UserControl
     {
-
         public static readonly DependencyProperty controlTag = DependencyProperty.Register("ControlTag", typeof(plcTag), typeof(InputField), new PropertyMetadata());
         public plcTag ControlTag
         {
@@ -53,7 +41,6 @@ namespace VizijskiSustavWPF
         public InputField()
         {
             InitializeComponent();
-           
         }
 
         public void Connect()
@@ -68,12 +55,8 @@ namespace VizijskiSustavWPF
 
         private void updatePage1234(object sender, PLCInterfaceEventArgs e)
         {
-
-
             Dispatcher.BeginInvoke((Action)(() =>
             {
-
-                //SetpointX888 = (float)e.ControlData.HorizontalnaOs.ZadanaPozicija.Value;
                 try
                 {
                     ControlTag.GetValueFromGroupBuffer(e.CyclicControlBuffer);
@@ -89,7 +72,6 @@ namespace VizijskiSustavWPF
         {
             InputField promjenaKontrola = (InputField)d;
             promjenaKontrola.PLCConnection.WriteTag(promjenaKontrola.ControlTag, promjenaKontrola.SetpointX888);
-  
         }
 
         private static void OnPLCAssign(DependencyObject d, DependencyPropertyChangedEventArgs e)

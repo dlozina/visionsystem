@@ -275,8 +275,10 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button x:Name="b_zatvoriKadar" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI KADAR KAMERE" Click="b_zatvoriKadar_Click"/>
-                                <Button Grid.Column="1" x:Name="b_izgasiKameru" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISKLJUČI KAMERU" Click="b_izgasiKameru_Click"/>
+                                <Button Grid.Column="0" Grid.Row="0" x:Name="b_izgasiKameru" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISKLJUČI KAMERU" Click="b_izgasiKameru_Click"/>
+                                
+                                <Grid Grid.Column="1" Grid.Row="0" Background="{DynamicResource pozadina1}" Margin="0">
+                                </Grid>
                             </Grid>
                             
 

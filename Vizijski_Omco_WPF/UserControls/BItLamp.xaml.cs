@@ -10,7 +10,6 @@ namespace VizijskiSustavWPF
     /// </summary>
     public partial class BitLamp : UserControl
     {
-
         public static readonly DependencyProperty controlTag = DependencyProperty.Register("ControlTag", typeof(plcTag), typeof(BitLamp), new PropertyMetadata());
         public plcTag ControlTag
         {
@@ -50,7 +49,6 @@ namespace VizijskiSustavWPF
         public BitLamp()
         {
             InitializeComponent();
-           
         }
 
         public void Connect()
