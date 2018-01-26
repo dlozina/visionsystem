@@ -140,22 +140,22 @@ namespace VizijskiSustavWPF
                 porosityhorth.Start();
             }
 
-            //// Start analize slike za robot PICK - TRIGGER 1 ***********************************************************
-            //if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value) && (!_edgeDetection6))
-            //{
-            //    // We call public method in class pRobot
-            //    Thread pickTriggerT1 = new Thread(pRobot.RobotPickStartT1);
-            //    pickTriggerT1.Name = "Thread pickTriggerT1";
-            //    pickTriggerT1.Start();
-            //}
-            //// Start analize slike za robot PICK - TRIGGER 2 ***********************************************************
-            //if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value) && (!_edgeDetection7))
-            //{
-            //    // We call public method in class pRobot
-            //    Thread pickTriggerT2 = new Thread(pRobot.RobotPickStartT2);
-            //    pickTriggerT2.Name = "Thread pickTriggerT2";
-            //    pickTriggerT2.Start();
-            //}
+            // Start analize slike za robot PICK - TRIGGER 1 ***********************************************************
+            if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value) && (!_edgeDetection6))
+            {
+                // We call public method in class pRobot
+                Thread pickTriggerT1 = new Thread(new ThreadStart(pRobot.RobotPickStartT1));
+                pickTriggerT1.Name = "Thread pickTriggerT1";
+                pickTriggerT1.Start();
+            }
+            // Start analize slike za robot PICK - TRIGGER 2 ***********************************************************
+            if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value) && (!_edgeDetection7))
+            {
+                // We call public method in class pRobot
+                Thread pickTriggerT2 = new Thread(pRobot.RobotPickStartT2);
+                pickTriggerT2.Name = "Thread pickTriggerT2";
+                pickTriggerT2.Start();
+            }
 
             // R-Os je prosla 360 i nije nasla porozni dio
             if (((bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value) && (!_edgeDetection5))

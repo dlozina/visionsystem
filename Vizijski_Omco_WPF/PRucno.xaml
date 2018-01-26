@@ -19,9 +19,9 @@
                 <local:MainViewModel></local:MainViewModel>
             </Grid.DataContext>-->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200*"/>
-                <ColumnDefinition Width="200*"/>
-                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="295"/>
@@ -40,8 +40,7 @@
             <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
                 <!--my:HWindowControlWPF  Name="hWindowControlWPF1"    ImagePart="0,0,3856,2764" PreviewMouseDown="hWindowControlWPF1_PreviewMouseDown" /-->
                 <!-- my:HWindowControlWPF Name="hWindowControlWPF1" ImagePart="0,0,3856,2764"/ -->
-                <halconDotNet:HSmartWindowControlWPF Name="hwindow" Width="{Binding ElementName=WidthSlider, Path=Value}"
-                                                 Height="{Binding ElementName=HeightSlider, Path=Value}"
+                <halconDotNet:HSmartWindowControlWPF Name="hwindow"
                                                  HImagePart="0,0,3856,2764"
                                                  />
             </Grid>
@@ -277,7 +276,7 @@
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
                                 <Button x:Name="b_zatvoriKadar" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI KADAR KAMERE" Click="b_zatvoriKadar_Click"/>
-                                <Button Grid.Column="1" x:Name="b_izgasiKameru" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZGASI KAMERU" Click="b_izgasiKameru_Click"/>
+                                <Button Grid.Column="1" x:Name="b_izgasiKameru" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISKLJUČI KAMERU" Click="b_izgasiKameru_Click"/>
                             </Grid>
                             
 

@@ -29,14 +29,24 @@ namespace VizijskiSustavWPF
 
         public void PorosityHorWindow()
         {
-            HTuple windowId = hwindowPorsity.HalconID;
-            App.HDevExp.RunHalcon14(windowId);
+            this.Dispatcher.Invoke(() =>
+            {
+                HTuple windowId = hwindowPorsity.HalconID;
+                App.HDevExp.RunHalcon14(windowId);
+            });
+            //HTuple windowId = hwindowPorsity.HalconID;
+            //App.HDevExp.RunHalcon14(windowId);
         }
 
         public void PorosityVerWindow()
         {
-            HTuple windowId = hwindowPorsity.HalconID;
-            App.HDevExp.RunHalcon13(windowId);
+            this.Dispatcher.Invoke(() =>
+            {
+                HTuple windowId = hwindowPorsity.HalconID;
+                App.HDevExp.RunHalcon13(windowId);
+            });
+            //HTuple windowId = hwindowPorsity.HalconID;
+            //App.HDevExp.RunHalcon13(windowId);
         }
 
         private void TeachCam2()

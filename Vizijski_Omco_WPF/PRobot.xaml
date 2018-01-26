@@ -15,7 +15,7 @@
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="290*"/>
             </Grid.RowDefinitions>
-            
+
             <!-- Kontrola Kamere -->
             <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,43,4,4">
                 <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="KAMERA"/></TextBlock>
-                
+
                 <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,4,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -50,37 +50,38 @@
                     </Grid.ColumnDefinitions>
                     <Button Margin="1" x:Name="BStopKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISKLJUCI KAMERU" Click="BStopKamere_Click" />
                 </Grid>
-                
-                <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,4">
+
+                <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Button Margin="1" x:Name="BUzmiSliku1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UZMI SLIKU 1" Click="BUzmiSliku1_Click"/>
                 </Grid>
-                
+
                 <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="4,0,4,4">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="43*"/>
+                        <ColumnDefinition Width="10*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Margin="1" x:Name="BUzmiSliku2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UZMI SLIKU 2" Click="BUzmiSliku2_Click"/>
+                    <Button Margin="1" x:Name="BUzmiSliku2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UZMI SLIKU 2" Click="BUzmiSliku2_Click" Grid.ColumnSpan="2"/>
                 </Grid>
-                
+
                 <TextBlock Margin="1" Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="ROBOT"/></TextBlock>
 
             </Grid>
-            
 
-            
-            
+
+
+
             <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
 
                 <halconDotNet:HSmartWindowControlWPF x:Name="HwindowRobot" 
                                                      HImagePart="0,0,1280,1024"
                 />
             </Grid>
-            
-            
-            
+
+
+
         </Grid>
         <Grid Height="35" Margin="4,4,4,0" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
             <TextBlock Text="ROBOT" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>

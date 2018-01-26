@@ -38,16 +38,24 @@ namespace VizijskiSustavWPF
 
         public void RobotPickStartT1()
         {
-            App.HDevExp.InitHalcon();
-            HTuple windowId = HwindowRobot.HalconID;
-            App.HDevExp.RobotPick(windowId, false);
+            this.Dispatcher.Invoke(() =>
+            {
+                HTuple windowId = HwindowRobot.HalconID;
+                App.HDevExp.RobotPick(windowId, false);
+            });
+            //HTuple windowId = HwindowRobot.HalconID;
+            //App.HDevExp.RobotPick(windowId, false);
         }
 
         public void RobotPickStartT2()
         {
-            App.HDevExp.InitHalcon();
-            HTuple windowId = HwindowRobot.HalconID;
-            App.HDevExp.RobotPick(windowId, true);
+            this.Dispatcher.Invoke(() =>
+            {
+                HTuple windowId = HwindowRobot.HalconID;
+                App.HDevExp.RobotPick(windowId, true);
+            });
+            //HTuple windowId = HwindowRobot.HalconID;
+            //App.HDevExp.RobotPick(windowId, true);
         }
 
         private void BStartKamere_Click(object sender, System.Windows.RoutedEventArgs e)
