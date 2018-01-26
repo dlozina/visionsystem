@@ -86,7 +86,6 @@ namespace VizijskiSustavWPF
             WatchDogTimer = new System.Timers.Timer(2000);
             WatchDogTimer.Elapsed += onClockWatchdogTick;
             WatchDogTimer.AutoReset = false;
-            //Thread.Sleep(3000);
         }
       
         public void StartCyclic()
@@ -105,9 +104,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    Client.ConnectTo("192.168.0.1", 0, 1);
+                    //Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    //Client.ConnectTo("192.168.1.250", 0, 1);
+                    Client.ConnectTo("192.168.1.250", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
