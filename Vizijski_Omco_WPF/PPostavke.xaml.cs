@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
 
 namespace VizijskiSustavWPF
 {
@@ -19,6 +20,11 @@ namespace VizijskiSustavWPF
 
         private void b_zatvori_Click(object sender, RoutedEventArgs e)
         {
+            App.HDevExp.Exitloop1 = true;
+            App.HDevExp.Exitloop2 = true;
+            App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = true;
+            Thread.Sleep(1000);
             App.Current.Shutdown();
         }
 
