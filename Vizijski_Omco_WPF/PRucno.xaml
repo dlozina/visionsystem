@@ -238,6 +238,7 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text=" CILINDRI"/></TextBlock>
                             <Grid Grid.Row="1">
@@ -290,8 +291,9 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
-
+                                <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
+
                             <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text=" RASVJETA"/></TextBlock>
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
@@ -301,6 +303,7 @@
                                 <local:BitButton  x:Name="bb_rasvjetaString" Text="STRING" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.RasvjetaZaString, ElementName=bb_rasvjetaString}" ButtonFunction="InvertBit"/>
                                 <local:BitButton  Grid.Column="1" x:Name="bb_rasvjetaDimenzije" Text="DIMENZIJE" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.RasvjetaZaDimenzije, ElementName=bb_rasvjetaDimenzije}" ButtonFunction="InvertBit"/>
                             </Grid>
+
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
@@ -308,8 +311,15 @@
                                 </Grid.ColumnDefinitions>
                                 <local:BitButton  x:Name="bb_rasvjetaPoroznost" Text="POROZNOST" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.RasvjetaZaPoroznost, ElementName=bb_rasvjetaString}" ButtonFunction="InvertBit" />
                                 <local:BitButton Grid.Column="1" x:Name="bb_laser" Text="LASER" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.PaliLaser, ElementName=bb_laser}" ButtonFunction="InvertBit"  />
-
-
+                            </Grid>
+                            
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <local:BitButton  x:Name="bb_rasvjetaD2Left" Text="DIJAMETAR 2 LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.RasvjetaZaD2Lijevo, ElementName=bb_rasvjetaD2Left}" ButtonFunction="InvertBit"/>
+                                <local:BitButton  Grid.Column="1" x:Name="bb_rasvjetaD2Right" Text="DIJAMETAR 2 DESNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Kamere.RasvjetaZaD2Desno, ElementName=bb_rasvjetaD2Right}" ButtonFunction="InvertBit"/>
                             </Grid>
 
                         </Grid>

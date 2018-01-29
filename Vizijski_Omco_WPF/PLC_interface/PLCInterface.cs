@@ -192,7 +192,8 @@ namespace VizijskiSustavWPF
                     CONTROL.Kamere.RasvjetaZaString.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Kamere.RasvjetaZaDimenzije.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Kamere.RasvjetaZaPoroznost.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Kamere.PaliLaser.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Kamere.RasvjetaZaD2Lijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Kamere.RasvjetaZaD2Desno.GetValueFromGroupBuffer(CyclicControlBuffer);
 
                     // Cilindri
                     CONTROL.Cilindri.PPOtvori.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -711,9 +712,10 @@ namespace VizijskiSustavWPF
             public plcTag RasvjetaZaString { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 0), false);
             public plcTag RasvjetaZaDimenzije { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 1), false);
             public plcTag RasvjetaZaPoroznost { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 2), false);
-            public plcTag PaliLaser { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 3), false);
-            public plcTag CAM4zahtjevZaAnalizomS1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 4), false);
-            public plcTag CAM4zahtjevZaAnalizomS2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 5), false);
+            public plcTag RasvjetaZaD2Lijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 3), false);
+            public plcTag RasvjetaZaD2Desno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 4), false);
+            public plcTag CAM4zahtjevZaAnalizomS1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 5), false);
+            public plcTag CAM4zahtjevZaAnalizomS2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(48, 6), false);
         }
 
         public class cilindri
