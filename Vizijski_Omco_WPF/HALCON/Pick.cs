@@ -18,12 +18,10 @@ public partial class HDevelopExport
             ho_EdgeAmplitude.Dispose();
             HOperatorSet.SobelAmp(ho_Image, out ho_EdgeAmplitude, "sum_abs", 13);
             ho_Region.Dispose();
-            HOperatorSet.BinaryThreshold(ho_EdgeAmplitude, out ho_Region, "max_separability", 
-                "light", out _);
+            HOperatorSet.BinaryThreshold(ho_EdgeAmplitude, out ho_Region, "max_separability", "light", out _);
             {
                 HObject ExpTmpOutVar_0;
-                HOperatorSet.CloseEdgesLength(ho_Region, ho_EdgeAmplitude, out ExpTmpOutVar_0, 
-                    10, 127);
+                HOperatorSet.CloseEdgesLength(ho_Region, ho_EdgeAmplitude, out ExpTmpOutVar_0, 10, 127);
                 ho_Region.Dispose();
                 ho_Region = ExpTmpOutVar_0;
             }
@@ -43,14 +41,14 @@ public partial class HDevelopExport
             ho_Region.Dispose();
             ho_ConnectedRegions.Dispose();
         }
-    catch (HalconException HDevExpDefaultException)
-    {
-        ho_EdgeAmplitude.Dispose();
-        ho_Region.Dispose();
-        ho_ConnectedRegions.Dispose();
+        catch (HalconException HDevExpDefaultException)
+        {
+            ho_EdgeAmplitude.Dispose();
+            ho_Region.Dispose();
+            ho_ConnectedRegions.Dispose();
 
-        throw HDevExpDefaultException;
-    }
+            throw HDevExpDefaultException;
+        }
     }
 
     public void get_features (HObject ho_Region, out HTuple hv_Features)
@@ -75,12 +73,9 @@ public partial class HDevelopExport
             HOperatorSet.CircularityXld(ho_Contours, out hv_Circularity_xld);
             HOperatorSet.Contlength(ho_SingleRegion, out _);
             HOperatorSet.Circularity(ho_SingleRegion, out hv_Circularity);
-            HOperatorSet.Eccentricity(ho_SingleRegion, out hv_Anisometry, out hv_Bulkiness, 
-                out hv_StructureFactor);
-            HOperatorSet.Roundness(ho_SingleRegion, out _, out _, out hv_Roundness, 
-                out _);
-            HOperatorSet.MomentsRegionCentralInvar(ho_SingleRegion, out _, out _, 
-                out _, out _);
+            HOperatorSet.Eccentricity(ho_SingleRegion, out hv_Anisometry, out hv_Bulkiness, out hv_StructureFactor);
+            HOperatorSet.Roundness(ho_SingleRegion, out _, out _, out hv_Roundness, out _);
+            HOperatorSet.MomentsRegionCentralInvar(ho_SingleRegion, out _, out _, out _, out _);
             hv_Features = new HTuple();
             hv_Features = hv_Features.TupleConcat(hv_Circularity);
             hv_Features = hv_Features.TupleConcat(hv_Circularity_xld);
@@ -190,10 +185,8 @@ public partial class HDevelopExport
             {
                 ho_Region.Dispose();
                 HOperatorSet.SelectObj(ho_Regions, out ho_Region, hv_J);
-                HOperatorSet.SetColor(hv_ExpDefaultWinHandle, hv_Colors.TupleSelect(hv_Classes.TupleSelect(
-                    hv_J-1)));
+                HOperatorSet.SetColor(hv_ExpDefaultWinHandle, hv_Colors.TupleSelect(hv_Classes.TupleSelect(hv_J-1)));
                 HOperatorSet.DispObj(ho_Region, hv_ExpDefaultWinHandle);
-
             }
             ho_Region.Dispose();
         }
@@ -247,8 +240,7 @@ public partial class HDevelopExport
     {
         //** GMM ***
         //OpenCam1
-        HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
-            "default", -1, "false", "default", "acA130075gm_CAM", 0, -1, out hv_AcqHandle);
+        HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "acA130075gm_CAM", 0, -1, out hv_AcqHandle);
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Continuous");
         hv_pi = 3.14159265359;
 
@@ -256,8 +248,7 @@ public partial class HDevelopExport
         HOperatorSet.ReadCamPar("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/intrinsics.cal", out hv_CamParam);
         HOperatorSet.ReadPose("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/extrinsics.dat", out hv_CamPose);
         //* create GMM classifier
-        HOperatorSet.CreateClassGmm(6, 1, 1, "spherical", "normalization", 10, 42, 
-            out hv_GMMHandle);
+        HOperatorSet.CreateClassGmm(6, 1, 1, "spherical", "normalization", 10, 42, out hv_GMMHandle);
 
         //* create class object
         hv_Classes = new HTuple();
@@ -284,8 +275,7 @@ public partial class HDevelopExport
         HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 0, hv_Height, hv_Width);
         HOperatorSet.ChangeRadialDistortionCamPar("adaptive", hv_CamParam, 0, out hv_CamParamOut);
         ho_ImageRectified.Dispose();
-        HOperatorSet.ChangeRadialDistortionImage(ho_Image, ho_Rectangle, out ho_ImageRectified, 
-            hv_CamParam, hv_CamParamOut);
+        HOperatorSet.ChangeRadialDistortionImage(ho_Image, ho_Rectangle, out ho_ImageRectified, hv_CamParam, hv_CamParamOut);
         ho_Regions.Dispose();
         segment(ho_ImageRectified, out ho_Regions);
         add_samples(ho_Regions, hv_GMMHandle, hv_Classes.TupleSelect(hv_Index));
@@ -308,8 +298,7 @@ public partial class HDevelopExport
         HOperatorSet.GenRectangle1(out ho_FOV, 0, 0, hv_Height, hv_Width);
         HOperatorSet.ChangeRadialDistortionCamPar("adaptive", hv_CamParam, 0, out hv_CamParamOut);
         ho_ImageRectified.Dispose();
-        HOperatorSet.ChangeRadialDistortionImage(ho_Image, ho_FOV, out ho_ImageRectified, 
-            hv_CamParam, hv_CamParamOut);
+        HOperatorSet.ChangeRadialDistortionImage(ho_Image, ho_FOV, out ho_ImageRectified, hv_CamParam, hv_CamParamOut);
 
 
         //* Segmentation and classification
@@ -326,8 +315,7 @@ public partial class HDevelopExport
 
 
         //* Exit routine, because palette part empty
-        HOperatorSet.DiameterRegion(ho_Objects, out hv_Row1, out hv_Column1, out hv_Row2, 
-            out hv_Column2, out hv_diameter);
+        HOperatorSet.DiameterRegion(ho_Objects, out hv_Row1, out hv_Column1, out hv_Row2, out hv_Column2, out hv_diameter);
         HOperatorSet.TupleLength(hv_diameter, out hv_Length);
         if ((int)(new HTuple(hv_Length.TupleGreater(450))) != 0)
         {
@@ -338,15 +326,13 @@ public partial class HDevelopExport
         //* prefiltriranje klasificiranih predmeta
         {
         HObject ExpTmpOutVar_0;
-        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "circularity", "and", 
-            0.5, 1.0);
+        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "circularity", "and", 0.5, 1.0);
         ho_Objects.Dispose();
         ho_Objects = ExpTmpOutVar_0;
         }
         {
         HObject ExpTmpOutVar_0;
-        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", 1000, 
-            100000);
+        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", 1000, 100000);
         ho_Objects.Dispose();
         ho_Objects = ExpTmpOutVar_0;
         }
@@ -354,23 +340,20 @@ public partial class HDevelopExport
         HOperatorSet.TupleMean(hv_Area, out hv_MeanArea);
         {
         HObject ExpTmpOutVar_0;
-        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", hv_MeanArea*0.8, 
-            100000);
+        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", hv_MeanArea*0.8, 100000);
         ho_Objects.Dispose();
         ho_Objects = ExpTmpOutVar_0;
         }
         HOperatorSet.Rectangularity(ho_Objects, out hv_Rectangularity);
         {
         HObject ExpTmpOutVar_0;
-        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "rectangularity", 
-            "and", 0.0, 0.85);
+        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "rectangularity", "and", 0.0, 0.85);
         ho_Objects.Dispose();
         ho_Objects = ExpTmpOutVar_0;
         }
         {
         HObject ExpTmpOutVar_0;
-        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "max_diameter", 
-            "and", 100, 400);
+        HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "max_diameter", "and", 100, 400);
         ho_Objects.Dispose();
         ho_Objects = ExpTmpOutVar_0;
         }
@@ -389,8 +372,7 @@ public partial class HDevelopExport
         hv_j = 0;
         while ((int)(new HTuple(hv_i.TupleLess(hv_Length))) != 0)
         {
-            if ((int)((new HTuple(((hv_Diameter.TupleSelect(hv_i))).TupleGreater(400))).TupleOr(
-                new HTuple(((hv_Diameter.TupleSelect(hv_i))).TupleLess(100)))) != 0)
+            if ((int)((new HTuple(((hv_Diameter.TupleSelect(hv_i))).TupleGreater(400))).TupleOr(new HTuple(((hv_Diameter.TupleSelect(hv_i))).TupleLess(100)))) != 0)
             {
             if (hv_Diameter == null)
                 hv_Diameter = new HTuple();
@@ -407,15 +389,13 @@ public partial class HDevelopExport
         {
             hv_x_ = ((hv_Row1.TupleSelect(hv_k-1))+(hv_Row2.TupleSelect(hv_k-1)))/2;
             hv_y_ = ((hv_Column1.TupleSelect(hv_k-1))+(hv_Column2.TupleSelect(hv_k-1)))/2;
-            if ((int)((new HTuple(hv_x_.TupleLess(25))).TupleOr(new HTuple(hv_x_.TupleGreater(
-                hv_Height-25)))) != 0)
+            if ((int)((new HTuple(hv_x_.TupleLess(25))).TupleOr(new HTuple(hv_x_.TupleGreater(hv_Height-25)))) != 0)
             {
             if (hv_Diameter == null)
                 hv_Diameter = new HTuple();
             hv_Diameter[hv_k-1] = 0;
             }
-            else if ((int)((new HTuple(hv_y_.TupleLess(25))).TupleOr(new HTuple(hv_y_.TupleGreater(
-                hv_Width-25)))) != 0)
+            else if ((int)((new HTuple(hv_y_.TupleLess(25))).TupleOr(new HTuple(hv_y_.TupleGreater(hv_Width-25)))) != 0)
             {
             if (hv_Diameter == null)
                 hv_Diameter = new HTuple();
@@ -443,8 +423,7 @@ public partial class HDevelopExport
         while ((int)(new HTuple(hv_i.TupleLess(hv_Length))) != 0)
         {
             hv_j = hv_i.Clone();
-            while ((int)(new HTuple(((hv_Diameter.TupleSelect(hv_j-1))).TupleLess(hv_Diameter.TupleSelect(
-                hv_j)))) != 0)
+            while ((int)(new HTuple(((hv_Diameter.TupleSelect(hv_j-1))).TupleLess(hv_Diameter.TupleSelect(hv_j)))) != 0)
             {
             hv_pom = hv_Diameter.TupleSelect(hv_j);
             if (hv_Diameter == null)
@@ -476,14 +455,12 @@ public partial class HDevelopExport
         HTuple stepVal141 = 1;
         for (hv_i=1; hv_i.Continue(endVal141, stepVal141); hv_i = hv_i.TupleAdd(stepVal141))
         {
-            if ((int)((new HTuple(((hv_Diameter.TupleSelect(hv_i-1))).TupleGreater(
-                hv_MAX-(3*hv_DevDia)))).TupleAnd(new HTuple(((hv_Diameter.TupleSelect(
-                hv_i-1))).TupleLess(hv_MAX+(3*hv_DevDia))))) != 0)
+            if ((int)((new HTuple(((hv_Diameter.TupleSelect(hv_i-1))).TupleGreater(hv_MAX-(3*hv_DevDia)))).TupleAnd(new HTuple(((hv_Diameter.TupleSelect(hv_i-1))).TupleLess(hv_MAX+(3*hv_DevDia))))) != 0)
             {
-            if ((int)(new HTuple(hv_MAX.TupleGreaterEqual(2*300))) != 0)
-            {
-            }
-            hv_index = hv_index+1;
+                if ((int)(new HTuple(hv_MAX.TupleGreaterEqual(2*300))) != 0)
+                {
+                }
+                hv_index = hv_index+1;
             }
         }
 
@@ -496,12 +473,10 @@ public partial class HDevelopExport
         {
             if (hv_x_ == null)
             hv_x_ = new HTuple();
-            hv_x_[hv_k] = ((hv_Row1.TupleSelect(hv_INDEX.TupleSelect(hv_k-1)))+(hv_Row2.TupleSelect(
-                hv_INDEX.TupleSelect(hv_k-1))))/2;
+            hv_x_[hv_k] = ((hv_Row1.TupleSelect(hv_INDEX.TupleSelect(hv_k-1)))+(hv_Row2.TupleSelect(hv_INDEX.TupleSelect(hv_k-1))))/2;
             if (hv_y_ == null)
             hv_y_ = new HTuple();
-            hv_y_[hv_k] = ((hv_Column1.TupleSelect(hv_INDEX.TupleSelect(hv_k-1)))+(hv_Column2.TupleSelect(
-                hv_INDEX.TupleSelect(hv_k-1))))/2;
+            hv_y_[hv_k] = ((hv_Column1.TupleSelect(hv_INDEX.TupleSelect(hv_k-1)))+(hv_Column2.TupleSelect(hv_INDEX.TupleSelect(hv_k-1))))/2;
         }
 
         HTuple endVal158 = hv_index;
@@ -512,10 +487,8 @@ public partial class HDevelopExport
             HTuple stepVal159 = 1;
             for (hv_o=hv_k+1; hv_o.Continue(endVal159, stepVal159); hv_o = hv_o.TupleAdd(stepVal159))
             {
-            HOperatorSet.TuplePow((hv_x_.TupleSelect(hv_k))-(hv_x_.TupleSelect(hv_o)), 
-                2, out hv_Pow_x);
-            HOperatorSet.TuplePow((hv_y_.TupleSelect(hv_k))-(hv_y_.TupleSelect(hv_o)), 
-                2, out hv_Pow_y);
+            HOperatorSet.TuplePow((hv_x_.TupleSelect(hv_k))-(hv_x_.TupleSelect(hv_o)), 2, out hv_Pow_x);
+            HOperatorSet.TuplePow((hv_y_.TupleSelect(hv_k))-(hv_y_.TupleSelect(hv_o)), 2, out hv_Pow_y);
             HOperatorSet.TupleSqrt(hv_Pow_x+hv_Pow_y, out hv_d_eukl);
             if ((int)(new HTuple(hv_d_eukl.TupleLess(100))) != 0)
             {
@@ -553,8 +526,7 @@ public partial class HDevelopExport
             //* Display cross of kth object
             HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "green");
             ho_Cross.Dispose();
-            HOperatorSet.GenCrossContourXld(out ho_Cross, hv_x_cross, hv_y_cross, 200, 
-                0);
+            HOperatorSet.GenCrossContourXld(out ho_Cross, hv_x_cross, hv_y_cross, 200, 0);
             HOperatorSet.DispObj(ho_Cross, hv_ExpDefaultWinHandle);
             //* Display coordinates of kth object
             HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "red");
