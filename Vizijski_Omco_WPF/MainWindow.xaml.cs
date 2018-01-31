@@ -231,9 +231,6 @@ namespace VizijskiSustavWPF
             glavniFrame.Content = App.pPoroznost;
            
             glavniFrame.Visibility = Visibility.Visible;
-            //App.CamUI.CameraActive = true;
-            //App.CamUI.UseWebCamera = true;
-            //App.pSrh.formsHost.Child = App.CamUI;
             App.PLC.ActiveScreen = 4;
         }
 

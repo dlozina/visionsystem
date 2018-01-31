@@ -172,7 +172,7 @@ public partial class HDevelopExport
             "default", -1, "false", "default", "acA130075gm_CAM", 0, -1, out hv_AcqHandle);
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Once");
         hv_pi = 3.14159265359;
-        hv_angle = (  56.7308 * hv_pi) / 180 +  (0 * hv_pi);
+        hv_angle = (  55.7308 * hv_pi) / 180 +  (0 * hv_pi);
         //* Camera Parameters
         HOperatorSet.ReadCamPar("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/intrinsics.cal", out hv_CamParam);
         HOperatorSet.ReadPose("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/extrinsics.dat", out hv_CamPose);
@@ -473,7 +473,7 @@ public partial class HDevelopExport
             //******************************
             // World cord for Robot
             //******************************
-            HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0.003, out hv_WorldPose);
+            HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0.00003, out hv_WorldPose);
             HOperatorSet.PoseToHomMat3d(hv_WorldPose, out hv_HomMat3D);
             HOperatorSet.HomMat3dRotateLocal(hv_HomMat3D, hv_angle, "z", out hv_HomMat3DRotate);
             HOperatorSet.HomMat3dToPose(hv_HomMat3DRotate, out hv_WorldPose);

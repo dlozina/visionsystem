@@ -20,7 +20,7 @@
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
             <StatusBarItem>
-                <TextBlock Text="Camera: Offline" x:Name="tb_cameraOnline" />
+                <TextBlock x:Name="tb_cameraOnline" Text="Camera: Offline" />
             </StatusBarItem>
             <Separator Grid.Column="1" />
             <StatusBarItem Grid.Column="2" HorizontalAlignment="Left" Width="710">
