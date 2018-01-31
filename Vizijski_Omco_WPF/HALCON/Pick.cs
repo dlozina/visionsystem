@@ -122,39 +122,6 @@ public partial class HDevelopExport
         }
         ho_Region.Dispose();
     }
-
-    public void disp_obj_class (HObject ho_Regions, HTuple hv_Classes)
-    {
-        // Local iconic variables
-        HObject ho_Region=null;
-        // Local control variables
-        HTuple hv_Number = null, hv_Colors = null;
-        HTuple hv_J = null;
-        // Initialize local and output iconic variables 
-        HOperatorSet.GenEmptyObj(out ho_Region);
-        HOperatorSet.CountObj(ho_Regions, out hv_Number);
-        hv_Colors = new HTuple();
-        hv_Colors[0] = "yellow";
-        hv_Colors[1] = "magenta";
-        hv_Colors[2] = "green";
-        HTuple end_val2 = hv_Number;
-        HTuple step_val2 = 1;
-        for (hv_J=1; hv_J.Continue(end_val2, step_val2); hv_J = hv_J.TupleAdd(step_val2))
-        {
-            ho_Region.Dispose();
-            HOperatorSet.SelectObj(ho_Regions, out ho_Region, hv_J);
-            if (HDevWindowStack.IsOpen())
-            {
-                HOperatorSet.SetColor(HDevWindowStack.GetActive(), hv_Colors.TupleSelect(hv_Classes.TupleSelect(hv_J-1)));
-            }
-            if (HDevWindowStack.IsOpen())
-            {
-                HOperatorSet.DispObj(ho_Region, HDevWindowStack.GetActive());
-            }
-        }
-        ho_Region.Dispose();
-    }
-
     // Main procedure 
     private void RunPick(bool picktrigger)
     {
@@ -166,7 +133,7 @@ public partial class HDevelopExport
         HObject ho_ImageRectified1=null, ho_Regions1=null, ho_Cross=null;
         HObject ho_ContCircle;
         // Local control variables 
-        HTuple hv_AcqHandle = null, hv_pi = null, hv_CamParam = null;
+        HTuple hv_AcqHandle = null, hv_pi = null, hv_angle = null, hv_CamParam = null;
         HTuple hv_CamPose = null, hv_GMMHandle = null, hv_Classes = null;
         HTuple hv_Index1 = null, hv_Index = null, hv_Width = null;
         HTuple hv_Height = null, hv_CamParamOut = new HTuple();
@@ -186,6 +153,7 @@ public partial class HDevelopExport
         HTuple hv_DevDia = new HTuple(), hv_w_ = new HTuple();
         HTuple hv_a = new HTuple(), hv_b = new HTuple(), hv_x_cross = new HTuple();
         HTuple hv_y_cross = new HTuple(), hv_WorldPose = new HTuple();
+        HTuple hv_HomMat3D = new HTuple(), hv_HomMat3DRotate= new HTuple();
         // Initialize local and output iconic variables 
         HOperatorSet.GenEmptyObj(out ho_Image);
         HOperatorSet.GenEmptyObj(out ho_Rectangle);
@@ -204,7 +172,7 @@ public partial class HDevelopExport
             "default", -1, "false", "default", "acA130075gm_CAM", 0, -1, out hv_AcqHandle);
         HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Once");
         hv_pi = 3.14159265359;
-
+        hv_angle = (  56.7308 * hv_pi) / 180 +  (0 * hv_pi);
         //* Camera Parameters
         HOperatorSet.ReadCamPar("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/intrinsics.cal", out hv_CamParam);
         HOperatorSet.ReadPose("D:/Moji Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/extrinsics.dat", out hv_CamPose);
@@ -226,7 +194,6 @@ public partial class HDevelopExport
                 hv_Classes[hv_Index1] = 1;
             }
         }
-
         //Add training data
         for (hv_Index=1; (int)hv_Index<=7; hv_Index = (int)hv_Index + 1)
         {
@@ -242,12 +209,9 @@ public partial class HDevelopExport
             segment(ho_ImageRectified, out ho_Regions);
             add_samples(ho_Regions, hv_GMMHandle, hv_Classes.TupleSelect(hv_Index));
         }
-
         //Train GMM classifier
-        HOperatorSet.TrainClassGmm(hv_GMMHandle, 100, 0.01, "training", 0.0001, out hv_Centers, 
-            out hv_Iter);
+        HOperatorSet.TrainClassGmm(hv_GMMHandle, 100, 0.01, "training", 0.0001, out hv_Centers, out hv_Iter);
         HOperatorSet.ClearSamplesClassGmm(hv_GMMHandle);
-
         //Uzimanje slike
         ho_Image.Dispose();
         HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
@@ -265,12 +229,10 @@ public partial class HDevelopExport
         }
         {
             HObject ExpTmpOutVar_0;
-            HOperatorSet.MedianImage(ho_ImageRectified, out ExpTmpOutVar_0, "circle", 3, 
-                "continued");
+            HOperatorSet.MedianImage(ho_ImageRectified, out ExpTmpOutVar_0, "circle", 3, "continued");
             ho_ImageRectified.Dispose();
             ho_ImageRectified = ExpTmpOutVar_0;
         }
-
         //Segmentacija i klasifikacija
         ho_Objects.Dispose();
         segment(ho_ImageRectified, out ho_Objects);
@@ -281,34 +243,29 @@ public partial class HDevelopExport
             ho_Objects.Dispose();
             ho_Objects = ExpTmpOutVar_0;
         }
-
         //Prefiltriranje klasificiranih predmeta
         {
             HObject ExpTmpOutVar_0;
-            HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "circularity", "and", 
-                0.5, 1.0);
+            HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "circularity", "and", 0.5, 1.0);
             ho_Objects.Dispose();
             ho_Objects = ExpTmpOutVar_0;
         }
         {
             HObject ExpTmpOutVar_0;
-            HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", 1000, 
-                100000);
+            HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", 1000, 100000);
             ho_Objects.Dispose();
             ho_Objects = ExpTmpOutVar_0;
         }
+
         HOperatorSet.DiameterRegion(ho_Objects, out hv_Row1, out hv_Column1, out hv_Row2, out hv_Column2, out hv_diameter);
         HOperatorSet.TupleLength(hv_diameter, out hv_Length);
-
         if ((int)(new HTuple(hv_Length.TupleGreater(0))) != 0)
         {
-
             HOperatorSet.AreaCenter(ho_Objects, out hv_Area, out hv_Row, out hv_Column);
             HOperatorSet.TupleMean(hv_Area, out hv_MeanArea);
             {
                 HObject ExpTmpOutVar_0;
-                HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", hv_MeanArea*0.8, 
-                    100000);
+                HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", hv_MeanArea*0.8, 100000);
                 ho_Objects.Dispose();
                 ho_Objects = ExpTmpOutVar_0;
             }
@@ -323,12 +280,10 @@ public partial class HDevelopExport
             }
             {
                 HObject ExpTmpOutVar_0;
-                HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "max_diameter", "and", 
-                    100, 400);
+                HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "max_diameter", "and", 100, 400);
                 ho_Objects.Dispose();
                 ho_Objects = ExpTmpOutVar_0;
             }
-
             //* Correct localization due to shadow **
             ho_FOV_.Dispose();
             HOperatorSet.Difference(ho_FOV, ho_Objects, out ho_FOV_);
@@ -336,35 +291,27 @@ public partial class HDevelopExport
             HOperatorSet.PaintRegion(ho_FOV_, ho_ImageRectified, out ho_ImageRectified1, 0, "fill");
             {
                 HObject ExpTmpOutVar_0;
-                HOperatorSet.MedianImage(ho_ImageRectified1, out ExpTmpOutVar_0, "circle", 
-                    7, "continued");
+                HOperatorSet.MedianImage(ho_ImageRectified1, out ExpTmpOutVar_0, "circle", 7, "continued");
                 ho_ImageRectified1.Dispose();
                 ho_ImageRectified1 = ExpTmpOutVar_0;
             }
                 ho_Regions1.Dispose();
                 segment(ho_ImageRectified1, out ho_Regions1);
                 classify(ho_Objects, hv_GMMHandle, out hv_Classes1);
-                //*disp_obj_class (Objects, Classes1)
             {
                 HObject ExpTmpOutVar_0;
                 HOperatorSet.Connection(ho_Objects, out ExpTmpOutVar_0);
                 ho_Objects.Dispose();
                 ho_Objects = ExpTmpOutVar_0;
             }
-            //****************************************
-
-
             //** Carolija ***
-            HOperatorSet.DiameterRegion(ho_Objects, out hv_Row1, out hv_Column1, out hv_Row2, 
-                out hv_Column2, out hv_Diameter);
+            HOperatorSet.DiameterRegion(ho_Objects, out hv_Row1, out hv_Column1, out hv_Row2, out hv_Column2, out hv_Diameter);
             HOperatorSet.AreaCenter(ho_Objects, out hv_Area1, out hv_Row3, out hv_Column3);
             hv_MAX = 0;
             hv_index = 0;
             hv_out = 0;
-
             hv_joint = 0;
             hv_index_last = 0;
-
             HOperatorSet.TupleLength(hv_Diameter, out hv_Length);
             hv_i = 0;
             hv_j = 0;
@@ -458,7 +405,6 @@ public partial class HDevelopExport
             hv_w_ = new HTuple();
             hv_a = 0.2;
             hv_b = 1.0;
-
             HTuple end_val159 = hv_index;
             HTuple step_val159 = 1;
             for (hv_k=1; hv_k.Continue(end_val159, step_val159); hv_k = hv_k.TupleAdd(step_val159))
@@ -473,7 +419,6 @@ public partial class HDevelopExport
                     hv_w_ = new HTuple();
                 hv_w_[hv_k-1] = ((hv_x_.TupleSelect(hv_k-1))*hv_a)+((hv_y_.TupleSelect(hv_k-1))*hv_b);
             }
-
             //* Sort objects by cost value **
             hv_i = 1;
             while ((int)(new HTuple(hv_i.TupleLess(hv_index))) != 0)
@@ -510,64 +455,40 @@ public partial class HDevelopExport
                 }
                 hv_i = hv_i+1;
             }
-
-
             //***********************************************
-            // Display result
+            // Display results
             //***********************************************
-            if (HDevWindowStack.IsOpen())
-            {
-                HOperatorSet.DispObj(ho_ImageRectified, HDevWindowStack.GetActive());
-            }
+            HOperatorSet.DispObj(ho_ImageRectified, hv_ExpDefaultWinHandle);
             HTuple end_val192 = hv_index;
             HTuple step_val192 = 1;
-            for (hv_k=1; hv_k.Continue(end_val192, step_val192); hv_k = hv_k.TupleAdd(step_val192))
+            for (hv_k = 1; hv_k.Continue(end_val192, step_val192); hv_k = hv_k.TupleAdd(step_val192))
             {
-                hv_x_cross = hv_x_.TupleSelect(hv_k-1);
-                hv_y_cross = hv_y_.TupleSelect(hv_k-1);
-                if (HDevWindowStack.IsOpen())
-                {
-                    HOperatorSet.SetColor(HDevWindowStack.GetActive(), "green");
-                }
+                hv_x_cross = hv_x_.TupleSelect(hv_k - 1);
+                hv_y_cross = hv_y_.TupleSelect(hv_k - 1);
+                HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "spring green");
                 ho_Cross.Dispose();
                 HOperatorSet.GenCrossContourXld(out ho_Cross, hv_x_cross, hv_y_cross, 200, 0);
-                if (HDevWindowStack.IsOpen())
-                {
-                    HOperatorSet.DispObj(ho_Cross, HDevWindowStack.GetActive());
-                }
-
-                if (HDevWindowStack.IsOpen())
-                {
-                    HOperatorSet.SetColor(HDevWindowStack.GetActive(), "red");
-                }
-                HOperatorSet.SetTposition(3600, hv_x_cross, hv_y_cross);
-                HOperatorSet.WriteString(3600, hv_k);
+                HOperatorSet.DispObj(ho_Cross, hv_ExpDefaultWinHandle);
             }
             //******************************
-            // Set correct window handler
+            // World cord for Robot
+            //******************************
             HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0.003, out hv_WorldPose);
+            HOperatorSet.PoseToHomMat3d(hv_WorldPose, out hv_HomMat3D);
+            HOperatorSet.HomMat3dRotateLocal(hv_HomMat3D, hv_angle, "z", out hv_HomMat3DRotate);
+            HOperatorSet.HomMat3dToPose(hv_HomMat3DRotate, out hv_WorldPose);
             HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_x_.TupleSelect(0), hv_y_.TupleSelect(0), "mm", out hv_X, out hv_Y);
-            HOperatorSet.SetTposition(3600, 100, 100);
-            HOperatorSet.WriteString(3600, hv_a);
-            HOperatorSet.WriteString(3600, ", ");
-            HOperatorSet.WriteString(3600, hv_b);
-            HOperatorSet.SetTposition(3600, 20, 20);
-            HOperatorSet.WriteString(3600, hv_Length);
+            // Display pick coordinates
+            HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, hv_x_.TupleSelect(0) + 20, hv_y_.TupleSelect(0) + 20);
+            HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "red");
+            HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_X);
+            HOperatorSet.WriteString(hv_ExpDefaultWinHandle, ", ");
+            HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_Y);
         }
 
-
-        if (HDevWindowStack.IsOpen())
-        {
-            HOperatorSet.ClearWindow(HDevWindowStack.GetActive());
-        }
-        if (HDevWindowStack.IsOpen())
-        {
-            HOperatorSet.SetColor(HDevWindowStack.GetActive(), "red");
-        }
         ho_ContCircle.Dispose();
-        HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Height/2, hv_Width/2, 100, 0, 6.28318, "positive", 10);
         HOperatorSet.CloseFramegrabber(hv_AcqHandle);
-        // Dispose objects
+        // Dispose unused objects
         ho_Image.Dispose();
         ho_Rectangle.Dispose();
         ho_ImageRectified.Dispose();
@@ -579,13 +500,12 @@ public partial class HDevelopExport
         ho_Regions1.Dispose();
         ho_Cross.Dispose();
         ho_ContCircle.Dispose();
-
     }
 
     public void RobotPick(HTuple window, bool trigger = false)
     {
         hv_ExpDefaultWinHandle = window;
-
+        HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
         if (trigger == false)
         {
             RunPick(false);
