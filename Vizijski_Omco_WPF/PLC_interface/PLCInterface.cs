@@ -505,15 +505,12 @@ namespace VizijskiSustavWPF
 
         private void onClock100msTick(Object source, System.Timers.ElapsedEventArgs e)
         {
-            //Thread.CurrentThread.Name = "PLCinterface_100msTick_Thread_" + second_counter.ToString();
-            //second_counter++;
-
-            
             int result;
             lock (TimerLock)
             {
                 result = ReadStatus();
             }
+
             PLCInterfaceEventArgs p1 = new PLCInterfaceEventArgs();
             p1.StatusData = STATUS;
             p1.CyclicStatusBuffer = CyclicStatusBuffer;
@@ -545,9 +542,6 @@ namespace VizijskiSustavWPF
 
         private void onClockWatchdogTick(Object source, System.Timers.ElapsedEventArgs e)
         {
-            //Thread.CurrentThread.Name = "PLCinterface_WatchdogTick_Thread" + PLCInterface.third_counter.ToString();
-            //PLCInterface.third_counter++;
-
             lock (TimerLock)
             {
                 int result = -99;
@@ -581,6 +575,7 @@ namespace VizijskiSustavWPF
                         S7.SetBitAt(ref WatchdogBuffer, 1, 2, true);
                         break;
                 }
+
                 S7.SetBitAt(ref WatchdogBuffer, 0, 1, true);
                 result = Client.DBWrite(10, 0, 2, WatchdogBuffer);
                 if (result == 0)
@@ -598,6 +593,7 @@ namespace VizijskiSustavWPF
                    
                 }
             }
+
             OnlineMarkerEventArgs p = new OnlineMarkerEventArgs();
             p.OnlineMark = OnlineMark;
             if (Update_Online_Flag != null)
