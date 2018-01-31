@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using HalconDotNet;
 using System.Threading;
@@ -47,6 +48,11 @@ namespace VizijskiSustavWPF
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
             App.HDevExp.RunHalcon10(windowId);
+            this.Dispatcher.Invoke(() =>
+            {
+                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+                App.mwHandle.tb_cameraOnline.UpdateLayout();
+            });
         }
 
 
@@ -121,6 +127,9 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = false;
             hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
             // CAM4 call
+            App.mwHandle.tb_cameraOnline.Text = "Camera: 4 Online";
+            App.mwHandle.tb_cameraOnline.UpdateLayout();
+
             Thread liveCam4Thread = new Thread(LiveCam4);
             liveCam4Thread.Start();
         }
