@@ -9,9 +9,6 @@ namespace VizijskiSustavWPF
     /// </summary>
     public partial class PRucno
     {
-        //private HDevelopExport HDevExp;
-
-        
         public PRucno() // Constructor
         {
             InitializeComponent();
@@ -25,11 +22,11 @@ namespace VizijskiSustavWPF
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
             App.HDevExp.RunHalcon11(windowId);
-            Dispatcher.Invoke(() =>
-            {
-                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
-                App.mwHandle.tb_cameraOnline.UpdateLayout();
-            });
+            //Dispatcher.Invoke(() =>
+            //{
+            //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+            //    App.mwHandle.tb_cameraOnline.UpdateLayout();
+            //});
         }
 
         private void LiveCam2() // Method
@@ -37,11 +34,11 @@ namespace VizijskiSustavWPF
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
             App.HDevExp.RunHalcon9(windowId);
-            Dispatcher.Invoke(() =>
-            {
-                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
-                App.mwHandle.tb_cameraOnline.UpdateLayout();
-            });
+            //Dispatcher.Invoke(() =>
+            //{
+            //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+            //    App.mwHandle.tb_cameraOnline.UpdateLayout();
+            //});
         }
 
         private void LiveCam3() // Method
@@ -49,11 +46,11 @@ namespace VizijskiSustavWPF
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
             App.HDevExp.RunHalcon12(windowId);
-            Dispatcher.Invoke(() =>
-            {
-                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
-                App.mwHandle.tb_cameraOnline.UpdateLayout();
-            });
+            //Dispatcher.Invoke(() =>
+            //{
+            //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+            //    App.mwHandle.tb_cameraOnline.UpdateLayout();
+            //});
         }
 
         private void LiveCam4() // Method
@@ -61,11 +58,11 @@ namespace VizijskiSustavWPF
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
             App.HDevExp.RunHalcon10(windowId);
-            Dispatcher.Invoke(() =>
-            {
-                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
-                App.mwHandle.tb_cameraOnline.UpdateLayout();
-            });
+            //Dispatcher.Invoke(() =>
+            //{
+            //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+            //    App.mwHandle.tb_cameraOnline.UpdateLayout();
+            //});
         }
 
 
@@ -81,10 +78,11 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru1_Click(object sender, RoutedEventArgs e)
         {
+            izgasiKameru();
             App.HDevExp.Exitloop1 = false;
-            App.HDevExp.Exitloop2 = true;
-            App.HDevExp.Exitloop3 = true;
-            App.HDevExp.Exitloop4 = true; 
+            //App.HDevExp.Exitloop2 = true;
+            //App.HDevExp.Exitloop3 = true;
+            //App.HDevExp.Exitloop4 = true; 
             b_ukljucikameru1.IsEnabled = false;
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = true;
@@ -99,10 +97,11 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru2_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Exitloop1 = true;
+            izgasiKameru();
+            //App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = false;
-            App.HDevExp.Exitloop3 = true;
-            App.HDevExp.Exitloop4 = true;   
+            //App.HDevExp.Exitloop3 = true;
+            //App.HDevExp.Exitloop4 = true;   
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = false;
             b_ukljucikameru3.IsEnabled = true;
@@ -118,10 +117,11 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru3_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Exitloop1 = true;
-            App.HDevExp.Exitloop2 = true;
+            izgasiKameru();
+            //App.HDevExp.Exitloop1 = true;
+            //App.HDevExp.Exitloop2 = true;
             App.HDevExp.Exitloop3 = false;
-            App.HDevExp.Exitloop4 = true;
+            //App.HDevExp.Exitloop4 = true;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = false;
@@ -136,9 +136,10 @@ namespace VizijskiSustavWPF
 
         private void b_ukljucikameru4_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Exitloop1 = true;
-            App.HDevExp.Exitloop2 = true;
-            App.HDevExp.Exitloop3 = true;
+            izgasiKameru();
+            //App.HDevExp.Exitloop1 = true;
+            //App.HDevExp.Exitloop2 = true;
+            //App.HDevExp.Exitloop3 = true;
             App.HDevExp.Exitloop4 = false;
             b_ukljucikameru1.IsEnabled = true;
             b_ukljucikameru2.IsEnabled = true;
@@ -159,6 +160,20 @@ namespace VizijskiSustavWPF
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = true;
 
+            App.HDevExp.Exitloop1 = true;
+            App.HDevExp.Exitloop2 = true;
+            App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = true;
+
+            Dispatcher.Invoke(() =>
+            {
+                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+                App.mwHandle.tb_cameraOnline.UpdateLayout();
+            });
+        }
+
+        private void izgasiKameru()
+        {
             App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = true;
             App.HDevExp.Exitloop3 = true;
