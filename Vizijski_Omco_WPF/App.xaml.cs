@@ -57,7 +57,7 @@ namespace VizijskiSustavWPF
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
         {
-            String msg = "";
+            String msg = "SISTEM SPREMAN";
 
             // Start analize slike D1 PRVOG RUBA S1 ********************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!_edgeDetection1)) //Edge detection

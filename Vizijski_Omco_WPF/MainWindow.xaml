@@ -10,11 +10,11 @@
                 <ItemsPanelTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="130" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition />
                             <ColumnDefinition Width="Auto" MinWidth="5" />
-                            <ColumnDefinition Width="134" />
+                            <ColumnDefinition Width="135" />
                         </Grid.ColumnDefinitions>
                     </Grid>
                 </ItemsPanelTemplate>

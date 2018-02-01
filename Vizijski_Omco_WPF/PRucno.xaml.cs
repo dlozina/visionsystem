@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using HalconDotNet;
 using System.Threading;
 
@@ -27,13 +25,23 @@ namespace VizijskiSustavWPF
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
             App.HDevExp.RunHalcon11(windowId);
+            Dispatcher.Invoke(() =>
+            {
+                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+                App.mwHandle.tb_cameraOnline.UpdateLayout();
+            });
         }
 
         private void LiveCam2() // Method
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
-            App.HDevExp.RunHalcon9(windowId);   
+            App.HDevExp.RunHalcon9(windowId);
+            Dispatcher.Invoke(() =>
+            {
+                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+                App.mwHandle.tb_cameraOnline.UpdateLayout();
+            });
         }
 
         private void LiveCam3() // Method
@@ -41,6 +49,11 @@ namespace VizijskiSustavWPF
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
             App.HDevExp.RunHalcon12(windowId);
+            Dispatcher.Invoke(() =>
+            {
+                App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
+                App.mwHandle.tb_cameraOnline.UpdateLayout();
+            });
         }
 
         private void LiveCam4() // Method
@@ -48,7 +61,7 @@ namespace VizijskiSustavWPF
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
             App.HDevExp.RunHalcon10(windowId);
-            this.Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(() =>
             {
                 App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
                 App.mwHandle.tb_cameraOnline.UpdateLayout();
@@ -78,6 +91,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = true;
             hwindow.HImagePart = new Rect(0, 0, 1280, 1024);
             // CAM1 call
+            App.mwHandle.tb_cameraOnline.Text = "Camera: No.1 Online";
+            App.mwHandle.tb_cameraOnline.UpdateLayout();
             Thread liveCam1Thread = new Thread(LiveCam1);
             liveCam1Thread.Start();
         }
@@ -94,6 +109,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = true;
             hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
             // CAM2 call
+            App.mwHandle.tb_cameraOnline.Text = "Camera: No.2 Online";
+            App.mwHandle.tb_cameraOnline.UpdateLayout();
             Thread liveCam2Thread = new Thread(LiveCam2);
             liveCam2Thread.Start();
         }
@@ -111,6 +128,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = true;
             hwindow.HImagePart = new Rect(0, 0, 2592, 1944);
             // CAM3 call
+            App.mwHandle.tb_cameraOnline.Text = "Camera: No.3 Online";
+            App.mwHandle.tb_cameraOnline.UpdateLayout();
             Thread liveCam3Thread = new Thread(LiveCam3);
             liveCam3Thread.Start();
         }
@@ -127,9 +146,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru4.IsEnabled = false;
             hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
             // CAM4 call
-            App.mwHandle.tb_cameraOnline.Text = "Camera: 4 Online";
+            App.mwHandle.tb_cameraOnline.Text = "Camera: No.4 Online";
             App.mwHandle.tb_cameraOnline.UpdateLayout();
-
             Thread liveCam4Thread = new Thread(LiveCam4);
             liveCam4Thread.Start();
         }
@@ -147,10 +165,10 @@ namespace VizijskiSustavWPF
             App.HDevExp.Exitloop4 = true;
         }
 
-        private void b_zatvoriKadar_Click(object sender, RoutedEventArgs e)
-        {
-            HOperatorSet.CloseAllFramegrabbers();
-        }
+        //private void b_zatvoriKadar_Click(object sender, RoutedEventArgs e)
+        //{
+        //    HOperatorSet.CloseAllFramegrabbers();
+        //}
 
 
     }
