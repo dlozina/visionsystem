@@ -21,7 +21,7 @@ namespace VizijskiSustavWPF
         public static PRucno pRucno;
         public static PLCInterface PLC;
         public static MainWindow mwHandle;
-        public static HDevelopExport HDevExp;
+        public static HALCON.HDevelopExport HDevExp;
         private bool _edgeDetection1 =false;
         private bool _edgeDetection2 = false;
         private bool _edgeDetection3 = false;
@@ -36,7 +36,7 @@ namespace VizijskiSustavWPF
             System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
 
             PLC = ((PLCInterface)Application.Current.FindResource("PLCinterf"));
-            HDevExp = new HDevelopExport();
+            HDevExp = new HALCON.HDevelopExport();
             pIzvjestaji = new PIzvjestaji();
             pPostavke = new PPostavke();
             pRobot = new PRobot();
@@ -49,10 +49,10 @@ namespace VizijskiSustavWPF
             PLC.StartCyclic(); // Possible system null reference
             PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
             PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
-            HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
-            HDevExp.UpdateResultPick += new HDevelopExport.UpdateHandlerPick(PickUpdate);
-            HDevExp.PorosityDetected += new HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
-            HDevExp.PorosityDetectionStart += new HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
+            HDevExp.UpdateResult += new HALCON.HDevelopExport.UpdateHandler(HalconUpdate);
+            HDevExp.UpdateResultPick += new HALCON.HDevelopExport.UpdateHandlerPick(PickUpdate);
+            HDevExp.PorosityDetected += new HALCON.HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
+            HDevExp.PorosityDetectionStart += new HALCON.HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
         }
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
@@ -180,14 +180,14 @@ namespace VizijskiSustavWPF
         }
 
         // Event handler koji se poziva kad zavrsi analiza slike za mjerenje diametara
-        private static void HalconUpdate(HDevelopExport sender, HalconEventArgs e)
+        private static void HalconUpdate(HALCON.HDevelopExport sender, HalconEventArgs e)
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4Rezultat, e.PXvalue);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
         }
         // Event handler koji se poziva kada zavrsi analiza slike za pick
-        private static void PickUpdate(HDevelopExport sender, HalconEventArgs e)
+        private static void PickUpdate(HALCON.HDevelopExport sender, HalconEventArgs e)
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1RezultatX, e.RXcord);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1RezultatY, e.RYcord);
