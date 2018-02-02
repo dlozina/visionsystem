@@ -5,7 +5,8 @@
       xmlns:halconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
       x:Class="VizijskiSustavWPF.PRobot" 
       mc:Ignorable="d"
-	Title="PRobot" d:DesignWidth="1354" d:DesignHeight="828">
+      xmlns:local="clr-namespace:VizijskiSustavWPF"
+	  Title="PRobot" d:DesignWidth="1354" d:DesignHeight="828">
     <Grid>
 
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >
@@ -64,6 +65,27 @@
                         <ColumnDefinition Width="10*"/>
                     </Grid.ColumnDefinitions>
                     <Button Margin="1" x:Name="BUzmiSliku2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UZMI SLIKU 2" Click="BUzmiSliku2_Click" Grid.ColumnSpan="2"/>
+                </Grid>
+                
+                <Grid Grid.Row="1" Grid.Column="1" Background="Black" Margin="4,4,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_ZahtjevZaKomadom" Text="ZAHTIJEV ZA KOMADOM" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ZahtijevZaKomadom, ElementName=bb_ZahtjevZaKomadom}" />
+                </Grid>
+                
+                <Grid Grid.Row="2" Grid.Column="1" Background="Black" Margin="4,0,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_KomadOk" Text="KOMAD OK" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.KomadOk, ElementName=bb_KomadOk}" />
+                </Grid>
+                
+                <Grid Grid.Row="3" Grid.Column="1" Background="Black" Margin="4,0,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_KomadNoK" Text="KOMAD NOK" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.KomadNok, ElementName=bb_KomadNoK}" />
                 </Grid>
 
                 <TextBlock Margin="1" Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="ROBOT"/></TextBlock>

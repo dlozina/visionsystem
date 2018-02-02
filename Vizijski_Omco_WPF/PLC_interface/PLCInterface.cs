@@ -201,11 +201,11 @@ namespace VizijskiSustavWPF
                     CONTROL.Cilindri.StegaOtvori.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Cilindri.StegaZatvori.GetValueFromGroupBuffer(CyclicControlBuffer);
 
-                    // Odabir komada
-                    CONTROL.Odabirkomada.tip_4.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Odabirkomada.tip_5.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Odabirkomada.tip_6.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Odabirkomada.tip_7.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    // Robot
+                    CONTROL.Robot.ZahtijevZaKomadom.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.KomadOk.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.KomadNok.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.Robot4.GetValueFromGroupBuffer(CyclicControlBuffer);
                     // Ucenje
                     CONTROL.Ucenje.NoviNalog.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Ucenje.ResetUcenja.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -623,7 +623,7 @@ namespace VizijskiSustavWPF
         public mjerenjediametara MjerenjeDiametara { get; set; } = new mjerenjediametara ();
         public kamere Kamere { get; set; } = new kamere();
         public cilindri Cilindri { get; set; } = new cilindri();
-        public odabirkomada Odabirkomada { get; set; } = new odabirkomada();
+        public robot Robot { get; set; } = new robot();
         public ucenje Ucenje { get; set; } = new ucenje();
 
         public class horizontalnaOs
@@ -722,12 +722,12 @@ namespace VizijskiSustavWPF
             public plcTag StegaZatvori { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(50, 3), false);
         }
 
-        public class odabirkomada
+        public class robot
         {
-            public plcTag tip_4 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 0), false);
-            public plcTag tip_5 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 1), false);
-            public plcTag tip_6 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 2), false);
-            public plcTag tip_7 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 3), false);
+            public plcTag ZahtijevZaKomadom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 0), false);
+            public plcTag KomadOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 1), false);
+            public plcTag KomadNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 2), false);
+            public plcTag Robot4 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 3), false);
         }
 
         public class ucenje

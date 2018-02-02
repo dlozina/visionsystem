@@ -69,12 +69,6 @@
                         <local:BitButton Grid.Column="0" x:Name="bb_vpause" Text="PAUZA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeTicalom.Pauza , ElementName=bb_vpause}" />
                         <local:BitButton Grid.Column="1" x:Name="bb_vreset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeTicalom.Reset , ElementName=bb_vreset}" />
                     </Grid>
-                    
-                    
-                    <Label Grid.Row="3" Content="TIPOVI KOMADA" FontWeight="Bold"  VerticalAlignment="Bottom" />
-                    <local:BitButton Grid.Row="4" x:Name="bb_vkomadNo4" Text="TIP KOMADA BR.4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_4 , ElementName=bb_vkomadNo4}" />
-                    <local:BitButton Grid.Row="5" x:Name="bb_vkomadNo5" Text="TIP KOMADA BR.5" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_5 , ElementName=bb_vkomadNo5}" />
-                    <local:BitButton Grid.Row="6" x:Name="bb_vkomadNo6" Text="TIP KOMADA BR.6" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_6 , ElementName=bb_vkomadNo6}" />
 
 
                 </Grid>

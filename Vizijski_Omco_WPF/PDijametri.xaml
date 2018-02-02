@@ -71,11 +71,6 @@
                         <local:BitButton Grid.Column="1" x:Name="bb_reset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Reset , ElementName=bb_reset}" />
                     </Grid>
 
-                    <Label Grid.Row="3" Content="TIPOVI KOMADA" FontWeight="Bold"  VerticalAlignment="Bottom" />
-                    <local:BitButton Grid.Row="4" x:Name="bb_komadNo4" Text="TIP KOMADA BR.4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_4 , ElementName=bb_komadNo4}" />
-                    <local:BitButton Grid.Row="5" x:Name="bb_komadNo5" Text="TIP KOMADA BR.5" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_5 , ElementName=bb_komadNo5}" />
-                    <local:BitButton Grid.Row="6" x:Name="bb_komadNo6" Text="TIP KOMADA BR.6" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Odabirkomada.tip_6 , ElementName=bb_komadNo6}" />
-
 
                 </Grid>
             </Grid>
