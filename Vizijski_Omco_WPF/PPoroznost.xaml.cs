@@ -31,7 +31,7 @@ namespace VizijskiSustavWPF
         {
             this.Dispatcher.Invoke(() =>
             {
-                HTuple windowId = hwindowPorsity.HalconID;
+                HTuple windowId = HwindowPorsitHor.HalconID;
                 App.HDevExp.RunHalcon14(windowId);
             });
             //HTuple windowId = hwindowPorsity.HalconID;
@@ -42,7 +42,7 @@ namespace VizijskiSustavWPF
         {
             this.Dispatcher.Invoke(() =>
             {
-                HTuple windowId = hwindowPorsity.HalconID;
+                HTuple windowId = HwindowPorsitVer.HalconID;
                 App.HDevExp.RunHalcon13(windowId);
             });
             //HTuple windowId = hwindowPorsity.HalconID;
@@ -52,14 +52,14 @@ namespace VizijskiSustavWPF
         private void TeachCam2()
         {
             App.HDevExp.InitHalcon();
-            HTuple windowId = hwindowPorsity.HalconID;
+            HTuple windowId = HwindowPorsitHor.HalconID;
             App.HDevExp.RunHalcon24(windowId);
         }
 
         private void TeachCam3()
         {
             App.HDevExp.InitHalcon();
-            HTuple windowId = hwindowPorsity.HalconID;
+            HTuple windowId = HwindowPorsitVer.HalconID;
             App.HDevExp.RunHalcon25(windowId);
         }
 
@@ -67,7 +67,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.Teachloop2 = false;
             App.HDevExp.Teachloop3 = true;
-            hwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
+            HwindowPorsitHor.HImagePart = new Rect(0, 0, 3856, 2764);
             Thread teachCam2Thread = new Thread(new ThreadStart(this.TeachCam2)) {Name = "TeachCAM2Thread"};
             teachCam2Thread.Start();
         }
@@ -76,7 +76,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.Teachloop2 = true;
             App.HDevExp.Teachloop3 = false;
-            hwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
+            HwindowPorsitVer.HImagePart = new Rect(0, 0, 2592, 1944);
             Thread teachCam3Thread = new Thread(new ThreadStart(this.TeachCam3)) {Name = "TeachCAM3Thread"};
             teachCam3Thread.Start();
         }

@@ -58,12 +58,9 @@ public partial class HDevelopExport
         HOperatorSet.CircularityXld(ho_Contours, out hv_Circularity_xld);
         HOperatorSet.Contlength(ho_SingleRegion, out hv_ContLength);
         HOperatorSet.Circularity(ho_SingleRegion, out hv_Circularity);
-        HOperatorSet.Eccentricity(ho_SingleRegion, out hv_Anisometry, out hv_Bulkiness, 
-            out hv_StructureFactor);
-        HOperatorSet.Roundness(ho_SingleRegion, out hv_Distance, out hv_Sigma, out hv_Roundness, 
-            out hv_Sides);
-        HOperatorSet.MomentsRegionCentralInvar(ho_SingleRegion, out hv_PSI1, out hv_PSI2, 
-            out hv_PSI3, out hv_PSI4);
+        HOperatorSet.Eccentricity(ho_SingleRegion, out hv_Anisometry, out hv_Bulkiness, out hv_StructureFactor);
+        HOperatorSet.Roundness(ho_SingleRegion, out hv_Distance, out hv_Sigma, out hv_Roundness, out hv_Sides);
+        HOperatorSet.MomentsRegionCentralInvar(ho_SingleRegion, out hv_PSI1, out hv_PSI2, out hv_PSI3, out hv_PSI4);
         hv_Features = new HTuple();
         hv_Features = hv_Features.TupleConcat(hv_Circularity);
         hv_Features = hv_Features.TupleConcat(hv_Circularity_xld);
@@ -474,9 +471,6 @@ public partial class HDevelopExport
             // World cord for Robot
             //******************************
             HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0.003, out hv_WorldPose);
-            //HOperatorSet.PoseToHomMat3d(hv_WorldPose, out hv_HomMat3D);
-            //HOperatorSet.HomMat3dRotateLocal(hv_HomMat3D, hv_angle, "z", out hv_HomMat3DRotate);
-            //HOperatorSet.HomMat3dToPose(hv_HomMat3DRotate, out hv_WorldPose);
             HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_x_.TupleSelect(0), hv_y_.TupleSelect(0), "mm", out hv_X, out hv_Y);
             // Display pick coordinates
             HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, hv_x_.TupleSelect(0) + 20, hv_y_.TupleSelect(0) + 20);

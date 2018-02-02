@@ -160,9 +160,16 @@
 
             <!-- Prikaz Slike -->
             <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="1*"/>
+                    <RowDefinition Height ="1*"/>
+                </Grid.RowDefinitions>
 
-                <halconDotNet:HSmartWindowControlWPF x:Name="hwindowPorsity" 
+                <halconDotNet:HSmartWindowControlWPF Grid.Row="0" x:Name="HwindowPorsitHor" 
                                                  HImagePart="0,0,3856,2764"
+                                                 />
+                <halconDotNet:HSmartWindowControlWPF Grid.Row="1" x:Name="HwindowPorsitVer" 
+                                                     HImagePart="0,0,3856,2764"
                                                  />
             </Grid>
             <!-- Grid na sredini desno -->
