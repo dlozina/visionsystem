@@ -29,7 +29,7 @@ namespace VizijskiSustavWPF
 
         public void PorosityHorWindow()
         {
-            this.Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(() =>
             {
                 HTuple windowId = HwindowPorsitHor.HalconID;
                 App.HDevExp.RunHalcon14(windowId);
@@ -40,7 +40,7 @@ namespace VizijskiSustavWPF
 
         public void PorosityVerWindow()
         {
-            this.Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(() =>
             {
                 HTuple windowId = HwindowPorsitVer.HalconID;
                 App.HDevExp.RunHalcon13(windowId);
@@ -68,7 +68,7 @@ namespace VizijskiSustavWPF
             App.HDevExp.Teachloop2 = false;
             App.HDevExp.Teachloop3 = true;
             HwindowPorsitHor.HImagePart = new Rect(0, 0, 3856, 2764);
-            Thread teachCam2Thread = new Thread(new ThreadStart(this.TeachCam2)) {Name = "TeachCAM2Thread"};
+            Thread teachCam2Thread = new Thread(TeachCam2) {Name = "TeachCAM2Thread"};
             teachCam2Thread.Start();
         }
 
@@ -77,7 +77,7 @@ namespace VizijskiSustavWPF
             App.HDevExp.Teachloop2 = true;
             App.HDevExp.Teachloop3 = false;
             HwindowPorsitVer.HImagePart = new Rect(0, 0, 2592, 1944);
-            Thread teachCam3Thread = new Thread(new ThreadStart(this.TeachCam3)) {Name = "TeachCAM3Thread"};
+            Thread teachCam3Thread = new Thread(TeachCam3) {Name = "TeachCAM3Thread"};
             teachCam3Thread.Start();
         }
 
