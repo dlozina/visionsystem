@@ -2,6 +2,7 @@
 using System.Windows.Media;
 using System.Windows;
 using System.Threading;
+using VizijskiSustavWPF.Reports;
 
 
 namespace VizijskiSustavWPF
@@ -21,6 +22,7 @@ namespace VizijskiSustavWPF
         public static PRucno pRucno;
         public static PLCInterface PLC;
         public static MainWindow mwHandle;
+        //public static ReportInterface MainReportInterface;
         public static HALCON.HDevelopExport HDevExp;
         private bool _edgeDetection1 =false;
         private bool _edgeDetection2 = false;

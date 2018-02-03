@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:VizijskiSustavWPF"
-           
+             xmlns:reports="clr-namespace:VizijskiSustavWPF.Reports"
+
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
@@ -377,6 +378,7 @@
         <!--<MjerniStolLimovi:OdabirLimova x:Key="MainLim"/>-->
 
         <local:PLCInterface x:Key="PLCinterf"/>
+        <reports:ReportInterface x:Key="MainReport"/>
         <!--<Image x:Key="LimImage"></Image>-->
        
     </Application.Resources>

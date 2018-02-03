@@ -14,7 +14,7 @@
     <Grid>
 
         <!-- Glavni grid -->
-        <Grid MinHeight="200" MinWidth="300"  Background="Black" Grid.RowSpan="1" >
+        <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1" >
             <!--<Grid.DataContext>
                 <local:MainViewModel></local:MainViewModel>
             </Grid.DataContext>-->

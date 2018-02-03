@@ -145,7 +145,7 @@ namespace VizijskiSustavWPF
             {
                 pomocniFrame.Visibility = Visibility.Hidden;
                 if (uniformGrid.IsMouseOver)
-                    glavniFrame.Visibility = Visibility.Visible;
+                glavniFrame.Visibility = Visibility.Visible;
                 glavniFrame.NavigationService.RemoveBackEntry();
                 pomocniFrame.NavigationService.RemoveBackEntry();
             }

@@ -112,8 +112,8 @@
                     <Image Source="Photos/robot.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
                     <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0"><Run Language="hr-hr" Text=" ROBOT"/></TextBlock>
                 </StackPanel>
-
             </Button>
+
             <Button x:Name= "valovitost" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Margin="0,0,4,4" VerticalContentAlignment="Center" FontWeight="Bold" Click="valovitost_Click" MouseEnter="valovitost_MouseEnter" MouseLeave="valovitost_MouseLeave">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
