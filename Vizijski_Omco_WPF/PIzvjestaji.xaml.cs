@@ -30,6 +30,31 @@ namespace VizijskiSustavWPF
         public PIzvjestaji()
         {
             InitializeComponent();
+            //var dimensions = new List<DimensionLine>
+            //{
+            //    new DimensionLine
+            //    {
+            //        Kote = "A",
+            //        Nazivno = 0.1f,
+            //        Mjereno = 0.2f,
+            //        DeltaMinus = 0.3f,
+            //        DeltaPlus = 0.4f,
+
+            //    },
+
+            //    new DimensionLine
+            //    {
+            //        Kote = "A",
+            //        Nazivno = 0.1f,
+            //        Mjereno = 0.2f,
+            //        DeltaMinus = 0.3f,
+            //        DeltaPlus = 0.4f,
+
+            //    }
+            //};
+
+            List<DimensionLine> dimensions = App.MainReportInterface.Dimensions;
+            dimensions.Clear();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

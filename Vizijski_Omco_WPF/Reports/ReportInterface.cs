@@ -13,15 +13,6 @@ namespace VizijskiSustavWPF.Reports
         public ReportInterface()
         {
             Dimensions = new List<DimensionLine>();
-            Dimensions.Add(new DimensionLine
-            {
-                Kote = "Kote",
-                Nazivno = 0.00f,
-                Mjereno = 0.00f,
-                DeltaPlus = 1.5f,
-                DeltaMinus = -1.5f,
-                Delta = 0.0f
-            });
         }
 
         private List<DimensionLine> dimensions;
