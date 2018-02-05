@@ -157,11 +157,13 @@
     <Compile Include="HALCON\HALCONInterface.cs" />
     <Compile Include="HALCON\Porosity_Horizontal.cs" />
     <Compile Include="HALCON\Porosity_Vertical.cs" />
+    <Compile Include="PLC_interface\Control.cs" />
     <Compile Include="PLC_interface\PLCInterface.cs" />
     <Compile Include="PLC_interface\snap7.net.cs" />
     <Compile Include="PDijametri.xaml.cs">
       <DependentUpon>PDijametri.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PLC_interface\Status.cs" />
     <Compile Include="PRucno.xaml.cs">
       <DependentUpon>PRucno.xaml</DependentUpon>
     </Compile>
