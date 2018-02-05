@@ -13,6 +13,15 @@ namespace VizijskiSustavWPF.Reports
         public ReportInterface()
         {
             Dimensions = new List<DimensionLine>();
+            Dimensions.Add(new DimensionLine
+            {
+                Kote = "Kote",
+                Nazivno = 0.00f,
+                Mjereno = 0.00f,
+                DeltaPlus = 1.5f,
+                DeltaMinus = -1.5f,
+                Delta = 0.0f
+            });
         }
 
         private List<DimensionLine> dimensions;
@@ -25,7 +34,7 @@ namespace VizijskiSustavWPF.Reports
         public class DimensionLine : INotifyPropertyChanged
         {
             public string Kote { get; set; }
-        
+
             private float nazivno;
             public float Nazivno
             {
@@ -48,13 +57,13 @@ namespace VizijskiSustavWPF.Reports
                     if (mjereno != value)
                     {
                         mjereno = value;
-                        Delta = - Nazivno + mjereno;
+                        Delta = -Nazivno + mjereno;
                     }
                 }
             }
 
             private float deltaPlus;
-            public float DeltaPlus 
+            public float DeltaPlus
             {
                 get { return deltaPlus; }
                 set
@@ -69,7 +78,7 @@ namespace VizijskiSustavWPF.Reports
             }
 
             private float deltaMinus;
-            public float DeltaMinus 
+            public float DeltaMinus
             {
                 get { return deltaMinus; }
                 set

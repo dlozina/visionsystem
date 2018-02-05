@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VizijskiSustavWPF.Reports;
 using static VizijskiSustavWPF.Reports.ReportInterface;
+using Brush = System.Drawing.Brush;
+using Brushes = System.Drawing.Brushes;
 
 namespace VizijskiSustavWPF
 {
@@ -94,6 +97,13 @@ namespace VizijskiSustavWPF
         {
             // Povlacenje rezultata
         }
+
+        /*****************************************************************************
+         * BINDING FOR DATA GRID
+         */
+        
+
+        
 
     }
 }
