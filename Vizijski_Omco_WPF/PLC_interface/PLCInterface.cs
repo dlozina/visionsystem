@@ -206,35 +206,48 @@ namespace VizijskiSustavWPF
                     CONTROL.Robot.ZahtijevZaKomadom.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.KomadOk.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.KomadNok.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Robot.Robot4.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    // Ucenje
-                    CONTROL.Ucenje.NoviNalog.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ResetUcenja.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ZadavanjeDijametara1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ZadavanjeDijametara2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ZadavanjeDijametara3.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ZadavanjeDijametara4.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ZadavanjeVisineV1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ZadavanjeVisineV2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.ZadavanjeVisineV3.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiUD1S1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiUD1S2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiUD2S1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiUD2S2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiUD3S1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiUD3S2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiUD4S1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiUD4S2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiNaV1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.IdiNaV2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.NauciD1S1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.NauciD1S2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.NauciD2S1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.NauciD2S2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.NauciD3S1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.NauciD3S2.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.NauciD4S1.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Ucenje.NauciD4S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetPaleteNovi.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetPaleteOk.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetPaleteNok.GetValueFromGroupBuffer(CyclicControlBuffer);
+
+                    // Ucenjereal
+                    
+                    CONTROL.UcenjeReal.ZadavanjeDijametara1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeReal.ZadavanjeDijametara2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeReal.ZadavanjeDijametara3.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeReal.ZadavanjeDijametara4.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeReal.ZadavanjeDijametara5.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeReal.ZadavanjeVisineV1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeReal.ZadavanjeVisineV2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeReal.ZadavanjeVisineV3.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    
+
+                    // Ucenjebool
+                    CONTROL.UcenjeBool.NoviNalog.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.ResetUcenja.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD1S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD1S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD2S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD2S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD3S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD3S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD4S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD4S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD5S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiUD5S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiNaV1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiNaV2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.IdiNaV3.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD1S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD1S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD2S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD2S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD3S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD3S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD4S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD4S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD5S1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.NauciD5S2.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;

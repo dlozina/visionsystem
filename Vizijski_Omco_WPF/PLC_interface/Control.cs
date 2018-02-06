@@ -13,7 +13,8 @@
         public kamere Kamere { get; set; } = new kamere();
         public cilindri Cilindri { get; set; } = new cilindri();
         public robot Robot { get; set; } = new robot();
-        public ucenje Ucenje { get; set; } = new ucenje();
+        public ucenjereal UcenjeReal { get; set; } = new ucenjereal();
+        public ucenjebool UcenjeBool { get; set; } = new ucenjebool();
 
         public class horizontalnaOs
         {
@@ -116,39 +117,51 @@
             public plcTag ZahtijevZaKomadom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 0), false);
             public plcTag KomadOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 1), false);
             public plcTag KomadNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 2), false);
-            public plcTag Robot4 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 3), false);
+            public plcTag ResetPaleteNovi { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 3), false);
+            public plcTag ResetPaleteOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 4), false);
+            public plcTag ResetPaleteNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 5), false);
         }
 
-        public class ucenje
+        public class ucenjereal
         {
-            public plcTag NoviNalog { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(54, 0), false);
-            public plcTag ResetUcenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(54, 1), false);
-            public plcTag ZadavanjeDijametara1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(56, 0), 0.0f);
-            public plcTag ZadavanjeDijametara2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(60, 0), 0.0f);
-            public plcTag ZadavanjeDijametara3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(64, 0), 0.0f);
-            public plcTag ZadavanjeDijametara4 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(68, 0), 0.0f);
-            public plcTag ZadavanjeVisineV1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(72, 0), 0.0f);
-            public plcTag ZadavanjeVisineV2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(76, 0), 0.0f);
-            public plcTag ZadavanjeVisineV3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(80, 0), 0.0f);
-            public plcTag IdiUD1S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 0), false);
-            public plcTag IdiUD1S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 1), false);
-            public plcTag IdiUD2S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 2), false);
-            public plcTag IdiUD2S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 3), false);
-            public plcTag IdiUD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 4), false);
-            public plcTag IdiUD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 5), false);
-            public plcTag IdiUD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 6), false);
-            public plcTag IdiUD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(84, 7), false);
-            public plcTag IdiNaV1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 0), false);
-            public plcTag IdiNaV2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 1), false);
-            public plcTag NauciD1S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 2), false);
-            public plcTag NauciD1S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 3), false);
-            public plcTag NauciD2S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 4), false);
-            public plcTag NauciD2S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 5), false);
-            public plcTag NauciD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 6), false);
-            public plcTag NauciD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(85, 7), false);
-            public plcTag NauciD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 0), false);
-            public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 1), false);
+            public plcTag ZadavanjeDijametara1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(54, 0), 0.0f);
+            public plcTag ZadavanjeDijametara2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(58, 0), 0.0f);
+            public plcTag ZadavanjeDijametara3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(62, 0), 0.0f);
+            public plcTag ZadavanjeDijametara4 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(66, 0), 0.0f);
+            public plcTag ZadavanjeDijametara5 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(70, 0), 0.0f);
+            public plcTag ZadavanjeVisineV1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(74, 0), 0.0f);
+            public plcTag ZadavanjeVisineV2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(78, 0), 0.0f);
+            public plcTag ZadavanjeVisineV3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(82, 0), 0.0f);
+            
         }
 
+        public class ucenjebool
+        {
+            public plcTag NoviNalog { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 0), false);
+            public plcTag ResetUcenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 1), false);
+            public plcTag IdiUD1S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 2), false);
+            public plcTag IdiUD1S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 3), false);
+            public plcTag IdiUD2S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 4), false);
+            public plcTag IdiUD2S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 5), false);
+            public plcTag IdiUD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 6), false);
+            public plcTag IdiUD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(86, 7), false);
+            public plcTag IdiUD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(87, 0), false);
+            public plcTag IdiUD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(87, 1), false);
+            public plcTag IdiUD5S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(87, 2), false);
+            public plcTag IdiUD5S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(87, 3), false);
+            public plcTag IdiNaV1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(87, 4), false);
+            public plcTag IdiNaV2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(87, 5), false);
+            public plcTag IdiNaV3 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(87, 6), false);
+            public plcTag NauciD1S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(87, 7), false);
+            public plcTag NauciD1S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 0), false);
+            public plcTag NauciD2S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 1), false);
+            public plcTag NauciD2S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 2), false);
+            public plcTag NauciD3S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 3), false);
+            public plcTag NauciD3S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 4), false);
+            public plcTag NauciD4S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 5), false);
+            public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 6), false);
+            public plcTag NauciD5S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 7), false);
+            public plcTag NauciD5S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(89, 0), false);
+        }
     }
 }
