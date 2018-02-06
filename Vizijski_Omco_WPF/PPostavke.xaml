@@ -77,7 +77,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="DIJAMETAR 5" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br5"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara4, ElementName=kota_br5}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br5"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara5, ElementName=kota_br5}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="6" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
@@ -101,7 +101,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="VISINA 3" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina3"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV2, ElementName=if_visina3}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina3"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV3, ElementName=if_visina3}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                 </Grid>
             </Grid>
@@ -139,7 +139,7 @@
                     <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,4">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBkomadiOK" Text="RESET PALETE SA ISPRAVNIM KOMADIMA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.KomadOk, ElementName=BBkomadiOK}" />
+                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBkomadiOK" Text="RESET PALETE SA ISPRAVNIM KOMADIMA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetPaleteOk, ElementName=BBkomadiOK}" />
                     </Grid>
                     <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>

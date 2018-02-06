@@ -163,6 +163,11 @@
             public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 6), false);
             public plcTag NauciD5S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 7), false);
             public plcTag NauciD5S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(89, 0), false);
+            // Diametar za poroznost
+            public plcTag PoroznostHorPozicija { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(89, 1), false);
+            // Nauci pozicije poroznosti
+            public plcTag NauciPoroznost { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(89, 2), false);
+
         }
 
         public class automatika
