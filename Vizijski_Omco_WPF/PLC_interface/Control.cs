@@ -15,6 +15,7 @@
         public robot Robot { get; set; } = new robot();
         public ucenjereal UcenjeReal { get; set; } = new ucenjereal();
         public ucenjebool UcenjeBool { get; set; } = new ucenjebool();
+        public automatika Automatika { get; set; } = new automatika();
 
         public class horizontalnaOs
         {
@@ -162,6 +163,11 @@
             public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 6), false);
             public plcTag NauciD5S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(88, 7), false);
             public plcTag NauciD5S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(89, 0), false);
+        }
+
+        public class automatika
+        {
+            public plcTag ResetSvihMjerenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(90, 0), false);
         }
     }
 }

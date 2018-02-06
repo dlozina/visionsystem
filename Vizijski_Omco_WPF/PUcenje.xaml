@@ -53,35 +53,35 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD1S1" Text="IDI U D1 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiUD1S1, ElementName=bb_pozicijaUcenjaD1S1}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD1S2" Text="IDI U D1 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiUD1S2, ElementName=bb_pozicijaUcenjaD1S2}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD1S1" Text="IDI U D1 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiUD1S1, ElementName=bb_pozicijaUcenjaD1S1}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD1S2" Text="IDI U D1 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiUD1S2, ElementName=bb_pozicijaUcenjaD1S2}" />
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="2" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD2S1" Text="IDI U D2 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiUD2S1, ElementName=bb_pozicijaUcenjaD2S1}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD2S2" Text="IDI U D2 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiUD2S2, ElementName=bb_pozicijaUcenjaD2S2}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD2S1" Text="IDI U D2 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiUD2S1, ElementName=bb_pozicijaUcenjaD2S1}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD2S2" Text="IDI U D2 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiUD2S2, ElementName=bb_pozicijaUcenjaD2S2}" />
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="2" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD3S1" Text="IDI U D3 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiUD3S1, ElementName=bb_pozicijaUcenjaD3S1}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD3S2" Text="IDI U D3 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiUD3S2, ElementName=bb_pozicijaUcenjaD3S2}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD3S1" Text="IDI U D3 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiUD3S1, ElementName=bb_pozicijaUcenjaD3S1}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD3S2" Text="IDI U D3 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiUD3S2, ElementName=bb_pozicijaUcenjaD3S2}" />
                 </Grid>
                 <Grid Grid.Row="4" Grid.Column="2" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD4S1" Text="IDI U D4 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiUD4S1, ElementName=bb_pozicijaUcenjaD4S1}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD4S2" Text="IDI U D4 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiUD4S2, ElementName=bb_pozicijaUcenjaD4S2}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_pozicijaUcenjaD4S1" Text="IDI U D4 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiUD4S1, ElementName=bb_pozicijaUcenjaD4S1}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="bb_pozicijaUcenjaD4S2" Text="IDI U D4 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiUD4S2, ElementName=bb_pozicijaUcenjaD4S2}" />
                 </Grid>
-                <local:BitButton Grid.Row="5" Grid.Column="2" Margin="4,0,4,0" x:Name="bb_pozicijaUcenjaV1" Text="IDI NA VISINU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiNaV1, ElementName=bb_pozicijaUcenjaV1}" />
-                <local:BitButton Grid.Row="6" Grid.Column="2" Margin="4,0,4,4" x:Name="bb_pozicijaUcenjaV2" Text="IDI NA VISINU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.IdiNaV2, ElementName=bb_pozicijaUcenjaV2}" />
+                <local:BitButton Grid.Row="5" Grid.Column="2" Margin="4,0,4,0" x:Name="bb_pozicijaUcenjaV1" Text="IDI NA VISINU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiNaV1, ElementName=bb_pozicijaUcenjaV1}" />
+                <local:BitButton Grid.Row="6" Grid.Column="2" Margin="4,0,4,4" x:Name="bb_pozicijaUcenjaV2" Text="IDI NA VISINU" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.IdiNaV2, ElementName=bb_pozicijaUcenjaV2}" />
 
                 <!-- Stupac Kamera -->
                 <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="KONTROLA"/></TextBlock>
@@ -89,13 +89,13 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_noviNalog" Text="NOVI NALOG" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NoviNalog, ElementName=bb_noviNalog}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_noviNalog" Text="NOVI NALOG" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NoviNalog, ElementName=bb_noviNalog}" />
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_resetUcenja" Text="RESET UČENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.ResetUcenja, ElementName=bb_resetUcenja}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_resetUcenja" Text="RESET UČENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.ResetUcenja, ElementName=bb_resetUcenja}" />
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
@@ -156,32 +156,32 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="ucenjeD1S1" Text="NAUČI D1 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NauciD1S1, ElementName=ucenjeD1S1}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="ucenjeD1S2" Text="NAUČI D1 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NauciD1S2, ElementName=ucenjeD1S2}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="ucenjeD1S1" Text="NAUČI D1 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NauciD1S1, ElementName=ucenjeD1S1}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="ucenjeD1S2" Text="NAUČI D1 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NauciD1S2, ElementName=ucenjeD1S2}" />
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="4" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="ucenjeD2S1" Text="NAUČI D2 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NauciD2S1, ElementName=ucenjeD2S1}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="ucenjeD2S2" Text="NAUČI D2 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NauciD2S2, ElementName=ucenjeD2S2}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="ucenjeD2S1" Text="NAUČI D2 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NauciD2S1, ElementName=ucenjeD2S1}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="ucenjeD2S2" Text="NAUČI D2 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NauciD2S2, ElementName=ucenjeD2S2}" />
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="4" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="ucenjeD3S1" Text="NAUČI D3 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NauciD3S1, ElementName=ucenjeD3S1}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="ucenjeD3S2" Text="NAUČI D3 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NauciD3S2, ElementName=ucenjeD3S2}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="ucenjeD3S1" Text="NAUČI D3 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NauciD3S1, ElementName=ucenjeD3S1}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="ucenjeD3S2" Text="NAUČI D3 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NauciD3S2, ElementName=ucenjeD3S2}" />
                 </Grid>
                 <Grid Grid.Row="4" Grid.Column="4" Background="Black" Margin="4,0,4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="ucenjeD4S1" Text="NAUČI D4 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NauciD4S1, ElementName=ucenjeD4S1}" />
-                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="ucenjeD4S2" Text="NAUČI D4 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ucenje.NauciD4S2, ElementName=ucenjeD4S2}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="ucenjeD4S1" Text="NAUČI D4 S1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NauciD4S1, ElementName=ucenjeD4S1}" />
+                    <local:BitButton Grid.Row="1" Grid.Column="1" x:Name="ucenjeD4S2" Text="NAUČI D4 S2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NauciD4S2, ElementName=ucenjeD4S2}" />
                 </Grid>
 
             </Grid>

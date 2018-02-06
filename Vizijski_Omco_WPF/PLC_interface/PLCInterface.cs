@@ -123,7 +123,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 87, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 91, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -211,7 +211,6 @@ namespace VizijskiSustavWPF
                     CONTROL.Robot.ResetPaleteNok.GetValueFromGroupBuffer(CyclicControlBuffer);
 
                     // Ucenjereal
-                    
                     CONTROL.UcenjeReal.ZadavanjeDijametara1.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeReal.ZadavanjeDijametara2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeReal.ZadavanjeDijametara3.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -221,7 +220,6 @@ namespace VizijskiSustavWPF
                     CONTROL.UcenjeReal.ZadavanjeVisineV2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeReal.ZadavanjeVisineV3.GetValueFromGroupBuffer(CyclicControlBuffer);
                     
-
                     // Ucenjebool
                     CONTROL.UcenjeBool.NoviNalog.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.ResetUcenja.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -248,6 +246,9 @@ namespace VizijskiSustavWPF
                     CONTROL.UcenjeBool.NauciD4S2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.NauciD5S1.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.NauciD5S2.GetValueFromGroupBuffer(CyclicControlBuffer);
+
+                    //Automatika
+                    CONTROL.Automatika.ResetSvihMjerenja.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;
