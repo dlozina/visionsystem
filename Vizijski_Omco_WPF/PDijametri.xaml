@@ -52,26 +52,23 @@
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0" Content="AUTOMATSKO MJERENJE" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
-                    <Grid Grid.Row="1" Background="Black">
+                    <Label Grid.Row="1" Content="AUTOMATSKO MJERENJE POROZNOSTI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
+                    <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <local:BitButton Grid.Column="0" x:Name="bb_autoStart" Text="START" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Start , ElementName=bb_autoStart}" />
-                        <local:BitButton Grid.Column="1" x:Name="bb_autoStop" Text="STOP" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Stop , ElementName=bb_autoStop}" />
+                        <local:BitButton Grid.Column="0" x:Name="bb_pautoStart" Text="START" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Start , ElementName=bb_pautoStart}" />
+                        <local:BitButton Grid.Column="1" x:Name="bb_pautoStop" Text="STOP" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Stop , ElementName=bb_pautoStop}" />
                     </Grid>
-
-                    <Grid Grid.Row="2" Background="Black">
+                    <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <local:BitButton Grid.Column="0" x:Name="bb_pause" Text="PAUZA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Pauza , ElementName=bb_pause}" />
-                        <local:BitButton Grid.Column="1" x:Name="bb_reset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Reset , ElementName=bb_reset}" />
+                        <local:BitButton Grid.Column="0" x:Name="bb_ppause" Text="PAUZA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Pauza , ElementName=bb_ppause}" />
+                        <local:BitButton Grid.Column="1" x:Name="bb_preset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Reset , ElementName=bb_preset}" />
                     </Grid>
-
-
                 </Grid>
             </Grid>
 
@@ -89,67 +86,31 @@
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0" Content="SEKVENCA" FontWeight="Bold" VerticalAlignment="Bottom"/>
-                    <Grid Grid.Row="1" Background="Black">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Margin="1" Content="BROJ PONAVLJANJA" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12"/>
-                        <local:OutputField Grid.Column="1" Grid.Row="0" x:Name="of_brojPonavljanja" PLCConnection="{DynamicResource PLCinterf}"  ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.BrojPonavljanjaSekvence , ElementName=of_brojPonavljanja}" />
-                    </Grid>
+                    <Label Grid.Row="1" Content="AUTOMATSKO MJERENJE DIAMETARA" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
                     <Grid Grid.Row="2" Background="Black">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Margin="1" Content="KORAK KOJI SE  IZVRSAVA" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12"/>
-                        <local:OutputField Grid.Row="0" Grid.Column="1" x:Name="of_izvrsavanjeKoraka" PLCConnection="{DynamicResource PLCinterf}"   ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.IzvrsavanjeKoraka, ElementName=of_izvrsavanjeKoraka}"/>
+                        <local:BitButton Grid.Column="0" x:Name="bb_autoStart" Text="START" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Start , ElementName=bb_autoStart}" />
+                        <local:BitButton Grid.Column="1" x:Name="bb_autoStop" Text="STOP" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Stop , ElementName=bb_autoStop}" />
                     </Grid>
 
-                    <Label Grid.Row="3" Content="PARAMETRI" FontWeight="Bold" VerticalAlignment="Bottom"/>
-
-                    <Grid Grid.Row="4" Background="Black" >
+                    <Grid Grid.Row="3" Background="Black">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="VERTIKALNA OS" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                        <local:OutputField Grid.Column="1" x:Name="of_vertikalnaOs" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.VertikalnaOs, ElementName=of_vertikalnaOs}" />
+                        <local:BitButton Grid.Column="0" x:Name="bb_pause" Text="PAUZA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Pauza , ElementName=bb_pause}" />
+                        <local:BitButton Grid.Column="1" x:Name="bb_reset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Reset , ElementName=bb_reset}" />
                     </Grid>
 
-                    <Grid Grid.Row="5" Background="Black" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="HORIZONTALNA OS - S1" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                        <local:OutputField Grid.Column="1" x:Name="of_horizontalnaOsS1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.HorizontalnaOsS1, ElementName=of_horizontalnaOsS1}"/>
-                    </Grid>
-
-                    <Grid Grid.Row="6" Background="Black" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="HORIZONTALNA OS - S2" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                        <local:OutputField Grid.Column="1" x:Name="of_horizontalnaOsS2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.HorizontalnaOsS2, ElementName=of_horizontalnaOsS2}" />
-                    </Grid>
-                    <Label Grid.Row="7" Content="IZMJERENI px" FontWeight="Bold" VerticalAlignment="Bottom"/>
-
-                    <Grid Grid.Row="8" Background="Black" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="UDALJENOST OD CENTRA " Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                        <local:OutputField Grid.Column="1" x:Name="of_analiziranaVrijednost" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.Kamere.CAM4Rezultat, ElementName=of_analiziranaVrijednost}"/>
-                    </Grid>
+                    
 
                 </Grid>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="4,4,4,4">
+            <Grid Grid.Row="1" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="4,4,4,4" Grid.RowSpan="1">
                 <Grid Margin="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
@@ -161,47 +122,30 @@
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
-
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Content="REZULTATI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
-                    <Grid Grid.Row="1" Background="Black" >
+
+                    <Label Grid.Row="1" Content="AUTOMATSKO MJERENJE VISINE" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
+                    <Grid Grid.Row="2" Background="Black">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="DIJAMETAR BR.1" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                        <local:OutputField Grid.Column="1" x:Name="of_diameterNo1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.Diametar1, ElementName=of_diameterNo1}"/>
+                        <local:BitButton Grid.Column="0" x:Name="bb_vautoStart" Text="START" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeTicalom.Start , ElementName=bb_vautoStart}" />
+                        <local:BitButton Grid.Column="1" x:Name="bb_vautoStop" Text="STOP" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeTicalom.Stop , ElementName=bb_vautoStop}" />
                     </Grid>
 
-                    <Grid Grid.Row="2" Background="Black" >
+                    <Grid Grid.Row="3" Background="Black">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="DIJAMETAR BR.2" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                        <local:OutputField Grid.Column="1" x:Name="of_diameterNo2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.Diametar2, ElementName=of_diameterNo2}" />
-                    </Grid>
-
-                    <Grid Grid.Row="3" Background="Black" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="DIJAMETAR BR.3" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                        <local:OutputField Grid.Column="1" x:Name="of_diameterNo3" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.Diametar3, ElementName=of_diameterNo3}" />
-                    </Grid>
-
-                    <Grid Grid.Row="4" Background="Black" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="DIJAMETAR BR.4" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                        <local:OutputField Grid.Column="1" x:Name="of_diameterNo4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.Diametar4, ElementName=of_diameterNo4}" />
+                        <local:BitButton Grid.Column="0" x:Name="bb_vpause" Text="PAUZA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeTicalom.Pauza , ElementName=bb_vpause}" />
+                        <local:BitButton Grid.Column="1" x:Name="bb_vreset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeTicalom.Reset , ElementName=bb_vreset}" />
                     </Grid>
 
                 </Grid>
             </Grid>
+            
 
             <!-- Grid dolje -->
             <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="{DynamicResource pozadina1}" Margin="4,0,4,4">

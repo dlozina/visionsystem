@@ -91,24 +91,7 @@
 
 
                 <!-- Stupac Kamera -->
-                <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="KONTROLA"/></TextBlock>
-                <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,0,4,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Column="0" x:Name="bb_pautoStart" Text="START" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Start , ElementName=bb_pautoStart}" />
-                    <local:BitButton Grid.Column="1" x:Name="bb_pautoStop" Text="STOP" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Stop , ElementName=bb_pautoStop}" />
-                </Grid>
-                <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,4">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Column="0" x:Name="bb_ppause" Text="PAUZA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Pauza , ElementName=bb_ppause}" />
-                    <local:BitButton Grid.Column="1" x:Name="bb_preset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Reset , ElementName=bb_preset}" />
-                </Grid>
+                
                 <Grid Grid.Row="3" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="0,0,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
