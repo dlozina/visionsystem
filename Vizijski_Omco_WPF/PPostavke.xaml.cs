@@ -18,7 +18,7 @@ namespace VizijskiSustavWPF
             //App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePage_100);
         }
 
-        private void b_zatvori_Click(object sender, RoutedEventArgs e)
+        private void BiskljuciAplikaciju_Click(object sender, RoutedEventArgs e)
         {
             App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = true;
@@ -26,10 +26,6 @@ namespace VizijskiSustavWPF
             App.HDevExp.Exitloop4 = true;
             Thread.Sleep(1000);
             App.Current.Shutdown();
-        }
-
-        private void b_reset_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 

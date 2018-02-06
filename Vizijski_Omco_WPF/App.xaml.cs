@@ -22,7 +22,7 @@ namespace VizijskiSustavWPF
         public static PRucno pRucno;
         public static PLCInterface PLC;
         public static MainWindow mwHandle;
-        public static ReportInterface MainReportInterface;
+        //public static ReportInterface MainReportInterface;
         public static HALCON.HDevelopExport HDevExp;
         private bool _edgeDetection1 =false;
         private bool _edgeDetection2 = false;
@@ -36,7 +36,7 @@ namespace VizijskiSustavWPF
         {
             InitializeComponent();
             System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
-            MainReportInterface = ((ReportInterface)Application.Current.FindResource("MainReport"));
+            //MainReportInterface = ((ReportInterface)Application.Current.FindResource("MainReport"));
 
             PLC = ((PLCInterface)Application.Current.FindResource("PLCinterf"));
             HDevExp = new HALCON.HDevelopExport();

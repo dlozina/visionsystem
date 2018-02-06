@@ -51,13 +51,13 @@ namespace VizijskiSustavWPF.HALCON
                 ho_Image.Dispose();
                 HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
                 ho_Rectangle.Dispose();
-                HOperatorSet.GenRectangle1(out ho_Rectangle, 400, 1100, 1400, 2300);
-                ho_Circle.Dispose();
-                HOperatorSet.GenCircle(out ho_Circle, 900, 2000, 600);
-                ho_RegionUnion.Dispose();
-                HOperatorSet.Union2(ho_Rectangle, ho_Circle, out ho_RegionUnion);
+                HOperatorSet.GenRectangle1(out ho_Rectangle, 716, 720, 2200, 1850);
+                //ho_Circle.Dispose();
+                //HOperatorSet.GenCircle(out ho_Circle, 900, 2000, 600);
+                //ho_RegionUnion.Dispose();
+                //HOperatorSet.Union2(ho_Rectangle, ho_Circle, out ho_RegionUnion);
                 ho_ImageReduced.Dispose();
-                HOperatorSet.ReduceDomain(ho_Image, ho_RegionUnion, out ho_ImageReduced);
+                HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
                 ho_ImageMean.Dispose();
                 HOperatorSet.MeanImage(ho_ImageReduced, out ho_ImageMean, 21, 21);
                 ho_Region.Dispose();
@@ -74,7 +74,7 @@ namespace VizijskiSustavWPF.HALCON
                 HOperatorSet.TupleLength(hv_Row, out hv_Length);
                 // Criteria for porosity
                 hv_circ_min = 0.5;
-                hv_area_min = 2500;
+                hv_area_min = 1000;
                 hv_index = 0;
                 HTuple end_val44 = hv_Length;
                 HTuple step_val44 = 1;
@@ -99,13 +99,13 @@ namespace VizijskiSustavWPF.HALCON
                 HOperatorSet.ClearWindow(hv_porosityWinHandle);
                 HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
 
-                if ((int)((new HTuple(hv_found.TupleGreater(2))).TupleAnd(new HTuple(hv_bol.TupleEqual(
+                if ((int)((new HTuple(hv_found.TupleGreater(0))).TupleAnd(new HTuple(hv_bol.TupleEqual(
                         1)))) != 0)
                 {
                     PorosityIsDetected();
                     ho_ContCircle.Dispose();
                     HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Row.TupleSelect(hv_index), 
-                        hv_Column.TupleSelect(hv_index), 30, 0, 6.28318, "positive", 1);
+                        hv_Column.TupleSelect(hv_index), 50, 0, 6.28318, "positive", 1);
                     HOperatorSet.DispObj(ho_ContCircle, hv_porosityWinHandle);
                     hv_found = 0;
                     hv_cnt = 0;

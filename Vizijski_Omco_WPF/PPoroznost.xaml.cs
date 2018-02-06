@@ -31,7 +31,7 @@ namespace VizijskiSustavWPF
         {
             Dispatcher.Invoke(() =>
             {
-                HTuple windowId = HwindowPorsitHor.HalconID;
+                HTuple windowId = HwindowPorsity.HalconID;
                 App.HDevExp.RunHalcon14(windowId);
             });
             //HTuple windowId = hwindowPorsity.HalconID;
@@ -42,7 +42,7 @@ namespace VizijskiSustavWPF
         {
             Dispatcher.Invoke(() =>
             {
-                HTuple windowId = HwindowPorsitVer.HalconID;
+                HTuple windowId = HwindowPorsity.HalconID;
                 App.HDevExp.RunHalcon13(windowId);
             });
             //HTuple windowId = hwindowPorsity.HalconID;
@@ -52,31 +52,31 @@ namespace VizijskiSustavWPF
         private void TeachCam2()
         {
             App.HDevExp.InitHalcon();
-            HTuple windowId = HwindowPorsitHor.HalconID;
+            HTuple windowId = HwindowPorsity.HalconID;
             App.HDevExp.RunHalcon24(windowId);
         }
 
         private void TeachCam3()
         {
             App.HDevExp.InitHalcon();
-            HTuple windowId = HwindowPorsitVer.HalconID;
+            HTuple windowId = HwindowPorsity.HalconID;
             App.HDevExp.RunHalcon25(windowId);
         }
 
         private void b_pstartKamere1_Click(object sender, RoutedEventArgs e)
         {
             App.HDevExp.Teachloop2 = false;
-            App.HDevExp.Teachloop3 = true;
-            HwindowPorsitHor.HImagePart = new Rect(0, 0, 3856, 2764);
+            //App.HDevExp.Teachloop3 = true;
+            HwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
             Thread teachCam2Thread = new Thread(TeachCam2) {Name = "TeachCAM2Thread"};
             teachCam2Thread.Start();
         }
 
         private void b_pstartKamere2_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop2 = true;
+            //App.HDevExp.Teachloop2 = true;
             App.HDevExp.Teachloop3 = false;
-            HwindowPorsitVer.HImagePart = new Rect(0, 0, 2592, 1944);
+            HwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
             Thread teachCam3Thread = new Thread(TeachCam3) {Name = "TeachCAM3Thread"};
             teachCam3Thread.Start();
         }

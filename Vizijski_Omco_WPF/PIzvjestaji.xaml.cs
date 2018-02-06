@@ -53,13 +53,13 @@ namespace VizijskiSustavWPF
             //    }
             //};
 
-            List<DimensionLine> dimensions = App.MainReportInterface.Dimensions;
-            dimensions.Clear();
+            //List<DimensionLine> dimensions = App.MainReportInterface.Dimensions;
+            //dimensions.Clear();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private static ScrollViewer GetScrollbar(DependencyObject dep)
@@ -126,9 +126,9 @@ namespace VizijskiSustavWPF
         /*****************************************************************************
          * BINDING FOR DATA GRID
          */
-        
 
-        
+
+
 
     }
 }

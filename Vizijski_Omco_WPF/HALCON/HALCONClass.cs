@@ -22,6 +22,7 @@ namespace VizijskiSustavWPF.HALCON
 
         //Framegrabber Handle definition
         HTuple hv_AcqHandle = new HTuple();
+        HTuple hv_AcqHandle2 = new HTuple();
 
         // Framegrabber Handle for live CAM
         public HTuple hv_ExpDefaultWinHandle;
