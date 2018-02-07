@@ -95,7 +95,7 @@
                         <Label Content="VISINA 2" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina2"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV2, ElementName=if_visina2}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
-                    <Grid Grid.Row="8" Grid.Column="0" Background="Black" Margin="4,0,4,4">
+                    <Grid Grid.Row="8" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="2*"/>
@@ -136,7 +136,7 @@
                         </Grid.ColumnDefinitions>
                         <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBkomadiNok" Text="RESET PALETE SA NEISPRAVNIM KOMADIMA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetPaleteNok, ElementName=BBkomadiNok}" />
                     </Grid>
-                    <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,4">
+                    <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
                         <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBkomadiOK" Text="RESET PALETE SA ISPRAVNIM KOMADIMA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetPaleteOk, ElementName=BBkomadiOK}" />
@@ -180,15 +180,15 @@
 
             <!-- Dolje Desno -->
             <Grid Grid.Row="1" Grid.Column="1" Background="{DynamicResource pozadina1}" Margin="2,2,4,4">
-                <Grid Grid.Row="0" Background="{DynamicResource pozadina1}" Margin="140,185,140,0" Height="38" VerticalAlignment="Top">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Background="{DynamicResource pozadina1}" Margin="140,160,140,0" Height="38" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
                     <Grid Grid.Column="0" Grid.Row="0" Background="Black">
                         <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBresetSvihMjerenja" Text="RESET MJERENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.ResetSvihMjerenja, ElementName=BBresetSvihMjerenja}" />
                     </Grid>
-                    <Grid Grid.Column="1" Grid.Row="0" Background="Black">
+                    <Grid Grid.Column="1" Grid.Row="1" Background="Black">
                         <Button  x:Name="BiskljuciAplikaciju" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI APLIKACIJU" Click="BiskljuciAplikaciju_Click"/>
                     </Grid>
                 </Grid>

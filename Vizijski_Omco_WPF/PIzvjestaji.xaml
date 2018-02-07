@@ -46,7 +46,8 @@
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
-
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Content="DIJAMETRI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
                     <Grid Grid.Row="1" Background="Black" >
@@ -112,6 +113,9 @@
                         <Label Grid.Column="0" Content="VISINA BR.3" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
                         <vizijskiSustavWpf:OutputField Grid.Column="1" x:Name="of_vdiameterNo3" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeTicalom.Visina3, ElementName=of_vdiameterNo3}" />
                     </Grid>
+                    
+                    <Label Grid.Row="9" Content="POROZNOST" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+
 
                 </Grid>
             </Grid>

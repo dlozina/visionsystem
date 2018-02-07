@@ -290,7 +290,6 @@
     </None>
     <AppDesigner Include="Properties\" />
     <Resource Include="Photos\robot.png" />
-    <Resource Include="Photos\book.png" />
     <Resource Include="Photos\sort-z-to-a.png" />
     <Resource Include="Photos\bracket.png" />
     <Resource Include="Photos\ruler.png" />
@@ -333,7 +332,6 @@
   <ItemGroup>
     <Resource Include="Photos\dimenzije.png" />
     <Resource Include="Photos\kut.png" />
-    <Resource Include="Photos\srh.png" />
     <Resource Include="Photos\valovitost.png" />
   </ItemGroup>
   <ItemGroup>
@@ -345,14 +343,14 @@
     </Content>
     <Resource Include="video_on_icon.ico" />
     <Resource Include="Photos\fast44_black.png" />
-    <Resource Include="Photos\fast44_red.png" />
     <Resource Include="Photos\play106_black.png" />
-    <Resource Include="Photos\play106_blue.png" />
+    <Resource Include="Photos\automation.png" />
+    <Resource Include="Photos\alarm.png" />
+    <Resource Include="Photos\equalizer.png" />
     <Content Include="snap7.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Photos\izvjestaji.png" />
-    <Resource Include="Photos\sablja.png" />
     <Resource Include="Photos\rucno.png" />
     <Resource Include="Photos\postavke.png" />
   </ItemGroup>

@@ -50,6 +50,7 @@
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Content="AUTOMATSKO MJERENJE POROZNOSTI" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
 

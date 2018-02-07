@@ -213,8 +213,8 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="Photos/ruler.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
-                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" VISINE"/></TextBlock>
+                    <Image Source="Photos/equalizer.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" STANJE"/></TextBlock>
                 </StackPanel>
 
             </Button>
@@ -248,8 +248,8 @@
                     </ControlTemplate>
                 </Button.Template>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="Photos/dimenzije.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
-                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" AUTOMATSKI"/></TextBlock>
+                    <Image Source="Photos/automation.png" Margin="5" MaxWidth="60" MaxHeight="60"/>
+                    <TextBlock Foreground="Black" FontWeight="Normal" FontFamily="Arial" FontSize="16" Margin="0,0,10,0" VerticalAlignment="Center"><Run Language="hr-hr" Text=" AUTO"/></TextBlock>
                 </StackPanel>
 
             </Button>
