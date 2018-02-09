@@ -96,8 +96,7 @@ namespace VizijskiSustavWPF.HALCON
                         hv_bol = 0;
                     }
                 }
-
-                HOperatorSet.ClearWindow(hv_porosityWinHandle);
+                //HOperatorSet.ClearWindow(hv_porosityWinHandle);
                 HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
                 if ((int)((new HTuple(hv_found.TupleGreater(0))).TupleAnd(new HTuple(hv_bol.TupleEqual(
                         1)))) != 0)

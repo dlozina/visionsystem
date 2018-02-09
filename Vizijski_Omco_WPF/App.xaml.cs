@@ -139,9 +139,10 @@ namespace VizijskiSustavWPF
             if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!_edgeDetection4))
             {
                 // We call public method in class pPoroznost
-                Thread porosityhorth = new Thread(new ThreadStart(pPoroznost.PorosityHorWindow));
-                porosityhorth.Name = "Thread PorosityHor";
-                porosityhorth.Start();
+                //Thread porosityhorth = new Thread(new ThreadStart(pPoroznost.PorosityHorWindow));
+                //porosityhorth.Name = "Thread PorosityHor";
+                //porosityhorth.Start();
+                pPoroznost.PorosityHorWindow();
             }
 
             // Start analize slike za robot PICK - TRIGGER 1 ***********************************************************
@@ -202,6 +203,8 @@ namespace VizijskiSustavWPF
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, false);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, true);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, false);
         }
 
         private static void PorosityIsDetected(object source, EventArgs e)

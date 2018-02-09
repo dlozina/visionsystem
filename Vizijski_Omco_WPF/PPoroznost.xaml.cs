@@ -38,13 +38,25 @@ namespace VizijskiSustavWPF
             //App.HDevExp.RunHalcon14(windowId);
         }
 
+        private void PorosityVerCall()
+        {
+            HTuple windowId = HwindowPorsity.HalconID;
+            App.HDevExp.RunHalcon13(windowId);
+        }
+
         public void PorosityVerWindow()
         {
-            Dispatcher.Invoke(() =>
-            {
+            //Dispatcher.Invoke(() =>
+            //{
                 HTuple windowId = HwindowPorsity.HalconID;
-                App.HDevExp.RunHalcon13(windowId);
-            });
+                Thread porosityhorth = new Thread(new ThreadStart(PorosityVerCall));
+                porosityhorth.Name = "Thread PorosityHor";
+                porosityhorth.Start();
+
+                //HTuple windowId = HwindowPorsity.HalconID;
+                //App.HDevExp.RunHalcon13(windowId);
+            //});
+
             //HTuple windowId = hwindowPorsity.HalconID;
             //App.HDevExp.RunHalcon13(windowId);
         }

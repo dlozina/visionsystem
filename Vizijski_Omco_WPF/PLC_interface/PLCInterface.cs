@@ -247,6 +247,7 @@ namespace VizijskiSustavWPF
                     CONTROL.UcenjeBool.NauciD5S1.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.NauciD5S2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.PoroznostHorPozicija.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeBool.PoroznostVerPozicija.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.NauciPoroznost.GetValueFromGroupBuffer(CyclicControlBuffer);
                     //Automatika
                     CONTROL.Automatika.ResetSvihMjerenja.GetValueFromGroupBuffer(CyclicControlBuffer);
