@@ -9,20 +9,26 @@ namespace VizijskiSustavWPF.HALCON
         public delegate void UpdateHandler(VizijskiSustavWPF.HALCON.HDevelopExport sender, HalconEventArgs e);
         public event UpdateHandler UpdateResult;
         HalconEventArgs argumenti = new HalconEventArgs();
+        
         // Event - Update pick result
         public delegate void UpdateHandlerPick(VizijskiSustavWPF.HALCON.HDevelopExport sender, HalconEventArgs e);
         public event UpdateHandlerPick UpdateResultPick;
         HalconEventArgs koordinate = new HalconEventArgs();
-        // Event - Porosity detection started
+        
+        // Event - Porosity detection started Vertical
         public delegate void PorosityDetectionStartEventHandler(object source, EventArgs args);
         public event PorosityDetectionStartEventHandler PorosityDetectionStart;
+        
+        // Event - Porosity detection started Horizontal
+        public delegate void PorosityDetectionHorStartEventHandler(object source, EventArgs args);
+        public event PorosityDetectionHorStartEventHandler PorosityDetectionHorStart;
+        
         // Event - Porosity detected
         public delegate void PorosityDetectedEventHandler(object source, EventArgs args);
         public event PorosityDetectedEventHandler PorosityDetected;
 
         //Framegrabber Handle definition
         HTuple hv_AcqHandle = new HTuple();
-        HTuple hv_AcqHandle2 = new HTuple();
 
         // Framegrabber Handle for live CAM
         public HTuple hv_ExpDefaultWinHandle;
@@ -106,6 +112,12 @@ namespace VizijskiSustavWPF.HALCON
         {
             if (PorosityDetectionStart != null)
                 PorosityDetectionStart(this, EventArgs.Empty);
+        }
+
+        protected virtual void DetectionHorStart()
+        {
+            if (PorosityDetectionHorStart != null)
+                PorosityDetectionHorStart(this, EventArgs.Empty);
         }
 
         public void InitHalcon()

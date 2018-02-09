@@ -74,7 +74,7 @@ namespace VizijskiSustavWPF.HALCON
                 HOperatorSet.TupleLength(hv_Row, out hv_Length);
                 // Criteria for porosity
                 hv_circ_min = 0.5;
-                hv_area_min = 1000;
+                hv_area_min = 2000; //1000;
                 hv_index = 0;
                 HTuple end_val44 = hv_Length;
                 HTuple step_val44 = 1;

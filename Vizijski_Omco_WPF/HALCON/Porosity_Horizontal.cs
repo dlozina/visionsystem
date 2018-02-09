@@ -45,7 +45,7 @@ namespace VizijskiSustavWPF.HALCON
                 "default", -1, "false", "default", "GC2591MP_CAM_3", 0, -1, out hv_AcqHandle);
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 30000.0);
             // Information for PLC that frame is opened
-            DetectionStart();
+            DetectionHorStart();
             hv_found = 0;
             hv_cnt = 0;
             hv_bol = 0;
@@ -96,7 +96,7 @@ namespace VizijskiSustavWPF.HALCON
                         hv_bol = 0;
                     }
                 }
-                //HOperatorSet.ClearWindow(hv_porosityWinHandle);
+                HOperatorSet.ClearWindow(hv_porosityWinHandle);
                 HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
                 if ((int)((new HTuple(hv_found.TupleGreater(0))).TupleAnd(new HTuple(hv_bol.TupleEqual(
                         1)))) != 0)
@@ -108,11 +108,12 @@ namespace VizijskiSustavWPF.HALCON
                     HOperatorSet.DispObj(ho_ContCircle, hv_porosityWinHandle);
                     hv_found = 0;
                     hv_cnt = 0;
+                    Porositydetectedhor = true;
                 }
                 hv_cnt = hv_cnt+1;
             }
 
-            HOperatorSet.ClearWindow(hv_porosityWinHandle);
+            // HOperatorSet.ClearWindow(hv_porosityWinHandle);
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
             ho_Image.Dispose();
             ho_Rectangle.Dispose();

@@ -26,17 +26,8 @@ namespace VizijskiSustavWPF
         //{
 
         //}
-
-        public void PorosityHorWindow()
-        {
-            Dispatcher.Invoke(() =>
-            {
-                HTuple windowId = HwindowPorsity.HalconID;
-                App.HDevExp.RunHalcon14(windowId);
-            });
-            //HTuple windowId = hwindowPorsity.HalconID;
-            //App.HDevExp.RunHalcon14(windowId);
-        }
+        
+        
 
         private void PorosityVerCall()
         {
@@ -48,17 +39,36 @@ namespace VizijskiSustavWPF
         {
             //Dispatcher.Invoke(() =>
             //{
-                HTuple windowId = HwindowPorsity.HalconID;
-                Thread porosityhorth = new Thread(new ThreadStart(PorosityVerCall));
-                porosityhorth.Name = "Thread PorosityHor";
-                porosityhorth.Start();
+            //HTuple windowId = HwindowPorsity.HalconID;
+            Thread porosityvert = new Thread(new ThreadStart(PorosityVerCall));
+            porosityvert.Name = "Thread PorosityHor";
+            porosityvert.Start();
 
-                //HTuple windowId = HwindowPorsity.HalconID;
-                //App.HDevExp.RunHalcon13(windowId);
+            //HTuple windowId = HwindowPorsity.HalconID;
+            //App.HDevExp.RunHalcon13(windowId);
             //});
 
             //HTuple windowId = hwindowPorsity.HalconID;
             //App.HDevExp.RunHalcon13(windowId);
+        }
+
+        private void PorosityHorCall()
+        {
+            HTuple windowId = HwindowPorsity.HalconID;
+            App.HDevExp.RunHalcon14(windowId);
+        }
+
+        public void PorosityHorWindow()
+        {
+            //Dispatcher.Invoke(() =>
+            //{
+            Thread porosityhor = new Thread(new ThreadStart(PorosityHorCall));
+            porosityhor.Name = "Thread PorosityVer";
+            porosityhor.Start();
+                
+            //});
+            //HTuple windowId = hwindowPorsity.HalconID;
+            //App.HDevExp.RunHalcon14(windowId);
         }
 
         private void TeachCam2()

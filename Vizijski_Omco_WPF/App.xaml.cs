@@ -56,6 +56,7 @@ namespace VizijskiSustavWPF
             HDevExp.UpdateResultPick += new HALCON.HDevelopExport.UpdateHandlerPick(PickUpdate);
             HDevExp.PorosityDetected += new HALCON.HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
             HDevExp.PorosityDetectionStart += new HALCON.HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
+            HDevExp.PorosityDetectionHorStart += new HALCON.HDevelopExport.PorosityDetectionHorStartEventHandler(DetectionHorStart);
         }
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
@@ -130,9 +131,10 @@ namespace VizijskiSustavWPF
             if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!_edgeDetection3))
             {
                 // We call public method in class pPoroznost
-                Thread porosityverth = new Thread(new ThreadStart(pPoroznost.PorosityVerWindow));
-                porosityverth.Name = "Thread PorosityVer";
-                porosityverth.Start();
+                //Thread porosityverth = new Thread(new ThreadStart(pPoroznost.PorosityVerWindow));
+                //porosityverth.Name = "Thread PorosityVer";
+                //porosityverth.Start();
+                pPoroznost.PorosityVerWindow();
             }
 
             // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ************************************************
@@ -166,6 +168,7 @@ namespace VizijskiSustavWPF
             if (((bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value) && (!_edgeDetection5))
             {
                 HDevExp.Porositydetectedver = true;
+                HDevExp.Porositydetectedhor = true;
             }
 
             // Edge detection help marker
@@ -203,6 +206,12 @@ namespace VizijskiSustavWPF
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, false);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, true);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, false);
+        }
+
+        private static void DetectionHorStart(object source, EventArgs e)
+        {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, false);
         }
