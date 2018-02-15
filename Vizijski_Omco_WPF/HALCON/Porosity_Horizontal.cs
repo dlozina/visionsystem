@@ -4,15 +4,6 @@ namespace VizijskiSustavWPF.HALCON
 {
     public partial class HDevelopExport
     {
-    
-        // Procedures 
-        // Chapter: Develop
-        // Short Description: Switch dev_update_pc, dev_update_var and dev_update_window to 'off'. 
-        public void dev_update_off ()
-        {
-            return;
-        }
-
         // Main procedure 
         private void porosityHorizonatal()
         {
@@ -49,8 +40,8 @@ namespace VizijskiSustavWPF.HALCON
             hv_found = 0;
             hv_cnt = 0;
             hv_bol = 0;
-            dev_update_off();
 
+            Porositydetectedhor = false;
             while (Porositydetectedhor == false)
             {
                 ho_Image.Dispose();
@@ -113,7 +104,7 @@ namespace VizijskiSustavWPF.HALCON
                 hv_cnt = hv_cnt+1;
             }
 
-            // HOperatorSet.ClearWindow(hv_porosityWinHandle);
+            HOperatorSet.ClearWindow(hv_porosityWinHandle);
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
             ho_Image.Dispose();
             ho_Rectangle.Dispose();

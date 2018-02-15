@@ -31,6 +31,7 @@ namespace VizijskiSustavWPF
         private bool _edgeDetection5 = false;
         private bool _edgeDetection6 = false;
         private bool _edgeDetection7 = false;
+        private bool _edgeDetection8 = false;
         
         public App()
         {
@@ -164,10 +165,17 @@ namespace VizijskiSustavWPF
                 pickTriggerT2.Start();
             }
 
-            // R-Os je prosla 360 i nije nasla porozni dio
-            if (((bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value) && (!_edgeDetection5))
+            // R-Os je prosla 360 i nije nasla porozni dio CAM2 
+            if (((bool)e.StatusData.MjerenjePoroznosti.GotovoCAM2.Value) && (!_edgeDetection5))
             {
                 HDevExp.Porositydetectedver = true;
+                //HDevExp.Porositydetectedhor = true;
+            }
+
+            // R-Os je prosla 360 i nije nasla porozni dio CAM3 
+            if (((bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value) && (!_edgeDetection8))
+            {
+                //HDevExp.Porositydetectedver = true;
                 HDevExp.Porositydetectedhor = true;
             }
 
@@ -176,9 +184,10 @@ namespace VizijskiSustavWPF
             _edgeDetection2 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value == true;
             _edgeDetection3 = (bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value == true; 
             _edgeDetection4 = (bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value == true; 
-            _edgeDetection5 = (bool)e.StatusData.MjerenjePoroznosti.Gotovo.Value == true;
+            _edgeDetection5 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM2.Value == true;
             _edgeDetection6 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value == true;
             _edgeDetection7 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value == true;
+            _edgeDetection8 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value == true;
 
             if (mwHandle != null)
             {
@@ -206,8 +215,8 @@ namespace VizijskiSustavWPF
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, false);
-            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, true);
-            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, false);
+            //App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, true);
+            //App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, false);
         }
 
         private static void DetectionHorStart(object source, EventArgs e)

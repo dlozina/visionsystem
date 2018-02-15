@@ -74,6 +74,8 @@
             public plcTag RotacijskaOs { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(68, 0), 0.0f);
             public plcTag HorizontalnaOs { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(72, 0), 0.0f);
             public plcTag PoroznostPronadena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(76, 0), false);
+            public plcTag GotovoCAM2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(76, 1), false);
+            public plcTag GotovoCAM3 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(76, 2), false);
         }
 
         public class mjerenjediametara

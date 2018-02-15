@@ -313,6 +313,8 @@ namespace VizijskiSustavWPF
                     STATUS.MjerenjePoroznosti.RotacijskaOs.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjePoroznosti.HorizontalnaOs.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjePoroznosti.PoroznostPronadena.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.MjerenjePoroznosti.GotovoCAM2.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.MjerenjePoroznosti.GotovoCAM3.GetValueFromGroupBuffer(CyclicStatusBuffer);
 
                     // Mjerenje diametara
                     STATUS.MjerenjeDiametara.Gotovo.GetValueFromGroupBuffer(CyclicStatusBuffer);

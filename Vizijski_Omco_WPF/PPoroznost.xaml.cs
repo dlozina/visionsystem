@@ -31,44 +31,32 @@ namespace VizijskiSustavWPF
 
         private void PorosityVerCall()
         {
+            //HwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
+            //App.HDevExp.InitHalcon();
             HTuple windowId = HwindowPorsity.HalconID;
             App.HDevExp.RunHalcon13(windowId);
         }
 
         public void PorosityVerWindow()
         {
-            //Dispatcher.Invoke(() =>
-            //{
-            //HTuple windowId = HwindowPorsity.HalconID;
             Thread porosityvert = new Thread(new ThreadStart(PorosityVerCall));
-            porosityvert.Name = "Thread PorosityHor";
+            porosityvert.Name = "Thread PorosityVer";
             porosityvert.Start();
-
-            //HTuple windowId = HwindowPorsity.HalconID;
-            //App.HDevExp.RunHalcon13(windowId);
-            //});
-
-            //HTuple windowId = hwindowPorsity.HalconID;
-            //App.HDevExp.RunHalcon13(windowId);
         }
 
         private void PorosityHorCall()
         {
+            //HwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
+            //App.HDevExp.InitHalcon();
             HTuple windowId = HwindowPorsity.HalconID;
             App.HDevExp.RunHalcon14(windowId);
         }
 
         public void PorosityHorWindow()
         {
-            //Dispatcher.Invoke(() =>
-            //{
             Thread porosityhor = new Thread(new ThreadStart(PorosityHorCall));
-            porosityhor.Name = "Thread PorosityVer";
+            porosityhor.Name = "Thread PorosityHor";
             porosityhor.Start();
-                
-            //});
-            //HTuple windowId = hwindowPorsity.HalconID;
-            //App.HDevExp.RunHalcon14(windowId);
         }
 
         private void TeachCam2()
@@ -90,7 +78,7 @@ namespace VizijskiSustavWPF
             App.HDevExp.Teachloop2 = false;
             //App.HDevExp.Teachloop3 = true;
             HwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
-            Thread teachCam2Thread = new Thread(TeachCam2) {Name = "TeachCAM2Thread"};
+            Thread teachCam2Thread = new Thread(TeachCam2) { Name = "TeachCAM2Thread" };
             teachCam2Thread.Start();
         }
 
@@ -99,7 +87,7 @@ namespace VizijskiSustavWPF
             //App.HDevExp.Teachloop2 = true;
             App.HDevExp.Teachloop3 = false;
             HwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
-            Thread teachCam3Thread = new Thread(TeachCam3) {Name = "TeachCAM3Thread"};
+            Thread teachCam3Thread = new Thread(TeachCam3) { Name = "TeachCAM3Thread" };
             teachCam3Thread.Start();
         }
 
