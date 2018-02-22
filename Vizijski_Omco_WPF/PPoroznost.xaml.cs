@@ -33,8 +33,8 @@ namespace VizijskiSustavWPF
         {
             //HwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
             //App.HDevExp.InitHalcon();
-            HTuple windowId = HwindowPorsity.HalconID;
-            App.HDevExp.RunHalcon13(windowId);
+            //HTuple windowId = HwindowPorsity.HalconID;
+            //App.HDevExp.RunHalcon13(windowId);
         }
 
         public void PorosityVerWindow()
@@ -48,8 +48,8 @@ namespace VizijskiSustavWPF
         {
             //HwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
             //App.HDevExp.InitHalcon();
-            HTuple windowId = HwindowPorsity.HalconID;
-            App.HDevExp.RunHalcon14(windowId);
+            //HTuple windowId = HwindowPorsity.HalconID;
+            //App.HDevExp.RunHalcon14(windowId);
         }
 
         public void PorosityHorWindow()

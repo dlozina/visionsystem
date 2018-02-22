@@ -32,8 +32,7 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.GenEmptyObj(out ho_SmallConnection);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
             // Open camera frame
-            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
-                "default", -1, "false", "default", "GC2591MP_CAM_3", 0, -1, out hv_AcqHandle);
+            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC2591MP_CAM_3", 0, -1, out hv_AcqHandle);
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 30000.0);
             // Information for PLC that frame is opened
             DetectionHorStart();
@@ -53,8 +52,7 @@ namespace VizijskiSustavWPF.HALCON
                 ho_ImageMean.Dispose();
                 HOperatorSet.MeanImage(ho_ImageReduced, out ho_ImageMean, 21, 21);
                 ho_Region.Dispose();
-                HOperatorSet.BinaryThreshold(ho_ImageMean, out ho_Region, "max_separability", 
-                    "dark", out hv_UsedThreshold);
+                HOperatorSet.BinaryThreshold(ho_ImageMean, out ho_Region, "max_separability", "dark", out hv_UsedThreshold);
                 ho_ConnectedRegions.Dispose();
                 HOperatorSet.Connection(ho_Region, out ho_ConnectedRegions);
                 ho_RegionClosing.Dispose();
@@ -87,16 +85,16 @@ namespace VizijskiSustavWPF.HALCON
                         hv_bol = 0;
                     }
                 }
-                HOperatorSet.ClearWindow(hv_porosityWinHandle);
-                HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
+                //HOperatorSet.ClearWindow(hv_porosityWinHandle);
+                //HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
                 if ((int)((new HTuple(hv_found.TupleGreater(0))).TupleAnd(new HTuple(hv_bol.TupleEqual(
                         1)))) != 0)
                 {
                     PorosityIsDetected();
                     ho_ContCircle.Dispose();
-                    HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Row.TupleSelect(hv_index), 
-                        hv_Column.TupleSelect(hv_index), 50, 0, 6.28318, "positive", 1);
-                    HOperatorSet.DispObj(ho_ContCircle, hv_porosityWinHandle);
+                    //HOperatorSet.GenCircleContourXld(out ho_ContCircle, hv_Row.TupleSelect(hv_index), 
+                    //    hv_Column.TupleSelect(hv_index), 50, 0, 6.28318, "positive", 1);
+                    //HOperatorSet.DispObj(ho_ContCircle, hv_porosityWinHandle);
                     hv_found = 0;
                     hv_cnt = 0;
                     Porositydetectedhor = true;
@@ -104,7 +102,7 @@ namespace VizijskiSustavWPF.HALCON
                 hv_cnt = hv_cnt+1;
             }
 
-            HOperatorSet.ClearWindow(hv_porosityWinHandle);
+            //HOperatorSet.ClearWindow(hv_porosityWinHandle);
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
             ho_Image.Dispose();
             ho_Rectangle.Dispose();
@@ -117,9 +115,14 @@ namespace VizijskiSustavWPF.HALCON
             ho_ContCircle.Dispose();
         }
 
-        public void RunHalcon14(HTuple window)
+        //public void RunHalcon14(HTuple window)
+        //{
+        //    hv_porosityWinHandle = window;
+        //    porosityHorizonatal();
+        //}
+
+        public void RunHalcon14()
         {
-            hv_porosityWinHandle = window;
             porosityHorizonatal();
         }
 

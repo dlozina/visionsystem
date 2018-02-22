@@ -131,21 +131,23 @@ namespace VizijskiSustavWPF
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
             if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!_edgeDetection3))
             {
-                // We call public method in class pPoroznost
-                //Thread porosityverth = new Thread(new ThreadStart(pPoroznost.PorosityVerWindow));
-                //porosityverth.Name = "Thread PorosityVer";
-                //porosityverth.Start();
-                pPoroznost.PorosityVerWindow();
+                Thread porosityverth = new Thread(new ThreadStart(HDevExp.RunHalcon13));
+                porosityverth.Name = "Thread PorosityVer";
+                porosityverth.Start();
+
+                // Start sa display-om, thread error
+                //pPoroznost.PorosityVerWindow();
             }
 
             // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ************************************************
             if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!_edgeDetection4))
             {
-                // We call public method in class pPoroznost
-                //Thread porosityhorth = new Thread(new ThreadStart(pPoroznost.PorosityHorWindow));
-                //porosityhorth.Name = "Thread PorosityHor";
-                //porosityhorth.Start();
-                pPoroznost.PorosityHorWindow();
+                Thread porosityhorth = new Thread(new ThreadStart(HDevExp.RunHalcon14));
+                porosityhorth.Name = "Thread PorosityHor";
+                porosityhorth.Start();
+
+                // Start sa display-om, thread error
+                //pPoroznost.PorosityHorWindow();
             }
 
             // Start analize slike za robot PICK - TRIGGER 1 ***********************************************************

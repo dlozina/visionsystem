@@ -69,11 +69,30 @@ namespace VizijskiSustavWPF.HALCON
                         if ((int)(new HTuple(hv_Indices.TupleEqual(-1))) != 0)
                         {
                             if (hv_row_outer == null)
-                                hv_row_outer = new HTuple();
-                            hv_row_outer[hv_i-1] = (hv_row_outer.TupleSelect(hv_i-2))+1;
+                            {
+                                continue;
+                            }
+
+                            //if((int)(new HTuple(hv_row_outer.TupleEqual(new HTuple()))) != 0)
+                            //{
+                            //    continue;
+                            //}
+
                             if (hv_col_outer == null)
-                                hv_col_outer = new HTuple();
-                            hv_col_outer[hv_i-1] = hv_col_outer.TupleSelect(hv_i-2);
+                            {
+                                continue;
+                            }
+
+                            //if((int)(new HTuple(hv_col_outer.TupleEqual(new HTuple()))) != 0)
+                            //{
+                            //    continue;
+                            //}
+
+                            if (hv_i > 1)
+                            {
+                                hv_row_outer[hv_i-1] = (hv_row_outer.TupleSelect(hv_i-2))+1;
+                                hv_col_outer[hv_i-1] = hv_col_outer.TupleSelect(hv_i-2);
+                            }
                             continue;
                         }
 
@@ -101,11 +120,30 @@ namespace VizijskiSustavWPF.HALCON
                         if ((int)(new HTuple(hv_Indices.TupleEqual(-1))) != 0)
                         {
                             if (hv_row_outer == null)
-                                hv_row_outer = new HTuple();
-                            hv_row_outer[hv_i-1] = (hv_row_outer.TupleSelect(hv_i-2))+1;
+                            {
+                                continue;
+                            }
+
+                            //if((int)(new HTuple(hv_row_outer.TupleEqual(new HTuple()))) != 0)
+                            //{
+                            //    continue;
+                            //}
+
                             if (hv_col_outer == null)
-                                hv_col_outer = new HTuple();
-                            hv_col_outer[hv_i-1] = hv_col_outer.TupleSelect(hv_i-2);
+                            {
+                                continue;
+                            }
+
+                            //if((int)(new HTuple(hv_col_outer.TupleEqual(new HTuple()))) != 0)
+                            //{
+                            //    continue;
+                            //}
+
+                            if (hv_i > 1)
+                            {
+                                hv_row_outer[hv_i-1] = (hv_row_outer.TupleSelect(hv_i-2))+1;
+                                hv_col_outer[hv_i-1] = hv_col_outer.TupleSelect(hv_i-2);
+                            }
                             continue;
                         }
 
@@ -160,11 +198,30 @@ namespace VizijskiSustavWPF.HALCON
                         if ((int)(new HTuple(hv_Indices.TupleEqual(-1))) != 0)
                         {
                             if (hv_row_outer == null)
-                                hv_row_outer = new HTuple();
-                            hv_row_outer[hv_i-1] = (hv_row_outer.TupleSelect(hv_i-2))+1;
+                            {
+                                continue;
+                            }
+
+                            //if((int)(new HTuple(hv_row_outer.TupleEqual(new HTuple()))) != 0)
+                            //{
+                            //    continue;
+                            //}
+
                             if (hv_col_outer == null)
-                                hv_col_outer = new HTuple();
-                            hv_col_outer[hv_i-1] = hv_col_outer.TupleSelect(hv_i-2);
+                            {
+                                continue;
+                            }
+
+                            //if ((int)(new HTuple(hv_col_outer.TupleEqual(new HTuple()))) != 0)
+                            //{
+                            //    continue;
+                            //}
+
+                            if (hv_i > 1)
+                            {
+                                hv_row_outer[hv_i-1] = (hv_row_outer.TupleSelect(hv_i-2))+1;
+                                hv_col_outer[hv_i-1] = hv_col_outer.TupleSelect(hv_i-2);
+                            }
                             continue;
                         }
 
@@ -191,11 +248,30 @@ namespace VizijskiSustavWPF.HALCON
                         if ((int)(new HTuple(hv_Indices.TupleEqual(-1))) != 0)
                         {
                             if (hv_row_outer == null)
-                                hv_row_outer = new HTuple();
-                            hv_row_outer[hv_i-1] = (hv_row_outer.TupleSelect(hv_i-2))+1;
+                            {
+                                continue;
+                            }
+
+                            //if((int)(new HTuple(hv_row_outer.TupleEqual(new HTuple()))) != 0)
+                            //{
+                            //    continue;
+                            //}
+
                             if (hv_col_outer == null)
-                                hv_col_outer = new HTuple();
-                            hv_col_outer[hv_i-1] = hv_col_outer.TupleSelect(hv_i-2);
+                            {
+                                continue;
+                            }
+
+                            //if((int)(new HTuple(hv_col_outer.TupleEqual(new HTuple()))) != 0)
+                            //{
+                            //    continue;
+                            //}
+
+                            if (hv_i > 1)
+                            {
+                                hv_row_outer[hv_i-1] = (hv_row_outer.TupleSelect(hv_i-2))+1;
+                                hv_col_outer[hv_i-1] = hv_col_outer.TupleSelect(hv_i-2);
+                            }
                             continue;
                         }
 
