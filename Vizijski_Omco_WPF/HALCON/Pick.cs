@@ -173,8 +173,12 @@ namespace VizijskiSustavWPF.HALCON
             //hv_pi = 3.14159265359;
             //hv_angle = (  55.7308 * hv_pi) / 180 +  (0 * hv_pi);
             //* Camera Parameters
-            HOperatorSet.ReadCamPar("C:/Users/kontakt/Documents/Work/Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/intrinsics.cal", out hv_CamParam);
-            HOperatorSet.ReadPose("C:/Users/kontakt/Documents/Work/Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/extrinsics.dat", out hv_CamPose);
+            //HOperatorSet.ReadCamPar("C:/Users/kontakt/Documents/Work/Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/intrinsics.cal", out hv_CamParam);
+            HOperatorSet.ReadCamPar("C:/App/CamPar/intrinsics.cal", out hv_CamParam);
+
+            //HOperatorSet.ReadPose("C:/Users/kontakt/Documents/Work/Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/CamPar/extrinsics.dat", out hv_CamPose);
+            HOperatorSet.ReadPose("C:/App/CamPar/extrinsics.dat", out hv_CamPose);
+
             //create GMM classifier
             HOperatorSet.CreateClassGmm(6, 1, 1, "spherical", "normalization", 10, 42, out hv_GMMHandle);
             //create class object
@@ -197,7 +201,8 @@ namespace VizijskiSustavWPF.HALCON
             for (hv_Index=1; (int)hv_Index<=7; hv_Index = (int)hv_Index + 1)
             {
                 ho_Image.Dispose();
-                HOperatorSet.ReadImage(out ho_Image, ("C:/Users/kontakt/Documents/Work/Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/PickImage/image_No3_" + (hv_Index-1))+".ima.tif");      
+                //HOperatorSet.ReadImage(out ho_Image, ("C:/Users/kontakt/Documents/Work/Projekti/Vision_System_OMKO/App/VisionApp/Vizijski_Omco_WPF/PickImage/image_No3_" + (hv_Index-1))+".ima.tif");
+                HOperatorSet.ReadImage(out ho_Image, ("C:/App/PickImage/image_No3_" + (hv_Index - 1)) + ".ima.tif");
                 HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
                 ho_Rectangle.Dispose();
                 HOperatorSet.GenRectangle1(out ho_Rectangle, 120, 50, 840, 1150);

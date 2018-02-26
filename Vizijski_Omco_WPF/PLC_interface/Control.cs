@@ -16,6 +16,7 @@
         public ucenjereal UcenjeReal { get; set; } = new ucenjereal();
         public ucenjebool UcenjeBool { get; set; } = new ucenjebool();
         public automatika Automatika { get; set; } = new automatika();
+        public prekret Prekret { get; set; } = new prekret();
 
         public class horizontalnaOs
         {
@@ -168,12 +169,20 @@
             public plcTag PoroznostVerPozicija { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(89, 2), false);
             // Nauci pozicije poroznosti
             public plcTag NauciPoroznost { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(89, 3), false);
-
         }
 
         public class automatika
         {
             public plcTag ResetSvihMjerenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(90, 0), false);
+        }
+
+        public class prekret
+        {
+            // Promjeniti offsete
+            public plcTag PrekretLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(34, 0), false);
+            public plcTag PrekretDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(34, 1), false);
+            public plcTag PrekretOtvori { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(34, 2), false);
+            public plcTag PrekretZatvori { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(34, 3), false);
         }
     }
 }

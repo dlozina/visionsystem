@@ -251,6 +251,11 @@ namespace VizijskiSustavWPF
                     CONTROL.UcenjeBool.NauciPoroznost.GetValueFromGroupBuffer(CyclicControlBuffer);
                     //Automatika
                     CONTROL.Automatika.ResetSvihMjerenja.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    //Prekret
+                    CONTROL.Prekret.PrekretLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Prekret.PrekretDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Prekret.PrekretOtvori.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Prekret.PrekretZatvori.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;
