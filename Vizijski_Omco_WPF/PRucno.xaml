@@ -275,16 +275,16 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
-                                <local:BitButton Grid.Row="0" Grid.Column="0" x:Name="bb_prekretLijevo" Text="LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ticalo.TicaloDolje, ElementName=bb_ticaloPlusX}" />
-                                <local:BitButton Grid.Row="0" Grid.Column="1" x:Name="bb_prekretDesno" Text="DESNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ticalo.TicaloGore, ElementName=bb_ticaloMinusX}" />
+                                <local:BitButton Grid.Row="0" Grid.Column="0" x:Name="bb_prekretLijevo" Text="LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Prekret.PrekretLijevo, ElementName=bb_prekretLijevo}" StatusTag="{Binding PLCConnection.STATUS.Prekret.PrekretLijevo, ElementName=bb_prekretLijevo}" OnColor="LightGreen" OffColor="Black"/>
+                                <local:BitButton Grid.Row="0" Grid.Column="1" x:Name="bb_prekretDesno" Text="DESNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Prekret.PrekretDesno, ElementName=bb_prekretDesno}" StatusTag="{Binding PLCConnection.STATUS.Prekret.PrekretDesno, ElementName=bb_prekretDesno}" OnColor="LightGreen" OffColor="Black"/>
                             </Grid>
                             <Grid Grid.Row="2" Background="{DynamicResource pozadina1}" Margin="4,0,4,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
-                                <local:BitButton Grid.Row="0" Grid.Column="0" x:Name="bb_prekretOtvori" Text="OTVORI" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ticalo.TicaloDolje, ElementName=bb_ticaloPlusX}" />
-                                <local:BitButton Grid.Row="0" Grid.Column="1" x:Name="bb_prekretZatvori" Text="ZATVORI" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ticalo.TicaloGore, ElementName=bb_ticaloMinusX}" />
+                                <local:BitButton Grid.Row="0" Grid.Column="0" x:Name="bb_prekretOtvori" Text="OTVORI" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Prekret.PrekretOtvori, ElementName=bb_prekretOtvori}" StatusTag="{Binding PLCConnection.STATUS.Prekret.PrekretOtvoren, ElementName=bb_prekretOtvori}" OnColor="LightGreen" OffColor="Black"/>
+                                <local:BitButton Grid.Row="0" Grid.Column="1" x:Name="bb_prekretZatvori" Text="ZATVORI" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Prekret.PrekretZatvori, ElementName=bb_ticaloMinusX}" StatusTag="{Binding PLCConnection.STATUS.Prekret.PrekretZatvoren, ElementName=bb_prekretZatvori}" OnColor="LightGreen" OffColor="Black"/>
                             </Grid>
                         </Grid>
                     </Grid>

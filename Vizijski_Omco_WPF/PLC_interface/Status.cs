@@ -11,7 +11,7 @@
         public mjerenjediametara MjerenjeDiametara { get; set; } = new mjerenjediametara();
         public cilindri Cilindri { get; set; } = new cilindri();
         public kamere Kamere { get; set; } = new kamere();
-
+        public prekret Prekret { get; set; } = new prekret();
 
         public class horizontalnaOs
         {
@@ -124,6 +124,14 @@
             public plcTag CAM2Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(132, 0), 0.0f);
             public plcTag CAM3Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(136, 0), 0.0f);
             public plcTag CAM4Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(140, 0), 0.0f);
+        }
+
+        public class prekret
+        {
+            public plcTag PrekretLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(144, 0), false);
+            public plcTag PrekretDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(144, 1), false);
+            public plcTag PrekretOtvoren { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(144, 2), false);
+            public plcTag PrekretZatvoren { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(144, 3), false);
         }
     }
 }

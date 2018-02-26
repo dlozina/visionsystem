@@ -123,7 +123,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 91, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 94, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -265,7 +265,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(11, 0, 144, CyclicStatusBuffer);
+                result = Client.DBRead(11, 0, 146, CyclicStatusBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -362,6 +362,11 @@ namespace VizijskiSustavWPF
                     STATUS.Kamere.CAM2Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM3Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM4Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    // Prekret
+                    STATUS.Prekret.PrekretLijevo.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Prekret.PrekretDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Prekret.PrekretOtvoren.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Prekret.PrekretZatvoren.GetValueFromGroupBuffer(CyclicStatusBuffer);
                 }
             }
             return result;

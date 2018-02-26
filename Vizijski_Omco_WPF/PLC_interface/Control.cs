@@ -178,11 +178,10 @@
 
         public class prekret
         {
-            // Promjeniti offsete
-            public plcTag PrekretLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(34, 0), false);
-            public plcTag PrekretDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(34, 1), false);
-            public plcTag PrekretOtvori { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(34, 2), false);
-            public plcTag PrekretZatvori { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(34, 3), false);
+            public plcTag PrekretLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(92, 0), false);
+            public plcTag PrekretDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(92, 1), false);
+            public plcTag PrekretOtvori { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(92, 2), false);
+            public plcTag PrekretZatvori { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(92, 3), false);
         }
     }
 }
