@@ -193,9 +193,9 @@
                         <local:OutputField Grid.Column="1" x:Name="of_vhorizontalnaOsS1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeTicalom.RotacijskaOs, ElementName=of_vhorizontalnaOsS1}"/>
                     </Grid>
 
-                    <Label Grid.Row="7" Content="TICALO" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                    <Label Grid.Row="8" Content="TICALO" FontWeight="Bold" VerticalAlignment="Bottom"/>
 
-                    <Grid Grid.Row="8" Background="Black" >
+                    <Grid Grid.Row="9" Background="Black" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="2*"/>

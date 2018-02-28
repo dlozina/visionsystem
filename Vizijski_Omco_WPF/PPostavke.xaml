@@ -180,15 +180,22 @@
 
             <!-- Dolje Desno -->
             <Grid Grid.Row="1" Grid.Column="1" Background="{DynamicResource pozadina1}" Margin="2,2,4,4">
-                <Grid Grid.Row="0" Background="{DynamicResource pozadina1}" Margin="140,160,140,0" Height="38" VerticalAlignment="Top">
+                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="100">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+
+                    </Grid.ColumnDefinitions>
+
                     <Grid Grid.Column="0" Grid.Row="0" Background="Black">
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBresetSvihMjerenja" Text="RESET MJERENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.ResetSvihMjerenja, ElementName=BBresetSvihMjerenja}" />
+                        <vizijskiSustavWpf:BitButton x:Name="BBresetSvihMjerenja" Text="RESET MJERENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.ResetSvihMjerenja, ElementName=BBresetSvihMjerenja}" />
                     </Grid>
-                    <Grid Grid.Column="1" Grid.Row="1" Background="Black">
+                    
+                    <Grid Grid.Column="0" Grid.Row="2" Background="Black">
                         <Button  x:Name="BiskljuciAplikaciju" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI APLIKACIJU" Click="BiskljuciAplikaciju_Click"/>
                     </Grid>
                 </Grid>
