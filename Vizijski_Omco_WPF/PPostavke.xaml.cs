@@ -10,6 +10,7 @@ namespace VizijskiSustavWPF
     
     public partial class PPostavke
     {
+
         
         public PPostavke()
         {
@@ -20,6 +21,7 @@ namespace VizijskiSustavWPF
 
         private void BiskljuciAplikaciju_Click(object sender, RoutedEventArgs e)
         {
+            // Gasimo LIVE kamere
             App.HDevExp.Exitloop1 = true;
             App.HDevExp.Exitloop2 = true;
             App.HDevExp.Exitloop3 = true;
@@ -27,6 +29,11 @@ namespace VizijskiSustavWPF
             Thread.Sleep(1000);
             App.Current.Shutdown();
 
+        }
+
+        private void BizbrisiPodatke_Click(object sender, RoutedEventArgs e)
+        {
+            App.ResetData();
         }
 
         //private void updatePage(object sender, PLCInterfaceEventArgs e)

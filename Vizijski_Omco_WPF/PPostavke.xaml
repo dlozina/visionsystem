@@ -115,10 +115,6 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
@@ -195,8 +191,12 @@
                         <vizijskiSustavWpf:BitButton x:Name="BBresetSvihMjerenja" Text="RESET MJERENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.ResetSvihMjerenja, ElementName=BBresetSvihMjerenja}" />
                     </Grid>
                     
-                    <Grid Grid.Column="0" Grid.Row="2" Background="Black">
-                        <Button  x:Name="BiskljuciAplikaciju" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI APLIKACIJU" Click="BiskljuciAplikaciju_Click"/>
+                    <Grid Grid.Column="0" Grid.Row="1" Background="Black">
+                        <Button  x:Name="BiskljuciAplikaciju" Margin="1,0,1,1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI APLIKACIJU" Click="BiskljuciAplikaciju_Click"/>
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.Row="3" Background="Black">
+                        <Button  x:Name="BizbrisiPodatke" Margin="1,0,1,1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZBRISI PODATKE" Click="BizbrisiPodatke_Click" />
                     </Grid>
                 </Grid>
             </Grid>

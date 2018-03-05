@@ -105,9 +105,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    Client.ConnectTo("192.168.0.1", 0, 1);
+                    //Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    //Client.ConnectTo("192.168.5.195", 0, 1);
+                    Client.ConnectTo("169.254.17.163", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -265,7 +265,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(11, 0, 146, CyclicStatusBuffer);
+                result = Client.DBRead(11, 0, 148, CyclicStatusBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -367,6 +367,11 @@ namespace VizijskiSustavWPF
                     STATUS.Prekret.PrekretDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Prekret.PrekretOtvoren.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Prekret.PrekretZatvoren.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    // Automatika
+                    STATUS.Automatika.AutomatskiRad.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Automatika.RucniRad.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Automatika.SnimiMjerenja.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Automatika.StopNaKrajuCiklusa.GetValueFromGroupBuffer(CyclicStatusBuffer);
                 }
             }
             return result;

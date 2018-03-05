@@ -12,6 +12,7 @@
         public cilindri Cilindri { get; set; } = new cilindri();
         public kamere Kamere { get; set; } = new kamere();
         public prekret Prekret { get; set; } = new prekret();
+        public automatika Automatika { get; set; } = new automatika();
 
         public class horizontalnaOs
         {
@@ -132,6 +133,14 @@
             public plcTag PrekretDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(144, 1), false);
             public plcTag PrekretOtvoren { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(144, 2), false);
             public plcTag PrekretZatvoren { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(144, 3), false);
+        }
+
+        public class automatika
+        {
+            public plcTag AutomatskiRad { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(146, 0), false);
+            public plcTag RucniRad { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(146, 1), false);
+            public plcTag SnimiMjerenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(146, 2), false);
+            public plcTag StopNaKrajuCiklusa { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(146, 3), false);
         }
     }
 }

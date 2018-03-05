@@ -2,8 +2,10 @@
 using System.Windows.Media;
 using System.Windows;
 using System.Threading;
+using Newtonsoft.Json;
+using System.IO;
 using VizijskiSustavWPF.Reports;
-
+using System.Collections.Generic;
 
 namespace VizijskiSustavWPF
 {
@@ -23,8 +25,9 @@ namespace VizijskiSustavWPF
         public static PLCInterface PLC;
         public static MainWindow mwHandle;
         //public static ReportInterface MainReportInterface;
+        public static ReportInterface initReportInterface;
         public static HALCON.HDevelopExport HDevExp;
-        private bool _edgeDetection1 =false;
+        private bool _edgeDetection1 = false;
         private bool _edgeDetection2 = false;
         private bool _edgeDetection3 = false;
         private bool _edgeDetection4 = false;
@@ -32,10 +35,22 @@ namespace VizijskiSustavWPF
         private bool _edgeDetection6 = false;
         private bool _edgeDetection7 = false;
         private bool _edgeDetection8 = false;
-        
+        private bool _edgeDetection9 = false;
+        // Result
+        public static List<ReportInterface.DimensionLine> savedata = new List<ReportInterface.DimensionLine>();
+
         public App()
         {
             InitializeComponent();
+            // Load saved data from JSON file
+            String JSONstring = File.ReadAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\data\savedata.JSON");
+            savedata = JsonConvert.DeserializeObject<List<ReportInterface.DimensionLine>>(JSONstring);
+            // If JSON is empty we have null
+            if (savedata == null)
+            {
+                savedata = new List<ReportInterface.DimensionLine>();
+            }
+
             System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
             //MainReportInterface = ((ReportInterface)Application.Current.FindResource("MainReport"));
 
@@ -49,6 +64,8 @@ namespace VizijskiSustavWPF
             pVisine = new PVisine();
             pDijametri = new PDijametri();
             pRucno = new PRucno();
+            //Report interface
+            initReportInterface = new ReportInterface();
 
             PLC.StartCyclic(); // Possible system null reference
             PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
@@ -60,6 +77,15 @@ namespace VizijskiSustavWPF
             HDevExp.PorosityDetectionHorStart += new HALCON.HDevelopExport.PorosityDetectionHorStartEventHandler(DetectionHorStart);
         }
 
+       
+        public static void ResetData()
+        {
+            savedata.Clear();
+            string json = JsonConvert.SerializeObject(savedata.ToArray());
+            File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\data\savedata.JSON", json);
+        }
+
+        
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
         {
             String msg = "SISTEM SPREMAN";
@@ -181,6 +207,24 @@ namespace VizijskiSustavWPF
                 HDevExp.Porositydetectedhor = true;
             }
 
+            // Save Data from PLC
+            if (((bool)e.StatusData.Automatika.SnimiMjerenja.Value) && (!_edgeDetection9))
+            {
+                savedata.Add(new ReportInterface.DimensionLine
+                {
+                  String = "ABC - 1911",
+                  Poroznost = false,  
+                  Kote = "1",
+                  Nazivno = 22.23f,
+                  Mjereno = (float)e.StatusData.MjerenjeDiametara.Diametar1.Value,
+                  DeltaMinus = -0.02f,
+                  DeltaPlus = 0.02f,
+                });
+
+                string json = JsonConvert.SerializeObject(savedata.ToArray());
+                File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\data\savedata.JSON", json);
+            }
+
             // Edge detection help marker
             _edgeDetection1 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value == true;
             _edgeDetection2 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value == true;
@@ -190,6 +234,7 @@ namespace VizijskiSustavWPF
             _edgeDetection6 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value == true;
             _edgeDetection7 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value == true;
             _edgeDetection8 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value == true;
+            _edgeDetection9 = (bool)e.StatusData.Automatika.SnimiMjerenja.Value == true;
 
             if (mwHandle != null)
             {
@@ -217,8 +262,6 @@ namespace VizijskiSustavWPF
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM2AnalizaOk, false);
-            //App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, true);
-            //App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3AnalizaOk, false);
         }
 
         private static void DetectionHorStart(object source, EventArgs e)

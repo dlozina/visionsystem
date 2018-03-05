@@ -10,20 +10,24 @@ namespace VizijskiSustavWPF.Reports
 {
     public class ReportInterface
     {
-        public ReportInterface()
-        {
-            Dimensions = new List<DimensionLine>();
-        }
+        //public ReportInterface()
+        //{
+        //    Dimensions = new List<DimensionLine>();
+        //}
 
-        private List<DimensionLine> dimensions;
-        public List<DimensionLine> Dimensions
-        {
-            get { return dimensions; }
-            set { dimensions = value; }
-        }
+        //private List<DimensionLine> dimensions;
+        //public List<DimensionLine> Dimensions
+        //{
+        //    get { return dimensions; }
+        //    set { dimensions = value; }
+        //}
 
         public class DimensionLine : INotifyPropertyChanged
         {
+            public string String { get; set; }
+
+            public bool Poroznost { get; set; }
+
             public string Kote { get; set; }
 
             private float nazivno;
