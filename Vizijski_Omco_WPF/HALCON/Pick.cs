@@ -477,7 +477,7 @@ namespace VizijskiSustavWPF.HALCON
                 //******************************
                 // World cord for Robot
                 //******************************
-                HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0.003, out hv_WorldPose);
+                HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0, out hv_WorldPose);
                 HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_x_.TupleSelect(0), hv_y_.TupleSelect(0), "mm", out hv_X, out hv_Y);
                 // Display pick coordinates
                 HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, hv_x_.TupleSelect(0) + 20, hv_y_.TupleSelect(0) + 20);
