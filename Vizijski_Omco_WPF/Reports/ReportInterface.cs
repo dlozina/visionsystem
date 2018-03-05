@@ -39,6 +39,7 @@ namespace VizijskiSustavWPF.Reports
                     }
                 }
             }
+
             private float mjereno;
             public float Mjereno
             {
