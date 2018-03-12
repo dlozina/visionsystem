@@ -65,7 +65,7 @@ namespace VizijskiSustavWPF
             pDijametri = new PDijametri();
             pRucno = new PRucno();
             //Report interface
-            initReportInterface = new ReportInterface();
+            //initReportInterface = new ReportInterface();
 
             PLC.StartCyclic(); // Possible system null reference
             PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);

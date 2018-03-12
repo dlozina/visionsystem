@@ -128,6 +128,7 @@ namespace VizijskiSustavWPF.Reports
             public DimensionLine()
             {
             }
+
             public DimensionLine(string _kote, float _nazivno, float _mjereno, float _deltaPlus, float _deltaMinus, float _delta)
             {
                 Kote = _kote;
