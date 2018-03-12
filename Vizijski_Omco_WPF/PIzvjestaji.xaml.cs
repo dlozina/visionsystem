@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -39,7 +40,11 @@ namespace VizijskiSustavWPF
         private void BIspisPodataka_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-            Workbook workbook = excel.Workbooks.Open(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\reporttemplate\OMCO_template.xlsx", ReadOnly: false, Editable: true);
+            //Workbook workbook = excel.Workbooks.Open(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\reporttemplate\OMCO_template.xlsx", ReadOnly: false, Editable: true);
+            string TemplateFileName = "OMCO_template.xlsx";
+            string path = Path.Combine(Environment.CurrentDirectory, @"reporttemplate", TemplateFileName);
+            Workbook workbook = excel.Workbooks.Open(path, ReadOnly: false, Editable: true);
+            // Select first and only sheet
             _Worksheet workSheet = excel.ActiveSheet;
             try
             {
@@ -58,6 +63,8 @@ namespace VizijskiSustavWPF
             }
             finally
             {
+                // Close Excel workbook
+                workbook.Close();
                 // Quit Excel application
                 excel.Quit();
                 // Release COM objects (very important!)
