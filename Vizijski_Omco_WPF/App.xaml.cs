@@ -36,7 +36,7 @@ namespace VizijskiSustavWPF
         private bool _edgeDetection7 = false;
         private bool _edgeDetection8 = false;
         private bool _edgeDetection9 = false;
-        // Result
+        // Database
         public static List<ReportInterface.DimensionLine> savedata = new List<ReportInterface.DimensionLine>();
 
         public App()
@@ -212,13 +212,48 @@ namespace VizijskiSustavWPF
             {
                 savedata.Add(new ReportInterface.DimensionLine
                 {
-                  String = "ABC - 1911",
-                  Poroznost = false,  
-                  Kote = "1",
-                  Nazivno = 22.23f,
-                  Mjereno = (float)e.StatusData.MjerenjeDiametara.Diametar1.Value,
-                  DeltaMinus = -0.02f,
-                  DeltaPlus = 0.02f,
+                    String = "No.1",
+                    Poroznost = true,
+                    // D1
+                    NazivnoD1 = 5.0f,
+                    MjerenoD1 = 5.2f,
+                    DeltaPlusD1 = 0.3f,
+                    DeltaMinusD1 = -0.3f,
+                    // D2
+                    NazivnoD2 = 10.0f,
+                    MjerenoD2 = 15.0f,
+                    DeltaPlusD2 = 0.1f,
+                    DeltaMinusD2 = -0.1f,
+                    // D3
+                    NazivnoD3 = 5.0f,
+                    MjerenoD3 = 5.2f,
+                    DeltaPlusD3 = 0.3f,
+                    DeltaMinusD3 = -0.3f,
+                    // D4
+                    NazivnoD4 = 10.0f,
+                    MjerenoD4 = 15.0f,
+                    DeltaPlusD4 = 0.1f,
+                    DeltaMinusD4 = -0.1f,
+                    // D5
+                    NazivnoD5 = 5.0f,
+                    MjerenoD5 = 5.2f,
+                    DeltaPlusD5 = 0.3f,
+                    DeltaMinusD5 = -0.3f,
+                    // V1
+                    NazivnoV1 = 10.0f,
+                    MjerenoV1 = 15.0f,
+                    DeltaPlusV1 = 0.1f,
+                    DeltaMinusV1 = -0.1f,
+                    // V2
+                    NazivnoV2 = 5.0f,
+                    MjerenoV2 = 5.2f,
+                    DeltaPlusV2 = 0.3f,
+                    DeltaMinusV2 = -0.3f,
+                    // V3
+                    NazivnoV3 = 10.0f,
+                    MjerenoV3 = 15.0f,
+                    DeltaPlusV3 = 0.1f,
+                    DeltaMinusV3 = -0.1f,
                 });
 
                 string json = JsonConvert.SerializeObject(savedata.ToArray());

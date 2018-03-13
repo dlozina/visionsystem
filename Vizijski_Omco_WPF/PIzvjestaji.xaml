@@ -142,7 +142,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Margin="1" x:Name="BIspisPodataka" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISPISI PODATKE" Click="BIspisPodataka_Click"/>
+                    <Button Margin="1" x:Name="BIspisPodataka" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISPIŠI PODATKE" Click="BIspisPodataka_Click"/>
                 </Grid>
 
 
