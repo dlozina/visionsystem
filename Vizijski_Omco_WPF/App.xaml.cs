@@ -256,7 +256,7 @@ namespace VizijskiSustavWPF
                     DeltaMinusV3 = -0.1f,
                 });
 
-                string json = JsonConvert.SerializeObject(savedata.ToArray());
+                string json = JsonConvert.SerializeObject(savedata.ToArray(), Formatting.Indented);
                 File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\data\savedata.JSON", json);
             }
 
