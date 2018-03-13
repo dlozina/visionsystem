@@ -23,5 +23,12 @@ public class HalconEventArgs : EventArgs
         set { rYcord = value; }
     }
 
-    
+    private float angleDeg;
+    public float AngleDeg
+    {
+        get { return angleDeg; }
+        set { angleDeg = value; }
+    }
+
+
 }

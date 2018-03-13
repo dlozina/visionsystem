@@ -105,9 +105,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    //Client.ConnectTo("192.168.0.1", 0, 1);
+                    Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    Client.ConnectTo("192.168.111.108", 0, 1);
+                    //Client.ConnectTo("192.168.111.108", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -265,7 +265,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(11, 0, 148, CyclicStatusBuffer);
+                result = Client.DBRead(11, 0, 152, CyclicStatusBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -359,6 +359,7 @@ namespace VizijskiSustavWPF
                     STATUS.Kamere.CAM4AnalizaError.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM1RezultatX.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM1RezultatY.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Kamere.CAM1RezultatAngle.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM2Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM3Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM4Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);

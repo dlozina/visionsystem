@@ -46,6 +46,7 @@ namespace VizijskiSustavWPF.HALCON
         // Output from pick
         HTuple hv_x_cross = new HTuple(), hv_y_cross = new HTuple();
         HTuple hv_X = new HTuple(), hv_Y= new HTuple();
+        HTuple hv_angledeg = new HTuple();
         // Diameter app variables
         // Local iconic variables 
         HObject ho_Image = null, ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings = null;
