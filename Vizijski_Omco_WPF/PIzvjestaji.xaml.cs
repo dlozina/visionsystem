@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -27,11 +28,6 @@ namespace VizijskiSustavWPF
 
         }
 
-        private void dataGrid1_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void saveValues_Click(object sender, RoutedEventArgs e)
         {
             // Spremanje rezultata
@@ -42,7 +38,7 @@ namespace VizijskiSustavWPF
             // Povlacenje rezultata
         }
 
-        private void BIspisPodataka_Click(object sender, RoutedEventArgs e)
+        private void ExcelExport()
         {
             // Fetch data from JSON file
             // Load saved data from JSON file
@@ -89,8 +85,8 @@ namespace VizijskiSustavWPF
                     else
                     {
                         workSheet.Cells[23, 6 + j] = "NO";
-                    }                 
-                    if ( j == 12)
+                    }
+                    if (j == 12)
                     {
                         string fileName2 = string.Format(@"{0}\ExcelData" + filenumber + ".xlsx", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
                         workSheet.SaveAs(fileName2);
@@ -119,7 +115,7 @@ namespace VizijskiSustavWPF
             }
             catch (Exception exception)
             {
-                
+
             }
             finally
             {
@@ -138,7 +134,14 @@ namespace VizijskiSustavWPF
                 // Force garbage collector cleaning
                 GC.Collect();
             }
+        }
 
+
+        private void BIspisPodataka_Click(object sender, RoutedEventArgs e)
+        {
+            Thread excelExportThread = new Thread(ExcelExport);
+            excelExportThread.Name = "Thread ExcelExport";
+            excelExportThread.Start();
         }
     }
 }
