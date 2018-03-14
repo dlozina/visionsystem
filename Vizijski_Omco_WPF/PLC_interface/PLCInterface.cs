@@ -120,7 +120,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 94, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 122, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)

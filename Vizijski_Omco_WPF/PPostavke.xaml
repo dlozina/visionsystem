@@ -21,7 +21,7 @@
 
             <!-- Gore Lijevo -->
             <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,43,2,2">
-                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="40">
+                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
@@ -108,20 +108,21 @@
 
             <!-- Gore Desno -->
             <Grid Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" Margin="2,43,4,2">
-                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="40">
+                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
+
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
 
                     </Grid.ColumnDefinitions>
                     <!-- Stupac Unos Kota sa nacrta -->
-                    <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="RESET PALETA"/></TextBlock>
+                    <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UNOS PARAMETARA PALETA"/></TextBlock>
                     <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions> 
                         </Grid.ColumnDefinitions>
@@ -143,35 +144,79 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                     </Grid>
-                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,0,4,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                    <Grid Grid.Row="6" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,0,4,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                    <Grid Grid.Row="7" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,0,4,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                    <Grid Grid.Row="8" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,0,4,4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
+                    
                 </Grid>
             </Grid>
 
             <!-- Dolje Lijevo -->
             <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,3,2,4">
+                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UNOS BROJA SLOJEVA"/></TextBlock>
+                    <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="ULAZNE PALETE LIJEVO"  Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="BBBrojSlojevaUlaznaLijevo"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.BrojSlojevaUlaznaPaletaLijevo, ElementName=BBBrojSlojevaUlaznaLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="ULAZNE PALETE DESNO" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="BBBrojSlojevaUlaznaDesno"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.BrojSlojevaUlaznaPaletaDesno, ElementName=BBBrojSlojevaUlaznaDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="PALETA - KOMADI OK LIJEVO" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="BBBrojSlojevaKomadiOKLijevo"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.BrojSlojevaKomadiOKPaletaLijevo, ElementName=BBBrojSlojevaKomadiOKLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                    </Grid>
+                    <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="PALETA - KOMADI OK DESNO" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="BBBrojSlojevaKomadiOKDesno"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.BrojSlojevaKomadiOKPaletaDesno, ElementName=BBBrojSlojevaKomadiOKDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="PALETA - KOMADI NOK LIJEVO" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="BBBrojSlojevaKomadiNOKLijevo"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.BrojSlojevaKomadiNOKPaletaLijevo, ElementName=BBBrojSlojevaKomadiNOKLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                    </Grid>
+                    <Grid Grid.Row="6" Grid.Column="0" Background="Black" Margin="4,0,4,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="PALETA - KOMADI NOK DESNO" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="BBBrojSlojevaKomadiNOKDesno"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.BrojSlojevaKomadiNOKPaletaDesno, ElementName=BBBrojSlojevaKomadiNOKDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                    </Grid>
+                </Grid>
+                
+                
             </Grid>
 
             <!-- Dolje Desno -->

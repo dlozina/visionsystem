@@ -156,7 +156,7 @@
         
         
         <Grid Height="35" Margin="4" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"><Run Language="hr-hr" Text="MJERENJE DIJAMETARA"/></TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"><Run Language="hr-hr" Text="START AUTOMATIKE"/></TextBlock>
         </Grid>
     </Grid>
 </Page>

@@ -384,7 +384,7 @@
         <!-- Kraj glavnog grida -->
 
         <Grid Height="35" Margin="4,4,4,0" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"><Run Language="hr-hr" Text="RUČNO MJERENJE"/></TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"><Run Language="hr-hr" Text="RUČNO UPRAVLJANJE"/></TextBlock>
         </Grid>
 
     </Grid>

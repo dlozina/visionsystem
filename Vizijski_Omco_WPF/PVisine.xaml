@@ -216,7 +216,7 @@
 
 
         <Grid Height="35" Margin="4" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"><Run Language="hr-hr" Text="MJERENJE VISINA"/></TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"><Run Language="hr-hr" Text="STANJE AUTOMATSKOG RADA"/></TextBlock>
         </Grid>
     </Grid>
 </Page>
