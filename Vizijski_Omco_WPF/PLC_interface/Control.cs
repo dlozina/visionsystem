@@ -17,6 +17,7 @@
         public ucenjebool UcenjeBool { get; set; } = new ucenjebool();
         public automatika Automatika { get; set; } = new automatika();
         public prekret Prekret { get; set; } = new prekret();
+        public uzimanjekomada UzimanjeKomada { get; set; } = new uzimanjekomada();
 
         public class horizontalnaOs
         {
@@ -184,15 +185,15 @@
             public plcTag PrekretZatvori { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(92, 3), false);
         }
 
-        //public class uzimanjekomada
-        //{
-        //    public plcTag BrojSlojevaUlaznaPaletaLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(98, 0), 0.0f);
-        //    public plcTag BrojSlojevaUlaznaPaletaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(102, 0), 0.0f);
-        //    public plcTag BrojSlojevaKomadiOKPaletaLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(106, 0), 0.0f);
-        //    public plcTag BrojSlojevaKomadiOKPaletaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(110, 0), 0.0f);
-        //    public plcTag BrojSlojevaKomadiNOKPaletaLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(114, 0), 0.0f);
-        //    public plcTag BrojSlojevaKomadiNOKPaletaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(118, 0), 0.0f);
-        //    public plcTag BrojLimovaUPozicijiOdlaganja { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(122, 0), 0.0f);
-        //}
+        public class uzimanjekomada
+        {
+            public plcTag BrojSlojevaUlaznaPaletaLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(94, 0), 0.0f);
+            public plcTag BrojSlojevaUlaznaPaletaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(98, 0), 0.0f);
+            public plcTag BrojSlojevaKomadiOKPaletaLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(102, 0), 0.0f);
+            public plcTag BrojSlojevaKomadiOKPaletaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(106, 0), 0.0f);
+            public plcTag BrojSlojevaKomadiNOKPaletaLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(110, 0), 0.0f);
+            public plcTag BrojSlojevaKomadiNOKPaletaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(114, 0), 0.0f);
+            public plcTag BrojLimovaUPozicijiOdlaganja { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(118, 0), 0.0f);
+        }
     }
 }

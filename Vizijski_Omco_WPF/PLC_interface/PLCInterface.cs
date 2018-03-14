@@ -246,13 +246,21 @@ namespace VizijskiSustavWPF
                     CONTROL.UcenjeBool.PoroznostHorPozicija.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.PoroznostVerPozicija.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.NauciPoroznost.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    //Automatika
+                    // Automatika
                     CONTROL.Automatika.ResetSvihMjerenja.GetValueFromGroupBuffer(CyclicControlBuffer);
                     //Prekret
                     CONTROL.Prekret.PrekretLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Prekret.PrekretDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Prekret.PrekretOtvori.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Prekret.PrekretZatvori.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    // Uzimanje komada
+                    CONTROL.UzimanjeKomada.BrojSlojevaUlaznaPaletaLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UzimanjeKomada.BrojSlojevaUlaznaPaletaDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UzimanjeKomada.BrojSlojevaKomadiOKPaletaLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UzimanjeKomada.BrojSlojevaKomadiOKPaletaDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UzimanjeKomada.BrojSlojevaKomadiNOKPaletaLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UzimanjeKomada.BrojSlojevaKomadiNOKPaletaDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UzimanjeKomada.BrojLimovaUPozicijiOdlaganja.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;
