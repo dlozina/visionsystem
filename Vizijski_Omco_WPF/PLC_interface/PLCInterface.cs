@@ -6,9 +6,6 @@ using VizijskiSustavWPF.PLC_interface;
 
 namespace VizijskiSustavWPF 
 {
-
-
-
     public class PLCInterfaceEventArgs : EventArgs
     {
         private Control controlData;
