@@ -30,5 +30,10 @@ public class HalconEventArgs : EventArgs
         set { angleDeg = value; }
     }
 
-
+    private float workpieceDiameter;
+    public float WorkpieceDiameter
+    {
+        get { return workpieceDiameter; }
+        set { workpieceDiameter = value; }
+    }
 }

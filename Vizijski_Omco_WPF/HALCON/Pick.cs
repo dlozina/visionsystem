@@ -301,6 +301,9 @@ namespace VizijskiSustavWPF.HALCON
             HTuple hv_GY = new HTuple(), hv_OX = new HTuple(), hv_OY = new HTuple();
             HTuple hv_DY = new HTuple(), hv_DX = new HTuple(), hv_theta = new HTuple();
             HTuple hv_anglerad = new HTuple();
+            //
+            HTuple hv_Pixel1Y = new HTuple(), hv_Pixel2X = new HTuple(), hv_Pixel1X = new HTuple();
+            HTuple hv_Pixel2Y = new HTuple(), hv_distance = new HTuple();
             // Initialize local and output iconic variables 
             HOperatorSet.GenEmptyObj(out ho_Image);
             HOperatorSet.GenEmptyObj(out ho_ImageRectified);
@@ -524,6 +527,15 @@ namespace VizijskiSustavWPF.HALCON
                 HOperatorSet.HomMat3dToPose(hv_HomMat3DRotate, out hv_WorldPose);
 
                 HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_x_.TupleSelect(0), hv_y_.TupleSelect(0), "mm", out hv_X, out hv_Y);
+
+
+                // Diameter check
+                HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_Row1, hv_Column1, "mm", out hv_Pixel1X, out hv_Pixel1Y);
+                HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_Row2, hv_Column2, "mm", out hv_Pixel2X, out hv_Pixel2Y);
+                HOperatorSet.DistancePp(hv_Pixel1X, hv_Pixel1Y, hv_Pixel2X, hv_Pixel2Y, out hv_distance);
+                HOperatorSet.TupleMean(hv_distance, out hv_distance_mean);
+
+
                 HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, 100, 100);
                 HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_a);
                 HOperatorSet.WriteString(hv_ExpDefaultWinHandle, ", ");
@@ -670,18 +682,21 @@ namespace VizijskiSustavWPF.HALCON
             koordinate.RXcord = (float) hv_X.D;
             koordinate.RYcord = (float) hv_Y.D;
             koordinate.AngleDeg = (float)hv_angledeg.D;
+            koordinate.WorkpieceDiameter = (float)hv_distance_mean.D;
             // Chech for infinity Double to float conversion
             if (float.IsPositiveInfinity(argumenti.PXvalue))
             {
                 koordinate.RXcord = float.MaxValue;
                 koordinate.RYcord = float.MaxValue;
                 koordinate.AngleDeg = float.MaxValue;
+                koordinate.WorkpieceDiameter = float.MaxValue;
             }
             else if (float.IsNegativeInfinity(argumenti.PXvalue))
             {
                 koordinate.RXcord = float.MinValue;
                 koordinate.RYcord = float.MinValue;
                 koordinate.AngleDeg = float.MinValue;
+                koordinate.WorkpieceDiameter = float.MinValue;
             }
 
             if (UpdateResultPick != null)

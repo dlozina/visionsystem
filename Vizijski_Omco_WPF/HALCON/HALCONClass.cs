@@ -47,7 +47,8 @@ namespace VizijskiSustavWPF.HALCON
         HTuple hv_x_cross = new HTuple(), hv_y_cross = new HTuple();
         HTuple hv_X = new HTuple(), hv_Y= new HTuple();
         HTuple hv_angledeg = new HTuple();
-        // Diameter app variables
+        // Layer check information for PLC
+        HTuple hv_distance_mean = new HTuple();
         // Local iconic variables 
         HObject ho_Image = null, ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings = null;
         HObject ho_Region = null, ho_region_outer = null, ho_contour_outer = null;

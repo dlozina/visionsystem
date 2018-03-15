@@ -290,6 +290,7 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1RezultatX, e.RXcord);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1RezultatY, e.RYcord);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1RezultatAngle, e.AngleDeg);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1RezultatWorkpieceDiameter, e.WorkpieceDiameter);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1AnalizaOk, true);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM1AnalizaOk, false);
         }

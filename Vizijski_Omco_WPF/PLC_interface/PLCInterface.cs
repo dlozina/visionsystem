@@ -261,6 +261,7 @@ namespace VizijskiSustavWPF
                     CONTROL.UzimanjeKomada.BrojSlojevaKomadiNOKPaletaLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UzimanjeKomada.BrojSlojevaKomadiNOKPaletaDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UzimanjeKomada.BrojLimovaUPozicijiOdlaganja.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UzimanjeKomada.DebljinaLimova.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;
@@ -365,6 +366,7 @@ namespace VizijskiSustavWPF
                     STATUS.Kamere.CAM1RezultatX.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM1RezultatY.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM1RezultatAngle.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Kamere.CAM1RezultatWorkpieceDiameter.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM2Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM3Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM4Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);

@@ -194,6 +194,7 @@
             public plcTag BrojSlojevaKomadiNOKPaletaLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(110, 0), 0.0f);
             public plcTag BrojSlojevaKomadiNOKPaletaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(114, 0), 0.0f);
             public plcTag BrojLimovaUPozicijiOdlaganja { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(118, 0), 0.0f);
+            public plcTag DebljinaLimova { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(124, 0), 0.0f);
         }
     }
 }
