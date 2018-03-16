@@ -530,10 +530,10 @@ namespace VizijskiSustavWPF.HALCON
 
 
                 // Diameter check
-                HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_Row1, hv_Column1, "mm", out hv_Pixel1X, out hv_Pixel1Y);
-                HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_Row2, hv_Column2, "mm", out hv_Pixel2X, out hv_Pixel2Y);
-                HOperatorSet.DistancePp(hv_Pixel1X, hv_Pixel1Y, hv_Pixel2X, hv_Pixel2Y, out hv_distance);
-                HOperatorSet.TupleMean(hv_distance, out hv_distance_mean);
+                //HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_Row1, hv_Column1, "mm", out hv_Pixel1X, out hv_Pixel1Y);
+                //HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_Row2, hv_Column2, "mm", out hv_Pixel2X, out hv_Pixel2Y);
+                //HOperatorSet.DistancePp(hv_Pixel1X, hv_Pixel1Y, hv_Pixel2X, hv_Pixel2Y, out hv_distance);
+                //HOperatorSet.TupleMean(hv_distance, out hv_distance_mean);
 
 
                 HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, 100, 100);
@@ -682,7 +682,7 @@ namespace VizijskiSustavWPF.HALCON
             koordinate.RXcord = (float) hv_X.D;
             koordinate.RYcord = (float) hv_Y.D;
             koordinate.AngleDeg = (float)hv_angledeg.D;
-            koordinate.WorkpieceDiameter = (float)hv_distance_mean.D;
+            //koordinate.WorkpieceDiameter = (float)hv_distance_mean.D;
             // Chech for infinity Double to float conversion
             if (float.IsPositiveInfinity(argumenti.PXvalue))
             {

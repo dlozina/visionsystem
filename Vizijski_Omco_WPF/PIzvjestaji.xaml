@@ -49,7 +49,7 @@
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Content="DIJAMETRI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                    <Label Grid.Row="0" Content="DIJAMETRI KOMADA U OBRADI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
                     <Grid Grid.Row="1" Background="Black" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
@@ -86,7 +86,7 @@
                         <vizijskiSustavWpf:OutputField Grid.Column="1" x:Name="of_diameterNo4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeDiametara.Diametar4, ElementName=of_diameterNo4}" />
                     </Grid>
                     
-                    <Label Grid.Row="5" Content="VISINE" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                    <Label Grid.Row="5" Content="VISINE KOMADA U OBRADI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
                     <Grid Grid.Row="6" Background="Black" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
@@ -114,7 +114,7 @@
                         <vizijskiSustavWpf:OutputField Grid.Column="1" x:Name="of_vdiameterNo3" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeTicalom.Visina3, ElementName=of_vdiameterNo3}" />
                     </Grid>
                     
-                    <Label Grid.Row="9" Content="POROZNOST" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                    <Label Grid.Row="9" Content="POROZNOST KOMADA U OBRADI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
 
 
                 </Grid>

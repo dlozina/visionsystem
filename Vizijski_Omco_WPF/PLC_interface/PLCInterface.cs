@@ -120,7 +120,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 122, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 130, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -216,6 +216,7 @@ namespace VizijskiSustavWPF
                     CONTROL.UcenjeReal.ZadavanjeVisineV1.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeReal.ZadavanjeVisineV2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeReal.ZadavanjeVisineV3.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.UcenjeReal.ZadavanjeVisineBaze.GetValueFromGroupBuffer(CyclicControlBuffer);
                     
                     // Ucenjebool
                     CONTROL.UcenjeBool.NoviNalog.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -271,7 +272,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(11, 0, 152, CyclicStatusBuffer);
+                result = Client.DBRead(11, 0, 156, CyclicStatusBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
