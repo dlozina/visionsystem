@@ -38,22 +38,24 @@ namespace VizijskiSustavWPF
 
         public void RobotPickStartT1()
         {
-            this.Dispatcher.Invoke(() =>
-            {
+            //this.Dispatcher.Invoke(() =>
+            //{
+                App.HDevExp.InitHalcon();
                 HTuple windowId = HwindowRobot.HalconID;
                 App.HDevExp.RobotPick(windowId, false);
-            });
+            //});
             //HTuple windowId = HwindowRobot.HalconID;
             //App.HDevExp.RobotPick(windowId, false);
         }
 
         public void RobotPickStartT2()
         {
-            this.Dispatcher.Invoke(() =>
-            {
+            //this.Dispatcher.Invoke(() =>
+            //{
+                App.HDevExp.InitHalcon();
                 HTuple windowId = HwindowRobot.HalconID;
                 App.HDevExp.RobotPick(windowId, true);
-            });
+            //});
             //HTuple windowId = HwindowRobot.HalconID;
             //App.HDevExp.RobotPick(windowId, true);
         }

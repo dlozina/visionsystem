@@ -123,6 +123,7 @@
             public plcTag ResetPaleteNovi { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 3), false);
             public plcTag ResetPaleteOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 4), false);
             public plcTag ResetPaleteNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 5), false);
+            public plcTag ResetPaleteLimova { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 6), false);
         }
 
         public class ucenjereal

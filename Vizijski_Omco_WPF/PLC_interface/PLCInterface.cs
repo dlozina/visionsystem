@@ -102,9 +102,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    Client.ConnectTo("192.168.0.1", 0, 1);
+                    //Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    //Client.ConnectTo("192.168.1.3", 0, 1);
+                    Client.ConnectTo("192.168.111.108", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -206,6 +206,7 @@ namespace VizijskiSustavWPF
                     CONTROL.Robot.ResetPaleteNovi.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.ResetPaleteOk.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.ResetPaleteNok.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetPaleteLimova.GetValueFromGroupBuffer(CyclicControlBuffer);
 
                     // Ucenjereal
                     CONTROL.UcenjeReal.ZadavanjeDijametara1.GetValueFromGroupBuffer(CyclicControlBuffer);
