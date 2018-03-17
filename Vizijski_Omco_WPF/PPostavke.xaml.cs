@@ -85,6 +85,29 @@ namespace VizijskiSustavWPF
             IFDebljinaLimova.IsEnabled = true;
         }
 
+        private void BSaveDataReport_Click(object sender, RoutedEventArgs e)
+        {
+            TBbrojNacrta.IsEnabled = false;
+            TBkupac.IsEnabled = false;
+            TBkupacRef.IsEnabled = false;
+            TBkupacPO.IsEnabled = false;
+            TBkolicina.IsEnabled = false;
+            TBispitivac.IsEnabled = false;
+            TBdatum.IsEnabled = false;
+        }
+
+        private void BnewJob_Click(object sender, RoutedEventArgs e)
+        {
+            // Unos Zaglavlja
+            TBbrojNacrta.IsEnabled = true;
+            TBkupac.IsEnabled = true;
+            TBkupacRef.IsEnabled = true;
+            TBkupacPO.IsEnabled = true;
+            TBkolicina.IsEnabled = true;
+            TBispitivac.IsEnabled = true;
+            TBdatum.IsEnabled = true;
+        }
+
         //private void updatePage(object sender, PLCInterfaceEventArgs e)
         //{
 

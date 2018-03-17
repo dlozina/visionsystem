@@ -26,7 +26,7 @@
                 <Grid Grid.Row="8" Grid.Column="0" Background="Black" Margin="15,15,15,15">
                     <Grid.ColumnDefinitions>
                     </Grid.ColumnDefinitions>
-                    <Button  x:Name="BnewJob"  Margin="1" Grid.Column="1" Content="NOVI RADNI NALOG" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataDimensions_Click"/>
+                    <Button  x:Name="BnewJob"  Margin="1" Grid.Column="1" Content="NOVI RADNI NALOG" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BnewJob_Click" />
                 </Grid>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" Margin="2,43,2,2">
@@ -332,7 +332,7 @@
                         <Grid Grid.Column="0" Background="Black" Margin="1">
                             <Label  Grid.Column="0" Content="DIMENZIJE" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBdimenzija" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <CheckBox Grid.Column="1" x:Name="CBdimenzija" Style="{DynamicResource CheckBoxStyle1}" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
                             <CheckBox.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -352,7 +352,7 @@
                         <Grid Grid.Column="0" Background="Black" Margin="1">
                             <Label  Grid.Column="0" Content="POROZNOST" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBporoznost"  IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <CheckBox Grid.Column="1" x:Name="CBporoznost"  Style="{DynamicResource CheckBoxStyle1}" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
                             <CheckBox.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -372,7 +372,7 @@
                         <Grid Grid.Column="0" Background="Black" Margin="1">
                             <Label  Grid.Column="0" Content="STRING" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBstring"  IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <CheckBox Grid.Column="1" x:Name="CBstring"  Style="{DynamicResource CheckBoxStyle1}" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
                             <CheckBox.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -412,6 +412,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="BROJ NACRTA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="TBbrojNacrta" Grid.Column="1" Margin="1" FontWeight="Bold"/>
                     </Grid>
                     <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
@@ -419,6 +420,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="KUPAC" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="TBkupac" Grid.Column="1" Margin="1" FontWeight="Bold"/>
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
@@ -426,6 +428,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="KUPAC Ref." Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="TBkupacRef" Grid.Column="1" Margin="1" FontWeight="Bold"/>
                     </Grid>
                     <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
@@ -433,6 +436,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="KUPAC P.O" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="TBkupacPO" Grid.Column="1" Margin="1" FontWeight="Bold"/>
                     </Grid>
                     <Grid Grid.Row="5" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
@@ -440,6 +444,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="KOLICINA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="TBkolicina" Grid.Column="1" Margin="1" FontWeight="Bold"/>
                     </Grid>
                     <Grid Grid.Row="6" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
@@ -447,6 +452,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="ISPITIVAC" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="TBispitivac" Grid.Column="1" Margin="1" FontWeight="Bold"/>
                     </Grid>
                     <Grid Grid.Row="7" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
@@ -454,6 +460,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="DATUM" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="TBdatum" Grid.Column="1" Margin="1" FontWeight="Bold"/>
                     </Grid>
                     <Grid Grid.Row="8" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
@@ -461,7 +468,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="1" Background="Black" Margin="1">
-                            <Button  x:Name="BSaveDataReport"  Margin="1" Grid.Column="1" Content="SPREMI" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataDimensions_Click"/>
+                            <Button  x:Name="BSaveDataReport"  Margin="1" Grid.Column="1" Content="SPREMI" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataReport_Click" />
                         </Grid>
                     </Grid>
 
