@@ -8,7 +8,7 @@
 	  Title="PPostavke" d:DesignWidth="1354" d:DesignHeight="828">
 
     <Grid>
-        
+
         <!-- Glavni Grid -->
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1">
             <Grid.ColumnDefinitions>
@@ -18,10 +18,23 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <!--  -->
+
             <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,43,0,2">
+                <Grid Grid.Row="8" Grid.Column="0" Background="Black" Margin="15,15,15,15">
+                    <Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
+                    <Button  x:Name="BnewJob"  Margin="1" Grid.Column="1" Content="NOVI RADNI NALOG" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataDimensions_Click"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" Margin="2,43,2,2">
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="0,43,4,2">
+            </Grid>
+            <!-- Stupac Unos Kota sa nacrta  -->
+            <Grid Grid.Row="1" Grid.Column="1" Background="{DynamicResource pozadina1}" Margin="2,2,2,2">
                 <!--  -->
                 <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                     <Grid.RowDefinitions>
@@ -113,18 +126,20 @@
                         <Label Content="VISINA BAZE" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visinaBaze"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineBaze, ElementName=if_visinaBaze}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
-                    <Grid Grid.Row="10" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                    <Grid Grid.Row="10" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="" Margin="0" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <Button  x:Name="BSaveDataDimensions"  Margin="1" Grid.Column="1" Content="SPREMI" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataDimensions_Click"/>
+                        <Grid Grid.Column="1" Background="Black" Margin="1">
+                            <Button  x:Name="BSaveDataDimensions"  Margin="1" Grid.Column="1" Content="SPREMI" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataDimensions_Click"/>
+                        </Grid>
                     </Grid>
                 </Grid>
- 
+
             </Grid>
-            <Grid Grid.Row="0" Grid.Column="1" Background="{DynamicResource pozadina1}" Margin="2,43,2,2">
+            <!-- Stupac Unos Slojeva Paleta i Broj Limova -->
+            <Grid Grid.Row="1" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="0,2,4,2">
                 <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -208,19 +223,19 @@
                         <Label Content="DEBLJINA LIMOVA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="IFDebljinaLimova"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.DebljinaLimova, ElementName=IFDebljinaLimova}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
-                    <Grid Grid.Row="10" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                    <Grid Grid.Row="10" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="" Margin="0" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <Button  x:Name="BSaveDataLayer"  Margin="1" Grid.Column="1" Content="SPREMI" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataLayer_Click" />
-
+                        <Grid Grid.Column="1" Background="Black" Margin="1">
+                            <Button  x:Name="BSaveDataLayer"  Margin="1" Grid.Column="1" Content="SPREMI" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataLayer_Click" />
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
             <!-- Stupac Reset Paleta -->
-            <Grid Grid.Row="0" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="0,43,4,2">
+            <Grid Grid.Row="2" Grid.Column="1" Background="{DynamicResource pozadina1}" Margin="2,2,2,4">
                 <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -263,7 +278,7 @@
             </Grid>
 
             <!-- Stupac Zatvori Aplikaciju -->
-            <Grid Grid.Row="1" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="0,2,4,2">
+            <Grid Grid.Row="2" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="0,2,4,4">
                 <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -290,8 +305,171 @@
                     </Grid>
                 </Grid>
             </Grid>
+            <!-- Stupac Prazan -->
+            <Grid Grid.Row="2" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,2,0,4">
+                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="ODABIR NACINA RADA"/></TextBlock>
 
+                    <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="Black" Margin="1">
+                            <Label  Grid.Column="0" Content="DIMENZIJE" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        </Grid>
+                        <CheckBox Grid.Column="1" x:Name="CBdimenzija" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="Black" Margin="1">
+                            <Label  Grid.Column="0" Content="POROZNOST" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        </Grid>
+                        <CheckBox Grid.Column="1" x:Name="CBporoznost"  IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
+                    </Grid>
+                    
+                    <Grid Grid.Row="3" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="Black" Margin="1">
+                            <Label  Grid.Column="0" Content="STRING" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        </Grid>
+                        <CheckBox Grid.Column="1" x:Name="CBstring"  IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+            <!-- Stupac Unos Zaglavlja Za Izvjestaj -->
+            <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,2,0,2">
+                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UNOS KOTA SA NACRTA"/></TextBlock>
+                    <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="BROJ NACRTA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="KUPAC" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="KUPAC Ref." Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="KUPAC P.O" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="KOLICINA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="6" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="ISPITIVAC" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="7" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="DATUM" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="8" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1" Background="Black" Margin="1">
+                            <Button  x:Name="BSaveDataReport"  Margin="1" Grid.Column="1" Content="SPREMI" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataDimensions_Click"/>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </Grid>
         </Grid>
+
+
         <!-- Naslov -->
         <Grid Height="35" Margin="4,4,4,0" VerticalAlignment="Top" Background="{DynamicResource pozadina1}">
             <TextBlock Text="POSTAVKE" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>

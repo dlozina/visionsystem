@@ -374,7 +374,20 @@
         
         <!--GridView stil end-->
 
-   
+        <!--Checkbox still-->
+        <Style x:Key="CheckBoxStill1" TargetType="{x:Type CheckBox}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+           
+        </Style>
+        <!--Checkbox still end-->
+
+
         <!--<MjerniStolLimovi:OdabirLimova x:Key="MainLim"/>-->
 
         <local:PLCInterface x:Key="PLCinterf"/>
