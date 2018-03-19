@@ -18,6 +18,7 @@
         public automatika Automatika { get; set; } = new automatika();
         public prekret Prekret { get; set; } = new prekret();
         public uzimanjekomada UzimanjeKomada { get; set; } = new uzimanjekomada();
+        public tolerance Tolerance { get; set; } = new tolerance();
 
         public class horizontalnaOs
         {
@@ -196,6 +197,26 @@
             public plcTag BrojSlojevaKomadiNOKPaletaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(118, 0), 0.0f);
             public plcTag BrojLimovaUPozicijiOdlaganja { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(122, 0), 0.0f);
             public plcTag DebljinaLimova { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(126, 0), 0.0f);
+        }
+
+        public class tolerance
+        {
+            public plcTag Dijametar1DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(130, 0), 0.0f);
+            public plcTag Dijametar1DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(134, 0), 0.0f);
+            public plcTag Dijametar2DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(138, 0), 0.0f);
+            public plcTag Dijametar2DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(142, 0), 0.0f);
+            public plcTag Dijametar3DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(146, 0), 0.0f);
+            public plcTag Dijametar3DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(150, 0), 0.0f);
+            public plcTag Dijametar4DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(154, 0), 0.0f);
+            public plcTag Dijametar4DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(158, 0), 0.0f);
+            public plcTag Dijametar5DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(162, 0), 0.0f);
+            public plcTag Dijametar5DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(166, 0), 0.0f);
+            public plcTag Visina1DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(170, 0), 0.0f);
+            public plcTag Visina1DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(174, 0), 0.0f);
+            public plcTag Visina2DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(178, 0), 0.0f);
+            public plcTag Visina2DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(182, 0), 0.0f);
+            public plcTag Visina3DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(186, 0), 0.0f);
+            public plcTag Visina3DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(190, 0), 0.0f);
         }
     }
 }

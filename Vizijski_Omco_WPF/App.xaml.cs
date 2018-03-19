@@ -16,7 +16,7 @@ namespace VizijskiSustavWPF
     {
         public static PIzvjestaji pIzvjestaji;
         public static PPostavke pPostavke;
-        public static PRobot pRobot; 
+        public static PRobot pRobot;
         public static PPoroznost pPoroznost;
         public static PUcenje pUcenje;
         public static PVisine pVisine;
@@ -43,7 +43,7 @@ namespace VizijskiSustavWPF
         {
             InitializeComponent();
             // Load saved data from JSON file
-            String JSONstring = File.ReadAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\data\savedata.JSON");
+            String JSONstring = File.ReadAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON");
             savedata = JsonConvert.DeserializeObject<List<ReportInterface.DimensionLine>>(JSONstring);
             // If JSON is empty we have null
             if (savedata == null)
@@ -77,15 +77,30 @@ namespace VizijskiSustavWPF
             HDevExp.PorosityDetectionHorStart += new HALCON.HDevelopExport.PorosityDetectionHorStartEventHandler(DetectionHorStart);
         }
 
-       
+        public class UserInputData
+        {
+            // Data from textbox from another class
+            static float _dijametar1;
+            public static float Dijametar1
+            {
+                get { return _dijametar1; }
+                set { value = _dijametar1; }
+            }
+            static float _dijametar2;
+            public static float Dijametar2
+            {
+                get { return _dijametar2; }
+                set { value = _dijametar2; }
+            }
+        }
+
         public static void ResetData()
         {
             savedata.Clear();
             string json = JsonConvert.SerializeObject(savedata.ToArray());
-            File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\data\savedata.JSON", json);
+            File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON", json);
         }
 
-        
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
         {
             String msg = "SISTEM SPREMAN";
@@ -215,49 +230,49 @@ namespace VizijskiSustavWPF
                     String = "No.1",
                     Poroznost = true,
                     // D1
-                    NazivnoD1 = 5.0f,
-                    MjerenoD1 = 5.2f,
-                    DeltaPlusD1 = 0.3f,
-                    DeltaMinusD1 = -0.3f,
+                    NazivnoD1 = (float)e.StatusData.Upisanevrijednosti.Dijametar1.Value,
+                    MjerenoD1 = (float)e.StatusData.MjerenjeDiametara.Diametar1.Value,
+                    DeltaPlusD1 = (float)e.StatusData.Upisanevrijednosti.Dijametar1DeltaPlus.Value,
+                    DeltaMinusD1 = (float)e.StatusData.Upisanevrijednosti.Dijametar1DeltaMinus.Value,
                     // D2
-                    NazivnoD2 = 10.0f,
-                    MjerenoD2 = 15.0f,
-                    DeltaPlusD2 = 0.1f,
-                    DeltaMinusD2 = -0.1f,
-                    // D3
-                    NazivnoD3 = 5.0f,
-                    MjerenoD3 = 5.2f,
-                    DeltaPlusD3 = 0.3f,
-                    DeltaMinusD3 = -0.3f,
-                    // D4
-                    NazivnoD4 = 10.0f,
-                    MjerenoD4 = 15.0f,
-                    DeltaPlusD4 = 0.1f,
-                    DeltaMinusD4 = -0.1f,
-                    // D5
-                    NazivnoD5 = 5.0f,
-                    MjerenoD5 = 5.2f,
-                    DeltaPlusD5 = 0.3f,
-                    DeltaMinusD5 = -0.3f,
-                    // V1
-                    NazivnoV1 = 10.0f,
-                    MjerenoV1 = 15.0f,
-                    DeltaPlusV1 = 0.1f,
-                    DeltaMinusV1 = -0.1f,
-                    // V2
-                    NazivnoV2 = 5.0f,
-                    MjerenoV2 = 5.2f,
-                    DeltaPlusV2 = 0.3f,
-                    DeltaMinusV2 = -0.3f,
-                    // V3
-                    NazivnoV3 = 10.0f,
-                    MjerenoV3 = 15.0f,
-                    DeltaPlusV3 = 0.1f,
-                    DeltaMinusV3 = -0.1f,
+                    NazivnoD2 = (float)e.StatusData.Upisanevrijednosti.Dijametar2.Value,
+                    MjerenoD2 = (float)e.StatusData.MjerenjeDiametara.Diametar2.Value,
+                    DeltaPlusD2 = (float)e.StatusData.Upisanevrijednosti.Dijametar2DeltaPlus.Value,
+                    DeltaMinusD2 = (float)e.StatusData.Upisanevrijednosti.Dijametar2DeltaMinus.Value,
+                    //// D3
+                    NazivnoD3 = (float)e.StatusData.Upisanevrijednosti.Dijametar3.Value,
+                    MjerenoD3 = (float)e.StatusData.MjerenjeDiametara.Diametar3.Value,
+                    DeltaPlusD3 = (float)e.StatusData.Upisanevrijednosti.Dijametar3DeltaPlus.Value,
+                    DeltaMinusD3 = (float)e.StatusData.Upisanevrijednosti.Dijametar3DeltaMinus.Value,
+                    //// D4
+                    NazivnoD4 = (float)e.StatusData.Upisanevrijednosti.Dijametar4.Value,
+                    MjerenoD4 = (float)e.StatusData.MjerenjeDiametara.Diametar4.Value,
+                    DeltaPlusD4 = (float)e.StatusData.Upisanevrijednosti.Dijametar4DeltaPlus.Value,
+                    DeltaMinusD4 = (float)e.StatusData.Upisanevrijednosti.Dijametar4DeltaMinus.Value,
+                    //// D5
+                    NazivnoD5 = (float)e.StatusData.Upisanevrijednosti.Dijametar5.Value,
+                    MjerenoD5 = (float)e.StatusData.MjerenjeDiametara.Diametar5.Value,
+                    DeltaPlusD5 = (float)e.StatusData.Upisanevrijednosti.Dijametar5DeltaPlus.Value,
+                    DeltaMinusD5 = (float)e.StatusData.Upisanevrijednosti.Dijametar5DeltaMinus.Value,
+                    //// V1
+                    NazivnoV1 = (float)e.StatusData.Upisanevrijednosti.Visina1.Value,
+                    MjerenoV1 = (float)e.StatusData.MjerenjeTicalom.Visina1.Value,
+                    DeltaPlusV1 = (float)e.StatusData.Upisanevrijednosti.Visina1DeltaPlus.Value,
+                    DeltaMinusV1 = (float)e.StatusData.Upisanevrijednosti.Visina1DeltaMinus.Value,
+                    //// V2
+                    NazivnoV2 = (float)e.StatusData.Upisanevrijednosti.Visina2.Value,
+                    MjerenoV2 = (float)e.StatusData.MjerenjeTicalom.Visina2.Value,
+                    DeltaPlusV2 = (float)e.StatusData.Upisanevrijednosti.Visina2DeltaPlus.Value,
+                    DeltaMinusV2 = (float)e.StatusData.Upisanevrijednosti.Visina2DeltaMinus.Value,
+                    //// V3
+                    NazivnoV3 = (float)e.StatusData.Upisanevrijednosti.Visina2.Value,
+                    MjerenoV3 = (float)e.StatusData.MjerenjeTicalom.Visina3.Value,
+                    DeltaPlusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaPlus.Value,
+                    DeltaMinusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaMinus.Value,
                 });
 
                 string json = JsonConvert.SerializeObject(savedata.ToArray(), Formatting.Indented);
-                File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\data\savedata.JSON", json);
+                File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON", json);
             }
 
             // Edge detection help marker

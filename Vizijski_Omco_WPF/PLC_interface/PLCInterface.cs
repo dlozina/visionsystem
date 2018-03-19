@@ -104,7 +104,7 @@ namespace VizijskiSustavWPF
                     // Real PLC
                     //Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    Client.ConnectTo("192.168.111.108", 0, 1);
+                    Client.ConnectTo("192.168.1.8", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -120,7 +120,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 130, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 194, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -248,13 +248,16 @@ namespace VizijskiSustavWPF
                     CONTROL.UcenjeBool.PoroznostHorPozicija.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.PoroznostVerPozicija.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.NauciPoroznost.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    
                     // Automatika
                     CONTROL.Automatika.ResetSvihMjerenja.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    //Prekret
+                    
+                    // Prekret
                     CONTROL.Prekret.PrekretLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Prekret.PrekretDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Prekret.PrekretOtvori.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Prekret.PrekretZatvori.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    
                     // Uzimanje komada
                     CONTROL.UzimanjeKomada.BrojSlojevaUlaznaPaletaLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UzimanjeKomada.BrojSlojevaUlaznaPaletaDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -264,6 +267,24 @@ namespace VizijskiSustavWPF
                     CONTROL.UzimanjeKomada.BrojSlojevaKomadiNOKPaletaDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UzimanjeKomada.BrojLimovaUPozicijiOdlaganja.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UzimanjeKomada.DebljinaLimova.GetValueFromGroupBuffer(CyclicControlBuffer);
+
+                    // Tolerance
+                    CONTROL.Tolerance.Dijametar1DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar1DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar2DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar2DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar3DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar3DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar4DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar4DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar5DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Dijametar5DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Visina1DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Visina1DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Visina2DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Visina2DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Visina3DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Tolerance.Visina3DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;
@@ -273,7 +294,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(11, 0, 156, CyclicStatusBuffer);
+                result = Client.DBRead(11, 0, 256, CyclicStatusBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -343,6 +364,7 @@ namespace VizijskiSustavWPF
                     STATUS.MjerenjeDiametara.Diametar2.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjeDiametara.Diametar3.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjeDiametara.Diametar4.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.MjerenjeDiametara.Diametar5.GetValueFromGroupBuffer(CyclicStatusBuffer);
 
                     // Cilindri
                     STATUS.Cilindri.PPOtvorena.GetValueFromGroupBuffer(CyclicStatusBuffer);
@@ -372,16 +394,44 @@ namespace VizijskiSustavWPF
                     STATUS.Kamere.CAM2Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM3Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Kamere.CAM4Rezultat.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    
                     // Prekret
                     STATUS.Prekret.PrekretLijevo.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Prekret.PrekretDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Prekret.PrekretOtvoren.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Prekret.PrekretZatvoren.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    
                     // Automatika
                     STATUS.Automatika.AutomatskiRad.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Automatika.RucniRad.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Automatika.SnimiMjerenja.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Automatika.StopNaKrajuCiklusa.GetValueFromGroupBuffer(CyclicStatusBuffer);
+
+                    // Upisane Vrijednosti
+                    STATUS.Upisanevrijednosti.Dijametar1.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar1DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar1DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar2.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar2DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar2DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar3.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar3DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar3DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar4.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar4DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar4DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar5.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar5DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Dijametar5DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina1.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina1DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina1DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina2.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina2DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina2DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina3.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina3DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.Visina3DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
                 }
             }
             return result;

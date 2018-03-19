@@ -553,6 +553,17 @@ namespace VizijskiSustavWPF.Reports
                 }
             }
 
+            public Brush DeltaBrushV1
+            {
+                get
+                {
+                    if ((DeltaV1 > DeltaPlusV1) || (DeltaV1 < DeltaMinusV1))
+                        return Brushes.Red;
+                    else
+                        return Brushes.LightGreen;
+                }
+            }
+
             // Dimenzija V2
             private float nazivnoV2;
             public float NazivnoV2

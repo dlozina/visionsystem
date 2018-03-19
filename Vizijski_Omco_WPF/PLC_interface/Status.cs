@@ -13,6 +13,7 @@
         public kamere Kamere { get; set; } = new kamere();
         public prekret Prekret { get; set; } = new prekret();
         public automatika Automatika { get; set; } = new automatika();
+        public upisanevrijednosti Upisanevrijednosti { get; set; } = new upisanevrijednosti();
 
         public class horizontalnaOs
         {
@@ -94,55 +95,84 @@
             public plcTag Diametar2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(108, 0), 0.0f);
             public plcTag Diametar3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(112, 0), 0.0f);
             public plcTag Diametar4 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(116, 0), 0.0f);
+            public plcTag Diametar5 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(120, 0), 0.0f);
         }
 
         public class cilindri
         {
-            public plcTag PPOtvorena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(120, 0), false);
-            public plcTag PPZatvorena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(120, 1), false);
-            public plcTag StegaOtvorena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(120, 2), false);
-            public plcTag StegaZatvorena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(120, 3), false);
+            public plcTag PPOtvorena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(124, 0), false);
+            public plcTag PPZatvorena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(124, 1), false);
+            public plcTag StegaOtvorena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(124, 2), false);
+            public plcTag StegaZatvorena { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(124, 3), false);
         }
 
         public class kamere
         {
-            public plcTag CAM1ZahtjevZaAnalizomT1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 0), false);
-            public plcTag CAM1ZahtjevZaAnalizomT2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 1), false);
-            public plcTag CAM2ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 2), false);
-            public plcTag CAM3ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 3), false);
-            public plcTag CAM4ZahtjevZaAnalizomS1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 4), false);
-            public plcTag CAM4ZahtjevZaAnalizomS2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 5), false);
-            public plcTag CAM1AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 6), false);
-            public plcTag CAM2AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(122, 7), false);
-            public plcTag CAM3AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 0), false);
-            public plcTag CAM4AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 1), false);
-            public plcTag CAM1AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 2), false);
-            public plcTag CAM2AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 3), false);
-            public plcTag CAM3AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 4), false);
-            public plcTag CAM4AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(123, 5), false);
-            public plcTag CAM1RezultatX { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(124, 0), 0.0f);
-            public plcTag CAM1RezultatY { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(128, 0), 0.0f);
-            public plcTag CAM1RezultatAngle { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(132, 0), 0.0f);
-            public plcTag CAM1RezultatWorkpieceDiameter { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(136, 0), 0.0f);
-            public plcTag CAM2Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(140, 0), 0.0f);
-            public plcTag CAM3Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(144, 0), 0.0f);
-            public plcTag CAM4Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(148, 0), 0.0f);
+            public plcTag CAM1ZahtjevZaAnalizomT1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(126, 0), false);
+            public plcTag CAM1ZahtjevZaAnalizomT2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(126, 1), false);
+            public plcTag CAM2ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(126, 2), false);
+            public plcTag CAM3ZahtjevZaAnalizom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(126, 3), false);
+            public plcTag CAM4ZahtjevZaAnalizomS1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(126, 4), false);
+            public plcTag CAM4ZahtjevZaAnalizomS2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(126, 5), false);
+            public plcTag CAM1AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(126, 6), false);
+            public plcTag CAM2AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(126, 7), false);
+            public plcTag CAM3AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(127, 0), false);
+            public plcTag CAM4AnalizaOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(127, 1), false);
+            public plcTag CAM1AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(127, 2), false);
+            public plcTag CAM2AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(127, 3), false);
+            public plcTag CAM3AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(127, 4), false);
+            public plcTag CAM4AnalizaError { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(127, 5), false);
+            public plcTag CAM1RezultatX { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(128, 0), 0.0f);
+            public plcTag CAM1RezultatY { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(132, 0), 0.0f);
+            public plcTag CAM1RezultatAngle { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(136, 0), 0.0f);
+            public plcTag CAM1RezultatWorkpieceDiameter { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(140, 0), 0.0f);
+            public plcTag CAM2Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(144, 0), 0.0f);
+            public plcTag CAM3Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(148, 0), 0.0f);
+            public plcTag CAM4Rezultat { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(152, 0), 0.0f);
         }
 
         public class prekret
         {
-            public plcTag PrekretLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(152, 0), false);
-            public plcTag PrekretDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(152, 1), false);
-            public plcTag PrekretOtvoren { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(152, 2), false);
-            public plcTag PrekretZatvoren { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(152, 3), false);
+            public plcTag PrekretLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(156, 0), false);
+            public plcTag PrekretDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(156, 1), false);
+            public plcTag PrekretOtvoren { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(156, 2), false);
+            public plcTag PrekretZatvoren { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(156, 3), false);
         }
 
         public class automatika
         {
-            public plcTag AutomatskiRad { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(154, 0), false);
-            public plcTag RucniRad { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(154, 1), false);
-            public plcTag SnimiMjerenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(154, 2), false);
-            public plcTag StopNaKrajuCiklusa { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(154, 3), false);
+            public plcTag AutomatskiRad { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 0), false);
+            public plcTag RucniRad { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 1), false);
+            public plcTag SnimiMjerenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 2), false);
+            public plcTag StopNaKrajuCiklusa { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 3), false);
+        }
+
+        public class upisanevrijednosti
+        {
+            public plcTag Dijametar1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(160, 0), 0.0f);
+            public plcTag Dijametar1DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(164, 0), 0.0f);
+            public plcTag Dijametar1DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(168, 0), 0.0f);
+            public plcTag Dijametar2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(172, 0), 0.0f);
+            public plcTag Dijametar2DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(176, 0), 0.0f);
+            public plcTag Dijametar2DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(180, 0), 0.0f);
+            public plcTag Dijametar3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(184, 0), 0.0f);
+            public plcTag Dijametar3DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(188, 0), 0.0f);
+            public plcTag Dijametar3DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(192, 0), 0.0f);
+            public plcTag Dijametar4 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(196, 0), 0.0f);
+            public plcTag Dijametar4DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(200, 0), 0.0f);
+            public plcTag Dijametar4DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(204, 0), 0.0f);
+            public plcTag Dijametar5 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(208, 0), 0.0f);
+            public plcTag Dijametar5DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(212, 0), 0.0f);
+            public plcTag Dijametar5DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(216, 0), 0.0f);
+            public plcTag Visina1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(220, 0), 0.0f);
+            public plcTag Visina1DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(224, 0), 0.0f);
+            public plcTag Visina1DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(228, 0), 0.0f);
+            public plcTag Visina2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(232, 0), 0.0f);
+            public plcTag Visina2DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(236, 0), 0.0f);
+            public plcTag Visina2DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(240, 0), 0.0f);
+            public plcTag Visina3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(244, 0), 0.0f);
+            public plcTag Visina3DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(248, 0), 0.0f);
+            public plcTag Visina3DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(252, 0), 0.0f);
         }
     }
 }
