@@ -239,32 +239,32 @@ namespace VizijskiSustavWPF
                     MjerenoD2 = (float)e.StatusData.MjerenjeDiametara.Diametar2.Value,
                     DeltaPlusD2 = (float)e.StatusData.Upisanevrijednosti.Dijametar2DeltaPlus.Value,
                     DeltaMinusD2 = (float)e.StatusData.Upisanevrijednosti.Dijametar2DeltaMinus.Value,
-                    //// D3
+                    // D3
                     NazivnoD3 = (float)e.StatusData.Upisanevrijednosti.Dijametar3.Value,
                     MjerenoD3 = (float)e.StatusData.MjerenjeDiametara.Diametar3.Value,
                     DeltaPlusD3 = (float)e.StatusData.Upisanevrijednosti.Dijametar3DeltaPlus.Value,
                     DeltaMinusD3 = (float)e.StatusData.Upisanevrijednosti.Dijametar3DeltaMinus.Value,
-                    //// D4
+                    // D4
                     NazivnoD4 = (float)e.StatusData.Upisanevrijednosti.Dijametar4.Value,
                     MjerenoD4 = (float)e.StatusData.MjerenjeDiametara.Diametar4.Value,
                     DeltaPlusD4 = (float)e.StatusData.Upisanevrijednosti.Dijametar4DeltaPlus.Value,
                     DeltaMinusD4 = (float)e.StatusData.Upisanevrijednosti.Dijametar4DeltaMinus.Value,
-                    //// D5
+                    // D5
                     NazivnoD5 = (float)e.StatusData.Upisanevrijednosti.Dijametar5.Value,
                     MjerenoD5 = (float)e.StatusData.MjerenjeDiametara.Diametar5.Value,
                     DeltaPlusD5 = (float)e.StatusData.Upisanevrijednosti.Dijametar5DeltaPlus.Value,
                     DeltaMinusD5 = (float)e.StatusData.Upisanevrijednosti.Dijametar5DeltaMinus.Value,
-                    //// V1
+                    // V1
                     NazivnoV1 = (float)e.StatusData.Upisanevrijednosti.Visina1.Value,
                     MjerenoV1 = (float)e.StatusData.MjerenjeTicalom.Visina1.Value,
                     DeltaPlusV1 = (float)e.StatusData.Upisanevrijednosti.Visina1DeltaPlus.Value,
                     DeltaMinusV1 = (float)e.StatusData.Upisanevrijednosti.Visina1DeltaMinus.Value,
-                    //// V2
+                    // V2
                     NazivnoV2 = (float)e.StatusData.Upisanevrijednosti.Visina2.Value,
                     MjerenoV2 = (float)e.StatusData.MjerenjeTicalom.Visina2.Value,
                     DeltaPlusV2 = (float)e.StatusData.Upisanevrijednosti.Visina2DeltaPlus.Value,
                     DeltaMinusV2 = (float)e.StatusData.Upisanevrijednosti.Visina2DeltaMinus.Value,
-                    //// V3
+                    // V3
                     NazivnoV3 = (float)e.StatusData.Upisanevrijednosti.Visina2.Value,
                     MjerenoV3 = (float)e.StatusData.MjerenjeTicalom.Visina3.Value,
                     DeltaPlusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaPlus.Value,
@@ -326,6 +326,17 @@ namespace VizijskiSustavWPF
         {
             App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, true);
             App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, false);
+        }
+
+        // Control
+        public static void ActivateControl1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, true);
+        }
+
+        public static void ActivateControl2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, true);
         }
 
         // Event handler koji se poziva kad PLC postane online ili offline (Ethernet kabel se spoji ili odspoji).

@@ -59,11 +59,11 @@
                     <Button Margin="1" x:Name="BUzmiSliku1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UZMI SLIKU" Click="BUzmiSliku1_Click"/>
                 </Grid>
 
-                <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,0,4,4">
+                <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="4,0,4,4">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="43*"/>
-                        <ColumnDefinition Width="10*"/>
+                        
                     </Grid.ColumnDefinitions>
+                    <Button Margin="1" x:Name="BmultiTest" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TEST BIT" Click="BmultiTest_Click" />
                 </Grid>
                 
                 <Grid Grid.Row="1" Grid.Column="1" Background="Black" Margin="4,4,4,0">
