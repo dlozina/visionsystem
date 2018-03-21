@@ -332,11 +332,14 @@ namespace VizijskiSustavWPF
         public static void ActivateControl1()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, false);
+
         }
 
         public static void ActivateControl2()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, false);
         }
 
         // Event handler koji se poziva kad PLC postane online ili offline (Ethernet kabel se spoji ili odspoji).

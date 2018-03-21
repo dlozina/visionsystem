@@ -10,7 +10,7 @@ namespace VizijskiSustavWPF
     /// </summary>
     public partial class PRobot
     {
-        int i = 0;
+        //int i = 0;
 
         public PRobot()
         {
@@ -85,19 +85,19 @@ namespace VizijskiSustavWPF
             robotPick2Thread.Start();
         }
 
-        private void BmultiTest_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
+        //private void BmultiTest_Click(object sender, System.Windows.RoutedEventArgs e)
+        //{
            
-            if(i == 0)
-            {
-                App.ActivateControl1();
-            }
-            else if (i == 1)
-            {
-                App.ActivateControl2();
-            }
+        //    if(i == 0)
+        //    {
+        //        App.ActivateControl1();
+        //    }
+        //    else if (i == 1)
+        //    {
+        //        App.ActivateControl2();
+        //    }
             
-            i++;
-        }
+        //    i++;
+        //}
     }
 }

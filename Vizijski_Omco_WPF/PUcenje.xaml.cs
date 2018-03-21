@@ -10,9 +10,12 @@ namespace VizijskiSustavWPF
         public PUcenje()
         {
             InitializeComponent();
+            Bpozicija2.IsEnabled = false;
             //App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePagePRucno_100ms);
             //App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePagePRucno_1s);
         }
+
+        int i = 0;
 
         //private void updatePagePRucno_100ms(object sender, PLCInterfaceEventArgs e)
         //{
@@ -168,7 +171,220 @@ namespace VizijskiSustavWPF
             Name = "TestAnalizeD4S2Thread";
             TestAnalizeD4S2.Start();
         }
+        // Ucenje dijametara
+        private void Bpozicija1_Click(object sender, RoutedEventArgs e)
+        {
+            // Prvi Klik D1S1
+            if (i == 0)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D2S1
+            else if (i == 2)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D3S1
+            else if (i == 4)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D4S1
+            else if (i == 6)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D5S1
+            else if (i == 8)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+        }
 
-        
+        private void Bpozicija2_Click(object sender, RoutedEventArgs e)
+        {
+            // Prvi Klik D1S2
+            if (i == 1)
+            {
+                App.ActivateControl2();
+            }
+            // Prvi Klik D2S2
+            else if (i == 3)
+            {
+                App.ActivateControl2();
+            }
+            // Prvi Klik D3S2
+            else if (i == 5)
+            {
+                App.ActivateControl2();
+            }
+            // Prvi Klik D4S2
+            else if (i == 7)
+            {
+                App.ActivateControl2();
+            }
+            // Prvi Klik D5S2
+            else if (i == 9)
+            {
+                App.ActivateControl2();
+            }
+        }
+
+        private void Btest_Click(object sender, RoutedEventArgs e)
+        {
+            // Prvi Klik D1S1
+            if (i == 0)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D1S2
+            else if (i == 1)
+            {
+                App.ActivateControl2();
+            }
+            // Prvi Klik D2S1
+            else if (i == 2)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D2S2
+            else if (i == 3)
+            {
+                App.ActivateControl2();
+            }
+            // Prvi Klik D3S1
+            else if (i == 4)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D3S2
+            else if (i == 5)
+            {
+                App.ActivateControl2();
+            }
+            // Prvi Klik D4S1
+            else if (i == 6)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D4S2
+            else if (i == 7)
+            {
+                App.ActivateControl2();
+            }
+            // Prvi Klik D5S1
+            else if (i == 8)
+            {
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D5S2
+            else if (i == 9)
+            {
+                App.ActivateControl2();
+            }
+        }
+
+        private void BnauciPozicijuDijametri_Click(object sender, RoutedEventArgs e)
+        {
+            // Prvi Klik D1S1
+            if (i == 0)
+            {
+                // Omoguci idi na drugu poziciju
+                Bpozicija1.IsEnabled = false;
+                Bpozicija2.IsEnabled = true;
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D1S2
+            else if (i == 1)
+            {
+                // Omoguci idi na prvu poziciju
+                Bpozicija1.IsEnabled = true;
+                Bpozicija2.IsEnabled = false;
+                App.ActivateControl2();
+            }
+            // Prvi Klik D2S1
+            else if (i == 2)
+            {
+                // Omoguci idi na drugu poziciju
+                Bpozicija1.IsEnabled = false;
+                Bpozicija2.IsEnabled = true;
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D2S2
+            else if (i == 3)
+            {
+                // Omoguci idi na prvu poziciju
+                Bpozicija1.IsEnabled = true;
+                Bpozicija2.IsEnabled = false;
+                App.ActivateControl2();
+            }
+            // Prvi Klik D3S1
+            else if (i == 4)
+            {
+                // Omoguci idi na drugu poziciju
+                Bpozicija1.IsEnabled = false;
+                Bpozicija2.IsEnabled = true;
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D3S2
+            else if (i == 5)
+            {
+                // Omoguci idi na prvu poziciju
+                Bpozicija1.IsEnabled = true;
+                Bpozicija2.IsEnabled = false;
+                App.ActivateControl2();
+            }
+            // Prvi Klik D4S1
+            else if (i == 6)
+            {
+                // Omoguci idi na drugu poziciju
+                Bpozicija1.IsEnabled = false;
+                Bpozicija2.IsEnabled = true;
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D4S2
+            else if (i == 7)
+            {
+                // Omoguci idi na prvu poziciju
+                Bpozicija1.IsEnabled = true;
+                Bpozicija2.IsEnabled = false;
+                App.ActivateControl2();
+            }
+            // Prvi Klik D5S1
+            else if (i == 8)
+            {
+                // Omoguci idi na drugu poziciju
+                Bpozicija1.IsEnabled = false;
+                Bpozicija2.IsEnabled = true;
+                //PLC kontrola
+                App.ActivateControl1();
+            }
+            // Prvi Klik D5S2
+            else if (i == 9)
+            {
+                // Omoguci idi na prvu poziciju
+                Bpozicija1.IsEnabled = true;
+                Bpozicija2.IsEnabled = false;
+                App.ActivateControl2();
+            }
+
+            i++; 
+
+        }
+        //
     }
 }
