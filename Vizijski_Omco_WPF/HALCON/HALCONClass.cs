@@ -41,6 +41,10 @@ namespace VizijskiSustavWPF.HALCON
         // Framegrabber Handle for teach CAM2
         public HTuple hv_TeachWinHandle3;
 
+        //
+
+        //
+
         // Output definition for all Diameters
         private HTuple hv_output = new HTuple();
         // Output from pick

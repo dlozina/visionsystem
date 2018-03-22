@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.IO;
 using VizijskiSustavWPF.Reports;
 using System.Collections.Generic;
+using HalconDotNet;
 
 namespace VizijskiSustavWPF
 {
@@ -75,7 +76,12 @@ namespace VizijskiSustavWPF
             HDevExp.PorosityDetected += new HALCON.HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
             HDevExp.PorosityDetectionStart += new HALCON.HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
             HDevExp.PorosityDetectionHorStart += new HALCON.HDevelopExport.PorosityDetectionHorStartEventHandler(DetectionHorStart);
+
+            
         }
+
+        // Variable for empty window call
+        HTuple windowID = new HTuple();
 
         public class UserInputData
         {
@@ -108,7 +114,7 @@ namespace VizijskiSustavWPF
             // Start analize slike D1 PRVOG RUBA S1 ********************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!_edgeDetection1)) //Edge detection
             {
-                Thread d1meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon1)); // d1meassureS1.name = "Thread D1S1
+                Thread d1meassureS1 = new Thread(() => HDevExp.RunHalcon1(windowID)); // d1meassureS1.name = "Thread D1S1
                 d1meassureS1.Name = "Thread D1S1";
                 d1meassureS1.Start();
             }
@@ -116,7 +122,8 @@ namespace VizijskiSustavWPF
             // Start analize slike D1 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 0.0f) && (!_edgeDetection2))
             {
-                Thread d1meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon2));
+                //Thread d1meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon2));
+                Thread d1meassureS2 = new Thread(() => HDevExp.RunHalcon2(windowID));
                 d1meassureS2.Name = "Thread D1S2";
                 d1meassureS2.Start();
             }
@@ -124,15 +131,17 @@ namespace VizijskiSustavWPF
             // Start analize slike D2 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && (!_edgeDetection1))
             {
-                Thread d2meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon3));
-                d2meassureS1.Name = "Thread D2S1";
-                d2meassureS1.Start();
+                //Thread d2meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon3));
+                Thread d1meassureS2 = new Thread(() => HDevExp.RunHalcon3(windowID));
+                d1meassureS2.Name = "Thread D2S1";
+                d1meassureS2.Start();
             }
 
             // Start analize slike D2 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && (!_edgeDetection2))
             {
-                Thread d2meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon4));
+                //Thread d2meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon4));
+                Thread d2meassureS2 = new Thread(() => HDevExp.RunHalcon4(windowID));
                 d2meassureS2.Name = "Thread D2S2";
                 d2meassureS2.Start();
             }
@@ -140,7 +149,8 @@ namespace VizijskiSustavWPF
             // Start analize slike D3 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && (!_edgeDetection1))
             {
-                Thread d3meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon5));
+                //Thread d3meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon5));
+                Thread d3meassureS1 = new Thread(() => HDevExp.RunHalcon5(windowID));
                 d3meassureS1.Name = "Thread D3S1";
                 d3meassureS1.Start();
             }
@@ -148,7 +158,8 @@ namespace VizijskiSustavWPF
             // Start analize slike D3 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && (!_edgeDetection2))
             {
-                Thread d3meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon6));
+                //Thread d3meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon6));
+                Thread d3meassureS2 = new Thread(() => HDevExp.RunHalcon6(windowID));
                 d3meassureS2.Name = "Thread D3S2";
                 d3meassureS2.Start();
             }
@@ -156,7 +167,8 @@ namespace VizijskiSustavWPF
             // Start analize slike D4 DRUGOG RUBA S1 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && (!_edgeDetection1))
             {
-                Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
+                //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
+                Thread d4meassureS1 = new Thread(() => HDevExp.RunHalcon7(windowID));
                 d4meassureS1.Name = "Thread D4S1";
                 d4meassureS1.Start();
             }
@@ -164,7 +176,8 @@ namespace VizijskiSustavWPF
             // Start analize slike D4 DRUGOG RUBA S2 *******************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && (!_edgeDetection2))
             {
-                Thread d4meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon8));
+                //Thread d4meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon8));
+                Thread d4meassureS2 = new Thread(() => HDevExp.RunHalcon8(windowID));
                 d4meassureS2.Name = "Thread D4S2";
                 d4meassureS2.Start();
             }
@@ -329,17 +342,69 @@ namespace VizijskiSustavWPF
         }
 
         // Control
-        public static void ActivateControl1()
+        public static void ActivateControlD1S1()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, true);
-            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, false);
-
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, false);
         }
 
-        public static void ActivateControl2()
+        public static void ActivateControlD1S2()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, true);
-            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, false);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, false);
+        }
+
+        public static void ActivateControlD2S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S1, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S1, false);
+        }
+
+        public static void ActivateControlD2S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S2, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S2, false);
+        }
+
+        public static void ActivateControlD3S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD3S1, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, false);
+        }
+
+        public static void ActivateControlD3S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD3S2, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD3S2, false);
+        }
+
+        public static void ActivateControlD4S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S1, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S1, false);
+        }
+
+        public static void ActivateControlD4S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S2, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S2, false);
+        }
+
+        public static void ActivateControlD5S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S1, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S1, false);
+        }
+
+        public static void ActivateControlD5S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S2, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S2, false);
+        }
+
+        public static void ActivateControlPorosityPosition()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.PoroznostHorPozicija, true);
         }
 
         // Event handler koji se poziva kad PLC postane online ili offline (Ethernet kabel se spoji ili odspoji).

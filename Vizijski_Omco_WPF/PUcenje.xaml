@@ -47,38 +47,28 @@
 
                 
                 <!-- Stupac Kontrola -->
-                <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="KONTROLA"/></TextBlock>
-                <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,0,4,0">
+                <TextBlock Margin="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="PRIPREMA ZA UCENJE"/></TextBlock>
+
+                <TextBlock Margin="1" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="RESETIRANJE POZICIJA"/></TextBlock>
+
+                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Background="Black" Margin="4,0,4,4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_noviNalog" Text="NOVI NALOG" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.NoviNalog, ElementName=bb_noviNalog}" />
-                </Grid>
-                <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="1" Grid.Column="0" x:Name="bb_resetUcenja" Text="RESET UČENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.UcenjeBool.ResetUcenja, ElementName=bb_resetUcenja}" />
-                </Grid>
-                <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="b_startKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UKLJUČI KAMERU" Click="b_startKamere_Click" />
-                </Grid>
-                <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="4,0,4,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Row="2" Grid.Column="0" Margin="1" x:Name="b_sTOPKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISKLJUČI KAMERU" Click="b_sTOPKamere_Click" />
+                    <Button Grid.Row="0" Grid.Column="0" Margin="1" x:Name="BtestniKomaduStegu" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="TESTNI KOMAD"/>
                 </Grid>
                 <Grid Grid.Row="5" Grid.Column="0" Background="Black" Margin="4,0,4,4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="b_clearScreen" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="OČISTI EKRAN" Click="b_clearScreen_Click" />
+                    <Button Grid.Row="0" Grid.Column="0" Margin="1" x:Name="BresetUcenjaDijametri" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="DIJAMETRI" Click="BresetUcenjaDijametri_Click" />
                 </Grid>
-
+                <Grid Grid.Row="5" Grid.Column="1" Background="Black" Margin="4,0,4,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Margin="1" x:Name="BresetUcenjaPoroznost" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="POROZNOST" Click="BresetUcenjaPoroznost_Click" />
+                </Grid>
                 <!-- Stupac Ucenje -->
                 <Grid Grid.Row="0" Grid.Column="2" Background="Black" Margin="4" Grid.RowSpan="7" Grid.ColumnSpan="3">
                     <Grid Background="{DynamicResource pozadina1}" Margin="4">
@@ -103,13 +93,13 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="Bpozicija1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="POZICIJA BR.1" Click="Bpozicija1_Click"  />
+                            <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="b_startKamere" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="UKLJUČI KAMERU" Click="b_startKamere_Click" />
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="1" Background="Black" Margin="4,0,4,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="Bpozicija2" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="POZICIJA BR.2" Click="Bpozicija2_Click" />
+                            <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="BpozicijaDijametri" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="*INCODE*" Click="BpozicijaDijametri_Click" />
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="2" Background="Black" Margin="4,0,4,0">
                             <Grid.ColumnDefinitions>
@@ -129,7 +119,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="BpozicijaPoroznost" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="POZICIJA"  />
+                            <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="BpozicijaPoroznost" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="POZICIJA" Click="BpozicijaPoroznost_Click"  />
                         </Grid>
                         <Grid Grid.Row="3" Grid.Column="1" Background="Black" Margin="4,0,4,0">
                             <Grid.ColumnDefinitions>
@@ -147,7 +137,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="BnauciPozicijuPoroznost" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="NAUČI POZICIJU"  />
+                            <Button Grid.Row="2" Grid.Column="2" Margin="1" x:Name="BnauciPozicijuPoroznost" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="NAUČI POZICIJU" Click="BnauciPozicijuPoroznost_Click"  />
                         </Grid>
 
 
