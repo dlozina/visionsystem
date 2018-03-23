@@ -104,7 +104,11 @@ namespace VizijskiSustavWPF
         {
             savedata.Clear();
             string json = JsonConvert.SerializeObject(savedata.ToArray());
-            File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON", json);
+            string DataBaseFileName = "savedata.JSON";
+            string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+            String JSONstring = File.ReadAllText(DataBasePath);
+            //File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON", json);
+            File.WriteAllText(DataBasePath, json);
         }
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
@@ -285,7 +289,10 @@ namespace VizijskiSustavWPF
                 });
 
                 string json = JsonConvert.SerializeObject(savedata.ToArray(), Formatting.Indented);
-                File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON", json);
+                string DataBaseFileName = "savedata.JSON";
+                string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+                //File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON", json);
+                File.WriteAllText(DataBasePath, json);
             }
 
             // Edge detection help marker

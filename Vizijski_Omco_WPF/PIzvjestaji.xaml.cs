@@ -43,7 +43,9 @@ namespace VizijskiSustavWPF
         {
             // Fetch data from JSON file
             // Load saved data from JSON file
-            String JSONstring = File.ReadAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON");
+            string DataBaseFileName = "savedata.JSON";
+            string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+            String JSONstring = File.ReadAllText(DataBasePath);
             database = JsonConvert.DeserializeObject<List<ReportInterface.DimensionLine>>(JSONstring);
             // If JSON is empty we have null
             if (database == null)
@@ -53,10 +55,9 @@ namespace VizijskiSustavWPF
 
             // Open EXCEL app and template file
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-            //Workbook workbook = excel.Workbooks.Open(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\Debug\reporttemplate\OMCO_template.xlsx", ReadOnly: false, Editable: true);
             string TemplateFileName = "OMCO_template.xlsx";
-            string path = Path.Combine(Environment.CurrentDirectory, @"reporttemplate", TemplateFileName);
-            Workbook workbook = excel.Workbooks.Open(path, ReadOnly: false, Editable: true);
+            string TemplatePath = Path.Combine(Environment.CurrentDirectory, @"reporttemplate", TemplateFileName);
+            Workbook workbook = excel.Workbooks.Open(TemplatePath, ReadOnly: false, Editable: true);
             // Select first and only sheet
             Worksheet workSheet = excel.ActiveSheet;
             //Worksheet workSheet = excel.ActiveWorkbook.Worksheets[1];
