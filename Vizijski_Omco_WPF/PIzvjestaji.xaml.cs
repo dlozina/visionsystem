@@ -160,7 +160,7 @@ namespace VizijskiSustavWPF
 
                     if (j == 11)
                     {
-                        string fileName2 = string.Format(@"{0}\ExcelData" + filenumber + ".xlsx", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+                        string fileName2 = string.Format(@"{0}\Reports\ExcelData" + filenumber + ".xlsx", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
                         workSheet.SaveAs(fileName2);
                         for (int k = 0; k < 12; k++)
                         {
@@ -182,7 +182,7 @@ namespace VizijskiSustavWPF
                     j++;
                 }
                 // Define filename and save
-                string fileName = string.Format(@"{0}\ExcelData" + filenumber + ".xlsx", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+                string fileName = string.Format(@"{0}\Reports\ExcelData" + filenumber + ".xlsx", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
                 workSheet.SaveAs(fileName);
             }
             catch (Exception exception)

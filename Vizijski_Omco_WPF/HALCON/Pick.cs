@@ -1,30 +1,27 @@
 using HalconDotNet;
+using System;
+using System.IO;
 using System.Windows;
 
 namespace VizijskiSustavWPF.HALCON
 {
     public partial class HDevelopExport
     {
-        
-
         public void HDevelopStop()
         {
             MessageBox.Show("Press button to continue", "Program stop");
         }
 
         // Short Description: Creates an arrow shaped XLD contour. 
-        public void gen_arrow_contour_xld(out HObject ho_Arrow, HTuple hv_Row1, HTuple hv_Column1,
-            HTuple hv_Row2, HTuple hv_Column2, HTuple hv_HeadLength, HTuple hv_HeadWidth)
+        public void gen_arrow_contour_xld(out HObject ho_Arrow, HTuple hv_Row1, HTuple hv_Column1, HTuple hv_Row2, HTuple hv_Column2, HTuple hv_HeadLength, HTuple hv_HeadWidth)
         {
             // Stack for temporary objects 
             HObject[] OTemp = new HObject[20];
 
             // Local iconic variables 
-
             HObject ho_TempArrow = null;
 
             // Local control variables 
-
             HTuple hv_Length = null, hv_ZeroLengthIndices = null;
             HTuple hv_DR = null, hv_DC = null, hv_HalfHeadWidth = null;
             HTuple hv_RowP1 = null, hv_ColP1 = null, hv_RowP2 = null;
@@ -68,7 +65,7 @@ namespace VizijskiSustavWPF.HALCON
                     //Create_ single points for arrows with identical start and end point
                     ho_TempArrow.Dispose();
                     HOperatorSet.GenContourPolygonXld(out ho_TempArrow, hv_Row1.TupleSelect(hv_Index),
-                        hv_Column1.TupleSelect(hv_Index));
+                    hv_Column1.TupleSelect(hv_Index));
                 }
                 else
                 {
@@ -91,7 +88,6 @@ namespace VizijskiSustavWPF.HALCON
                 }
             }
             ho_TempArrow.Dispose();
-
             return;
         }
 
@@ -106,8 +102,7 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.GenEmptyObj(out ho_ImaDir);
             HOperatorSet.GenEmptyObj(out ho_Margin);
             ho_ImaAmp.Dispose(); ho_ImaDir.Dispose();
-            HOperatorSet.EdgesImage(ho_Image, out ho_ImaAmp, out ho_ImaDir, "canny", 1, "nms",
-                20, 40);
+            HOperatorSet.EdgesImage(ho_Image, out ho_ImaAmp, out ho_ImaDir, "canny", 1, "nms", 20, 40);
             ho_Margin.Dispose();
             HOperatorSet.HysteresisThreshold(ho_ImaAmp, out ho_Margin, 20, 30, 30);
             ho_Object.Dispose();
@@ -138,12 +133,9 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.CircularityXld(ho_Contours, out hv_Circularity_xld);
             HOperatorSet.Contlength(ho_SingleRegion, out hv_ContLength);
             HOperatorSet.Circularity(ho_SingleRegion, out hv_Circularity);
-            HOperatorSet.Eccentricity(ho_SingleRegion, out hv_Anisometry, out hv_Bulkiness,
-                out hv_StructureFactor);
-            HOperatorSet.Roundness(ho_SingleRegion, out hv_Distance, out hv_Sigma, out hv_Roundness,
-                out hv_Sides);
-            HOperatorSet.MomentsRegionCentralInvar(ho_SingleRegion, out hv_PSI1, out hv_PSI2,
-                out hv_PSI3, out hv_PSI4);
+            HOperatorSet.Eccentricity(ho_SingleRegion, out hv_Anisometry, out hv_Bulkiness, out hv_StructureFactor);
+            HOperatorSet.Roundness(ho_SingleRegion, out hv_Distance, out hv_Sigma, out hv_Roundness, out hv_Sides);
+            HOperatorSet.MomentsRegionCentralInvar(ho_SingleRegion, out hv_PSI1, out hv_PSI2, out hv_PSI3, out hv_PSI4);
             hv_Features = new HTuple();
             hv_Features = hv_Features.TupleConcat(hv_Circularity);
             hv_Features = hv_Features.TupleConcat(hv_Circularity_xld);
@@ -172,8 +164,7 @@ namespace VizijskiSustavWPF.HALCON
                 ho_ConnectedRegions.Dispose();
                 HOperatorSet.Connection(ho_Regions, out ho_ConnectedRegions);
                 ho_SelectedRegions.Dispose();
-                HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area",
-                    "and", 1000, 100000);
+                HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area", "and", 1000, 100000);
                 ho_Region.Dispose();
                 HOperatorSet.SelectObj(ho_SelectedRegions, out ho_Region, hv_J);
                 get_features(ho_Region, out hv_Features);
@@ -211,8 +202,7 @@ namespace VizijskiSustavWPF.HALCON
                 ho_ConnectedRegions.Dispose();
                 HOperatorSet.Connection(ho_Regions, out ho_ConnectedRegions);
                 ho_SelectedRegions.Dispose();
-                HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area",
-                    "and", 1000, 100000);
+                HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area","and", 1000, 100000);
                 {
                     HObject ExpTmpOutVar_0;
                     HOperatorSet.SelectObj(ho_Region, out ExpTmpOutVar_0, hv_J);
@@ -321,16 +311,35 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.GenEmptyObj(out ho_Cross2);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
             //** GMM ***
-            //Image Acquisition 01: Code generated by Image Acquisition 01
-            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "acA130075gm_CAM", 0, -1, out hv_AcqHandle);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Continuous");
+            //Image Acquisition
+            try
+            {
+                HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "acA130075gm_CAM", 0, -1, out hv_AcqHandle);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Continuous");
+            }
+            catch (HalconException HDevExpDefaultExceptionCamera)
+            {
+
+            }
             hv_pi = 3.14159265359;
             hv_angle = (0 * hv_pi) / 180;
-            // Camera intrinsics and extrinsics
-            HOperatorSet.ReadCamPar("C:/App/CamPar/intrinsics.cal", out hv_CamParam);
-            HOperatorSet.ReadPose("C:/App/CamPar/extrinsics.dat", out hv_CamPose);
-            HOperatorSet.ReadClassGmm("C:/App/Train/traineg_gmm_pick_1.4.ggc", out hv_GMMHandle);
-            // Uzimanje slike
+            // Relative path to file
+            string IntrinsicsFileName = "intrinsics.cal";
+            string IntrinsicsPath = Path.Combine(Environment.CurrentDirectory, @"CamPar", IntrinsicsFileName);
+            //
+            string ExtrinsicsFileName = "extrinsics.dat";
+            string ExtrinsicsPath = Path.Combine(Environment.CurrentDirectory, @"CamPar", ExtrinsicsFileName);
+            //
+            string TrainegGmmFileName = "traineg_gmm_pick_1.4.ggc";
+            string TrainegGmmPath = Path.Combine(Environment.CurrentDirectory, @"Train", TrainegGmmFileName);
+            // Camera intrinsics and extrinsics call
+            HOperatorSet.ReadCamPar(IntrinsicsPath, out hv_CamParam);
+            HOperatorSet.ReadPose(ExtrinsicsPath, out hv_CamPose);
+            HOperatorSet.ReadClassGmm(TrainegGmmPath, out hv_GMMHandle);
+            //HOperatorSet.ReadCamPar("C:/App/CamPar/intrinsics.cal", out hv_CamParam);
+            //HOperatorSet.ReadPose("C:/App/CamPar/extrinsics.dat", out hv_CamPose);
+            //HOperatorSet.ReadClassGmm("C:/App/Train/traineg_gmm_pick_1.4.ggc", out hv_GMMHandle);
+            // Grab operator
             ho_Image.Dispose();
             HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
             HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
@@ -360,7 +369,6 @@ namespace VizijskiSustavWPF.HALCON
                 ho_Objects = ExpTmpOutVar_0;
             }
 
-
             //prefiltriranje klasificiranih predmeta
             {
                 HObject ExpTmpOutVar_0;
@@ -368,13 +376,13 @@ namespace VizijskiSustavWPF.HALCON
                 ho_Objects.Dispose();
                 ho_Objects = ExpTmpOutVar_0;
             }
+
             {
                 HObject ExpTmpOutVar_0;
                 HOperatorSet.SelectShape(ho_Objects, out ExpTmpOutVar_0, "area", "and", 1000, 100000);
                 ho_Objects.Dispose();
                 ho_Objects = ExpTmpOutVar_0;
             }
-
 
             //** Carolija ***
             HOperatorSet.DiameterRegion(ho_Objects, out hv_Row1, out hv_Column1, out hv_Row2, out hv_Column2, out hv_Diameter);
@@ -386,7 +394,6 @@ namespace VizijskiSustavWPF.HALCON
                 hv_index = 0;
                 hv_out = 0;
                 HOperatorSet.TupleLength(hv_Diameter, out hv_Length);
-
 
                 HOperatorSet.DispObj(ho_ImageRectified, hv_ExpDefaultWinHandle);
                 HOperatorSet.DispLine(hv_ExpDefaultWinHandle, hv_Height / 2, 0, hv_Height / 2, hv_Width);
@@ -501,8 +508,6 @@ namespace VizijskiSustavWPF.HALCON
                     }
                     hv_i = hv_i + 1;
                 }
-                //*******************************
-
 
                 //* Display detected objects **
                 HTuple end_val124 = hv_index;
@@ -519,22 +524,18 @@ namespace VizijskiSustavWPF.HALCON
                     HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, hv_x_cross, hv_y_cross);
                     HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_k);
                 }
-                //******************************
 
                 HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0.00, out hv_WorldPose);
                 HOperatorSet.PoseToHomMat3d(hv_WorldPose, out hv_HomMat3D);
                 HOperatorSet.HomMat3dRotateLocal(hv_HomMat3D, hv_angle, "z", out hv_HomMat3DRotate);
                 HOperatorSet.HomMat3dToPose(hv_HomMat3DRotate, out hv_WorldPose);
-
                 HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_x_.TupleSelect(0), hv_y_.TupleSelect(0), "mm", out hv_X, out hv_Y);
 
-
-                // Diameter check
+                // Diameter check // Still not working
                 //HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_Row1, hv_Column1, "mm", out hv_Pixel1X, out hv_Pixel1Y);
                 //HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_Row2, hv_Column2, "mm", out hv_Pixel2X, out hv_Pixel2Y);
                 //HOperatorSet.DistancePp(hv_Pixel1X, hv_Pixel1Y, hv_Pixel2X, hv_Pixel2Y, out hv_distance);
                 //HOperatorSet.TupleMean(hv_distance, out hv_distance_mean);
-
 
                 HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, 100, 100);
                 HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_a);
@@ -682,22 +683,43 @@ namespace VizijskiSustavWPF.HALCON
             koordinate.RXcord = (float) hv_X.D;
             koordinate.RYcord = (float) hv_Y.D;
             koordinate.AngleDeg = (float)hv_angledeg.D;
+            //Still not working
             //koordinate.WorkpieceDiameter = (float)hv_distance_mean.D;
             // Chech for infinity Double to float conversion
-            if (float.IsPositiveInfinity(argumenti.PXvalue))
+            if (float.IsPositiveInfinity(koordinate.RXcord))
             {
                 koordinate.RXcord = float.MaxValue;
-                koordinate.RYcord = float.MaxValue;
-                koordinate.AngleDeg = float.MaxValue;
-                koordinate.WorkpieceDiameter = float.MaxValue;
             }
-            else if (float.IsNegativeInfinity(argumenti.PXvalue))
+            else if (float.IsNegativeInfinity(koordinate.RXcord))
             {
                 koordinate.RXcord = float.MinValue;
-                koordinate.RYcord = float.MinValue;
-                koordinate.AngleDeg = float.MinValue;
-                koordinate.WorkpieceDiameter = float.MinValue;
             }
+
+            if (float.IsPositiveInfinity(koordinate.RYcord))
+            {
+                koordinate.RYcord = float.MaxValue;
+            }
+            else if (float.IsNegativeInfinity(koordinate.RYcord))
+            {
+                koordinate.RYcord = float.MinValue;
+            }
+
+            if (float.IsPositiveInfinity(koordinate.AngleDeg))
+            {
+                koordinate.AngleDeg = float.MaxValue;
+            }
+            else if (float.IsNegativeInfinity(koordinate.AngleDeg))
+            {
+                koordinate.AngleDeg = float.MinValue;
+            }
+            //if (float.IsPositiveInfinity(koordinate.WorkpieceDiameter))
+            //{
+            //    koordinate.WorkpieceDiameter = float.MaxValue;
+            //}
+            //else if (float.IsNegativeInfinity(koordinate.WorkpieceDiameter))
+            //{
+            //    koordinate.WorkpieceDiameter = float.MinValue;
+            //}
 
             if (UpdateResultPick != null)
                 UpdateResultPick(this, koordinate);
