@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading;
@@ -26,7 +27,18 @@ namespace VizijskiSustavWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            // Fetch data from JSON file
+            // Load saved data from JSON file
+            string DataBaseFileName = "savedata.JSON";
+            string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+            String JSONstring = File.ReadAllText(DataBasePath);
+            database = JsonConvert.DeserializeObject<List<ReportInterface.DimensionLine>>(JSONstring);
+            // If JSON is empty we have null
+            if (database == null)
+            {
+                database = new List<ReportInterface.DimensionLine>();
+            }
+            LbrojKomada.Content = "BROJ ANALIZIRANIH KOMADA U BAZI:   " + database.Count;
         }
 
         private void saveValues_Click(object sender, RoutedEventArgs e)
@@ -214,6 +226,12 @@ namespace VizijskiSustavWPF
             Thread excelExportThread = new Thread(ExcelExport);
             excelExportThread.Name = "Thread ExcelExport";
             excelExportThread.Start();
+        }
+
+        private void BotvoriDatoteku_Click(object sender, RoutedEventArgs e)
+        {
+            string ReportPath = string.Format(@"{0}\Reports\", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)); ;
+            Process.Start("explorer.exe", ReportPath);
         }
     }
 }

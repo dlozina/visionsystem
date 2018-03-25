@@ -45,7 +45,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -71,7 +71,7 @@
     <StartupObject>VizijskiSustavWPF.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>video_on_icon.ico</ApplicationIcon>
+    <ApplicationIcon>vision_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -344,7 +344,7 @@
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="video_on_icon.ico" />
+    <Resource Include="vision_icon.ico" />
     <Resource Include="Photos\fast44_black.png" />
     <Resource Include="Photos\play106_black.png" />
     <Resource Include="Photos\automation.png" />

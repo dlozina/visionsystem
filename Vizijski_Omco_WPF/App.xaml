@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:VizijskiSustavWPF"
              xmlns:reports="clr-namespace:VizijskiSustavWPF.Reports"
-
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 

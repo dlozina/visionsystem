@@ -85,9 +85,14 @@ namespace VizijskiSustavWPF
             robotPick2Thread.Start();
         }
 
+        private void Window_Unloaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            App.HDevExp.Exitloop1 = true;
+        }
+
         //private void BmultiTest_Click(object sender, System.Windows.RoutedEventArgs e)
         //{
-           
+
         //    if(i == 0)
         //    {
         //        App.ActivateControl1();
@@ -96,7 +101,7 @@ namespace VizijskiSustavWPF
         //    {
         //        App.ActivateControl2();
         //    }
-            
+
         //    i++;
         //}
     }

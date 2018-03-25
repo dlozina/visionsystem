@@ -44,7 +44,9 @@ namespace VizijskiSustavWPF
         {
             InitializeComponent();
             // Load saved data from JSON file
-            String JSONstring = File.ReadAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON");
+            string DataBaseFileName = "savedata.JSON";
+            string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+            String JSONstring = File.ReadAllText(DataBasePath);
             savedata = JsonConvert.DeserializeObject<List<ReportInterface.DimensionLine>>(JSONstring);
             // If JSON is empty we have null
             if (savedata == null)

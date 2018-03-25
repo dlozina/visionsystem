@@ -6,7 +6,9 @@
       x:Class="VizijskiSustavWPF.PRobot" 
       mc:Ignorable="d"
       xmlns:local="clr-namespace:VizijskiSustavWPF"
-	  Title="PRobot" d:DesignWidth="1354" d:DesignHeight="828">
+	  Title="PRobot" d:DesignWidth="1354" d:DesignHeight="828"
+      Unloaded="Window_Unloaded"
+      >
     <Grid>
 
         <Grid MinHeight="300" MinWidth="300"  Background="Black" Grid.RowSpan="1"     >

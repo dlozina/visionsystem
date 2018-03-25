@@ -180,6 +180,19 @@ namespace VizijskiSustavWPF
             App.HDevExp.Exitloop4 = true;
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Unloaded(object sender, RoutedEventArgs e)
+        {
+            App.HDevExp.Exitloop1 = true;
+            App.HDevExp.Exitloop2 = true;
+            App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = true;
+        }
+
         //private void b_zatvoriKadar_Click(object sender, RoutedEventArgs e)
         //{
         //    HOperatorSet.CloseAllFramegrabbers();

@@ -9,7 +9,10 @@
       mc:Ignorable="d" 
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
 	  d:DesignWidth="1354" d:DesignHeight="828"
-      Title="PRucno">
+      Title="PRucno"
+      Loaded="Window_Loaded"
+      Unloaded="Window_Unloaded"
+      >
 
     <Grid>
 
