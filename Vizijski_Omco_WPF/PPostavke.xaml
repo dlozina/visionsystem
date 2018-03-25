@@ -49,84 +49,133 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                     </Grid.ColumnDefinitions>
                     <!-- Stupac Unos Kota sa nacrta -->
-                    <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UNOS KOTA SA NACRTA"/></TextBlock>
+                    <TextBlock Grid.Row="0" Margin="1" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="UNOS KOTA SA NACRTA"/></TextBlock>
                     <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="DIJAMETAR 1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br1"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara1, ElementName=kota_br1}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Grid.Column="0" Content="DIMENZIJA" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <Label Grid.Column="1" Content="VRIJEDNOST" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <Label Grid.Column="2" Content="DELTA +" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <Label Grid.Column="3" Content="DELTA -" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="DIJAMETAR 2" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br2"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara2, ElementName=kota_br2}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Content="D1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br1"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara1, ElementName=kota_br1}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlus1"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar1DeltaPlus , ElementName=IFdeltaPlus1}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinus1"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar1DeltaMinus , ElementName=IFdeltaMinus1}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="DIJAMETAR 3" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br3"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara3, ElementName=kota_br3}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Content="D2" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br2"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara2, ElementName=kota_br2}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlus2"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar2DeltaPlus , ElementName=IFdeltaPlus2}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinus2"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar2DeltaMinus , ElementName=IFdeltaMinus2}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="DIJAMETAR 4" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br4"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara4, ElementName=kota_br4}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Content="D3" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br3"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara3, ElementName=kota_br3}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlus3"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar3DeltaPlus , ElementName=IFdeltaPlus3}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinus3"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar3DeltaMinus , ElementName=IFdeltaMinus3}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="5" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="DIJAMETAR 5" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br5"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara5, ElementName=kota_br5}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Content="D4" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br4"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara4, ElementName=kota_br4}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlus4"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar4DeltaPlus , ElementName=IFdeltaPlus4}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinus4"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar4DeltaMinus , ElementName=IFdeltaMinus4}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="6" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="VISINA 1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina1"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV1, ElementName=if_visina1}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Content="D5" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="kota_br5"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeDijametara5, ElementName=kota_br5}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlus5"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar5DeltaPlus , ElementName=IFdeltaPlus5}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinus5"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Dijametar5DeltaMinus , ElementName=IFdeltaMinus5}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="7" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="VISINA 2" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina2"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV2, ElementName=if_visina2}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Content="V1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina1"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV1, ElementName=if_visina1}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlusV1"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Visina1DeltaPlus, ElementName=IFdeltaPlusV1}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinusV1"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Visina1DeltaMinus, ElementName=IFdeltaMinusV1}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="8" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="VISINA 3" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina3"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV3, ElementName=if_visina3}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Content="V2" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina2"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV2, ElementName=if_visina2}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlusV2"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Visina2DeltaPlus, ElementName=IFdeltaPlusV2}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinusV2"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Visina2DeltaMinus, ElementName=IFdeltaMinusV2}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="9" Grid.Column="0" Background="Black" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="VISINA BAZE" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visinaBaze"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineBaze, ElementName=if_visinaBaze}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <Label Content="V3" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visina3"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineV3, ElementName=if_visina3}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlusV3"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Visina3DeltaPlus, ElementName=IFdeltaPlusV3}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinusV3"  ControlTag="{Binding PLCConnection.CONTROL.Tolerance.Visina3DeltaMinus, ElementName=IFdeltaMinusV3}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
-                    <Grid Grid.Row="10" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                    <Grid Grid.Row="10" Grid.Column="0" Background="Black" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="VB" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="if_visinaBaze"  ControlTag="{Binding PLCConnection.CONTROL.UcenjeReal.ZadavanjeVisineBaze, ElementName=if_visinaBaze}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="2" x:Name="IFdeltaPlusVB"  PLCConnection="{DynamicResource PLCinterf}" IsEnabled="False"/>
+                        <vizijskiSustavWpf:InputField Grid.Column="3" x:Name="IFdeltaMinusVB" PLCConnection="{DynamicResource PLCinterf}" IsEnabled="False"/>
+                    </Grid>
+                    <Grid Grid.Row="11" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="2*"/>
