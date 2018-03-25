@@ -154,7 +154,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Margin="1" x:Name="BotvoriDatoteku" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="OTVORI DATOTEKU" Click="BotvoriDatoteku_Click"/>
+                    <Button Margin="1" x:Name="BotvoriDatoteku" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="OTVORI DATOTEKU IZVJEŠTAJA" Click="BotvoriDatoteku_Click"/>
                 </Grid>
             </Grid>
 

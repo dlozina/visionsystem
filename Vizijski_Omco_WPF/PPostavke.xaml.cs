@@ -65,6 +65,26 @@ namespace VizijskiSustavWPF
             if_visina2.IsEnabled = false;
             if_visina3.IsEnabled = false;
             if_visinaBaze.IsEnabled = false;
+            // Unos Toleranca +
+            IFdeltaPlus1.IsEnabled = false;
+            IFdeltaPlus2.IsEnabled = false;
+            IFdeltaPlus3.IsEnabled = false;
+            IFdeltaPlus4.IsEnabled = false;
+            IFdeltaPlus5.IsEnabled = false;
+            IFdeltaPlusV1.IsEnabled = false;
+            IFdeltaPlusV2.IsEnabled = false;
+            IFdeltaPlusV3.IsEnabled = false;
+            //IFdeltaPlusVB.IsEnabled = false;
+            // Unos toleranca -
+            IFdeltaMinus1.IsEnabled = false;
+            IFdeltaMinus2.IsEnabled = false;
+            IFdeltaMinus3.IsEnabled = false;
+            IFdeltaMinus4.IsEnabled = false;
+            IFdeltaMinus5.IsEnabled = false;
+            IFdeltaMinusV1.IsEnabled = false;
+            IFdeltaMinusV2.IsEnabled = false;
+            IFdeltaMinusV3.IsEnabled = false;
+            //IFdeltaMinusVB.IsEnabled = false;
         }
 
         private void BSaveDataLayer_Click(object sender, RoutedEventArgs e)
@@ -77,12 +97,6 @@ namespace VizijskiSustavWPF
             IFBrojSlojevaKomadiNOKDesno.IsEnabled = false;
             IFBrojLimova.IsEnabled = false;
             IFDebljinaLimova.IsEnabled = false;
-        }
-
-        private void BBpaletaLimova_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            IFBrojLimova.IsEnabled = true;
-            IFDebljinaLimova.IsEnabled = true;
         }
 
         private void BSaveDataReport_Click(object sender, RoutedEventArgs e)
@@ -106,6 +120,69 @@ namespace VizijskiSustavWPF
             TBkolicina.IsEnabled = true;
             TBispitivac.IsEnabled = true;
             TBdatum.IsEnabled = true;
+            // Unos Mjerenih vrijednosti
+            kota_br1.IsEnabled = true;
+            kota_br2.IsEnabled = true;
+            kota_br3.IsEnabled = true;
+            kota_br4.IsEnabled = true;
+            kota_br5.IsEnabled = true;
+            if_visina1.IsEnabled = true;
+            if_visina2.IsEnabled = true;
+            if_visina3.IsEnabled = true;
+            if_visinaBaze.IsEnabled = true;
+            // Unos Toleranca +
+            IFdeltaPlus1.IsEnabled = true;
+            IFdeltaPlus2.IsEnabled = true;
+            IFdeltaPlus3.IsEnabled = true;
+            IFdeltaPlus4.IsEnabled = true;
+            IFdeltaPlus5.IsEnabled = true;
+            IFdeltaPlusV1.IsEnabled = true;
+            IFdeltaPlusV2.IsEnabled = true;
+            IFdeltaPlusV3.IsEnabled = true;
+            //IFdeltaPlusVB.IsEnabled = true;
+            // Unos toleranca -
+            IFdeltaMinus1.IsEnabled = true;
+            IFdeltaMinus2.IsEnabled = true;
+            IFdeltaMinus3.IsEnabled = true;
+            IFdeltaMinus4.IsEnabled = true;
+            IFdeltaMinus5.IsEnabled = true;
+            IFdeltaMinusV1.IsEnabled = true;
+            IFdeltaMinusV2.IsEnabled = true;
+            IFdeltaMinusV3.IsEnabled = true;
+            //IFdeltaMinusVB.IsEnabled = true;
+            // Vrijednost Slojeva paleta
+            IFBrojSlojevaUlaznaLijevo.IsEnabled = true;
+            IFBrojSlojevaUlaznaDesno.IsEnabled = true;
+            IFBrojSlojevaKomadiOKLijevo.IsEnabled = true;
+            IFBrojSlojevaKomadiOKDesno.IsEnabled = true;
+            IFBrojSlojevaKomadiNOKLijevo.IsEnabled = true;
+            IFBrojSlojevaKomadiNOKDesno.IsEnabled = true;
+            IFBrojLimova.IsEnabled = true;
+            IFDebljinaLimova.IsEnabled = true;
+        }
+
+        private void BBkomadiZaMjerenje_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            IFBrojSlojevaUlaznaLijevo.IsEnabled = true;
+            IFBrojSlojevaUlaznaDesno.IsEnabled = true;
+        }
+
+        private void BBkomadiNok_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            IFBrojSlojevaKomadiNOKLijevo.IsEnabled = true;
+            IFBrojSlojevaKomadiNOKDesno.IsEnabled = true;
+        }
+
+        private void BBkomadiOK_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            IFBrojSlojevaKomadiOKLijevo.IsEnabled = true;
+            IFBrojSlojevaKomadiOKDesno.IsEnabled = true;
+        }
+
+        private void BBpaletaLimova_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            IFBrojLimova.IsEnabled = true;
+            IFDebljinaLimova.IsEnabled = true;
         }
 
         //private void updatePage(object sender, PLCInterfaceEventArgs e)
