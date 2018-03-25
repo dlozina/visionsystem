@@ -69,7 +69,6 @@ namespace VizijskiSustavWPF
             pRucno = new PRucno();
             //Report interface
             //initReportInterface = new ReportInterface();
-
             PLC.StartCyclic(); // Possible system null reference
             PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
             PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
@@ -77,9 +76,7 @@ namespace VizijskiSustavWPF
             HDevExp.UpdateResultPick += new HALCON.HDevelopExport.UpdateHandlerPick(PickUpdate);
             HDevExp.PorosityDetected += new HALCON.HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
             HDevExp.PorosityDetectionStart += new HALCON.HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
-            HDevExp.PorosityDetectionHorStart += new HALCON.HDevelopExport.PorosityDetectionHorStartEventHandler(DetectionHorStart);
-
-            
+            HDevExp.PorosityDetectionHorStart += new HALCON.HDevelopExport.PorosityDetectionHorStartEventHandler(DetectionHorStart); 
         }
 
         // Variable for empty window call
@@ -414,6 +411,21 @@ namespace VizijskiSustavWPF
         public static void ActivateControlPorosityPosition()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.PoroznostHorPozicija, true);
+        }
+
+        public static void ActivateDimenzije()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.NacinRada.Dimenzije, true);
+        }
+
+        public static void ActivatePoroznost()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.NacinRada.Poroznost, true);
+        }
+
+        public static void ActivateString()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.NacinRada.String, true);
         }
 
         // Event handler koji se poziva kad PLC postane online ili offline (Ethernet kabel se spoji ili odspoji).

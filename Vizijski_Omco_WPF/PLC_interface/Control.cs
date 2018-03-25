@@ -19,6 +19,7 @@
         public prekret Prekret { get; set; } = new prekret();
         public uzimanjekomada UzimanjeKomada { get; set; } = new uzimanjekomada();
         public tolerance Tolerance { get; set; } = new tolerance();
+        public nacinrada NacinRada { get; set; } = new nacinrada();
 
         public class horizontalnaOs
         {
@@ -217,6 +218,13 @@
             public plcTag Visina2DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(182, 0), 0.0f);
             public plcTag Visina3DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(186, 0), 0.0f);
             public plcTag Visina3DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 6, new Offset(190, 0), 0.0f);
+        }
+
+        public class nacinrada
+        {
+            public plcTag Dimenzije { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 0), false);
+            public plcTag Poroznost { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 1), false);
+            public plcTag String { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 2), false);
         }
     }
 }

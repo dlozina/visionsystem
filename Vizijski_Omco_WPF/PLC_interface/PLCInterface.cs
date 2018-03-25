@@ -120,7 +120,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 194, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 196, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -285,6 +285,11 @@ namespace VizijskiSustavWPF
                     CONTROL.Tolerance.Visina2DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Tolerance.Visina3DeltaMinus.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Tolerance.Visina3DeltaPlus.GetValueFromGroupBuffer(CyclicControlBuffer);
+
+                    // NacinRada
+                    CONTROL.NacinRada.Dimenzije.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.NacinRada.Poroznost.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.NacinRada.String.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;

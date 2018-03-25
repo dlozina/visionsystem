@@ -185,6 +185,37 @@ namespace VizijskiSustavWPF
             IFDebljinaLimova.IsEnabled = true;
         }
 
+        private void CBdimenzija_Checked(object sender, RoutedEventArgs e)
+        {
+            App.ActivateDimenzije();
+        }
+
+        private void CBdimenzija_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CBporoznost_Checked(object sender, RoutedEventArgs e)
+        {
+            App.ActivatePoroznost();
+        }
+
+        private void CBporoznost_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CBstring_Checked(object sender, RoutedEventArgs e)
+        {
+            App.ActivateString();
+        }
+
+        private void CBstring_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
         //private void updatePage(object sender, PLCInterfaceEventArgs e)
         //{
 

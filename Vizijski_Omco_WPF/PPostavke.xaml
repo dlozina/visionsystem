@@ -383,7 +383,7 @@
                         <Grid Grid.Column="0" Background="Black" Margin="1">
                             <Label  Grid.Column="0" Content="DIMENZIJE" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBdimenzija" Style="{DynamicResource CheckBoxStyle1}" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <CheckBox Grid.Column="1" x:Name="CBdimenzija" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CBdimenzija_Checked" Unchecked="CBdimenzija_Unchecked" >
                             <CheckBox.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -403,7 +403,7 @@
                         <Grid Grid.Column="0" Background="Black" Margin="1">
                             <Label  Grid.Column="0" Content="POROZNOST" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBporoznost"  Style="{DynamicResource CheckBoxStyle1}" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <CheckBox Grid.Column="1" x:Name="CBporoznost"  Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CBporoznost_Checked" Unchecked="CBporoznost_Unchecked" >
                             <CheckBox.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -423,7 +423,7 @@
                         <Grid Grid.Column="0" Background="Black" Margin="1">
                             <Label  Grid.Column="0" Content="STRING" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBstring"  Style="{DynamicResource CheckBoxStyle1}" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <CheckBox Grid.Column="1" x:Name="CBstring"  Style="{DynamicResource CheckBoxStyle1}"  HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CBstring_Checked" Unchecked="CBstring_Unchecked" >
                             <CheckBox.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleX="2" ScaleY="2"/>
