@@ -17,6 +17,11 @@ namespace VizijskiSustavWPF
             //App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePagePRucno_1s);
         }
 
+        private void Window_Unloaded(object sender, RoutedEventArgs e)
+        {
+            App.HDevExp.Teachloop = true;
+        }
+
         int i = 1;
 
         //private void updatePagePRucno_100ms(object sender, PLCInterfaceEventArgs e)
@@ -150,31 +155,31 @@ namespace VizijskiSustavWPF
                 //PLC kontrola
                 App.ActivateControlD4S1();
             }
-            // Prvi Klik D5S1
+            // Prvi Klik D4S2
             else if (i == 5)
             {
-                //PLC kontrola
-                App.ActivateControlD5S1();
+                App.ActivateControlD4S2();
             }
-            // Prvi Klik D1S2
+            // Prvi Klik D3S2
             else if (i == 6)
             {
-                App.ActivateControlD1S2();
+                App.ActivateControlD3S2();
             }
             // Prvi Klik D2S2
             else if (i == 7)
             {
                 App.ActivateControlD2S2();
             }
-            // Prvi Klik D3S2
+            // Prvi Klik D1S2
             else if (i == 8)
             {
-                App.ActivateControlD3S2();
+                App.ActivateControlD1S2();
             }
-            // Prvi Klik D4S2
+            // Prvi Klik D5S1
             else if (i == 9)
             {
-                App.ActivateControlD4S2();
+                //PLC kontrola
+                App.ActivateControlD5S1();
             }
             // Prvi Klik D5S2
             else if (i == 10)
@@ -185,74 +190,83 @@ namespace VizijskiSustavWPF
 
         private void Btest_Click(object sender, RoutedEventArgs e)
         {
-            // Prvi Klik D1S1
-            if (i == 1)
-            {
-                App.HDevExp.Teachloop = true;
-                Thread TestAnalizeD1S1 = new Thread(AnalizeD1S1) { Name = "TestAnalizeD1S1Thread" };
-                TestAnalizeD1S1.Start();
-            }
-            // Prvi Klik D2S1
-            else if (i == 2)
-            {
-                App.HDevExp.Teachloop = true;
-                Thread TestAnalizeD2S1 = new Thread(AnalizeD2S1) { Name = "TestAnalizeD2S1Thread" };
-                TestAnalizeD2S1.Start();
-            }
-            // Prvi Klik D3S1
-            else if (i == 3)
-            {
-                App.HDevExp.Teachloop = true;
-                Thread TestAnalizeD3S1 = new Thread(AnalizeD3S1) { Name = "TestAnalizeD3S1Thread" };
-                TestAnalizeD3S1.Start();
-            }
-            // Prvi Klik D4S1
-            else if (i == 4)
-            {
-                App.HDevExp.Teachloop = true;
-                Thread TestAnalizeD4S1 = new Thread(AnalizeD4S1) { Name = "TestAnalizeD4S1Thread" };
-                TestAnalizeD4S1.Start();
+            App.HDevExp.Teachloop = true;
 
-            }
-            // Prvi Klik D5S1
-            else if (i == 5)
-            {
-                //PLC kontrola
-                
-            }
-            // Prvi Klik D1S2
-            else if (i == 6)
-            {
-                App.HDevExp.Teachloop = true;
-                Thread TestAnalizeD1S2 = new Thread(AnalizeD1S2) { Name = "TestAnalizeD1S2Thread" };
-                TestAnalizeD1S2.Start();
-            }
-            // Prvi Klik D2S2
-            else if (i == 7)
-            {
-                App.HDevExp.Teachloop = true;
-                Thread TestAnalizeD2S2 = new Thread(AnalizeD2S2) { Name = "TestAnalizeD2S2Thread" };
-                TestAnalizeD2S2.Start();
-            }
-            // Prvi Klik D3S2
-            else if (i == 8)
-            {
-                App.HDevExp.Teachloop = true;
-                Thread TestAnalizeD3S2 = new Thread(AnalizeD3S2) { Name = "TestAnalizeD3S2Thread" };
-                TestAnalizeD3S2.Start();
-            }
-            // Prvi Klik D4S2
-            else if (i == 9)
-            {
-                App.HDevExp.Teachloop = true;
-                Thread TestAnalizeD4S2 = new Thread(AnalizeD4S2) { Name = "TestAnalizeD4S2Thread" };
-                TestAnalizeD4S2.Start();
-            }
-            // Prvi Klik D5S2
-            else if (i == 10)
-            {
-                
-            }
+            //while (App.HDevExp.FramegrabberClosed4 == false)
+            //{
+                //if (App.HDevExp.FramegrabberClosed4 == true)
+                //{
+                    // Prvi Klik D1S1
+                    if (i == 1)
+                    {
+                        App.HDevExp.Teachloop = true;
+                        Thread TestAnalizeD1S1 = new Thread(AnalizeD1S1) { Name = "TestAnalizeD1S1Thread" };
+                        TestAnalizeD1S1.Start();
+                    }
+                    // Prvi Klik D2S1
+                    else if (i == 2)
+                    {
+                        App.HDevExp.Teachloop = true;
+                        Thread TestAnalizeD2S1 = new Thread(AnalizeD2S1) { Name = "TestAnalizeD2S1Thread" };
+                        TestAnalizeD2S1.Start();
+                    }
+                    // Prvi Klik D3S1
+                    else if (i == 3)
+                    {
+                        App.HDevExp.Teachloop = true;
+                        Thread TestAnalizeD3S1 = new Thread(AnalizeD3S1) { Name = "TestAnalizeD3S1Thread" };
+                        TestAnalizeD3S1.Start();
+                    }
+                    // Prvi Klik D4S1
+                    else if (i == 4)
+                    {
+                        App.HDevExp.Teachloop = true;
+                        Thread TestAnalizeD4S1 = new Thread(AnalizeD4S1) { Name = "TestAnalizeD4S1Thread" };
+                        TestAnalizeD4S1.Start();
+
+                    }
+                    // Prvi Klik D4S2
+                    else if (i == 5)
+                    {
+                        App.HDevExp.Teachloop = true;
+                        Thread TestAnalizeD4S2 = new Thread(AnalizeD4S2) { Name = "TestAnalizeD4S2Thread" };
+                        TestAnalizeD4S2.Start();
+                    }
+                    // Prvi Klik D3S2
+                    else if (i == 6)
+                    {
+                        App.HDevExp.Teachloop = true;
+                        Thread TestAnalizeD3S2 = new Thread(AnalizeD3S2) { Name = "TestAnalizeD3S2Thread" };
+                        TestAnalizeD3S2.Start();
+                    }
+                    // Prvi Klik D2S2
+                    else if (i == 7)
+                    {
+                        App.HDevExp.Teachloop = true;
+                        Thread TestAnalizeD2S2 = new Thread(AnalizeD2S2) { Name = "TestAnalizeD2S2Thread" };
+                        TestAnalizeD2S2.Start();
+                    }
+                    // Prvi Klik D1S2
+                    else if (i == 8)
+                    {
+                        App.HDevExp.Teachloop = true;
+                        Thread TestAnalizeD1S2 = new Thread(AnalizeD1S2) { Name = "TestAnalizeD1S2Thread" };
+                        TestAnalizeD1S2.Start();
+                    }
+                    // Prvi Klik D5S1
+                    else if (i == 9)
+                    {
+
+
+                    }
+                    // Prvi Klik D5S2
+                    else if (i == 10)
+                    {
+
+                    }
+                //}
+            //}
+            //App.HDevExp.FramegrabberClosed4 = false;
         }
 
         private void BnauciPozicijuDijametri_Click(object sender, RoutedEventArgs e)

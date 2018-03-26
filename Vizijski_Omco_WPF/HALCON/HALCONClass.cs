@@ -91,6 +91,8 @@ namespace VizijskiSustavWPF.HALCON
 
         public bool Teachloop3 { get; set; }
 
+        public bool FramegrabberClosed4 { get; set; }
+
         public bool Porositydetectedver { get; set; }
 
         public bool Porositydetectedhor { get; set; }

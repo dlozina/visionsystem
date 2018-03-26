@@ -351,61 +351,61 @@ namespace VizijskiSustavWPF
         public static void ActivateControlD1S1()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, false);
         }
 
         public static void ActivateControlD1S2()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S2, false);
         }
 
         public static void ActivateControlD2S1()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S1, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S1, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S1, false);
         }
 
         public static void ActivateControlD2S2()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S2, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S2, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD2S2, false);
         }
 
         public static void ActivateControlD3S1()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD3S1, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD1S1, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD3S1, false);
         }
 
         public static void ActivateControlD3S2()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD3S2, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD3S2, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD3S2, false);
         }
 
         public static void ActivateControlD4S1()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S1, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S1, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S1, false);
         }
 
         public static void ActivateControlD4S2()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S2, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S2, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S2, false);
         }
 
         public static void ActivateControlD5S1()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S1, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD4S1, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S1, false);
         }
 
         public static void ActivateControlD5S2()
         {
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S2, true);
-            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S2, false);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S2, false);
         }
 
         public static void ActivateControlPorosityPosition()

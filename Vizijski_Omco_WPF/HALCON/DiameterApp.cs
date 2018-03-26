@@ -1,4 +1,5 @@
 using HalconDotNet;
+using System.Threading;
 
 namespace VizijskiSustavWPF.HALCON
 {
@@ -20,6 +21,7 @@ namespace VizijskiSustavWPF.HALCON
             {
                 // Camera communication - Open
                 //OpenCamFrame();
+                Thread.Sleep(500);
                 HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default",
                 -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
@@ -37,8 +39,8 @@ namespace VizijskiSustavWPF.HALCON
                 //hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
             }
 
-            try
-            {
+            //try
+            //{
 
                 HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
                 //* Define constants and tuples:
@@ -148,6 +150,13 @@ namespace VizijskiSustavWPF.HALCON
                     //* calculate pixel and mm outputs
                     hv_colToMax0 = hv_Col.TupleSelect(hv_IndexMax);
                     hv_output = (-hv_HalfW)+hv_colToMax0;
+
+                    // Display Result on side 2
+                    if (hv_TeachWinHandle.Length != 0)
+                    {
+                        HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle);
+                        HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
+                    }
                 }
 
                 //* Side 1 => side closer to vertical moving axis
@@ -232,26 +241,26 @@ namespace VizijskiSustavWPF.HALCON
                     hv_colToMin0 = hv_Col.TupleSelect(hv_IndexMin);
                     hv_output = hv_HalfW-hv_colToMin0;
 
-                    // Display Result
+                    // Display Result on side 1
                     if (hv_TeachWinHandle.Length != 0)
                     {
                         HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle);
                         HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
                     }
                 }
-            }
+            //}
 
-            catch (HalconException HDevExpDefaultExceptionVision)
-            {
-                ho_Image.Dispose();
-                ho_DerivGauss.Dispose();
-                ho_RegionCrossings.Dispose();
-                ho_Region.Dispose();
-                ho_region_outer.Dispose();
-                ho_contour_outer.Dispose();
-                ho_ContCircle.Dispose();
-                //throw HDevExpDefaultException;
-            }
+            //catch (HalconException HDevExpDefaultExceptionVision)
+            //{
+            //    ho_Image.Dispose();
+            //    ho_DerivGauss.Dispose();
+            //    ho_RegionCrossings.Dispose();
+            //    ho_Region.Dispose();
+            //    ho_region_outer.Dispose();
+            //    ho_contour_outer.Dispose();
+            //    ho_ContCircle.Dispose();
+            //    //throw HDevExpDefaultException;
+            //}
             ho_Image.Dispose();
             ho_DerivGauss.Dispose();
             ho_RegionCrossings.Dispose();
@@ -265,11 +274,11 @@ namespace VizijskiSustavWPF.HALCON
         public void RunHalcon1(HTuple window)
         {
             hv_TeachWinHandle = window;
-            DiameterAction(1, 1);
             if (hv_TeachWinHandle.Length != 0)
             {
                 HOperatorSet.ClearWindow(hv_TeachWinHandle);
             }
+            DiameterAction(1, 1);
             if (hv_output.Length != 0 )
             {
                 argumenti.PXvalue = (float)hv_output.D;
@@ -291,11 +300,11 @@ namespace VizijskiSustavWPF.HALCON
         public void RunHalcon2(HTuple window)
         {
             hv_TeachWinHandle = window;
-            DiameterAction(1, 2);
             if (hv_TeachWinHandle.Length != 0)
             {
                 HOperatorSet.ClearWindow(hv_TeachWinHandle);
             }
+            DiameterAction(1, 2);
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
@@ -317,11 +326,11 @@ namespace VizijskiSustavWPF.HALCON
         public void RunHalcon3(HTuple window)
         {
             hv_TeachWinHandle = window;
-            DiameterAction(2, 1);
             if (hv_TeachWinHandle.Length != 0)
             {
                 HOperatorSet.ClearWindow(hv_TeachWinHandle);
             }
+            DiameterAction(2, 1);
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
@@ -343,11 +352,11 @@ namespace VizijskiSustavWPF.HALCON
         public void RunHalcon4(HTuple window)
         {
             hv_TeachWinHandle = window;
-            DiameterAction(2, 2);
             if (hv_TeachWinHandle.Length != 0)
             {
                 HOperatorSet.ClearWindow(hv_TeachWinHandle);
             }
+            DiameterAction(2, 2);
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
@@ -369,11 +378,11 @@ namespace VizijskiSustavWPF.HALCON
         public void RunHalcon5(HTuple window)
         {
             hv_TeachWinHandle = window;
-            DiameterAction(3, 1);
             if (hv_TeachWinHandle.Length != 0)
             {
                 HOperatorSet.ClearWindow(hv_TeachWinHandle);
             }
+            DiameterAction(3, 1);
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
@@ -395,11 +404,11 @@ namespace VizijskiSustavWPF.HALCON
         public void RunHalcon6(HTuple window)
         {
             hv_TeachWinHandle = window;
-            DiameterAction(3, 2);
             if (hv_TeachWinHandle.Length != 0)
             {
                 HOperatorSet.ClearWindow(hv_TeachWinHandle);
             }
+            DiameterAction(3, 2);
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
@@ -421,11 +430,11 @@ namespace VizijskiSustavWPF.HALCON
         public void RunHalcon7(HTuple window)
         {
             hv_TeachWinHandle = window;
-            DiameterAction(4, 1);
             if (hv_TeachWinHandle.Length != 0)
             {
                 HOperatorSet.ClearWindow(hv_TeachWinHandle);
             }
+            DiameterAction(4, 1);
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
@@ -447,11 +456,11 @@ namespace VizijskiSustavWPF.HALCON
         public void RunHalcon8(HTuple window)
         {
             hv_TeachWinHandle = window;
-            DiameterAction(4, 2);
             if (hv_TeachWinHandle.Length != 0)
             {
                 HOperatorSet.ClearWindow(hv_TeachWinHandle);
             }
+            DiameterAction(4, 2);
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;

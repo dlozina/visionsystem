@@ -8,7 +8,9 @@
       x:Class="VizijskiSustavWPF.PUcenje"
       mc:Ignorable="d" 
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
-	  Title="PUcenje" d:DesignWidth="1354" d:DesignHeight="828" >
+	  Title="PUcenje" d:DesignWidth="1354" d:DesignHeight="828" 
+      Unloaded="Window_Unloaded"
+    >
 
 
     <Grid >
@@ -176,7 +178,6 @@
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Margin="1" Grid.Row="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="  X OS"/></TextBlock>
                         <Grid Grid.Row="1" Background="Black">
@@ -212,7 +213,6 @@
                 <Grid Grid.Row="2" Background="{DynamicResource pozadina1}" Margin="0,0,0,4">
                     <Grid Grid.Column="1" Grid.Row="1" Margin="4,4,4,4">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
