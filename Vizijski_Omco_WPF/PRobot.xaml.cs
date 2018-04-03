@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows.Controls;
 using HalconDotNet;
 
@@ -39,14 +40,21 @@ namespace VizijskiSustavWPF
 
         public void RobotPickStartT1()
         {
-            //this.Dispatcher.Invoke(() =>
-            //{
+            Dispatcher.BeginInvoke((Action)(() => 
+            {
                 App.HDevExp.InitHalcon();
                 HTuple windowId = HwindowRobot.HalconID;
                 App.HDevExp.RobotPick(windowId, false);
+
+            }));
+
+
+            //App.HDevExp.InitHalcon();
+            //this.Dispatcher.Invoke(() =>
+            //{
+            //    HTuple windowId = HwindowRobot.HalconID;
+            //    App.HDevExp.RobotPick(windowId, false);
             //});
-            //HTuple windowId = HwindowRobot.HalconID;
-            //App.HDevExp.RobotPick(windowId, false);
         }
 
         public void RobotPickStartT2()

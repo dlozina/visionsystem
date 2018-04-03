@@ -35,7 +35,7 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
             // Open camera frame
             HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851MP_CAM_2", 0, -1, out hv_AcqHandle);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 20000.0);
+            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 15000.0); // 20000
             // Information for PLC that frame is opened
             DetectionStart();
             hv_found = 0;
@@ -72,7 +72,7 @@ namespace VizijskiSustavWPF.HALCON
                 HOperatorSet.TupleLength(hv_Row, out hv_Length);
                 // Criteria for porosity
                 hv_circ_min = 0.5;
-                hv_area_min = 3000; //1000;
+                hv_area_min = 300; //1000;
                 hv_index = 0;
                 HTuple end_val44 = hv_Length;
                 HTuple step_val44 = 1;
@@ -94,8 +94,8 @@ namespace VizijskiSustavWPF.HALCON
                     }
                 }
 
-                //HOperatorSet.ClearWindow(hv_porosityWinHandle);
-                //HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
+                HOperatorSet.ClearWindow(hv_porosityWinHandle);
+                HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
 
                 if ((int)((new HTuple(hv_found.TupleGreater(0))).TupleAnd(new HTuple(hv_bol.TupleEqual(
                         1)))) != 0)
@@ -126,16 +126,16 @@ namespace VizijskiSustavWPF.HALCON
             ho_ContCircle.Dispose();
         }
 
-        //public void RunHalcon13(HTuple Window)
-        //{
-        //    hv_porosityWinHandle = Window;
-        //    porosityVertical();
-        //}
-
-        public void RunHalcon13()
+        public void RunHalcon13(HTuple Window)
         {
+            hv_porosityWinHandle = Window;
             porosityVertical();
         }
+
+        //public void RunHalcon13()
+        //{
+        //    porosityVertical();
+        //}
     }
 }
 

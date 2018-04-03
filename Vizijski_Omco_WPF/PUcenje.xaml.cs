@@ -20,6 +20,8 @@ namespace VizijskiSustavWPF
         private void Window_Unloaded(object sender, RoutedEventArgs e)
         {
             App.HDevExp.Teachloop = true;
+            App.HDevExp.Teachloop2 = true;
+            App.HDevExp.Teachloop3 = true;
         }
 
         int i = 1;
@@ -111,11 +113,18 @@ namespace VizijskiSustavWPF
             //App.HDevExp.RunHalcon8(windowId);
         }
 
-        private void b_startKamere_Click(object sender, RoutedEventArgs e)
+        private void TeachCam2()
         {
-            App.HDevExp.Teachloop = false;
-            Thread TeachCAM4Thread = new Thread(TeachCam4) { Name = "TeachCAM4Thread" };
-            TeachCAM4Thread.Start();
+            App.HDevExp.InitHalcon();
+            HTuple windowId = hwindowTeach.HalconID;
+            App.HDevExp.RunHalcon24(windowId);
+        }
+
+        private void TeachCam3()
+        {
+            App.HDevExp.InitHalcon();
+            HTuple windowId = hwindowTeach.HalconID;
+            App.HDevExp.RunHalcon25(windowId);
         }
 
         private void b_sTOPKamere_Click(object sender, RoutedEventArgs e)
@@ -277,59 +286,59 @@ namespace VizijskiSustavWPF
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA BR.2";
                 //PLC kontrola
-                //App.ActivateControlD1S1();
+                App.ActivateTeachD1S1();
             }
-            // Prvi Klik D1S2
+            // Prvi Klik D2S1
             else if (i == 2)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA BR.3";
-                //App.ActivateControl2();
+                App.ActivateTeachD2S1();
             }
-            // Prvi Klik D2S1
+            // Prvi Klik D3S1
             else if (i == 3)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA BR.4";
                 //PLC kontrola
-                //App.ActivateControl1();
+                App.ActivateTeachD3S1();
             }
-            // Prvi Klik D2S2
+            // Prvi Klik D4S1
             else if (i == 4)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA BR.5";
-                //App.ActivateControl2();
+                App.ActivateTeachD4S1();
             }
-            // Prvi Klik D3S1
+            // Prvi Klik D4S2
             else if (i == 5)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA BR.6";
                 //PLC kontrola
-                //App.ActivateControl1();
+                App.ActivateTeachD4S2();
             }
             // Prvi Klik D3S2
             else if (i == 6)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA BR.7";
-                //App.ActivateControl2();
+                App.ActivateTeachD3S2();
             }
-            // Prvi Klik D4S1
+            // Prvi Klik D2S2
             else if (i == 7)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA BR.8";
                 //PLC kontrola
-                //App.ActivateControl1();
+                App.ActivateTeachD2S2();
             }
-            // Prvi Klik D4S2
+            // Prvi Klik D1S2
             else if (i == 8)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA BR.9";
-                //App.ActivateControl2();
+                App.ActivateTeachD1S2();
             }
             // Prvi Klik D5S1
             else if (i == 9)
@@ -365,6 +374,7 @@ namespace VizijskiSustavWPF
             BpozicijaPoroznost.Content = "SPREMLJENO";
             BnauciPozicijuPoroznost.IsEnabled = false;
             BnauciPozicijuPoroznost.Foreground = new SolidColorBrush(Colors.Gray);
+            App.ActivateControlTeachPorosityPosition();
         }
 
         private void BresetUcenjaDijametri_Click(object sender, RoutedEventArgs e)
@@ -386,6 +396,37 @@ namespace VizijskiSustavWPF
             //
             BnauciPozicijuPoroznost.IsEnabled = true;
             BnauciPozicijuPoroznost.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+
+        private void b_startKamere_Click(object sender, RoutedEventArgs e)
+        {
+            App.HDevExp.Teachloop = false;
+            App.HDevExp.Teachloop2 = true;
+            App.HDevExp.Teachloop3 = true;
+            hwindowTeach.HImagePart = new Rect(0, 0, 3856, 2764);
+            Thread TeachCAM4Thread = new Thread(TeachCam4) { Name = "TeachCAM4Thread" };
+            TeachCAM4Thread.Start();
+        }
+
+        private void BtestKamere1_Click(object sender, RoutedEventArgs e)
+        {
+            App.HDevExp.Teachloop = true;
+            App.HDevExp.Teachloop2 = false;
+            App.HDevExp.Teachloop3 = true;
+            hwindowTeach.HImagePart = new Rect(0, 0, 3856, 2764);
+            Thread teachCam2Thread = new Thread(TeachCam2) { Name = "TeachCAM2Thread" };
+            teachCam2Thread.Start();
+        }
+
+        private void BtestKamere2_Click(object sender, RoutedEventArgs e)
+        {
+            App.HDevExp.Teachloop = true;
+            App.HDevExp.Teachloop2 = true;
+            App.HDevExp.Teachloop3 = false;
+            hwindowTeach.HImagePart = new Rect(0, 0, 2592, 1944);
+            Thread teachCam3Thread = new Thread(TeachCam3) { Name = "TeachCAM3Thread" };
+            teachCam3Thread.Start();
         }
         //
     }

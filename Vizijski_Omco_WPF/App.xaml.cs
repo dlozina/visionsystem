@@ -37,6 +37,8 @@ namespace VizijskiSustavWPF
         private bool _edgeDetection7 = false;
         private bool _edgeDetection8 = false;
         private bool _edgeDetection9 = false;
+        private bool _edgeDetection10 = false;
+        private bool _edgeDetection11 = false;
         // Database
         public static List<ReportInterface.DimensionLine> savedata = new List<ReportInterface.DimensionLine>();
 
@@ -185,10 +187,39 @@ namespace VizijskiSustavWPF
                 d4meassureS2.Start();
             }
 
+            // Start analize slike D5 DRUGOG RUBA S1 *******************************************************************
+            if (((bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.Value) && (!_edgeDetection10))
+            {
+                //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
+                //Thread d5meassureS1 = new Thread(() => HDevExp.RunHalcon26(windowID));
+                //d5meassureS1.Name = "Thread D5S1";
+                //d5meassureS1.Start();
+
+                //Test sekvence
+                Thread d4meassureS1 = new Thread(() => HDevExp.RunHalcon7(windowID));
+                d4meassureS1.Name = "Thread D4S1";
+                d4meassureS1.Start();
+
+            }
+
+            // Start analize slike D5 DRUGOG RUBA S2 *******************************************************************
+            if (((bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.Value) && (!_edgeDetection11))
+            {
+                //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
+                //Thread d5meassureS2 = new Thread(() => HDevExp.RunHalcon27(windowID));
+                //d5meassureS2.Name = "Thread D5S2";
+                //d5meassureS2.Start();
+
+                //Test sekvence
+                Thread d4meassureS2 = new Thread(() => HDevExp.RunHalcon8(windowID));
+                d4meassureS2.Name = "Thread D4S2";
+                d4meassureS2.Start();
+            }
+
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
             if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!_edgeDetection3))
             {
-                Thread porosityverth = new Thread(new ThreadStart(HDevExp.RunHalcon13));
+                Thread porosityverth = new Thread(new ThreadStart(pPoroznost.PorosityVerWindow));
                 porosityverth.Name = "Thread PorosityVer";
                 porosityverth.Start();
 
@@ -199,7 +230,7 @@ namespace VizijskiSustavWPF
             // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ************************************************
             if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!_edgeDetection4))
             {
-                Thread porosityhorth = new Thread(new ThreadStart(HDevExp.RunHalcon14));
+                Thread porosityhorth = new Thread(new ThreadStart(pPoroznost.PorosityHorWindow));
                 porosityhorth.Name = "Thread PorosityHor";
                 porosityhorth.Start();
 
@@ -290,7 +321,6 @@ namespace VizijskiSustavWPF
                 string json = JsonConvert.SerializeObject(savedata.ToArray(), Formatting.Indented);
                 string DataBaseFileName = "savedata.JSON";
                 string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
-                //File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON", json);
                 File.WriteAllText(DataBasePath, json);
             }
 
@@ -304,6 +334,9 @@ namespace VizijskiSustavWPF
             _edgeDetection7 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value == true;
             _edgeDetection8 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value == true;
             _edgeDetection9 = (bool)e.StatusData.Automatika.SnimiMjerenja.Value == true;
+            // Unutarnji rub
+            _edgeDetection10 = (bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.Value == true;
+            _edgeDetection11 = (bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.Value == true;
 
             if (mwHandle != null)
             {
@@ -316,6 +349,7 @@ namespace VizijskiSustavWPF
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4Rezultat, e.PXvalue);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, true);
+            Thread.Sleep(100);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
         }
         // Event handler koji se poziva kada zavrsi analiza slike za pick
@@ -408,9 +442,76 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.IdiUD5S2, false);
         }
 
+        // Teach
+        public static void ActivateTeachD1S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD1S1, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD1S1, false);
+        }
+
+        public static void ActivateTeachD1S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD1S2, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD1S2, false);
+        }
+
+        public static void ActivateTeachD2S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD2S1, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD2S1, false);
+        }
+
+        public static void ActivateTeachD2S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD2S2, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD2S2, false);
+        }
+        public static void ActivateTeachD3S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD3S1, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD3S1, false);
+        }
+
+        public static void ActivateTeachD3S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD3S2, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD3S2, false);
+        }
+
+        public static void ActivateTeachD4S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD4S1, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD4S1, false);
+        }
+
+        public static void ActivateTeachD4S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD4S2, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD4S2, false);
+        }
+
+        public static void ActivateTeachD5S1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD5S1, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD5S1, false);
+        }
+
+        public static void ActivateTeachD5S2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD5S2, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciD5S2, false);
+        }
+
         public static void ActivateControlPorosityPosition()
         {
-            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.PoroznostHorPozicija, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciPoroznost, true);
+            //App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciPoroznost, false);
+        }
+
+        public static void ActivateControlTeachPorosityPosition()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciPoroznost, true);
+            App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciPoroznost, false);
         }
 
         public static void ActivateDimenzije()

@@ -34,7 +34,6 @@ namespace VizijskiSustavWPF.HALCON
             
             catch (HalconException HDevExpDefaultExceptionCamera)
             {
-                App.PLC.WriteTag(App.PLC.CONTROL.UcenjeBool.PoroznostVerPozicija, true);
                 //HDevExpDefaultException1.ToHTuple(out hv_Exception);
                 //hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
             }
@@ -248,7 +247,7 @@ namespace VizijskiSustavWPF.HALCON
                         HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
                     }
                 }
-            //}
+            //} //TRY
 
             //catch (HalconException HDevExpDefaultExceptionVision)
             //{
@@ -260,6 +259,11 @@ namespace VizijskiSustavWPF.HALCON
             //    ho_contour_outer.Dispose();
             //    ho_ContCircle.Dispose();
             //    //throw HDevExpDefaultException;
+            //    // Potrebno preskociti poziciju
+            //    //HOperatorSet.SetColor(hv_TeachWinHandle, "spring green");
+            //    HOperatorSet.SetTposition(hv_TeachWinHandle, hv_Height/2, hv_Width/4);
+            //    HOperatorSet.WriteString(hv_TeachWinHandle, "NIJE PRONADEN RUB KOMADA! PONOVITI AKCIJU ILI PRESKOCITI RUB");
+
             //}
             ho_Image.Dispose();
             ho_DerivGauss.Dispose();
@@ -478,6 +482,59 @@ namespace VizijskiSustavWPF.HALCON
                     UpdateResult(this, argumenti);
             }
         }
+        // D5 S1 Call
+        public void RunHalcon26(HTuple window)
+        {
+            hv_TeachWinHandle = window;
+            if (hv_TeachWinHandle.Length != 0)
+            {
+                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+            }
+            DiameterAction(5, 1);
+            if (hv_output.Length != 0)
+            {
+                argumenti.PXvalue = (float)hv_output.D;
+                // Chech for infinity Double to float conversion
+                if (float.IsPositiveInfinity(argumenti.PXvalue))
+                {
+                    argumenti.PXvalue = float.MaxValue;
+                }
+                else if (float.IsNegativeInfinity(argumenti.PXvalue))
+                {
+                    argumenti.PXvalue = float.MinValue;
+                }
+
+                if (UpdateResult != null)
+                    UpdateResult(this, argumenti);
+            }
+        }
+        // D5 S2 Call
+        public void RunHalcon27(HTuple window)
+        {
+            hv_TeachWinHandle = window;
+            if (hv_TeachWinHandle.Length != 0)
+            {
+                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+            }
+            DiameterAction(5, 2);
+            if (hv_output.Length != 0)
+            {
+                argumenti.PXvalue = (float)hv_output.D;
+                // Chech for infinity Double to float conversion
+                if (float.IsPositiveInfinity(argumenti.PXvalue))
+                {
+                    argumenti.PXvalue = float.MaxValue;
+                }
+                else if (float.IsNegativeInfinity(argumenti.PXvalue))
+                {
+                    argumenti.PXvalue = float.MinValue;
+                }
+
+                if (UpdateResult != null)
+                    UpdateResult(this, argumenti);
+            }
+        }
+
 
     }
 }

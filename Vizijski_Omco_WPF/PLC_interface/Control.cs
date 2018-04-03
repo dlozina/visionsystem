@@ -120,12 +120,13 @@
         public class robot
         {
             public plcTag ZahtijevZaKomadom { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 0), false);
-            public plcTag KomadOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 1), false);
-            public plcTag KomadNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 2), false);
-            public plcTag ResetPaleteNovi { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 3), false);
-            public plcTag ResetPaleteOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 4), false);
-            public plcTag ResetPaleteNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 5), false);
-            public plcTag ResetPaleteLimova { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 6), false);
+            public plcTag PrekretKomada { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 1), false);
+            public plcTag KomadOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 2), false);
+            public plcTag KomadNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 3), false);
+            public plcTag ResetPaleteNovi { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 4), false);
+            public plcTag ResetPaleteOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 5), false);
+            public plcTag ResetPaleteNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 6), false);
+            public plcTag ResetPaleteLimova { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 7), false);
         }
 
         public class ucenjereal

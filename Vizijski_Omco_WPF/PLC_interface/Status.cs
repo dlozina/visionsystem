@@ -14,6 +14,7 @@
         public prekret Prekret { get; set; } = new prekret();
         public automatika Automatika { get; set; } = new automatika();
         public upisanevrijednosti Upisanevrijednosti { get; set; } = new upisanevrijednosti();
+        //public unutarnjirub Unutarnjirub { get; set; } = new unutarnjirub();
 
         public class horizontalnaOs
         {
@@ -173,6 +174,15 @@
             public plcTag Visina3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(244, 0), 0.0f);
             public plcTag Visina3DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(248, 0), 0.0f);
             public plcTag Visina3DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(252, 0), 0.0f);
+            public plcTag CAM4ZahtjevZaAnalizomS1unutarnji { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(256, 0), false);
+            public plcTag CAM4ZahtjevZaAnalizomS2unutarnji { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(256, 1), false);
         }
+
+        //public class unutarnjirub
+        //{
+        //    public plcTag CAM4ZahtjevZaAnalizomS1unutarnji { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(256, 0), false);
+        //    public plcTag CAM4ZahtjevZaAnalizomS2unutarnji { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(256, 1), false);
+        //}
+
     }
 }

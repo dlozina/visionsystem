@@ -201,6 +201,7 @@ namespace VizijskiSustavWPF
 
                     // Robot
                     CONTROL.Robot.ZahtijevZaKomadom.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.PrekretKomada.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.KomadOk.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.KomadNok.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.ResetPaleteNovi.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -299,7 +300,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(11, 0, 256, CyclicStatusBuffer);
+                result = Client.DBRead(11, 0, 258, CyclicStatusBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -437,6 +438,13 @@ namespace VizijskiSustavWPF
                     STATUS.Upisanevrijednosti.Visina3.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Upisanevrijednosti.Visina3DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Upisanevrijednosti.Visina3DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    // Test
+                    STATUS.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
+              
+                    // unutarnji rub
+                    //STATUS.Unutarnjirub.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    //STATUS.Unutarnjirub.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
                 }
             }
             return result;

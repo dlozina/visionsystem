@@ -178,7 +178,7 @@ namespace VizijskiSustavWPF.HALCON
                 hv_colToMax0 = hv_Col.TupleSelect(hv_IndexMax);
                 hv_output = (-hv_HalfW)+hv_colToMax0;
 
-                // Display S1
+                // Display S2
                 HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle);
                 HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
             }

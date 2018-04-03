@@ -33,7 +33,7 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
             // Open camera frame
             HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC2591MP_CAM_3", 0, -1, out hv_AcqHandle);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 30000.0);
+            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 10000.0); // 30 000
             // Information for PLC that frame is opened
             DetectionHorStart();
             hv_found = 0;
@@ -46,7 +46,8 @@ namespace VizijskiSustavWPF.HALCON
                 ho_Image.Dispose();
                 HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
                 ho_Rectangle.Dispose();
-                HOperatorSet.GenRectangle1(out ho_Rectangle, 520, 200, 1050, 700);
+                //HOperatorSet.GenRectangle1(out ho_Rectangle, 520, 200, 1050, 700);
+                HOperatorSet.GenRectangle1(out ho_Rectangle, 1020, 200, 1460, 700);
                 ho_ImageReduced.Dispose();
                 HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_ImageReduced);
                 ho_ImageMean.Dispose();
@@ -85,8 +86,8 @@ namespace VizijskiSustavWPF.HALCON
                         hv_bol = 0;
                     }
                 }
-                //HOperatorSet.ClearWindow(hv_porosityWinHandle);
-                //HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
+                HOperatorSet.ClearWindow(hv_porosityWinHandle);
+                HOperatorSet.DispObj(ho_Image, hv_porosityWinHandle);
                 if ((int)((new HTuple(hv_found.TupleGreater(0))).TupleAnd(new HTuple(hv_bol.TupleEqual(
                         1)))) != 0)
                 {
@@ -115,16 +116,16 @@ namespace VizijskiSustavWPF.HALCON
             ho_ContCircle.Dispose();
         }
 
-        //public void RunHalcon14(HTuple window)
-        //{
-        //    hv_porosityWinHandle = window;
-        //    porosityHorizonatal();
-        //}
-
-        public void RunHalcon14()
+        public void RunHalcon14(HTuple window)
         {
+            hv_porosityWinHandle = window;
             porosityHorizonatal();
         }
+
+        //public void RunHalcon14()
+        //{
+        //    porosityHorizonatal();
+        //}
 
     }
 }
