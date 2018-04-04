@@ -312,7 +312,8 @@ namespace VizijskiSustavWPF
                     DeltaPlusV2 = (float)e.StatusData.Upisanevrijednosti.Visina2DeltaPlus.Value,
                     DeltaMinusV2 = (float)e.StatusData.Upisanevrijednosti.Visina2DeltaMinus.Value,
                     // V3
-                    NazivnoV3 = (float)e.StatusData.Upisanevrijednosti.Visina2.Value,
+                    NazivnoV3 = (float)e.StatusData.Upisanevrijednosti.Visina3.Value,
+                    //NazivnoV3 = ((float)e.StatusData.Upisanevrijednosti.Visina2.Value - (float)e.StatusData.Upisanevrijednosti.Visina3.Value),
                     MjerenoV3 = (float)e.StatusData.MjerenjeTicalom.Visina3.Value,
                     DeltaPlusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaPlus.Value,
                     DeltaMinusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaMinus.Value,

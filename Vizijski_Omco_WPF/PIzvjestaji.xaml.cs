@@ -49,6 +49,7 @@ namespace VizijskiSustavWPF
             }
             else
             {
+                BIspisPodataka.IsEnabled = true;
                 BIspisPodataka.Foreground = new SolidColorBrush(Colors.Black);
             }
 

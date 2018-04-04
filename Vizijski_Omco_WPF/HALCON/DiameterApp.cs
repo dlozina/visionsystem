@@ -38,8 +38,8 @@ namespace VizijskiSustavWPF.HALCON
                 //hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
             }
 
-            //try
-            //{
+            try
+            {
 
                 HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
                 //* Define constants and tuples:
@@ -247,10 +247,10 @@ namespace VizijskiSustavWPF.HALCON
                         HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
                     }
                 }
-            //} //TRY
+            } //TRY
 
-            //catch (HalconException HDevExpDefaultExceptionVision)
-            //{
+            catch (HalconException HDevExpDefaultExceptionVision)
+            {
             //    ho_Image.Dispose();
             //    ho_DerivGauss.Dispose();
             //    ho_RegionCrossings.Dispose();
@@ -264,7 +264,7 @@ namespace VizijskiSustavWPF.HALCON
             //    HOperatorSet.SetTposition(hv_TeachWinHandle, hv_Height/2, hv_Width/4);
             //    HOperatorSet.WriteString(hv_TeachWinHandle, "NIJE PRONADEN RUB KOMADA! PONOVITI AKCIJU ILI PRESKOCITI RUB");
 
-            //}
+            }
             ho_Image.Dispose();
             ho_DerivGauss.Dispose();
             ho_RegionCrossings.Dispose();
