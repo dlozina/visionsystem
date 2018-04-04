@@ -40,13 +40,14 @@ namespace VizijskiSustavWPF
             //HTuple windowId = HwindowPorsity.HalconID;
             //App.HDevExp.RunHalcon13(windowId);
 
-            Dispatcher.BeginInvoke((Action)(() =>
-            {
-                HwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
-                App.HDevExp.InitHalcon();
-                HTuple windowId = HwindowPorsity.HalconID;
-                App.HDevExp.RunHalcon13(windowId);
-            }));
+            //Dispatcher.BeginInvoke((Action)(() =>
+            //{
+                //HwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
+                //App.HDevExp.InitHalcon();
+                //HTuple windowId = HwindowPorsity.HalconID;
+                //App.HDevExp.RunHalcon13(windowId);
+                App.HDevExp.RunHalcon13();
+            //}));
         }
 
         public void PorosityVerWindow()
@@ -66,13 +67,14 @@ namespace VizijskiSustavWPF
             //HTuple windowId = HwindowPorsity.HalconID;
             //App.HDevExp.RunHalcon14(windowId);
 
-            Dispatcher.BeginInvoke((Action)(() =>
-            {
-                HwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
-                App.HDevExp.InitHalcon();
-                HTuple windowId = HwindowPorsity.HalconID;
-                App.HDevExp.RunHalcon14(windowId);
-            }));
+            //Dispatcher.BeginInvoke((Action)(() =>
+            //{
+                //HwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
+                //App.HDevExp.InitHalcon();
+                //HTuple windowId = HwindowPorsity.HalconID;
+                //App.HDevExp.RunHalcon14(windowId);
+                App.HDevExp.RunHalcon14();
+            //}));
         }
 
         public void PorosityHorWindow()

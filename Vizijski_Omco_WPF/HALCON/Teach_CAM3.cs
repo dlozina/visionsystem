@@ -15,7 +15,7 @@ namespace VizijskiSustavWPF.HALCON
             // Image Acquisition OPEN frame
             HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
                 "default", -1, "false", "default", "GC2591MP_CAM_3", 0, -1, out hv_AcqHandle);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 15000.0);
+            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 35000.0);
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
 
             while (Teachloop3 == false)
@@ -27,8 +27,10 @@ namespace VizijskiSustavWPF.HALCON
                 HOperatorSet.SetColor(hv_TeachWinHandle3, "spring green");
 
                 //HOperatorSet.GenRectangle1(out ho_Rectangle, 520, 200, 1050, 700);
-                HOperatorSet.GenRectangle1(out ho_Rectangle, 1020, 200, 1460, 700);
-                HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 1030, 210, 1450, 690);
+                HOperatorSet.GenRectangle1(out ho_Rectangle, 900, 200, 1460, 700);
+                //HOperatorSet.GenRectangle1(out ho_Rectangle, 1120, 200, 1630, 700);
+                HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 910, 210, 1450, 690); // 10 vise, 10 manje
+                //HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 1130, 210, 1620, 690); // 10 vise, 10 manje
                 HOperatorSet.Difference(ho_Rectangle, ho_Rectangle_diff, out ho_RegionOut);
                 HOperatorSet.DispObj(ho_RegionOut, hv_TeachWinHandle3);
             }
