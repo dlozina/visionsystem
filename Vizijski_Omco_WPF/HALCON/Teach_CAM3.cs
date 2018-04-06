@@ -42,10 +42,10 @@ namespace VizijskiSustavWPF.HALCON
 
                 //HOperatorSet.GenRectangle1(out ho_Rectangle, 520, 200, 1050, 700);
 
-                HOperatorSet.GenRectangle1(out ho_Rectangle_teach, 900, 200, 1460, 700); //aktivan
+                HOperatorSet.GenRectangle1(out ho_Rectangle_teach, 600, 200, 1160, 700); //aktivan
                 //HOperatorSet.GenRectangle1(out ho_Rectangle, 1120, 200, 1630, 700);
 
-                HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 910, 210, 1450, 690); // 10 vise, 10 manje aktivan
+                HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 610, 210, 1150, 690); // 10 vise, 10 manje aktivan
                 //HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 1130, 210, 1620, 690); // 10 vise, 10 manje
 
                 HOperatorSet.Difference(ho_Rectangle_teach, ho_Rectangle_diff, out ho_RegionOut);

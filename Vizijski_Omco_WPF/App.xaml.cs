@@ -520,14 +520,29 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.CONTROL.NacinRada.Dimenzije, true);
         }
 
+        public static void DeactivateDimenzije()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.NacinRada.Dimenzije, false);
+        }
+
         public static void ActivatePoroznost()
         {
             App.PLC.WriteTag(PLC.CONTROL.NacinRada.Poroznost, true);
         }
 
+        public static void DeactivatePoroznost()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.NacinRada.Poroznost, false);
+        }
+
         public static void ActivateString()
         {
             App.PLC.WriteTag(PLC.CONTROL.NacinRada.String, true);
+        }
+
+        public static void DeactivateString()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.NacinRada.String, false);
         }
 
         // Event handler koji se poziva kad PLC postane online ili offline (Ethernet kabel se spoji ili odspoji).

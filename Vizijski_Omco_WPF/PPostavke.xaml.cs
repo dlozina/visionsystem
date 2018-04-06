@@ -192,7 +192,7 @@ namespace VizijskiSustavWPF
 
         private void CBdimenzija_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            App.DeactivateDimenzije();
         }
 
         private void CBporoznost_Checked(object sender, RoutedEventArgs e)
@@ -202,7 +202,7 @@ namespace VizijskiSustavWPF
 
         private void CBporoznost_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            App.DeactivatePoroznost();
         }
 
         private void CBstring_Checked(object sender, RoutedEventArgs e)
@@ -212,7 +212,7 @@ namespace VizijskiSustavWPF
 
         private void CBstring_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            App.DeactivateString();
         }
 
 

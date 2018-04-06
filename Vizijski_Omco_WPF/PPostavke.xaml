@@ -346,7 +346,7 @@
                     <Grid.ColumnDefinitions>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0" Grid.Row="1" Background="Black" Margin="4,0,4,0">
-                        <vizijskiSustavWpf:BitButton x:Name="BBresetSvihMjerenja" Text="AKTIVNOG RESET MJERENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.ResetSvihMjerenja, ElementName=BBresetSvihMjerenja}" />
+                        <vizijskiSustavWpf:BitButton x:Name="BBresetSvihMjerenja" Text="RESET AKTIVNOG MJERENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.ResetSvihMjerenja, ElementName=BBresetSvihMjerenja}" />
                     </Grid>
                     <Grid Grid.Column="0" Grid.Row="2" Background="Black" Margin="4,0,4,0">
                         <Button  x:Name="BiskljuciAplikaciju" Margin="1,0,1,1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI APLIKACIJU" Click="BiskljuciAplikaciju_Click"/>
