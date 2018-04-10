@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using HalconDotNet;
 
 namespace VizijskiSustavWPF.HALCON
@@ -26,6 +27,9 @@ namespace VizijskiSustavWPF.HALCON
         // Event - Porosity detected
         public delegate void PorosityDetectedEventHandler(object source, EventArgs args);
         public event PorosityDetectedEventHandler PorosityDetected;
+
+        // Framegrabber close handle
+        static EventWaitHandle _waitHandle = new AutoResetEvent(false);
 
         //Framegrabber Handle definition
         HTuple hv_AcqHandle = new HTuple();

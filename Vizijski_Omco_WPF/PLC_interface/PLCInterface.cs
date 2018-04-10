@@ -102,9 +102,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    Client.ConnectTo("192.168.0.1", 0, 1);
+                    //Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    //Client.ConnectTo("192.168.1.8", 0, 1);
+                    Client.ConnectTo("192.168.111.108", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -439,9 +439,12 @@ namespace VizijskiSustavWPF
                     STATUS.Upisanevrijednosti.Visina3DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Upisanevrijednosti.Visina3DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     // Test
-                    STATUS.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
-                    STATUS.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
-              
+                    //STATUS.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    //STATUS.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
+
+                    // Analiza Unutarnji
+                    STATUS.Analizaunutarnji.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Analizaunutarnji.CAM4ZahtjevZaAnalizomS2unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     // unutarnji rub
                     //STATUS.Unutarnjirub.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     //STATUS.Unutarnjirub.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);

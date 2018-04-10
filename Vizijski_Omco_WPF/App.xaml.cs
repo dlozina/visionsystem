@@ -113,6 +113,8 @@ namespace VizijskiSustavWPF
         }
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
+
+
         {
             String msg = "SISTEM SPREMAN";
 
@@ -188,7 +190,8 @@ namespace VizijskiSustavWPF
             }
 
             // Start analize slike D5 DRUGOG RUBA S1 *******************************************************************
-            if (((bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.Value) && (!_edgeDetection10))
+            //if (((bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.Value) && (!_edgeDetection10))
+            if (((bool)e.StatusData.Analizaunutarnji.CAM4ZahtjevZaAnalizomS1unutarnji.Value) && (!_edgeDetection10))
             {
                 //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
                 //Thread d5meassureS1 = new Thread(() => HDevExp.RunHalcon26(windowID));
@@ -203,7 +206,8 @@ namespace VizijskiSustavWPF
             }
 
             // Start analize slike D5 DRUGOG RUBA S2 *******************************************************************
-            if (((bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.Value) && (!_edgeDetection11))
+            //if (((bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.Value) && (!_edgeDetection11))
+            if (((bool)e.StatusData.Analizaunutarnji.CAM4ZahtjevZaAnalizomS2unutarnji.Value) && (!_edgeDetection11))
             {
                 //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
                 //Thread d5meassureS2 = new Thread(() => HDevExp.RunHalcon27(windowID));
@@ -336,8 +340,12 @@ namespace VizijskiSustavWPF
             _edgeDetection8 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value == true;
             _edgeDetection9 = (bool)e.StatusData.Automatika.SnimiMjerenja.Value == true;
             // Unutarnji rub
-            _edgeDetection10 = (bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.Value == true;
-            _edgeDetection11 = (bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.Value == true;
+            //_edgeDetection10 = (bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.Value == true;
+            //_edgeDetection11 = (bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.Value == true;
+
+            // Analiza unutarnji
+            _edgeDetection10 = (bool)e.StatusData.Analizaunutarnji.CAM4ZahtjevZaAnalizomS1unutarnji.Value == true;
+            _edgeDetection11 = (bool)e.StatusData.Analizaunutarnji.CAM4ZahtjevZaAnalizomS2unutarnji.Value == true;
 
             if (mwHandle != null)
             {

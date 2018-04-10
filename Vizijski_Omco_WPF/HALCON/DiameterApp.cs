@@ -17,6 +17,9 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.GenEmptyObj(out ho_contour_outer);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
 
+            // Test threadWait - Teach_CAM4 needs to finish
+            //_waitHandle.WaitOne();
+
             try
             {
                 // Camera communication - Open

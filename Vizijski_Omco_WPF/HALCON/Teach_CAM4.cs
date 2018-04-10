@@ -32,7 +32,9 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.ClearWindow(hv_TeachWinHandle);
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
             //Framegrabber closed signal
-            FramegrabberClosed4 = true;
+
+            //FramegrabberClosed4 = true;
+            _waitHandle.Set();
         }
 
         public void RunHalcon15(HTuple window)
