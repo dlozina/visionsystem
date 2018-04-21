@@ -9,4 +9,9 @@ CREDIT: I have to give credit to my college Ivan Novak who did first PLC --> C# 
 \
 This is how GUI looks, it has plain and simple "industrial" design: (GUI is on Croatian, we did it for Croatian customer)\
 \
-![livecamera](https://user-images.githubusercontent.com/28594128/39088752-014edf16-45b8-11e8-929f-c64d5d9dd055.PNG)
+![livecamera](https://user-images.githubusercontent.com/28594128/39088752-014edf16-45b8-11e8-929f-c64d5d9dd055.PNG)\
+\
+GUI page for ROBOT targets, vision sw found all 5 workpieces that we need to pick: \
+\
+![robotpick](https://user-images.githubusercontent.com/28594128/39088819-4bf93d08-45b9-11e8-85cc-cbcec6f21de6.PNG)\
+\
