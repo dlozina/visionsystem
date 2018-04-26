@@ -32,7 +32,6 @@
                 <RowDefinition Height="102"/>
             </Grid.RowDefinitions>
             <!--MjerniStolLimovi:OdabirLimova Margin="4,43,4,0" Grid.ColumnSpan="2" Lim="{Binding Lim , Mode=TwoWay, Source={StaticResource MainLim}}" Purpose="4"/-->
-
             <!-- Upravljanje i pozicije osi -->
 
             <!-- Kraj upravljanja osima -->
@@ -43,10 +42,66 @@
             <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" Margin="4,4,4,0"  >
                 <!--my:HWindowControlWPF  Name="hWindowControlWPF1"    ImagePart="0,0,3856,2764" PreviewMouseDown="hWindowControlWPF1_PreviewMouseDown" /-->
                 <!-- my:HWindowControlWPF Name="hWindowControlWPF1" ImagePart="0,0,3856,2764"/ -->
-                <halconDotNet:HSmartWindowControlWPF Name="hwindow"
+                <Grid Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="RUČNO MJERENJE" Margin="1" Background="{DynamicResource pozadina1}"  FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" />
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:BitButton Grid.Row="1" x:Name="BBDijametar1" Text="DIJAMETAR 1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.NacinRada.Dijametar1Rucno, ElementName=BBDijametar1}" />
+                        </Grid>
+                        
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:BitButton Grid.Row="2" x:Name="BBDijametar2" Text="DIJAMETAR 2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.NacinRada.Dijametar2Rucno, ElementName=BBDijametar2}" />
+                        </Grid>
+
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:BitButton Grid.Row="3" x:Name="BBDijametar3" Text="DIJAMETAR 3" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.NacinRada.Dijametar3Rucno, ElementName=BBDijametar3}"  />
+                        </Grid>
+
+                        <Grid Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:BitButton Grid.Row="4" x:Name="BBDijametar4" Text="DIJAMETAR 4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.NacinRada.Dijametar4Rucno, ElementName=BBDijametar4}"  />
+                        </Grid>
+
+                        <Grid Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:BitButton Grid.Row="5" x:Name="BBDijametar5" Text="DIJAMETAR 5" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.NacinRada.Dijametar5Rucno, ElementName=BBDijametar5}"  />
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                    <halconDotNet:HSmartWindowControlWPF Grid.Column="1" Name="hwindow"
                                                  HImagePart="0,0,3856,2764"
                                                  Margin="4"
                                                  />
+                    </Grid>
+                </Grid>
             </Grid>
             <!--<WPFMediaKit:VideoCaptureElement Grid.Column="0" Grid.Row="1" Margin="4,4,4,4" Grid.RowSpan="2"></WPFMediaKit:VideoCaptureElement>
             <webcam:VideoCaptureElement DesiredPixelWidth="320"

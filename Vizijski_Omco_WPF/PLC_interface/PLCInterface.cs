@@ -102,7 +102,7 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    //Client.ConnectTo("192.168.0.1", 0, 1);
+                    // Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
                     Client.ConnectTo("192.168.111.108", 0, 1);
                     Thread.Sleep(200);
@@ -291,6 +291,18 @@ namespace VizijskiSustavWPF
                     CONTROL.NacinRada.Dimenzije.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.NacinRada.Poroznost.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.NacinRada.String.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.NacinRada.Dijametar1Rucno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.NacinRada.Dijametar2Rucno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.NacinRada.Dijametar3Rucno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.NacinRada.Dijametar4Rucno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.NacinRada.Dijametar5Rucno.GetValueFromGroupBuffer(CyclicControlBuffer);
+
+                    // OdabirDijametara
+                    CONTROL.OdabirDijametra.Dijametar1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.OdabirDijametra.Dijametar2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.OdabirDijametra.Dijametar3.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.OdabirDijametra.Dijametar4.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.OdabirDijametra.Dijametar5.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;
@@ -300,7 +312,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(11, 0, 258, CyclicStatusBuffer);
+                result = Client.DBRead(11, 0, 256, CyclicStatusBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -438,16 +450,6 @@ namespace VizijskiSustavWPF
                     STATUS.Upisanevrijednosti.Visina3.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Upisanevrijednosti.Visina3DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Upisanevrijednosti.Visina3DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
-                    // Test
-                    //STATUS.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
-                    //STATUS.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
-
-                    // Analiza Unutarnji
-                    STATUS.Analizaunutarnji.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
-                    STATUS.Analizaunutarnji.CAM4ZahtjevZaAnalizomS2unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
-                    // unutarnji rub
-                    //STATUS.Unutarnjirub.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
-                    //STATUS.Unutarnjirub.CAM4ZahtjevZaAnalizomS1unutarnji.GetValueFromGroupBuffer(CyclicStatusBuffer);
                 }
             }
             return result;

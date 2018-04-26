@@ -394,8 +394,64 @@
                             </CheckBox.RenderTransform>
                         </CheckBox>
                     </Grid>
-
+                    
                     <Grid Grid.Row="2" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="Black" Margin="1">
+                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar1" Text="DIJAMETAR 1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar1, ElementName=BBDijametar1}" ButtonFunction="InvertBit"/>
+
+                        </Grid>
+                    </Grid>
+
+
+                    <Grid Grid.Row="3" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="Black" Margin="1">
+                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar2" Text="DIJAMETAR 2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar2, ElementName=BBDijametar2}" ButtonFunction="InvertBit"/>
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="Black" Margin="1">
+                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar3" Text="DIJAMETAR 3" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar3, ElementName=BBDijametar3}" ButtonFunction="InvertBit"/>
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="Black" Margin="1">
+                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar4" Text="DIJAMETAR 4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar4, ElementName=BBDijametar4}" ButtonFunction="InvertBit"/>
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="6" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Background="Black" Margin="1">
+                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar5" Text="DIJAMETAR 5" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar5, ElementName=BBDijametar5}" ButtonFunction="InvertBit"/>
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="8" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -415,7 +471,7 @@
                         </CheckBox>
                     </Grid>
                     
-                    <Grid Grid.Row="3" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
+                    <Grid Grid.Row="9" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>

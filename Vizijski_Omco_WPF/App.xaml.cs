@@ -37,8 +37,6 @@ namespace VizijskiSustavWPF
         private bool _edgeDetection7 = false;
         private bool _edgeDetection8 = false;
         private bool _edgeDetection9 = false;
-        private bool _edgeDetection10 = false;
-        private bool _edgeDetection11 = false;
         // Database
         public static List<ReportInterface.DimensionLine> savedata = new List<ReportInterface.DimensionLine>();
 
@@ -189,37 +187,6 @@ namespace VizijskiSustavWPF
                 d4meassureS2.Start();
             }
 
-            // Start analize slike D5 DRUGOG RUBA S1 *******************************************************************
-            //if (((bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.Value) && (!_edgeDetection10))
-            if (((bool)e.StatusData.Analizaunutarnji.CAM4ZahtjevZaAnalizomS1unutarnji.Value) && (!_edgeDetection10))
-            {
-                //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
-                //Thread d5meassureS1 = new Thread(() => HDevExp.RunHalcon26(windowID));
-                //d5meassureS1.Name = "Thread D5S1";
-                //d5meassureS1.Start();
-
-                //Test sekvence
-                Thread d4meassureS1 = new Thread(() => HDevExp.RunHalcon7(windowID));
-                d4meassureS1.Name = "Thread D4S1";
-                d4meassureS1.Start();
-
-            }
-
-            // Start analize slike D5 DRUGOG RUBA S2 *******************************************************************
-            //if (((bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.Value) && (!_edgeDetection11))
-            if (((bool)e.StatusData.Analizaunutarnji.CAM4ZahtjevZaAnalizomS2unutarnji.Value) && (!_edgeDetection11))
-            {
-                //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
-                //Thread d5meassureS2 = new Thread(() => HDevExp.RunHalcon27(windowID));
-                //d5meassureS2.Name = "Thread D5S2";
-                //d5meassureS2.Start();
-
-                //Test sekvence
-                Thread d4meassureS2 = new Thread(() => HDevExp.RunHalcon8(windowID));
-                d4meassureS2.Name = "Thread D4S2";
-                d4meassureS2.Start();
-            }
-
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
             if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!_edgeDetection3))
             {
@@ -339,13 +306,6 @@ namespace VizijskiSustavWPF
             _edgeDetection7 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value == true;
             _edgeDetection8 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value == true;
             _edgeDetection9 = (bool)e.StatusData.Automatika.SnimiMjerenja.Value == true;
-            // Unutarnji rub
-            //_edgeDetection10 = (bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS1unutarnji.Value == true;
-            //_edgeDetection11 = (bool)e.StatusData.Upisanevrijednosti.CAM4ZahtjevZaAnalizomS2unutarnji.Value == true;
-
-            // Analiza unutarnji
-            _edgeDetection10 = (bool)e.StatusData.Analizaunutarnji.CAM4ZahtjevZaAnalizomS1unutarnji.Value == true;
-            _edgeDetection11 = (bool)e.StatusData.Analizaunutarnji.CAM4ZahtjevZaAnalizomS2unutarnji.Value == true;
 
             if (mwHandle != null)
             {

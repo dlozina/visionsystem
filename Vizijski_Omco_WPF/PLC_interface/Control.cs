@@ -20,6 +20,7 @@
         public uzimanjekomada UzimanjeKomada { get; set; } = new uzimanjekomada();
         public tolerance Tolerance { get; set; } = new tolerance();
         public nacinrada NacinRada { get; set; } = new nacinrada();
+        public odabirdijametra OdabirDijametra { get; set; } = new odabirdijametra();
 
         public class horizontalnaOs
         {
@@ -169,10 +170,8 @@
             public plcTag NauciD4S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(92, 6), false);
             public plcTag NauciD5S1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(92, 7), false);
             public plcTag NauciD5S2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(93, 0), false);
-            // Diametar za poroznost
             public plcTag PoroznostHorPozicija { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(93, 1), false);
             public plcTag PoroznostVerPozicija { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(93, 2), false);
-            // Nauci pozicije poroznosti
             public plcTag NauciPoroznost { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(93, 3), false);
         }
 
@@ -226,6 +225,20 @@
             public plcTag Dimenzije { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 0), false);
             public plcTag Poroznost { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 1), false);
             public plcTag String { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 2), false);
+            public plcTag Dijametar1Rucno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 3), false);
+            public plcTag Dijametar2Rucno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 4), false);
+            public plcTag Dijametar3Rucno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 5), false);
+            public plcTag Dijametar4Rucno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 6), false);
+            public plcTag Dijametar5Rucno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(194, 7), false);
+        }
+
+        public class odabirdijametra
+        {
+            public plcTag Dijametar1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(196, 0), false);
+            public plcTag Dijametar2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(196, 1), false);
+            public plcTag Dijametar3 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(196, 2), false);
+            public plcTag Dijametar4 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(196, 3), false);
+            public plcTag Dijametar5 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(196, 4), false);
         }
     }
 }
