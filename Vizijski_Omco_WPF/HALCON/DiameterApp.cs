@@ -24,7 +24,10 @@ namespace VizijskiSustavWPF.HALCON
             {
                 // Camera communication - Open
                 //OpenCamFrame();
-                Thread.Sleep(500);
+                // Wait for CAM4 thread to be closed
+                _waitHandle.WaitOne();
+                // Close te thread DOOR
+                _waitHandle.Reset();
                 HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default",
                 -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
@@ -33,6 +36,8 @@ namespace VizijskiSustavWPF.HALCON
                 // Camera communication - Close
                 //CloseCamFrame();
                 HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+                // Open the thread DOOR
+                _waitHandle.Set();
             }
             
             catch (HalconException HDevExpDefaultExceptionCamera)

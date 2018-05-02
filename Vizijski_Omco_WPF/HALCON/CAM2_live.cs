@@ -21,11 +21,11 @@ namespace VizijskiSustavWPF.HALCON
                 HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
                 HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
                 // If teach part of the code is active
-                HOperatorSet.SetColor(hv_TeachWinHandle2, "spring green");
-                HOperatorSet.GenRectangle1(out ho_Rectangle, 716, 720, 2200, 1850);
-                HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 726, 730, 2190, 1840);
-                HOperatorSet.Difference(ho_Rectangle, ho_Rectangle_diff, out ho_RegionOut);
-                HOperatorSet.DispObj(ho_RegionOut, hv_ExpDefaultWinHandle);
+                //HOperatorSet.SetColor(hv_TeachWinHandle2, "spring green");
+                //HOperatorSet.GenRectangle1(out ho_Rectangle, 716, 720, 2200, 1850);
+                //HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 726, 730, 2190, 1840);
+                //HOperatorSet.Difference(ho_Rectangle, ho_Rectangle_diff, out ho_RegionOut);
+                //HOperatorSet.DispObj(ho_RegionOut, hv_ExpDefaultWinHandle);
             }
             // Image Acquisition CLOSE frame
             ho_Image.Dispose();

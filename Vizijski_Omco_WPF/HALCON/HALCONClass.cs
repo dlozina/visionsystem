@@ -28,8 +28,8 @@ namespace VizijskiSustavWPF.HALCON
         public delegate void PorosityDetectedEventHandler(object source, EventArgs args);
         public event PorosityDetectedEventHandler PorosityDetected;
 
-        // Framegrabber close handle
-        static EventWaitHandle _waitHandle = new AutoResetEvent(false);
+        // Framegrabber close handle - Set to TRUE beacuse we need first thread to go trough
+        static EventWaitHandle _waitHandle = new AutoResetEvent(true);
 
         //Framegrabber Handle definition
         HTuple hv_AcqHandle = new HTuple();
@@ -103,8 +103,7 @@ namespace VizijskiSustavWPF.HALCON
 
         public void OpenCamFrame()
         {
-            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default",
-                -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
+            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
         }
