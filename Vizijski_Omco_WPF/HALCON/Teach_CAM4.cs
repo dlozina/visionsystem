@@ -10,12 +10,9 @@ namespace VizijskiSustavWPF.HALCON
             // Initialize local and output iconic variables 
             HOperatorSet.GenEmptyObj(out ho_TestImage);
             // Image Acquisition OPEN frame
-            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, 
-                "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
+            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-            // HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 1928 - 150, 2764, 1928 + 150);
-            //HOperatorSet.GenRectangle1(out ho_Rectangle, 0, 1928 - 250, 2764, 1928 + 250);
 
             while (Teachloop == false)
             {

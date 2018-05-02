@@ -11,7 +11,6 @@ namespace VizijskiSustavWPF.HALCON
 
         private void Teachcam3()
         {
-            HObject ho_ContRectangle = null;
             HObject ho_Rectangle_diff = null;
             HObject ho_Rectangle_teach = null;
             HObject ho_RegionOut = null;
