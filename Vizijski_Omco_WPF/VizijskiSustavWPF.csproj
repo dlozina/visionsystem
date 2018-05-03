@@ -148,10 +148,7 @@
     </ApplicationDefinition>
     <Compile Include="HALCON\CAM1_Live.cs" />
     <Compile Include="HALCON\Pick.cs" />
-    <Compile Include="HALCON\Teach_CAM3.cs" />
-    <Compile Include="HALCON\Teach_CAM2.cs" />
     <Compile Include="HALCON\CAM3_Live.cs" />
-    <Compile Include="HALCON\Teach_CAM4.cs" />
     <Compile Include="HALCON\CAM4_Live.cs" />
     <Compile Include="HALCON\CAM2_Live.cs" />
     <Compile Include="HALCON\DiameterApp.cs" />

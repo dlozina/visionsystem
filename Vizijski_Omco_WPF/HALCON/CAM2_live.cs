@@ -5,12 +5,14 @@ namespace VizijskiSustavWPF.HALCON
     public partial class HDevelopExport
     {
 
-        private void Livecam2()
+        private void Livecam2(bool domainmarkup)
         {
             // Wait for CAM4 thread to be closed
             _waitHandleCam2.WaitOne();
             // Close te thread DOOR
             _waitHandleCam2.Reset();
+            HObject ho_Rectangle_diff = null;
+            HObject ho_RegionOut = null;
             // Initialize local and output iconic variables 
             HOperatorSet.GenEmptyObj(out ho_Image);
             // Image Acquisition OPEN frame
@@ -24,12 +26,15 @@ namespace VizijskiSustavWPF.HALCON
                 // Live image from CAM2
                 HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
                 HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
-                // If teach part of the code is active
-                //HOperatorSet.SetColor(hv_TeachWinHandle2, "spring green");
-                //HOperatorSet.GenRectangle1(out ho_Rectangle, 716, 720, 2200, 1850);
-                //HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 726, 730, 2190, 1840);
-                //HOperatorSet.Difference(ho_Rectangle, ho_Rectangle_diff, out ho_RegionOut);
-                //HOperatorSet.DispObj(ho_RegionOut, hv_ExpDefaultWinHandle);
+                if(domainmarkup == true)
+                {
+                    // If teach part of the code is active
+                    HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "spring green");
+                    HOperatorSet.GenRectangle1(out ho_Rectangle, 716, 720, 2200, 1850);
+                    HOperatorSet.GenRectangle1(out ho_Rectangle_diff, 726, 730, 2190, 1840);
+                    HOperatorSet.Difference(ho_Rectangle, ho_Rectangle_diff, out ho_RegionOut);
+                    HOperatorSet.DispObj(ho_RegionOut, hv_ExpDefaultWinHandle);
+                }
             }
             // Image Acquisition CLOSE frame
             ho_Image.Dispose();
@@ -39,11 +44,11 @@ namespace VizijskiSustavWPF.HALCON
             _waitHandleCam2.Set();
         }
 
-        public void RunHalcon9(HTuple window)
+        public void RunHalcon9(HTuple window, bool domainmarkup)
         {
             hv_ExpDefaultWinHandle = window;
             HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-            Livecam2();
+            Livecam2(domainmarkup);
         }
     }
 }

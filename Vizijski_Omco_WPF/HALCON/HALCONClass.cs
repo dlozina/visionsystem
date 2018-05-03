@@ -36,22 +36,10 @@ namespace VizijskiSustavWPF.HALCON
 
         //Framegrabber Handle definition
         HTuple hv_AcqHandle = new HTuple();
-
         // Framegrabber Handle for live CAM
         public HTuple hv_ExpDefaultWinHandle;
         // Framegrabber Handle for live Porosity
         public HTuple hv_porosityWinHandle;
-        // Framegrabber Handle for teach CAM
-        public HTuple hv_TeachWinHandle;
-        // Framegrabber Handle for teach CAM2
-        public HTuple hv_TeachWinHandle2;
-        // Framegrabber Handle for teach CAM2
-        public HTuple hv_TeachWinHandle3;
-
-        //
-
-        //
-
         // Output definition for all Diameters
         private HTuple hv_output = new HTuple();
         // Output from pick

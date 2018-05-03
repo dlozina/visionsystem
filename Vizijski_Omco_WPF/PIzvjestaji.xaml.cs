@@ -223,9 +223,17 @@ namespace VizijskiSustavWPF
                 excel.Quit();
                 // Release COM objects (very important!)
                 if (excel != null)
+                {
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(excel);
+                }
                 if (workSheet != null)
+                {
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(workSheet);
+                }
+                if (workbook != null)
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                }
                 // Empty variables
                 excel = null;
                 workSheet = null;

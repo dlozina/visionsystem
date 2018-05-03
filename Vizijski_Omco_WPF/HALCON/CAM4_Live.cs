@@ -28,9 +28,9 @@ namespace VizijskiSustavWPF.HALCON
                 if (domainmarkup == true)
                 {
                     // Teach parameter is passed
-                    HOperatorSet.SetColor(hv_TeachWinHandle, "spring green");
-                    HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 - 250, 2764, 1928 - 250);
-                    HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 + 250, 2764, 1928 + 250);
+                    HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "spring green");
+                    HOperatorSet.DispLine(hv_ExpDefaultWinHandle, 0, 1928 - 250, 2764, 1928 - 250);
+                    HOperatorSet.DispLine(hv_ExpDefaultWinHandle, 0, 1928 + 250, 2764, 1928 + 250);
                 }
                 
             }

@@ -159,10 +159,10 @@ namespace VizijskiSustavWPF.HALCON
                     hv_output = (-hv_HalfW)+hv_colToMax0;
 
                     // Display Result on side 2
-                    if (hv_TeachWinHandle.Length != 0)
+                    if (hv_ExpDefaultWinHandle.Length != 0)
                     {
-                        HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle);
-                        HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
+                        HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
+                        HOperatorSet.DispObj(ho_ContCircle, hv_ExpDefaultWinHandle);
                     }
                 }
 
@@ -249,10 +249,10 @@ namespace VizijskiSustavWPF.HALCON
                     hv_output = hv_HalfW-hv_colToMin0;
 
                     // Display Result on side 1
-                    if (hv_TeachWinHandle.Length != 0)
+                    if (hv_ExpDefaultWinHandle.Length != 0)
                     {
-                        HOperatorSet.DispObj(ho_Image, hv_TeachWinHandle);
-                        HOperatorSet.DispObj(ho_ContCircle, hv_TeachWinHandle);
+                        HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
+                        HOperatorSet.DispObj(ho_ContCircle, hv_ExpDefaultWinHandle);
                     }
                 }
             } //TRY
@@ -285,10 +285,10 @@ namespace VizijskiSustavWPF.HALCON
         // D1 S1 Call
         public void RunHalcon1(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(1, 1);
             if (hv_output.Length != 0 )
@@ -311,10 +311,10 @@ namespace VizijskiSustavWPF.HALCON
         // D1 S2 Call
         public void RunHalcon2(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(1, 2);
             if (hv_output.Length != 0)
@@ -337,10 +337,10 @@ namespace VizijskiSustavWPF.HALCON
         // D2 S1 Call
         public void RunHalcon3(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(2, 1);
             if (hv_output.Length != 0)
@@ -363,10 +363,10 @@ namespace VizijskiSustavWPF.HALCON
         // D2 S2 Call
         public void RunHalcon4(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(2, 2);
             if (hv_output.Length != 0)
@@ -389,10 +389,10 @@ namespace VizijskiSustavWPF.HALCON
         // D3 S1 Call
         public void RunHalcon5(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(3, 1);
             if (hv_output.Length != 0)
@@ -415,10 +415,10 @@ namespace VizijskiSustavWPF.HALCON
         // D3 S2 Call
         public void RunHalcon6(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(3, 2);
             if (hv_output.Length != 0)
@@ -441,10 +441,10 @@ namespace VizijskiSustavWPF.HALCON
         // D4 S1 Call
         public void RunHalcon7(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(4, 1);
             if (hv_output.Length != 0)
@@ -467,10 +467,10 @@ namespace VizijskiSustavWPF.HALCON
         // D4 S2 Call
         public void RunHalcon8(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(4, 2);
             if (hv_output.Length != 0)
@@ -493,10 +493,10 @@ namespace VizijskiSustavWPF.HALCON
         // D5 S1 Call
         public void RunHalcon26(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(5, 1);
             if (hv_output.Length != 0)
@@ -519,10 +519,10 @@ namespace VizijskiSustavWPF.HALCON
         // D5 S2 Call
         public void RunHalcon27(HTuple window)
         {
-            hv_TeachWinHandle = window;
-            if (hv_TeachWinHandle.Length != 0)
+            hv_ExpDefaultWinHandle = window;
+            if (hv_ExpDefaultWinHandle.Length != 0)
             {
-                HOperatorSet.ClearWindow(hv_TeachWinHandle);
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             }
             DiameterAction(5, 2);
             if (hv_output.Length != 0)

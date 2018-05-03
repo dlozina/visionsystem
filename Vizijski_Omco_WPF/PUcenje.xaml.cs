@@ -21,9 +21,12 @@ namespace VizijskiSustavWPF
 
         private void Window_Unloaded(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop = true;
-            App.HDevExp.Teachloop2 = true;
-            App.HDevExp.Teachloop3 = true;
+            // Gasi kamere kad prebacis screen
+            App.HDevExp.Exitloop2 = true;
+            App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = true;
+            App.DiameterLightOFF();
+            App.PorosityLightOFF();
         }
 
         //private void updatePagePRucno_100ms(object sender, PLCInterfaceEventArgs e)
@@ -36,11 +39,25 @@ namespace VizijskiSustavWPF
 
         //}
 
+        private void TeachCam2()
+        {
+            App.HDevExp.InitHalcon();
+            HTuple windowId = hwindowTeach.HalconID;
+            App.HDevExp.RunHalcon9(windowId, true);
+        }
+
+        private void TeachCam3()
+        {
+            App.HDevExp.InitHalcon();
+            HTuple windowId = hwindowTeach.HalconID;
+            App.HDevExp.RunHalcon12(windowId, true);
+        }
+
         private void TeachCam4()
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunHalcon15(windowId);
+            App.HDevExp.RunHalcon10(windowId,true);
         }
 
         private void AnalizeD1S1()
@@ -113,23 +130,9 @@ namespace VizijskiSustavWPF
             //App.HDevExp.RunHalcon8(windowId);
         }
 
-        private void TeachCam2()
-        {
-            App.HDevExp.InitHalcon();
-            HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunHalcon24(windowId);
-        }
-
-        private void TeachCam3()
-        {
-            App.HDevExp.InitHalcon();
-            HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunHalcon25(windowId);
-        }
-
         private void b_sTOPKamere_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop = true;
+            App.HDevExp.Exitloop4 = true;
         }
 
         //private void b_clearScreen_Click(object sender, RoutedEventArgs e)
@@ -199,7 +202,7 @@ namespace VizijskiSustavWPF
 
         private void Btest_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop = true;
+            App.HDevExp.Exitloop4 = true;
 
             //while (App.HDevExp.FramegrabberClosed4 == false)
             //{
@@ -284,7 +287,8 @@ namespace VizijskiSustavWPF
             if (ClickNumber == 1)
             {
                 // Omoguci idi na drugu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D1S1";
+                // Label mora biti od iduceg promjera
+                BpozicijaDijametri.Content = "POZICIJA D2S1";
                 //PLC kontrola
                 App.ActivateTeachD1S1();
             }
@@ -292,14 +296,14 @@ namespace VizijskiSustavWPF
             else if (ClickNumber == 2)
             {
                 // Omoguci idi na prvu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D2S1";
+                BpozicijaDijametri.Content = "POZICIJA D3S1";
                 App.ActivateTeachD2S1();
             }
             // Prvi Klik D3S1
             else if (ClickNumber == 3)
             {
                 // Omoguci idi na drugu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D3S1";
+                BpozicijaDijametri.Content = "POZICIJA D4S1";
                 //PLC kontrola
                 App.ActivateTeachD3S1();
             }
@@ -307,14 +311,14 @@ namespace VizijskiSustavWPF
             else if (ClickNumber == 4)
             {
                 // Omoguci idi na prvu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D4S1";
+                BpozicijaDijametri.Content = "POZICIJA D4S2";
                 App.ActivateTeachD4S1();
             }
             // Prvi Klik D4S2
             else if (ClickNumber == 5)
             {
                 // Omoguci idi na drugu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D4S2";
+                BpozicijaDijametri.Content = "POZICIJA D3S2";
                 //PLC kontrola
                 App.ActivateTeachD4S2();
             }
@@ -322,14 +326,14 @@ namespace VizijskiSustavWPF
             else if (ClickNumber == 6)
             {
                 // Omoguci idi na prvu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D3S2";
+                BpozicijaDijametri.Content = "POZICIJA D2S2";
                 App.ActivateTeachD3S2();
             }
             // Prvi Klik D2S2
             else if (ClickNumber == 7)
             {
                 // Omoguci idi na drugu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D2S2";
+                BpozicijaDijametri.Content = "POZICIJA D1S2";
                 //PLC kontrola
                 App.ActivateTeachD2S2();
             }
@@ -337,14 +341,14 @@ namespace VizijskiSustavWPF
             else if (ClickNumber == 8)
             {
                 // Omoguci idi na prvu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D1S2";
+                BpozicijaDijametri.Content = "POZICIJA D5S1";
                 App.ActivateTeachD1S2();
             }
             // Prvi Klik D5S1
             else if (ClickNumber == 9)
             {
                 // Omoguci idi na drugu poziciju
-                BpozicijaDijametri.Content = "POZICIJA D5S1";
+                BpozicijaDijametri.Content = "POZICIJA D5S2";
                 //PLC kontrola
                 //App.ActivateControl1();
             }
@@ -401,9 +405,11 @@ namespace VizijskiSustavWPF
 
         private void b_startKamere_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop = false;
-            App.HDevExp.Teachloop2 = true;
-            App.HDevExp.Teachloop3 = true;
+            App.HDevExp.Exitloop2 = true;
+            App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = false;
+            App.DiameterLightON();
+            App.PorosityLightOFF();
             hwindowTeach.HImagePart = new Rect(0, 0, 3856, 2764);
             Thread TeachCAM4Thread = new Thread(TeachCam4) { Name = "TeachCAM4Thread" };
             TeachCAM4Thread.Start();
@@ -411,9 +417,11 @@ namespace VizijskiSustavWPF
 
         private void BtestKamere1_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop = true;
-            App.HDevExp.Teachloop2 = false;
-            App.HDevExp.Teachloop3 = true;
+            App.HDevExp.Exitloop2 = false;
+            App.HDevExp.Exitloop3 = true;
+            App.HDevExp.Exitloop4 = true;
+            App.DiameterLightOFF();
+            App.PorosityLightON();
             hwindowTeach.HImagePart = new Rect(0, 0, 3856, 2764);
             Thread teachCam2Thread = new Thread(TeachCam2) { Name = "TeachCAM2Thread" };
             teachCam2Thread.Start();
@@ -421,9 +429,11 @@ namespace VizijskiSustavWPF
 
         private void BtestKamere2_Click(object sender, RoutedEventArgs e)
         {
-            App.HDevExp.Teachloop = true;
-            App.HDevExp.Teachloop2 = true;
-            App.HDevExp.Teachloop3 = false;
+            App.HDevExp.Exitloop2 = true;
+            App.HDevExp.Exitloop3 = false;
+            App.HDevExp.Exitloop4 = true;
+            App.DiameterLightOFF();
+            App.PorosityLightON();
             hwindowTeach.HImagePart = new Rect(0, 0, 2592, 1944);
             Thread teachCam3Thread = new Thread(TeachCam3) { Name = "TeachCAM3Thread" };
             teachCam3Thread.Start();
@@ -500,6 +510,7 @@ namespace VizijskiSustavWPF
             // Prvi Klik D5S1
             else if (ClickNumber == 9)
             {
+                //BpozicijaDijametri.Foreground = new SolidColorBrush(Colors.Black);
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D5S1";
                 //PLC kontrola
@@ -507,6 +518,7 @@ namespace VizijskiSustavWPF
             // Prvi Klik D5S2
             else if (ClickNumber == 10)
             {
+                BpozicijaDijametri.Foreground = new SolidColorBrush(Colors.Black);
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D5S2";
                 //PLC kontrola
