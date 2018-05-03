@@ -7,6 +7,10 @@ namespace VizijskiSustavWPF.HALCON
    
         private void Livecam1()
         {
+            // Wait for CAM4 thread to be closed
+            _waitHandleCam1.WaitOne();
+            // Close te thread DOOR
+            _waitHandleCam1.Reset();
             // Initialize local and output iconic variables 
             HOperatorSet.GenEmptyObj(out ho_Image);
             // Image Acquisition OPEN frame
@@ -25,6 +29,8 @@ namespace VizijskiSustavWPF.HALCON
             ho_Image.Dispose();
             HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            // Open the thread DOOR
+            _waitHandleCam1.Set();
         }
 
         public void RunHalcon11(HTuple window)

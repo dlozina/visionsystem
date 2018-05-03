@@ -57,7 +57,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
-            App.HDevExp.RunHalcon10(windowId);
+            App.HDevExp.RunHalcon10(windowId, true);
             //Dispatcher.Invoke(() =>
             //{
             //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";

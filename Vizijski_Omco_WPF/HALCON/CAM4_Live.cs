@@ -5,8 +5,12 @@ namespace VizijskiSustavWPF.HALCON
     public partial class HDevelopExport
     {
 
-        private void Livecam4()
+        private void Livecam4(bool domainmarkup)
         {
+            // Wait for CAM4 thread to be closed
+            _waitHandleCam4.WaitOne();
+            // Close te thread DOOR
+            _waitHandleCam4.Reset();
             // Initialize local and output iconic variables 
             HOperatorSet.GenEmptyObj(out ho_Image);
             // Image Acquisition OPEN frame
@@ -20,18 +24,30 @@ namespace VizijskiSustavWPF.HALCON
                 // Live image from CAM4
                 HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
                 HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
+
+                if (domainmarkup == true)
+                {
+                    // Teach parameter is passed
+                    HOperatorSet.SetColor(hv_TeachWinHandle, "spring green");
+                    HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 - 250, 2764, 1928 - 250);
+                    HOperatorSet.DispLine(hv_TeachWinHandle, 0, 1928 + 250, 2764, 1928 + 250);
+                }
+                
             }
             // Image Acquisition CLOSE frame
             ho_Image.Dispose();
             HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            // Open the thread DOOR
+            _waitHandleCam4.Set();
         }
 
-        public void RunHalcon10(HTuple window)
+        public void RunHalcon10(HTuple window, bool domainmarkup)
         {
             hv_ExpDefaultWinHandle = window;
             HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-            Livecam4();
+            // TEST Line Display - > Test call from main thread
+            Livecam4(domainmarkup);
         }
 
     }

@@ -311,6 +311,10 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.GenEmptyObj(out ho_Cross2);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
             //** GMM ***
+            // Wait for CAM4 thread to be closed
+            _waitHandleCam1.WaitOne();
+            // Close te thread DOOR
+            _waitHandleCam1.Reset();
             //Image Acquisition
             try
             {
@@ -665,6 +669,8 @@ namespace VizijskiSustavWPF.HALCON
             ho_Cross2.Dispose();
             ho_ContCircle.Dispose();
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            // Open the thread DOOR
+            _waitHandleCam1.Set();
         }
 
         public void RobotPick(HTuple window, bool trigger = false)

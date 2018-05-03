@@ -33,6 +33,10 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.GenEmptyObj(out ho_RegionClosing);
             HOperatorSet.GenEmptyObj(out ho_SmallConnection);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
+            // Wait for CAM4 thread to be closed
+            _waitHandleCam2.WaitOne();
+            // Close te thread DOOR
+            _waitHandleCam2.Reset();
             // Open camera frame
             HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851MP_CAM_2", 0, -1, out hv_AcqHandle);
             HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 20000.0); // 20000
@@ -113,6 +117,9 @@ namespace VizijskiSustavWPF.HALCON
 
             //HOperatorSet.ClearWindow(hv_porosityWinHandle);
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            // Open the thread DOOR
+            _waitHandleCam2.Set();
+            // Dispose all iconic variables
             ho_Image.Dispose();
             ho_Rectangle.Dispose();
             ho_Circle.Dispose();

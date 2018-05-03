@@ -8,9 +8,9 @@ namespace VizijskiSustavWPF.HALCON
         private void Teachcam4()
         {
             // Wait for CAM4 thread to be closed
-            _waitHandle.WaitOne();
+            _waitHandleCam4.WaitOne();
             // Close te thread DOOR
-            _waitHandle.Reset();
+            _waitHandleCam4.Reset();
             // Initialize local and output iconic variables 
             HOperatorSet.GenEmptyObj(out ho_TestImage);
             // Image Acquisition OPEN frame
@@ -34,7 +34,7 @@ namespace VizijskiSustavWPF.HALCON
             HOperatorSet.ClearWindow(hv_TeachWinHandle);
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
             // Open the thread DOOR
-            _waitHandle.Set();
+            _waitHandleCam4.Set();
         }
 
         public void RunHalcon15(HTuple window)
