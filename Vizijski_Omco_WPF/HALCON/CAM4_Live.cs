@@ -25,7 +25,7 @@ namespace VizijskiSustavWPF.HALCON
                 HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
                 HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
 
-                if (domainmarkup == true)
+                if (domainmarkup)
                 {
                     // Teach parameter is passed
                     HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "spring green");

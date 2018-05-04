@@ -28,7 +28,7 @@ namespace VizijskiSustavWPF.HALCON
                 // Live image from CAM3
                 HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
                 HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
-                if (domainmarkup == true)
+                if (domainmarkup)
                 {
                     // Draw ROI
                     //if(hv_TeachRow1 == null || hv_TeachColumn1 == null || hv_TeachRow2 == null || hv_TeachColumn2 == null)

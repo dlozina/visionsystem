@@ -26,7 +26,7 @@ namespace VizijskiSustavWPF.HALCON
                 // Live image from CAM2
                 HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
                 HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
-                if(domainmarkup == true)
+                if(domainmarkup)
                 {
                     // If teach part of the code is active
                     HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "spring green");

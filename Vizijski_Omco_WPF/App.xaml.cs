@@ -37,6 +37,18 @@ namespace VizijskiSustavWPF
         private bool _edgeDetection7 = false;
         private bool _edgeDetection8 = false;
         private bool _edgeDetection9 = false;
+        // Run only once flag
+        private bool _oneCallFlag1 = false;
+        private bool _oneCallFlag2 = false;
+        private bool _oneCallFlag3 = false;
+        private bool _oneCallFlag4 = false;
+        private bool _oneCallFlag5 = false;
+        private bool _oneCallFlag6 = false;
+        private bool _oneCallFlag7 = false;
+        private bool _oneCallFlag8 = false;
+        private bool _oneCallFlag9 = false;
+        private bool _oneCallFlag10 = false;
+
         // Database
         public static List<ReportInterface.DimensionLine> savedata = new List<ReportInterface.DimensionLine>();
 
