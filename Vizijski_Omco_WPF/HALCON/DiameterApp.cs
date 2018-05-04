@@ -491,7 +491,7 @@ namespace VizijskiSustavWPF.HALCON
             }
         }
         // D5 S1 Call
-        public void RunHalcon26(HTuple window)
+        public void RunCam2(HTuple window)
         {
             hv_ExpDefaultWinHandle = window;
             if (hv_ExpDefaultWinHandle.Length != 0)
@@ -517,7 +517,7 @@ namespace VizijskiSustavWPF.HALCON
             }
         }
         // D5 S2 Call
-        public void RunHalcon27(HTuple window)
+        public void RunCam4(HTuple window)
         {
             hv_ExpDefaultWinHandle = window;
             if (hv_ExpDefaultWinHandle.Length != 0)

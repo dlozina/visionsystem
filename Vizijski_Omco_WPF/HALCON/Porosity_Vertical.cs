@@ -133,13 +133,13 @@ namespace VizijskiSustavWPF.HALCON
             ho_ContCircle.Dispose();
         }
 
-        //public void RunHalcon13(HTuple Window)
+        //public void RunPorosityVertical(HTuple Window)
         //{
         //    hv_porosityWinHandle = Window;
         //    porosityVertical();
         //}
 
-        public void RunHalcon13()
+        public void RunPorosityVertical()
         {
             porosityVertical();
         }

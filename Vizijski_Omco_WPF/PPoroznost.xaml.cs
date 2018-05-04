@@ -44,15 +44,15 @@ namespace VizijskiSustavWPF
             //});
             //App.HDevExp.InitHalcon();
             //HTuple windowId = HwindowPorsity.HalconID;
-            //App.HDevExp.RunHalcon13(windowId);
+            //App.HDevExp.RunPorosityVertical(windowId);
 
             //Dispatcher.BeginInvoke((Action)(() =>
             //{
                 //HwindowPorsity.HImagePart = new Rect(0, 0, 3856, 2764);
                 //App.HDevExp.InitHalcon();
                 //HTuple windowId = HwindowPorsity.HalconID;
-                //App.HDevExp.RunHalcon13(windowId);
-                App.HDevExp.RunHalcon13();
+                //App.HDevExp.RunPorosityVertical(windowId);
+                App.HDevExp.RunPorosityVertical();
             //}));
         }
 
@@ -71,15 +71,15 @@ namespace VizijskiSustavWPF
             //});
             //App.HDevExp.InitHalcon();
             //HTuple windowId = HwindowPorsity.HalconID;
-            //App.HDevExp.RunHalcon14(windowId);
+            //App.HDevExp.RunPorosityHorizontal(windowId);
 
             //Dispatcher.BeginInvoke((Action)(() =>
             //{
                 //HwindowPorsity.HImagePart = new Rect(0, 0, 2592, 1944);
                 //App.HDevExp.InitHalcon();
                 //HTuple windowId = HwindowPorsity.HalconID;
-                //App.HDevExp.RunHalcon14(windowId);
-                App.HDevExp.RunHalcon14();
+                //App.HDevExp.RunPorosityHorizontal(windowId);
+                App.HDevExp.RunPorosityHorizontal();
             //}));
         }
 

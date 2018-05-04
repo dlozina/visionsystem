@@ -44,7 +44,7 @@ namespace VizijskiSustavWPF.HALCON
             _waitHandleCam2.Set();
         }
 
-        public void RunHalcon9(HTuple window, bool domainmarkup)
+        public void RunCam2(HTuple window, bool domainmarkup)
         {
             hv_ExpDefaultWinHandle = window;
             HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);

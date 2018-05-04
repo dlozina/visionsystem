@@ -28,8 +28,8 @@ namespace VizijskiSustavWPF
         //public static ReportInterface MainReportInterface;
         public static ReportInterface initReportInterface;
         public static HALCON.HDevelopExport HDevExp;
-        private bool _edgeDetection1 = false;
-        private bool _edgeDetection2 = false;
+        //private bool _edgeDetection1 = false;
+        //private bool _edgeDetection2 = false;
         private bool _edgeDetection3 = false;
         private bool _edgeDetection4 = false;
         private bool _edgeDetection5 = false;
@@ -37,17 +37,17 @@ namespace VizijskiSustavWPF
         private bool _edgeDetection7 = false;
         private bool _edgeDetection8 = false;
         private bool _edgeDetection9 = false;
-        // Run only once flag
-        private bool _oneCallFlag1 = false;
-        private bool _oneCallFlag2 = false;
-        private bool _oneCallFlag3 = false;
-        private bool _oneCallFlag4 = false;
-        private bool _oneCallFlag5 = false;
-        private bool _oneCallFlag6 = false;
-        private bool _oneCallFlag7 = false;
-        private bool _oneCallFlag8 = false;
-        private bool _oneCallFlag9 = false;
-        private bool _oneCallFlag10 = false;
+        // Run only once flag (When we recive PLC signal)
+        private bool _oneCallFlagD1S1 = false;
+        private bool _oneCallFlagD1S2 = false;
+        private bool _oneCallFlagD2S1 = false;
+        private bool _oneCallFlagD2S2 = false;
+        private bool _oneCallFlagD3S1 = false;
+        private bool _oneCallFlagD3S2 = false;
+        private bool _oneCallFlagD4S1 = false;
+        private bool _oneCallFlagD4S2 = false;
+        private bool _oneCallFlagD5S1 = false;
+        private bool _oneCallFlagD5S2 = false;
 
         // Database
         public static List<ReportInterface.DimensionLine> savedata = new List<ReportInterface.DimensionLine>();
@@ -127,22 +127,22 @@ namespace VizijskiSustavWPF
             String msg = "SISTEM SPREMAN";
 
             // Start analize slike D1 PRVOG RUBA S1 ********************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && _oneCallFlag1)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && _oneCallFlagD1S1)
             {
-                _oneCallFlag1 = false;
+                _oneCallFlagD1S1 = false;
                 Thread d1meassureS1 = new Thread(() => HDevExp.RunHalcon1(windowID)); // d1meassureS1.name = "Thread D1S1
                 d1meassureS1.Name = "Thread D1S1";
                 d1meassureS1.Start();
             }
             else if(!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value)
             {
-                _oneCallFlag1 = true;
+                _oneCallFlagD1S1 = true;
             }
 
             // Start analize slike D1 DRUGOG RUBA S2 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && _oneCallFlag2)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && _oneCallFlagD1S2)
             {
-                _oneCallFlag2 = false;
+                _oneCallFlagD1S2 = false;
                 //Thread d1meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon2));
                 Thread d1meassureS2 = new Thread(() => HDevExp.RunHalcon2(windowID));
                 d1meassureS2.Name = "Thread D1S2";
@@ -150,14 +150,14 @@ namespace VizijskiSustavWPF
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value)
             {
-                _oneCallFlag2 = true;
+                _oneCallFlagD1S2 = true;
             }
 
             // Start analize slike D2 DRUGOG RUBA S1 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && _oneCallFlag3)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && _oneCallFlagD2S1)
             {
 
-                _oneCallFlag3 = false;
+                _oneCallFlagD2S1 = false;
                 //Thread d2meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon3));
                 Thread d1meassureS2 = new Thread(() => HDevExp.RunHalcon3(windowID));
                 d1meassureS2.Name = "Thread D2S1";
@@ -165,13 +165,13 @@ namespace VizijskiSustavWPF
             }
             else if(!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value)
             {
-                _oneCallFlag3 = true;
+                _oneCallFlagD2S1 = true;
             }
 
             // Start analize slike D2 DRUGOG RUBA S2 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && _oneCallFlag4)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 2.0f) && _oneCallFlagD2S2)
             {
-                _oneCallFlag4 = false;
+                _oneCallFlagD2S2 = false;
                 //Thread d2meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon4));
                 Thread d2meassureS2 = new Thread(() => HDevExp.RunHalcon4(windowID));
                 d2meassureS2.Name = "Thread D2S2";
@@ -179,13 +179,13 @@ namespace VizijskiSustavWPF
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value)
             {
-                _oneCallFlag4 = true;
+                _oneCallFlagD2S2 = true;
             }
 
             // Start analize slike D3 DRUGOG RUBA S1 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && _oneCallFlag5)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && _oneCallFlagD3S1)
             {
-                _oneCallFlag5 = false;
+                _oneCallFlagD3S1 = false;
                 //Thread d3meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon5));
                 Thread d3meassureS1 = new Thread(() => HDevExp.RunHalcon5(windowID));
                 d3meassureS1.Name = "Thread D3S1";
@@ -193,13 +193,13 @@ namespace VizijskiSustavWPF
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value)
             {
-                _oneCallFlag5 = true;
+                _oneCallFlagD3S1 = true;
             }
 
             // Start analize slike D3 DRUGOG RUBA S2 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && _oneCallFlag6)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 3.0f) && _oneCallFlagD3S2)
             {
-                _oneCallFlag6 = false;
+                _oneCallFlagD3S2 = false;
                 //Thread d3meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon6));
                 Thread d3meassureS2 = new Thread(() => HDevExp.RunHalcon6(windowID));
                 d3meassureS2.Name = "Thread D3S2";
@@ -207,13 +207,13 @@ namespace VizijskiSustavWPF
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value)
             {
-                _oneCallFlag6 = true;
+                _oneCallFlagD3S2 = true;
             }
 
             // Start analize slike D4 DRUGOG RUBA S1 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 4.0f) && _oneCallFlag7)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 4.0f) && _oneCallFlagD4S1)
             {
-                _oneCallFlag7 = false;
+                _oneCallFlagD4S1 = false;
                 //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
                 Thread d4meassureS1 = new Thread(() => HDevExp.RunHalcon7(windowID));
                 d4meassureS1.Name = "Thread D4S1";
@@ -221,13 +221,13 @@ namespace VizijskiSustavWPF
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value)
             {
-                _oneCallFlag7 = true;
+                _oneCallFlagD4S1 = true;
             }
 
             // Start analize slike D4 DRUGOG RUBA S2 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 4.0f) && _oneCallFlag8)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 4.0f) && _oneCallFlagD4S2)
             {
-                _oneCallFlag8 = false;
+                _oneCallFlagD4S2 = false;
                 //Thread d4meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon8));
                 Thread d4meassureS2 = new Thread(() => HDevExp.RunHalcon8(windowID));
                 d4meassureS2.Name = "Thread D4S2";
@@ -235,13 +235,13 @@ namespace VizijskiSustavWPF
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value)
             {
-                _oneCallFlag8 = true;
+                _oneCallFlagD4S2 = true;
             }
 
             // Start analize slike D5 DRUGOG RUBA S1 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 5.0f) && _oneCallFlag9)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 5.0f) && _oneCallFlagD5S1)
             {
-                _oneCallFlag9 = false;
+                _oneCallFlagD5S1 = false;
                 //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
                 Thread d5meassureS1 = new Thread(() => HDevExp.RunHalcon7(windowID));
                 d5meassureS1.Name = "Thread D5S1";
@@ -249,13 +249,13 @@ namespace VizijskiSustavWPF
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value)
             {
-                _oneCallFlag9 = true;
+                _oneCallFlagD5S1 = true;
             }
 
             // Start analize slike D5 DRUGOG RUBA S2 *******************************************************************
-            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 5.0f) && _oneCallFlag10)
+            if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 5.0f) && _oneCallFlagD5S2)
             {
-                _oneCallFlag10 = false;
+                _oneCallFlagD5S2 = false;
                 //Thread d4meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon8));
                 Thread d5meassureS2 = new Thread(() => HDevExp.RunHalcon8(windowID));
                 d5meassureS2.Name = "Thread D4S2";
@@ -263,7 +263,7 @@ namespace VizijskiSustavWPF
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value)
             {
-                _oneCallFlag10 = true;
+                _oneCallFlagD5S2 = true;
             }
 
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
@@ -376,8 +376,8 @@ namespace VizijskiSustavWPF
             }
 
             // Edge detection help marker
-            _edgeDetection1 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value == true;
-            _edgeDetection2 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value == true;
+            //_edgeDetection1 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value == true;
+            //_edgeDetection2 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value == true;
             _edgeDetection3 = (bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value == true; 
             _edgeDetection4 = (bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value == true; 
             _edgeDetection5 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM2.Value == true;

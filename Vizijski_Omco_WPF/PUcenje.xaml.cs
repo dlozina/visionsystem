@@ -43,21 +43,21 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunHalcon9(windowId, true);
+            App.HDevExp.RunCam2(windowId, true);
         }
 
         private void TeachCam3()
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunHalcon12(windowId, true);
+            App.HDevExp.RunCam3(windowId, true);
         }
 
         private void TeachCam4()
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunHalcon10(windowId,true);
+            App.HDevExp.RunCam4(windowId,true);
         }
 
         private void AnalizeD1S1()

@@ -35,7 +35,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = HwindowRobot.HalconID;
-            App.HDevExp.RunHalcon11(windowId);
+            App.HDevExp.RunCam1(windowId);
         }
 
         public void RobotPickStartT1()

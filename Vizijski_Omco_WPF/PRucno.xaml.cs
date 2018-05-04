@@ -21,7 +21,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
-            App.HDevExp.RunHalcon11(windowId);
+            App.HDevExp.RunCam1(windowId);
             //Dispatcher.Invoke(() =>
             //{
             //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
@@ -33,7 +33,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
-            App.HDevExp.RunHalcon9(windowId, false);
+            App.HDevExp.RunCam2(windowId, false);
             //Dispatcher.Invoke(() =>
             //{
             //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
@@ -45,7 +45,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
-            App.HDevExp.RunHalcon12(windowId, false);
+            App.HDevExp.RunCam3(windowId, false);
             //Dispatcher.Invoke(() =>
             //{
             //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";
@@ -57,8 +57,8 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindow.HalconID;
-            //App.HDevExp.RunHalcon10(windowId, true);
-            App.HDevExp.RunHalcon10(windowId, false);
+            //App.HDevExp.RunCam4(windowId, true);
+            App.HDevExp.RunCam4(windowId, false);
             //Dispatcher.Invoke(() =>
             //{
             //    App.mwHandle.tb_cameraOnline.Text = "Camera: Offline";

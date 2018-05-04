@@ -1,6 +1,5 @@
 ﻿using System.Threading;
 using System.Windows;
-using System.Windows.Forms;
 
 namespace VizijskiSustavWPF
 {
@@ -8,7 +7,7 @@ namespace VizijskiSustavWPF
     /// Interaction logic for PPostavke.xaml
     /// </summary>
     /// 
-    
+
     public partial class PPostavke
     {
 
@@ -23,7 +22,7 @@ namespace VizijskiSustavWPF
         private void BiskljuciAplikaciju_Click(object sender, RoutedEventArgs e)
         {
 
-            if (System.Windows.MessageBox.Show("Da li želite zatvoriti aplikaciju?",
+            if (MessageBox.Show("Da li želite zatvoriti aplikaciju?",
             "Potvrda", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 // Close the window 
@@ -43,7 +42,7 @@ namespace VizijskiSustavWPF
 
         private void BizbrisiPodatke_Click(object sender, RoutedEventArgs e)
         {
-            if (System.Windows.MessageBox.Show("Da li ste sigurni da želite izbrisati cijelu bazu podataka?",
+            if (MessageBox.Show("Da li ste sigurni da želite izbrisati cijelu bazu podataka?",
             "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 App.ResetData();
