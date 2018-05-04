@@ -146,16 +146,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="HALCON\CAM1_Live.cs" />
-    <Compile Include="HALCON\Pick.cs" />
-    <Compile Include="HALCON\CAM3_Live.cs" />
-    <Compile Include="HALCON\CAM4_Live.cs" />
-    <Compile Include="HALCON\CAM2_Live.cs" />
-    <Compile Include="HALCON\DiameterApp.cs" />
-    <Compile Include="HALCON\HALCONClass.cs" />
-    <Compile Include="HALCON\HALCONInterface.cs" />
-    <Compile Include="HALCON\Porosity_Horizontal.cs" />
-    <Compile Include="HALCON\Porosity_Vertical.cs" />
+    <Compile Include="VisionControl\CAM1_Live.cs" />
+    <Compile Include="VisionControl\Pick.cs" />
+    <Compile Include="VisionControl\CAM3_Live.cs" />
+    <Compile Include="VisionControl\CAM4_Live.cs" />
+    <Compile Include="VisionControl\CAM2_Live.cs" />
+    <Compile Include="VisionControl\DiameterApp.cs" />
+    <Compile Include="VisionControl\HALCONClass.cs" />
+    <Compile Include="VisionControl\HALCONInterface.cs" />
+    <Compile Include="VisionControl\Porosity_Horizontal.cs" />
+    <Compile Include="VisionControl\Porosity_Vertical.cs" />
     <Compile Include="PLC_interface\Control.cs" />
     <Compile Include="PLC_interface\PLCInterface.cs" />
     <Compile Include="PLC_interface\snap7.net.cs" />
