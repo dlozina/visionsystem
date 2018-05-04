@@ -19,4 +19,7 @@ GUI page for ROBOT targets, vision sw found all 5 workpieces that we need to pic
 Checking for surface imperfections:\
 \
 ![naucenop1](https://user-images.githubusercontent.com/28594128/39088847-f476930e-45b9-11e8-92c8-c4142bec77f0.PNG)
+<<<<<<< HEAD
 
+=======
+>>>>>>> cb0b8b40f7b00f56d89f43e7197d12d8438fa36d
