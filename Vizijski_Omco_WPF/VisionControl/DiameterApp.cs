@@ -17,16 +17,14 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
 
             // Test threadWait - Teach_CAM4 needs to finish
-            //_waitHandle.WaitOne();
-
+            // Wait for CAM4 thread to be closed
+            _waitHandleCam4.WaitOne();
+            // Close te thread DOOR
+            _waitHandleCam4.Reset();
             try
             {
                 // Camera communication - Open
                 //OpenCamFrame();
-                // Wait for CAM4 thread to be closed
-                _waitHandleCam4.WaitOne();
-                // Close te thread DOOR
-                _waitHandleCam4.Reset();
                 HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default",
                 -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
@@ -36,7 +34,6 @@ namespace VizijskiSustavWPF.VisionControl
                 //CloseCamFrame();
                 HOperatorSet.CloseFramegrabber(hv_AcqHandle);
                 // Open the thread DOOR
-                _waitHandleCam4.Set();
             }
             
             catch (HalconException HDevExpDefaultExceptionCamera)
@@ -44,6 +41,7 @@ namespace VizijskiSustavWPF.VisionControl
                 //HDevExpDefaultException1.ToHTuple(out hv_Exception);
                 //hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
             }
+            _waitHandleCam4.Set();
 
             try
             {
