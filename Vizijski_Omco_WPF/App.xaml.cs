@@ -29,15 +29,6 @@ namespace VizijskiSustavWPF
         //public static ReportInterface MainReportInterface;
         public static ReportInterface initReportInterface;
         public static HDevelopExport HDevExp;
-        //private bool _edgeDetection1 = false;
-        //private bool _edgeDetection2 = false;
-        private bool _edgeDetection3 = false;
-        private bool _edgeDetection4 = false;
-        private bool _edgeDetection5 = false;
-        private bool _edgeDetection6 = false;
-        private bool _edgeDetection7 = false;
-        private bool _edgeDetection8 = false;
-        private bool _edgeDetection9 = false;
         // Run only once flag (When we recive PLC signal)
         private bool _oneCallFlagD1S1 = false;
         private bool _oneCallFlagD1S2 = false;
@@ -49,6 +40,13 @@ namespace VizijskiSustavWPF
         private bool _oneCallFlagD4S2 = false;
         private bool _oneCallFlagD5S1 = false;
         private bool _oneCallFlagD5S2 = false;
+        private bool _oneCallFlagPorHor = false;
+        private bool _onceCallFlagPorVer = false;
+        private bool _oneCallFlagPick = false;
+        private bool _oneCallFlagPorFound = false;
+        private bool _oneCallFlagPorVerNotFound = false;
+        private bool _oneCallFlagPorHorNotFound = false;
+        private bool _oneCallFlagSaveData = false;
 
         // Database
         public static List<ReportInterface.DimensionLine> savedata = new List<ReportInterface.DimensionLine>();
@@ -268,8 +266,9 @@ namespace VizijskiSustavWPF
             }
 
             // Start analize slike za detekciju POROZNOSTI VERTIKALNO ***************************************************
-            if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && (!_edgeDetection3))
+            if (((bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value) && _onceCallFlagPorVer)
             {
+                _onceCallFlagPorVer = false;
                 Thread porosityverth = new Thread(new ThreadStart(pPoroznost.PorosityVerWindow));
                 porosityverth.Name = "Thread PorosityVer";
                 porosityverth.Start();
@@ -277,10 +276,15 @@ namespace VizijskiSustavWPF
                 // Start sa display-om, thread error
                 //pPoroznost.PorosityVerWindow();
             }
+            else if (!(bool) e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value)
+            {
+                _onceCallFlagPorVer = true;
+            }
 
             // Start analize slike za detekciju POROZNOSTI HORIZONTALNO ************************************************
-            if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && (!_edgeDetection4))
+            if (((bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value) && _oneCallFlagPorHor)
             {
+                _oneCallFlagPorHor = false;
                 Thread porosityhorth = new Thread(new ThreadStart(pPoroznost.PorosityHorWindow));
                 porosityhorth.Name = "Thread PorosityHor";
                 porosityhorth.Start();
@@ -288,41 +292,62 @@ namespace VizijskiSustavWPF
                 // Start sa display-om, thread error
                 //pPoroznost.PorosityHorWindow();
             }
+            else if (!(bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value)
+            {
+                _oneCallFlagPorHor = true;
+            }
 
             // Start analize slike za robot PICK - TRIGGER 1 ***********************************************************
-            if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value) && (!_edgeDetection6))
+            if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value) && _oneCallFlagPick)
             {
+                _oneCallFlagPick = false;
                 // We call public method in class pRobot
                 Thread pickTriggerT1 = new Thread(new ThreadStart(pRobot.RobotPickStartT1));
                 pickTriggerT1.Name = "Thread pickTriggerT1";
                 pickTriggerT1.Start();
             }
-            // Start analize slike za robot PICK - TRIGGER 2 ***********************************************************
-            if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value) && (!_edgeDetection7))
+            else if (!(bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value)
             {
-                // We call public method in class pRobot
-                Thread pickTriggerT2 = new Thread(pRobot.RobotPickStartT2);
-                pickTriggerT2.Name = "Thread pickTriggerT2";
-                pickTriggerT2.Start();
+                _oneCallFlagPick = true;
             }
 
+            // Start analize slike za robot PICK - TRIGGER 2 ***********************************************************
+            //if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value) && (!_edgeDetection7))
+            //{
+            //    // We call public method in class pRobot
+            //    Thread pickTriggerT2 = new Thread(pRobot.RobotPickStartT2);
+            //    pickTriggerT2.Name = "Thread pickTriggerT2";
+            //    pickTriggerT2.Start();
+            //}
+
             // R-Os je prosla 360 i nije nasla porozni dio CAM2 
-            if (((bool)e.StatusData.MjerenjePoroznosti.GotovoCAM2.Value) && (!_edgeDetection5))
+            if (((bool)e.StatusData.MjerenjePoroznosti.GotovoCAM2.Value) && _oneCallFlagPorVerNotFound)
             {
+                _oneCallFlagPorVerNotFound = false;
                 HDevExp.Porositydetectedver = true;
                 //HDevExp.Porositydetectedhor = true;
             }
+            else if (!(bool)e.StatusData.MjerenjePoroznosti.GotovoCAM2.Value)
+            {
+                _oneCallFlagPorVerNotFound = true;
+            }
 
             // R-Os je prosla 360 i nije nasla porozni dio CAM3 
-            if (((bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value) && (!_edgeDetection8))
+            if (((bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value) && _oneCallFlagPorHorNotFound)
             {
+                _oneCallFlagPorHorNotFound = false;
                 //HDevExp.Porositydetectedver = true;
                 HDevExp.Porositydetectedhor = true;
             }
+            else if (!(bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value)
+            {
+                _oneCallFlagPorHorNotFound = true;
+            }
 
             // Save Data from PLC
-            if (((bool)e.StatusData.Automatika.SnimiMjerenja.Value) && (!_edgeDetection9))
+            if (((bool)e.StatusData.Automatika.SnimiMjerenja.Value) && _oneCallFlagSaveData)
             {
+                _oneCallFlagSaveData = false;
                 savedata.Add(new ReportInterface.DimensionLine
                 {
                     String = "No.1",
@@ -364,6 +389,7 @@ namespace VizijskiSustavWPF
                     DeltaMinusV2 = (float)e.StatusData.Upisanevrijednosti.Visina2DeltaMinus.Value,
                     // V3
                     NazivnoV3 = (float)e.StatusData.Upisanevrijednosti.Visina3.Value,
+                    // Ne Radi, probati
                     //NazivnoV3 = ((float)e.StatusData.Upisanevrijednosti.Visina2.Value - (float)e.StatusData.Upisanevrijednosti.Visina3.Value),
                     MjerenoV3 = (float)e.StatusData.MjerenjeTicalom.Visina3.Value,
                     DeltaPlusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaPlus.Value,
@@ -375,17 +401,10 @@ namespace VizijskiSustavWPF
                 string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
                 File.WriteAllText(DataBasePath, json);
             }
-
-            // Edge detection help marker
-            //_edgeDetection1 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value == true;
-            //_edgeDetection2 = (bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value == true;
-            _edgeDetection3 = (bool)e.StatusData.Kamere.CAM2ZahtjevZaAnalizom.Value == true; 
-            _edgeDetection4 = (bool)e.StatusData.Kamere.CAM3ZahtjevZaAnalizom.Value == true; 
-            _edgeDetection5 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM2.Value == true;
-            _edgeDetection6 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value == true;
-            _edgeDetection7 = (bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value == true;
-            _edgeDetection8 = (bool)e.StatusData.MjerenjePoroznosti.GotovoCAM3.Value == true;
-            _edgeDetection9 = (bool)e.StatusData.Automatika.SnimiMjerenja.Value == true;
+            else if (!(bool)e.StatusData.Automatika.SnimiMjerenja.Value)
+            {
+                _oneCallFlagSaveData = true;
+            }
 
             if (mwHandle != null)
             {
