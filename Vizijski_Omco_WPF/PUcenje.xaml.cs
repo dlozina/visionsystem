@@ -211,28 +211,28 @@ namespace VizijskiSustavWPF
                     // Prvi Klik D1S1
                     if (ClickNumber == 1)
                     {
-                        App.HDevExp.Teachloop = true;
+                        App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD1S1 = new Thread(AnalizeD1S1) { Name = "TestAnalizeD1S1Thread" };
                         TestAnalizeD1S1.Start();
                     }
                     // Prvi Klik D2S1
                     else if (ClickNumber == 2)
                     {
-                        App.HDevExp.Teachloop = true;
+                        App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD2S1 = new Thread(AnalizeD2S1) { Name = "TestAnalizeD2S1Thread" };
                         TestAnalizeD2S1.Start();
                     }
                     // Prvi Klik D3S1
                     else if (ClickNumber == 3)
                     {
-                        App.HDevExp.Teachloop = true;
+                        App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD3S1 = new Thread(AnalizeD3S1) { Name = "TestAnalizeD3S1Thread" };
                         TestAnalizeD3S1.Start();
                     }
                     // Prvi Klik D4S1
                     else if (ClickNumber == 4)
                     {
-                        App.HDevExp.Teachloop = true;
+                        App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD4S1 = new Thread(AnalizeD4S1) { Name = "TestAnalizeD4S1Thread" };
                         TestAnalizeD4S1.Start();
 
@@ -240,28 +240,28 @@ namespace VizijskiSustavWPF
                     // Prvi Klik D4S2
                     else if (ClickNumber == 5)
                     {
-                        App.HDevExp.Teachloop = true;
+                        App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD4S2 = new Thread(AnalizeD4S2) { Name = "TestAnalizeD4S2Thread" };
                         TestAnalizeD4S2.Start();
                     }
                     // Prvi Klik D3S2
                     else if (ClickNumber == 6)
                     {
-                        App.HDevExp.Teachloop = true;
+                        App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD3S2 = new Thread(AnalizeD3S2) { Name = "TestAnalizeD3S2Thread" };
                         TestAnalizeD3S2.Start();
                     }
                     // Prvi Klik D2S2
                     else if (ClickNumber == 7)
                     {
-                        App.HDevExp.Teachloop = true;
+                        App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD2S2 = new Thread(AnalizeD2S2) { Name = "TestAnalizeD2S2Thread" };
                         TestAnalizeD2S2.Start();
                     }
                     // Prvi Klik D1S2
                     else if (ClickNumber == 8)
                     {
-                        App.HDevExp.Teachloop = true;
+                        App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD1S2 = new Thread(AnalizeD1S2) { Name = "TestAnalizeD1S2Thread" };
                         TestAnalizeD1S2.Start();
                     }

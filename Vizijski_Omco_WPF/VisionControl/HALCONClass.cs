@@ -29,10 +29,10 @@ namespace VizijskiSustavWPF.VisionControl
         public event PorosityDetectedEventHandler PorosityDetected;
 
         // Framegrabber close handle - Set to TRUE beacuse we need first thread to go trough
-        static EventWaitHandle _waitHandleCam1 = new AutoResetEvent(true);
-        static EventWaitHandle _waitHandleCam2 = new AutoResetEvent(true);
-        static EventWaitHandle _waitHandleCam3 = new AutoResetEvent(true);
-        static EventWaitHandle _waitHandleCam4 = new AutoResetEvent(true);
+        static readonly EventWaitHandle _waitHandleCam1 = new AutoResetEvent(true);
+        static readonly EventWaitHandle _waitHandleCam2 = new AutoResetEvent(true);
+        static readonly EventWaitHandle _waitHandleCam3 = new AutoResetEvent(true);
+        static readonly EventWaitHandle _waitHandleCam4 = new AutoResetEvent(true);
 
         //Framegrabber Handle definition
         HTuple hv_AcqHandle = new HTuple();
@@ -79,14 +79,6 @@ namespace VizijskiSustavWPF.VisionControl
         public bool Exitloop3 { get; set; }
 
         public bool Exitloop4 { get; set; }
-
-        public bool Teachloop { get; set; }
-
-        public bool Teachloop2 { get; set; }
-
-        public bool Teachloop3 { get; set; }
-
-        public bool FramegrabberClosed4 { get; set; }
 
         public bool Porositydetectedver { get; set; }
 
