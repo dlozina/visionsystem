@@ -419,6 +419,7 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, true);
             Thread.Sleep(100);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);
+            // e.PXvalue = 0.0f;
         }
         // Event handler koji se poziva kada zavrsi analiza slike za pick
         private static void PickUpdate(HDevelopExport sender, HalconEventArgs e)

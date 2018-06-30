@@ -175,7 +175,7 @@
             <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,0,4,4"  >
 
                 <halconDotNet:HSmartWindowControlWPF x:Name="hwindowTeach" 
-                                                 HImagePart="0,0,3856,2764"
+                                                 HImagePart="0, 0, 2448, 2050"
                                                  Margin="4"   
                                                  />
             </Grid>

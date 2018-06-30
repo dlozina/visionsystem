@@ -146,7 +146,8 @@ namespace VizijskiSustavWPF
             b_ukljucikameru2.IsEnabled = true;
             b_ukljucikameru3.IsEnabled = true;
             b_ukljucikameru4.IsEnabled = false;
-            hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
+            //hwindow.HImagePart = new Rect(0, 0, 3856, 2764);
+            hwindow.HImagePart = new Rect(0, 0, 2448, 2050);
             // CAM4 call
             App.mwHandle.tb_cameraOnline.Text = "Camera: No.4 Online";
             App.mwHandle.tb_cameraOnline.UpdateLayout();

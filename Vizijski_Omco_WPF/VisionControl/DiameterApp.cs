@@ -1,4 +1,5 @@
 using HalconDotNet;
+using System.Threading;
 
 namespace VizijskiSustavWPF.VisionControl
 {
@@ -15,7 +16,7 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.GenEmptyObj(out ho_region_outer);
             HOperatorSet.GenEmptyObj(out ho_contour_outer);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
-
+            hv_output = 0;
             // Test threadWait - Teach_CAM4 needs to finish
             // Wait for CAM4 thread to be closed
             _waitHandleCam4.WaitOne();
@@ -25,12 +26,21 @@ namespace VizijskiSustavWPF.VisionControl
             {
                 // Camera communication - Open
                 //OpenCamFrame();
-                HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default",
-                -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
-                HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-                HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
+                //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
+                //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
+                //HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+                //HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
                 // Camera communication - Close
+
+                // New Camera Matrix Vision
+                HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
+                HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+                Thread.Sleep(2000);
+                HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
+                //
+
                 //CloseCamFrame();
                 HOperatorSet.CloseFramegrabber(hv_AcqHandle);
                 // Open the thread DOOR
@@ -45,7 +55,6 @@ namespace VizijskiSustavWPF.VisionControl
 
             try
             {
-
                 HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
                 //* Define constants and tuples:
                 hv_HalfW = hv_Width/2;
@@ -55,7 +64,7 @@ namespace VizijskiSustavWPF.VisionControl
                 // HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
                 HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height,hv_HalfW + 250);
                 HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_Image);
-                //* Edge detection
+                // Derivate for edge detection
                 HOperatorSet.DerivateGauss(ho_Image, out ho_DerivGauss, 1, "x");
 
                 //* diameter 2 doesn't have a clean background => different values
@@ -473,6 +482,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                //hv_output = 0;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
