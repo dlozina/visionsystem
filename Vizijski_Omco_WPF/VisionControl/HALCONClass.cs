@@ -6,6 +6,11 @@ namespace VizijskiSustavWPF.VisionControl
 {
     public partial class HDevelopExport
     {
+        // Class constructor
+        public HDevelopExport()
+        {
+
+        }
         // Event - Update diameter result
         public delegate void UpdateHandler(HDevelopExport sender, HalconEventArgs e);
         public event UpdateHandler UpdateResult;
@@ -36,6 +41,7 @@ namespace VizijskiSustavWPF.VisionControl
 
         //Framegrabber Handle definition
         HTuple hv_AcqHandle = new HTuple();
+
         // Framegrabber Handle for live CAM
         public HTuple hv_ExpDefaultWinHandle;
         // Framegrabber Handle for live Porosity
@@ -86,8 +92,9 @@ namespace VizijskiSustavWPF.VisionControl
 
         public void OpenCamFrame()
         {
-            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
+            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
+            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
+            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
         }
 

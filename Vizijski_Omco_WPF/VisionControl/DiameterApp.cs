@@ -22,8 +22,8 @@ namespace VizijskiSustavWPF.VisionControl
             _waitHandleCam4.WaitOne();
             // Close te thread DOOR
             _waitHandleCam4.Reset();
-            try
-            {
+            //try
+            //{
                 // Camera communication - Open
                 //OpenCamFrame();
                 //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
@@ -31,26 +31,40 @@ namespace VizijskiSustavWPF.VisionControl
                 //HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
                 //HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
                 // Camera communication - Close
-
+            
                 // New Camera Matrix Vision
+                // Test allways on framegrabber
+            if (hv_AcqHandle.Length == 0)
+            {
                 HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
-                HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-                Thread.Sleep(2000);
-                HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
-                //
+            }
 
-                //CloseCamFrame();
-                HOperatorSet.CloseFramegrabber(hv_AcqHandle);
-                // Open the thread DOOR
-            }
-            
-            catch (HalconException HDevExpDefaultExceptionCamera)
-            {
-                //HDevExpDefaultException1.ToHTuple(out hv_Exception);
-                //hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
-            }
+            //else if (hv_AcqHandle != 0)
+            //{
+            HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+            HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
+
+            //if ((int)new HTuple(hvDia.TupleEqual(4)).TupleAnd(new HTuple(hvSide.TupleEqual(1))) != 0)
+            //{
+            //    HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            //}
+            //}
+            // Thread.Sleep(2000);
+
+            //
+
+            //CloseCamFrame();
+            //HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            // Open the thread DOOR
+            //}
+
+            //catch (HalconException HDevExpDefaultExceptionCamera)
+            //{
+            //    //HDevExpDefaultException1.ToHTuple(out hv_Exception);
+            //    //hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
+            //}
             _waitHandleCam4.Set();
 
             try
@@ -549,8 +563,6 @@ namespace VizijskiSustavWPF.VisionControl
                     UpdateResult(this, argumenti);
             }
         }
-
-
     }
 }
 

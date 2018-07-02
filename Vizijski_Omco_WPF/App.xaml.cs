@@ -87,7 +87,9 @@ namespace VizijskiSustavWPF
             HDevExp.UpdateResultPick += new HDevelopExport.UpdateHandlerPick(PickUpdate);
             HDevExp.PorosityDetected += new HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
             HDevExp.PorosityDetectionStart += new HDevelopExport.PorosityDetectionStartEventHandler(DetectionStart);
-            HDevExp.PorosityDetectionHorStart += new HDevelopExport.PorosityDetectionHorStartEventHandler(DetectionHorStart); 
+            HDevExp.PorosityDetectionHorStart += new HDevelopExport.PorosityDetectionHorStartEventHandler(DetectionHorStart);
+            // Frame always ON CAM4
+            //HDevExp.OpenCamFrame();
         }
 
         // Variable for empty window call
