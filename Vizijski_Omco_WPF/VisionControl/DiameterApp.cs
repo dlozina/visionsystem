@@ -16,55 +16,40 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.GenEmptyObj(out ho_region_outer);
             HOperatorSet.GenEmptyObj(out ho_contour_outer);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
+            // Reset Vison output signal
             hv_output = 0;
-            // Test threadWait - Teach_CAM4 needs to finish
             // Wait for CAM4 thread to be closed
             _waitHandleCam4.WaitOne();
             // Close te thread DOOR
             _waitHandleCam4.Reset();
             //try
             //{
-                // Camera communication - Open
-                //OpenCamFrame();
-                //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
-                //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
-                //HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-                //HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
-                // Camera communication - Close
-            
+                // OpenCamFrame();
                 // New Camera Matrix Vision
-                // Test allways on framegrabber
-            if (hv_AcqHandle.Length == 0)
-            {
-                HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
-            }
+                // Test allways on framegrabber - Working
+                //if (hv_AcqHandle.Length == 0)
+                //{
+                //    HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
+                //    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
+                //    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
+                //}
+                OpenCamFrame();
+                // Grab image
+                HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+                //HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
+                HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
 
-            //else if (hv_AcqHandle != 0)
-            //{
-            HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-            HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
-
-            //if ((int)new HTuple(hvDia.TupleEqual(4)).TupleAnd(new HTuple(hvSide.TupleEqual(1))) != 0)
-            //{
-            //    HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+                //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "do_abort_grab", 1);
             //}
-            //}
-            // Thread.Sleep(2000);
 
-            //
-
-            //CloseCamFrame();
-            //HOperatorSet.CloseFramegrabber(hv_AcqHandle);
-            // Open the thread DOOR
-            //}
+            ////HOperatorSet.CloseFramegrabber(hv_AcqHandle);
 
             //catch (HalconException HDevExpDefaultExceptionCamera)
             //{
             //    //HDevExpDefaultException1.ToHTuple(out hv_Exception);
             //    //hv_MessageError = new HTuple(" ERROR: Not able to analize photo, move horizontal axis");
             //}
+
             _waitHandleCam4.Set();
 
             try

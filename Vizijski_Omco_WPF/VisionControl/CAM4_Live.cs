@@ -18,10 +18,14 @@ namespace VizijskiSustavWPF.VisionControl
             //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
             //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
             //HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+
             // New Camera
-            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
+            OpenCamFrame();
+
+            //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
+            //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
+            //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
+
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
             //
             while (Exitloop4 == false)
@@ -50,7 +54,10 @@ namespace VizijskiSustavWPF.VisionControl
             // Image Acquisition CLOSE frame
             ho_Image.Dispose();
             HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-            HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+
+            //CloseCamFrame();
+
+            //HOperatorSet.CloseFramegrabber(hv_AcqHandle);
             // Open the thread DOOR
             _waitHandleCam4.Set();
         }

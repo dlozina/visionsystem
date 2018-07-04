@@ -92,15 +92,20 @@ namespace VizijskiSustavWPF.VisionControl
 
         public void OpenCamFrame()
         {
-            HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
-            HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+            if (hv_AcqHandle.Length == 0)
+            {
+                HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
+            }
         }
 
         public void CloseCamFrame()
         {
             HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            //hv_AcqHandle.Type == HTupleType.EMPTY;
+            //hv_AcqHandle = 0;
+            //hv_AcqHandle = new HTuple();
         }
 
         protected virtual void PorosityIsDetected()
