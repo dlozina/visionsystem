@@ -643,6 +643,7 @@ namespace VizijskiSustavWPF
                 //p2.StatusData = STATUS;
 
                 if ((Update_1_s != null) && (result == 0))
+                //if ((Update_1_s != null))
                     Update_1_s(this, p2);
 
                 updateCounter = 0;
