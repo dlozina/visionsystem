@@ -595,6 +595,57 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.CONTROL.NacinRada.Dimenzije, false);
         }
 
+        // New control
+        public static void ActivateDiameter1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar1, true);
+        }
+
+        public static void DeactivateDiameter1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar1, false);
+        }
+
+        public static void ActivateDiameter2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar2, true);
+        }
+
+        public static void DeactivateDiameter2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar2, false);
+        }
+
+        public static void ActivateDiameter3()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar3, true);
+        }
+
+        public static void DeactivateDiameter3()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar3, false);
+        }
+
+        public static void ActivateDiameter4()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar4, true);
+        }
+
+        public static void DeactivateDiameter4()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar4, false);
+        }
+
+        public static void ActivateDiameter5()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar5, true);
+        }
+
+        public static void DeactivateDiameter5()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar5, false);
+        }
+
         public static void ActivatePoroznost()
         {
             App.PLC.WriteTag(PLC.CONTROL.NacinRada.Poroznost, true);

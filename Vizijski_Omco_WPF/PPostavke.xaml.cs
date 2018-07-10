@@ -214,6 +214,55 @@ namespace VizijskiSustavWPF
             App.DeactivateString();
         }
 
+        private void CbDiametar1_Checked(object sender, RoutedEventArgs e)
+        {
+            App.ActivateDiameter1();
+        }
+
+        private void CbDiametar1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            App.DeactivateDiameter1();
+        }
+
+        private void CbDiametar2_Checked(object sender, RoutedEventArgs e)
+        {
+            App.ActivateDiameter2();
+        }
+
+        private void CbDiametar2_Unchecked(object sender, RoutedEventArgs e)
+        {
+            App.DeactivateDiameter2();
+        }
+
+        private void CbDiametar3_Checked(object sender, RoutedEventArgs e)
+        {
+            App.ActivateDiameter3();
+        }
+
+        private void CbDiametar3_Unchecked(object sender, RoutedEventArgs e)
+        {
+            App.DeactivateDiameter3();
+        }
+
+        private void CbDiametar4_Checked(object sender, RoutedEventArgs e)
+        {
+            App.ActivateDiameter4();
+        }
+
+        private void CbDiametar4_Unchecked(object sender, RoutedEventArgs e)
+        {
+            App.DeactivateDiameter4();
+        }
+
+        private void CbDiametar5_Checked(object sender, RoutedEventArgs e)
+        {
+            App.ActivateDiameter5();
+        }
+
+        private void CbDiametar5_Unchecked(object sender, RoutedEventArgs e)
+        {
+            App.DeactivateDiameter5();
+        }
 
         //private void updatePage(object sender, PLCInterfaceEventArgs e)
         //{

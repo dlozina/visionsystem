@@ -401,9 +401,18 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar1" Text="DIJAMETAR 1" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar1, ElementName=BBDijametar1}" ButtonFunction="InvertBit"/>
-
+                            <Label  Grid.Column="0" Content="DIAMETAR 1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
+                        <CheckBox Grid.Column="1" x:Name="CbDiametar1" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar1_Checked" Unchecked="CbDiametar1_Unchecked">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
                     </Grid>
 
 
@@ -413,9 +422,18 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar2" Text="DIJAMETAR 2" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar2, ElementName=BBDijametar2}" ButtonFunction="InvertBit"/>
-
+                            <Label  Grid.Column="0" Content="DIAMETAR 2" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
+                        <CheckBox Grid.Column="1" x:Name="CbDiametar2" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar2_Checked" Unchecked="CbDiametar2_Unchecked">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
                     </Grid>
 
                     <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
@@ -424,9 +442,18 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar3" Text="DIJAMETAR 3" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar3, ElementName=BBDijametar3}" ButtonFunction="InvertBit"/>
-
+                            <Label  Grid.Column="0" Content="DIAMETAR 3" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
+                        <CheckBox Grid.Column="1" x:Name="CbDiametar3" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar3_Checked" Unchecked="CbDiametar3_Unchecked">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
@@ -435,9 +462,18 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar4" Text="DIJAMETAR 4" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar4, ElementName=BBDijametar4}" ButtonFunction="InvertBit"/>
-
+                            <Label  Grid.Column="0" Content="DIAMETAR 4" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
+                        <CheckBox Grid.Column="1" x:Name="CbDiametar4" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar4_Checked" Unchecked="CbDiametar4_Unchecked">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
                     </Grid>
 
                     <Grid Grid.Row="6" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
@@ -446,9 +482,18 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBDijametar5" Text="DIJAMETAR 5" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.OdabirDijametra.Dijametar5, ElementName=BBDijametar5}" ButtonFunction="InvertBit"/>
-
+                            <Label  Grid.Column="0" Content="DIAMETAR 5" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         </Grid>
+                        <CheckBox Grid.Column="1" x:Name="CbDiametar5" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar5_Checked" Unchecked="CbDiametar5_Unchecked">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
                     </Grid>
 
                     <Grid Grid.Row="8" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
