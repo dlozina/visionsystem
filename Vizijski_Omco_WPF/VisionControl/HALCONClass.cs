@@ -40,7 +40,11 @@ namespace VizijskiSustavWPF.VisionControl
         static readonly EventWaitHandle _waitHandleCam4 = new AutoResetEvent(true);
 
         //Framegrabber Handle definition
+        // CAM1
+        HTuple hv_AcqHandleCam1 = new HTuple();
+        // CAM4
         HTuple hv_AcqHandle = new HTuple();
+        
 
         // Framegrabber Handle for live CAM
         public HTuple hv_ExpDefaultWinHandle;

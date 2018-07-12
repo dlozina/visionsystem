@@ -36,8 +36,9 @@ namespace VizijskiSustavWPF.VisionControl
                 HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
                 hv_HalfW = hv_Width / 2;
                 // Gamma Encoding
-                HOperatorSet.GammaImage(ho_Image, out ho_GammaImage, 0.416667, 0.055, 0.0031308,255, "true");
-                HOperatorSet.DispObj(ho_GammaImage, hv_ExpDefaultWinHandle);
+                //HOperatorSet.GammaImage(ho_Image, out ho_GammaImage, 0.416667, 0.055, 0.0031308,255, "true");
+                //HOperatorSet.DispObj(ho_GammaImage, hv_ExpDefaultWinHandle);
+                HOperatorSet.DispObj(ho_Image, hv_ExpDefaultWinHandle);
 
                 if (domainmarkup)
                 {

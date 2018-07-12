@@ -46,7 +46,7 @@ namespace VizijskiSustavWPF
         public void Connect()
         {
             PLCConnection.Update_100_ms += new PLCInterface.UpdateHandler(updatePage123);
-            PLCConnection.Update_1_s += new PLCInterface.UpdateHandler(updatePage1234);
+            //PLCConnection.Update_1_s += new PLCInterface.UpdateHandler(updatePage1234);
         }
 
         private void updatePage123(object sender, PLCInterfaceEventArgs e)
@@ -66,12 +66,12 @@ namespace VizijskiSustavWPF
             ));
         }
 
-        private void updatePage1234(object sender, PLCInterfaceEventArgs e)
-        {
+        //private void updatePage1234(object sender, PLCInterfaceEventArgs e)
+        //{
 
 
           
-        }
+        //}
 
         private static void OnPLCAssign(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

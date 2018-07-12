@@ -102,9 +102,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    //Client.ConnectTo("192.168.0.1", 0, 1);
+                    Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    Client.ConnectTo("192.168.111.108", 0, 1);
+                    //Client.ConnectTo("192.168.111.108", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -635,16 +635,25 @@ namespace VizijskiSustavWPF
                 lock (TimerLock)
                 {
                     result = ReadControl();
+                    //result = ReadStatus();
                     //result += ReadManual();
                 }
                 PLCInterfaceEventArgs p2 = new PLCInterfaceEventArgs();
                 p2.ControlData = CONTROL;
-                p2.CyclicControlBuffer = CyclicControlBuffer;
                 //p2.StatusData = STATUS;
+                p2.CyclicControlBuffer = CyclicControlBuffer;
+                //p2.CyclicStatusBuffer = CyclicStatusBuffer;
+                //p2.StatusData = STATUS;
+
+                //p3
+                //PLCInterfaceEventArgs p3 = new PLCInterfaceEventArgs();
+                //p3.StatusData = STATUS;
+                //p3.CyclicStatusBuffer = CyclicStatusBuffer;
 
                 if ((Update_1_s != null) && (result == 0))
                 //if ((Update_1_s != null))
                     Update_1_s(this, p2);
+                    //Update_1_s(this, p3);
 
                 updateCounter = 0;
             }

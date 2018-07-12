@@ -159,7 +159,7 @@ namespace VizijskiSustavWPF.VisionControl
                     HOperatorSet.TupleMax(hv_Col, out hv_TupleMax);
                     HOperatorSet.TupleFindFirst(hv_Col, hv_TupleMax, out hv_IndexMax);
 
-                    //* calculate pixel and mm outputs
+                    //* calculate pixel and mm outputs side 2
                     hv_colToMax0 = hv_Col.TupleSelect(hv_IndexMax);
                     hv_output = (-hv_HalfW)+hv_colToMax0;
 
@@ -249,7 +249,7 @@ namespace VizijskiSustavWPF.VisionControl
                     HOperatorSet.TupleMin(hv_Col, out hv_TupleMin);
                     HOperatorSet.TupleFindFirst(hv_Col, hv_TupleMin, out hv_IndexMin);
 
-                    //* calculate pixel and mm outputs
+                    //* calculate pixel and mm outputs side 1
                     hv_colToMin0 = hv_Col.TupleSelect(hv_IndexMin);
                     hv_output = hv_HalfW-hv_colToMin0;
 
