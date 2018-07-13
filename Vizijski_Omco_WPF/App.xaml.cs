@@ -83,7 +83,7 @@ namespace VizijskiSustavWPF
             PLC.StartCyclic(); // Possible system null reference
             PLC.Update_Online_Flag += new PLCInterface.OnlineMarker(PLCInterface_PLCOnlineChanged);
             PLC.Update_100_ms += new PLCInterface.UpdateHandler(PLC_Update_100_ms);
-            PLC.Update_1_s += new PLCInterface.UpdateHandler(PLC_Update_1_s);
+            //PLC.Update_1_s += new PLCInterface.UpdateHandler(PLC_Update_1_s);
             HDevExp.UpdateResult += new HDevelopExport.UpdateHandler(HalconUpdate);
             HDevExp.UpdateResultPick += new HDevelopExport.UpdateHandlerPick(PickUpdate);
             HDevExp.PorosityDetected += new HDevelopExport.PorosityDetectedEventHandler(PorosityIsDetected);
@@ -126,7 +126,7 @@ namespace VizijskiSustavWPF
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
         {
-            //String msg = "SISTEM SPREMAN";
+            String msg = "SISTEM SPREMAN";
 
             // Start analize slike D1 PRVOG RUBA S1 ********************************************************************
             if (((bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS1.Value) && ((float)e.StatusData.MjerenjeDiametara.BrojPonavljanjaSekvence.Value == 1.0f) && _oneCallFlagD1S1)
@@ -409,21 +409,21 @@ namespace VizijskiSustavWPF
                 _oneCallFlagSaveData = true;
             }
 
-            //if (mwHandle != null)
-            //{
-            //    mwHandle.tb_statusMessage.Dispatcher.BeginInvoke((Action)(() => { mwHandle.tb_statusMessage.Text = msg; }));
-            //}
-        }
-
-        private void PLC_Update_1_s(PLCInterface sender, PLCInterfaceEventArgs e)
-        {
-            String msg = "SISTEM SPREMAN 1s";
-
             if (mwHandle != null)
             {
                 mwHandle.tb_statusMessage.Dispatcher.BeginInvoke((Action)(() => { mwHandle.tb_statusMessage.Text = msg; }));
             }
         }
+
+        //private void PLC_Update_1_s(PLCInterface sender, PLCInterfaceEventArgs e)
+        //{
+        //    String msg = "SISTEM SPREMAN 1s";
+
+        //    if (mwHandle != null)
+        //    {
+        //        mwHandle.tb_statusMessage.Dispatcher.BeginInvoke((Action)(() => { mwHandle.tb_statusMessage.Text = msg; }));
+        //    }
+        //}
 
         // Event handler koji se poziva kad zavrsi analiza slike za mjerenje diametara
         private static void HalconUpdate(HDevelopExport sender, HalconEventArgs e)
