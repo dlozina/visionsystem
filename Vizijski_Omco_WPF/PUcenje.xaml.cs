@@ -9,7 +9,11 @@ namespace VizijskiSustavWPF
     
     public partial class PUcenje
     {
-        int ClickNumber = 1;
+        private int _clickNumber = 1;
+        public int ClickNumber
+        {
+            get { return _clickNumber; }
+        }
 
         public PUcenje()
         {
@@ -57,7 +61,7 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunCam4(windowId,true);
+            App.HDevExp.RunCam4(windowId,true,_clickNumber);
         }
 
         private void AnalizeD1S1()
@@ -144,57 +148,57 @@ namespace VizijskiSustavWPF
         private void BpozicijaDijametri_Click(object sender, RoutedEventArgs e)
         {
             // Prvi Klik D1S1
-            if (ClickNumber == 1)
+            if (_clickNumber == 1)
             {
                 //PLC kontrola
                 App.ActivateControlD1S1();
             }
             // Prvi Klik D2S1
-            else if (ClickNumber == 2)
+            else if (_clickNumber == 2)
             {
                 //PLC kontrola
                 App.ActivateControlD2S1();
             }
             // Prvi Klik D3S1
-            else if (ClickNumber == 3)
+            else if (_clickNumber == 3)
             {
                 //PLC kontrola
                 App.ActivateControlD3S1();
             }
             // Prvi Klik D4S1
-            else if (ClickNumber == 4)
+            else if (_clickNumber == 4)
             {
                 //PLC kontrola
                 App.ActivateControlD4S1();
             }
             // Prvi Klik D4S2
-            else if (ClickNumber == 5)
+            else if (_clickNumber == 5)
             {
                 App.ActivateControlD4S2();
             }
             // Prvi Klik D3S2
-            else if (ClickNumber == 6)
+            else if (_clickNumber == 6)
             {
                 App.ActivateControlD3S2();
             }
             // Prvi Klik D2S2
-            else if (ClickNumber == 7)
+            else if (_clickNumber == 7)
             {
                 App.ActivateControlD2S2();
             }
             // Prvi Klik D1S2
-            else if (ClickNumber == 8)
+            else if (_clickNumber == 8)
             {
                 App.ActivateControlD1S2();
             }
             // Prvi Klik D5S1
-            else if (ClickNumber == 9)
+            else if (_clickNumber == 9)
             {
                 //PLC kontrola
                 App.ActivateControlD5S1();
             }
             // Prvi Klik D5S2
-            else if (ClickNumber == 10)
+            else if (_clickNumber == 10)
             {
                 App.ActivateControlD5S2();
             }
@@ -209,28 +213,28 @@ namespace VizijskiSustavWPF
                 //if (App.HDevExp.FramegrabberClosed4 == true)
                 //{
                     // Prvi Klik D1S1
-                    if (ClickNumber == 1)
+                    if (_clickNumber == 1)
                     {
                         App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD1S1 = new Thread(AnalizeD1S1) { Name = "TestAnalizeD1S1Thread" };
                         TestAnalizeD1S1.Start();
                     }
                     // Prvi Klik D2S1
-                    else if (ClickNumber == 2)
+                    else if (_clickNumber == 2)
                     {
                         App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD2S1 = new Thread(AnalizeD2S1) { Name = "TestAnalizeD2S1Thread" };
                         TestAnalizeD2S1.Start();
                     }
                     // Prvi Klik D3S1
-                    else if (ClickNumber == 3)
+                    else if (_clickNumber == 3)
                     {
                         App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD3S1 = new Thread(AnalizeD3S1) { Name = "TestAnalizeD3S1Thread" };
                         TestAnalizeD3S1.Start();
                     }
                     // Prvi Klik D4S1
-                    else if (ClickNumber == 4)
+                    else if (_clickNumber == 4)
                     {
                         App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD4S1 = new Thread(AnalizeD4S1) { Name = "TestAnalizeD4S1Thread" };
@@ -238,41 +242,41 @@ namespace VizijskiSustavWPF
 
                     }
                     // Prvi Klik D4S2
-                    else if (ClickNumber == 5)
+                    else if (_clickNumber == 5)
                     {
                         App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD4S2 = new Thread(AnalizeD4S2) { Name = "TestAnalizeD4S2Thread" };
                         TestAnalizeD4S2.Start();
                     }
                     // Prvi Klik D3S2
-                    else if (ClickNumber == 6)
+                    else if (_clickNumber == 6)
                     {
                         App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD3S2 = new Thread(AnalizeD3S2) { Name = "TestAnalizeD3S2Thread" };
                         TestAnalizeD3S2.Start();
                     }
                     // Prvi Klik D2S2
-                    else if (ClickNumber == 7)
+                    else if (_clickNumber == 7)
                     {
                         App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD2S2 = new Thread(AnalizeD2S2) { Name = "TestAnalizeD2S2Thread" };
                         TestAnalizeD2S2.Start();
                     }
                     // Prvi Klik D1S2
-                    else if (ClickNumber == 8)
+                    else if (_clickNumber == 8)
                     {
                         App.HDevExp.Exitloop4 = true;
                         Thread TestAnalizeD1S2 = new Thread(AnalizeD1S2) { Name = "TestAnalizeD1S2Thread" };
                         TestAnalizeD1S2.Start();
                     }
                     // Prvi Klik D5S1
-                    else if (ClickNumber == 9)
+                    else if (_clickNumber == 9)
                     {
 
 
                     }
                     // Prvi Klik D5S2
-                    else if (ClickNumber == 10)
+                    else if (_clickNumber == 10)
                     {
 
                     }
@@ -284,7 +288,7 @@ namespace VizijskiSustavWPF
         private void BnauciPozicijuDijametri_Click(object sender, RoutedEventArgs e)
         {
             // Prvi Klik D1S1
-            if (ClickNumber == 1)
+            if (_clickNumber == 1)
             {
                 // Omoguci idi na drugu poziciju
                 // Label mora biti od iduceg promjera
@@ -293,14 +297,14 @@ namespace VizijskiSustavWPF
                 App.ActivateTeachD1S1();
             }
             // Prvi Klik D2S1
-            else if (ClickNumber == 2)
+            else if (_clickNumber == 2)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D3S1";
                 App.ActivateTeachD2S1();
             }
             // Prvi Klik D3S1
-            else if (ClickNumber == 3)
+            else if (_clickNumber == 3)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D4S1";
@@ -308,14 +312,14 @@ namespace VizijskiSustavWPF
                 App.ActivateTeachD3S1();
             }
             // Prvi Klik D4S1
-            else if (ClickNumber == 4)
+            else if (_clickNumber == 4)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D4S2";
                 App.ActivateTeachD4S1();
             }
             // Prvi Klik D4S2
-            else if (ClickNumber == 5)
+            else if (_clickNumber == 5)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D3S2";
@@ -323,14 +327,14 @@ namespace VizijskiSustavWPF
                 App.ActivateTeachD4S2();
             }
             // Prvi Klik D3S2
-            else if (ClickNumber == 6)
+            else if (_clickNumber == 6)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D2S2";
                 App.ActivateTeachD3S2();
             }
             // Prvi Klik D2S2
-            else if (ClickNumber == 7)
+            else if (_clickNumber == 7)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D1S2";
@@ -338,14 +342,14 @@ namespace VizijskiSustavWPF
                 App.ActivateTeachD2S2();
             }
             // Prvi Klik D1S2
-            else if (ClickNumber == 8)
+            else if (_clickNumber == 8)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D5S1";
                 App.ActivateTeachD1S2();
             }
             // Prvi Klik D5S1
-            else if (ClickNumber == 9)
+            else if (_clickNumber == 9)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D5S2";
@@ -353,7 +357,7 @@ namespace VizijskiSustavWPF
                 //App.ActivateControl1();
             }
             // Prvi Klik D5S2
-            else if (ClickNumber == 10)
+            else if (_clickNumber == 10)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.IsEnabled = false;
@@ -363,7 +367,7 @@ namespace VizijskiSustavWPF
                 BnauciPozicijuDijametri.Foreground = new SolidColorBrush(Colors.Gray);
                 //App.ActivateControl2();
             }
-            ClickNumber++; 
+            _clickNumber++; 
         }
 
         private void BpozicijaPoroznost_Click(object sender, RoutedEventArgs e)
@@ -383,7 +387,7 @@ namespace VizijskiSustavWPF
 
         private void BresetUcenjaDijametri_Click(object sender, RoutedEventArgs e)
         {
-            ClickNumber = 1;
+            _clickNumber = 1;
             BpozicijaDijametri.IsEnabled = true;
             BpozicijaDijametri.Foreground = new SolidColorBrush(Colors.Black);
             BpozicijaDijametri.Content = "POZICIJA D1S1";
@@ -446,69 +450,69 @@ namespace VizijskiSustavWPF
             //    i--;
             //}
 
-            ClickNumber--;
+            _clickNumber--;
 
-            if (ClickNumber < 1)
+            if (_clickNumber < 1)
             {
-                ClickNumber = 1;
+                _clickNumber = 1;
             }
 
-            if (ClickNumber > 10)
+            if (_clickNumber > 10)
             {
-                ClickNumber = 10;
+                _clickNumber = 10;
             }
 
             // Prvi Klik D1S1
-            if (ClickNumber == 1)
+            if (_clickNumber == 1)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D1S1";
             }
             // Prvi Klik D2S1
-            else if (ClickNumber == 2)
+            else if (_clickNumber == 2)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D2S1";
             }
             // Prvi Klik D3S1
-            else if (ClickNumber == 3)
+            else if (_clickNumber == 3)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D3S1";
             }
             // Prvi Klik D4S1
-            else if (ClickNumber == 4)
+            else if (_clickNumber == 4)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D4S1";
             }
             // Prvi Klik D4S2
-            else if (ClickNumber == 5)
+            else if (_clickNumber == 5)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D4S2";
                 //PLC kontrola
             }
             // Prvi Klik D3S2
-            else if (ClickNumber == 6)
+            else if (_clickNumber == 6)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D3S2";
             }
             // Prvi Klik D2S2
-            else if (ClickNumber == 7)
+            else if (_clickNumber == 7)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D2S2";
             }
             // Prvi Klik D1S2
-            else if (ClickNumber == 8)
+            else if (_clickNumber == 8)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D1S2";
             }
             // Prvi Klik D5S1
-            else if (ClickNumber == 9)
+            else if (_clickNumber == 9)
             {
                 //BpozicijaDijametri.Foreground = new SolidColorBrush(Colors.Black);
                 // Omoguci idi na drugu poziciju
@@ -516,7 +520,7 @@ namespace VizijskiSustavWPF
                 //PLC kontrola
             }
             // Prvi Klik D5S2
-            else if (ClickNumber == 10)
+            else if (_clickNumber == 10)
             {
                 BpozicijaDijametri.Foreground = new SolidColorBrush(Colors.Black);
                 // Omoguci idi na drugu poziciju
@@ -532,76 +536,76 @@ namespace VizijskiSustavWPF
             //    i++;
             //}
 
-            ClickNumber++;
+            _clickNumber++;
 
-            if (ClickNumber < 1)
+            if (_clickNumber < 1)
             {
-                ClickNumber = 1;
+                _clickNumber = 1;
             }
             
-            if (ClickNumber > 10)
+            if (_clickNumber > 10)
             {
-                ClickNumber = 10;
+                _clickNumber = 10;
             }
 
             // Prvi Klik D1S1
-            if (ClickNumber == 1)
+            if (_clickNumber == 1)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D1S1";
             }
             // Prvi Klik D2S1
-            else if (ClickNumber == 2)
+            else if (_clickNumber == 2)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D2S1";
             }
             // Prvi Klik D3S1
-            else if (ClickNumber == 3)
+            else if (_clickNumber == 3)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D3S1";
             }
             // Prvi Klik D4S1
-            else if (ClickNumber == 4)
+            else if (_clickNumber == 4)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D4S1";
             }
             // Prvi Klik D4S2
-            else if (ClickNumber == 5)
+            else if (_clickNumber == 5)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D4S2";
                 //PLC kontrola
             }
             // Prvi Klik D3S2
-            else if (ClickNumber == 6)
+            else if (_clickNumber == 6)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D3S2";
             }
             // Prvi Klik D2S2
-            else if (ClickNumber == 7)
+            else if (_clickNumber == 7)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D2S2";
             }
             // Prvi Klik D1S2
-            else if (ClickNumber == 8)
+            else if (_clickNumber == 8)
             {
                 // Omoguci idi na prvu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D1S2";
             }
             // Prvi Klik D5S1
-            else if (ClickNumber == 9)
+            else if (_clickNumber == 9)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D5S1";
                 //PLC kontrola
             }
             // Prvi Klik D5S2
-            else if (ClickNumber == 10)
+            else if (_clickNumber == 10)
             {
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D5S2";

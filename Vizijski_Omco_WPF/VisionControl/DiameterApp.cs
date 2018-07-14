@@ -16,6 +16,14 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.GenEmptyObj(out ho_region_outer);
             HOperatorSet.GenEmptyObj(out ho_contour_outer);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
+            HOperatorSet.GenEmptyObj(out ho_SelectedRegions);
+            //
+            HOperatorSet.GenEmptyObj(out ho_Rectangle);
+            HOperatorSet.GenEmptyObj(out ho_Elipse);
+            HOperatorSet.GenEmptyObj(out ho_ROIUnion);
+            HOperatorSet.GenEmptyObj(out ho_ROI);
+            HOperatorSet.GenEmptyObj(out ho_Contours);
+
             // Reset Vison output signal
             hv_output = 0;
             // Wait for CAM4 thread to be closed
@@ -60,9 +68,41 @@ namespace VizijskiSustavWPF.VisionControl
                 hv_row_len = hv_Height.Clone();
                 hv_row_outer = new HTuple();
                 hv_col_outer = new HTuple();
-                // HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 150, hv_Height,hv_HalfW + 150);
-                HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height,hv_HalfW + 250);
-                HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_Image);
+                // Old ROI
+                if ((int) ((new HTuple(hvDia.TupleEqual(3))).TupleOr(new HTuple(hvDia.TupleEqual(4)))) != 0)
+                {
+                    if ((int) (new HTuple(hvSide.TupleEqual(2))) != 0)
+                    {
+                        ho_Rectangle.Dispose();
+                        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 100, hv_Height, hv_HalfW + 250);
+                        ho_Elipse.Dispose();
+                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW - 70, (new HTuple(92)).TupleRad(), 1150, 130);
+                        ho_ROIUnion.Dispose();
+                        HOperatorSet.Union2(ho_Rectangle, ho_Elipse, out ho_ROIUnion);
+                        ho_ROI.Dispose();
+                        HOperatorSet.Difference(ho_ROIUnion, ho_Elipse, out ho_ROI);
+                        HOperatorSet.ReduceDomain(ho_Image, ho_ROI, out ho_Image);
+                    }
+                    else
+                    {
+                        ho_Rectangle.Dispose();
+                        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height, hv_HalfW + 100);
+                        ho_Elipse.Dispose();
+                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW + 70, (new HTuple(88)).TupleRad(), 1150, 130);
+                        ho_ROIUnion.Dispose();
+                        HOperatorSet.Union2(ho_Rectangle, ho_Elipse, out ho_ROIUnion);
+                        //* ROI
+                        ho_ROI.Dispose();
+                        HOperatorSet.Difference(ho_ROIUnion, ho_Elipse, out ho_ROI);
+                        HOperatorSet.ReduceDomain(ho_Image, ho_ROI, out ho_Image);
+                    }
+                }
+                else
+                {
+                    HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height, hv_HalfW + 250);
+                    HOperatorSet.ReduceDomain(ho_Image, ho_Rectangle, out ho_Image);
+                }
+                
                 // Derivate for edge detection
                 HOperatorSet.DerivateGauss(ho_Image, out ho_DerivGauss, 1, "x");
 
@@ -76,7 +116,10 @@ namespace VizijskiSustavWPF.VisionControl
                 else
                 {
                     HOperatorSet.DualThreshold(ho_DerivGauss, out ho_RegionCrossings, 20, 12, 2);
-                    HOperatorSet.Union1(ho_RegionCrossings, out ho_Region);
+                    ho_SelectedRegions.Dispose();
+                    HOperatorSet.SelectShape(ho_RegionCrossings, out ho_SelectedRegions, "area", "and", 2000, 99999);
+                    ho_Region.Dispose();
+                    HOperatorSet.Union1(ho_SelectedRegions, out ho_Region);
                 }
                 //* Retrieve points from detected edges
                 HOperatorSet.GetRegionPoints(ho_Region, out hv_Rows, out hv_Cols);

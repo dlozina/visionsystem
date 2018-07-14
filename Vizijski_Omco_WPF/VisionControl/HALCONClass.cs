@@ -61,10 +61,14 @@ namespace VizijskiSustavWPF.VisionControl
         // Local iconic variables 
         HObject ho_Image = null, ho_Rectangle = null, ho_DerivGauss = null, ho_RegionCrossings = null;
         HObject ho_Region = null, ho_region_outer = null, ho_contour_outer = null;
-        HObject ho_ContCircle = null, ho_ReducedImage = null;
+        HObject ho_ContCircle = null, ho_ReducedImage = null, ho_SelectedRegions;
+        //
+        HObject ho_Elipse = null;
+        HObject ho_ROIUnion = null, ho_ROI = null;
+        HObject ho_Contours = null;
         // Local control variables 
         HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
-        HTuple hv_HalfW = new HTuple();
+        HTuple hv_HalfW = new HTuple(), hv_HalfH = new HTuple();
         HTuple hv_row_len = new HTuple(), hv_row_outer = new HTuple();
         HTuple hv_col_outer = new HTuple(), hv_Rows = new HTuple();
         HTuple hv_Cols = new HTuple(), hv_i = new HTuple(), hv_Indices = new HTuple();
