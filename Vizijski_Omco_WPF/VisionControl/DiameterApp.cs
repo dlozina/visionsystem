@@ -107,7 +107,7 @@ namespace VizijskiSustavWPF.VisionControl
                 HOperatorSet.DerivateGauss(ho_Image, out ho_DerivGauss, 1, "x");
 
                 //* diameter 2 doesn't have a clean background => different values
-                if ((int)(new HTuple(hvDia.TupleEqual(2))) != 0)
+                if ((int)(new HTuple(hvDia.TupleEqual(2))).TupleOr(new HTuple(hvDia.TupleEqual(5))) != 0)
                 {
                     HOperatorSet.DualThreshold(ho_DerivGauss, out ho_RegionCrossings, 20, 2, 2);
                     HOperatorSet.Union1(ho_RegionCrossings, out ho_Region);
@@ -127,7 +127,7 @@ namespace VizijskiSustavWPF.VisionControl
                 if ((int)(new HTuple(hvSide.TupleEqual(2))) != 0)
                 {
                     //* Extract the points which define the outer or inner edge
-                    if ((int)((new HTuple(hvDia.TupleEqual(3))).TupleOr(new HTuple(hvDia.TupleEqual(4)))) != 0)
+                    if ((int)((new HTuple(hvDia.TupleEqual(3))).TupleOr(new HTuple(hvDia.TupleEqual(4))).TupleOr(new HTuple(hvDia.TupleEqual(5)))) != 0)
                     {
                         HTuple endVal35 = hv_row_len;
                         HTuple stepVal35 = 1;
@@ -218,7 +218,7 @@ namespace VizijskiSustavWPF.VisionControl
                 if ((int)(new HTuple(hvSide.TupleEqual(1))) != 0)
                 {
                     //* Extract the points which define the outer or inner edge
-                    if ((int)((new HTuple(hvDia.TupleEqual(3))).TupleOr(new HTuple(hvDia.TupleEqual(4)))) != 0)
+                    if ((int)((new HTuple(hvDia.TupleEqual(3))).TupleOr(new HTuple(hvDia.TupleEqual(4))).TupleOr(new HTuple(hvDia.TupleEqual(5)))) != 0)
                     {
                         HTuple endVal87 = hv_row_len;
                         HTuple stepVal87 = 1;
@@ -540,7 +540,7 @@ namespace VizijskiSustavWPF.VisionControl
             }
         }
         // D5 S1 Call
-        public void RunCam2(HTuple window)
+        public void RunDia5side1(HTuple window)
         {
             hv_ExpDefaultWinHandle = window;
             if (hv_ExpDefaultWinHandle.Length != 0)
@@ -566,7 +566,7 @@ namespace VizijskiSustavWPF.VisionControl
             }
         }
         // D5 S2 Call
-        public void RunCam4(HTuple window)
+        public void RunDia5side2(HTuple window)
         {
             hv_ExpDefaultWinHandle = window;
             if (hv_ExpDefaultWinHandle.Length != 0)

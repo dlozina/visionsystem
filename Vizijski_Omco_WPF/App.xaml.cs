@@ -245,7 +245,7 @@ namespace VizijskiSustavWPF
             {
                 _oneCallFlagD5S1 = false;
                 //Thread d4meassureS1 = new Thread(new ThreadStart(HDevExp.RunHalcon7));
-                Thread d5meassureS1 = new Thread(() => HDevExp.RunHalcon7(windowID));
+                Thread d5meassureS1 = new Thread(() => HDevExp.RunDia5side1(windowID));
                 d5meassureS1.Name = "Thread D5S1";
                 d5meassureS1.Start();
             }
@@ -259,8 +259,8 @@ namespace VizijskiSustavWPF
             {
                 _oneCallFlagD5S2 = false;
                 //Thread d4meassureS2 = new Thread(new ThreadStart(HDevExp.RunHalcon8));
-                Thread d5meassureS2 = new Thread(() => HDevExp.RunHalcon8(windowID));
-                d5meassureS2.Name = "Thread D4S2";
+                Thread d5meassureS2 = new Thread(() => HDevExp.RunDia5side2(windowID));
+                d5meassureS2.Name = "Thread D5S2";
                 d5meassureS2.Start();
             }
             else if (!(bool)e.StatusData.Kamere.CAM4ZahtjevZaAnalizomS2.Value)

@@ -29,7 +29,7 @@ namespace VizijskiSustavWPF.VisionControl
             // New Camera
             OpenCamFrame();
             // Exposure
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 200.0);
+            //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 200.0);
             //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
             //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
             //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
@@ -51,18 +51,12 @@ namespace VizijskiSustavWPF.VisionControl
 
                 if (domainmarkup)
                 {
-                    // Teach parameter is passed
+                    // Display area color
                     HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "spring green");
-                    // Old Camera
-                    //HOperatorSet.DispLine(hv_ExpDefaultWinHandle, 0, 1928 - 250, 2764, 1928 - 250);
-                    //HOperatorSet.DispLine(hv_ExpDefaultWinHandle, 0, 1928 + 250, 2764, 1928 + 250);
-                    // Old
-                    //HOperatorSet.DispLine(hv_ExpDefaultWinHandle, 0, hv_HalfW - 250, hv_Height, hv_HalfW - 250);
-                    //HOperatorSet.DispLine(hv_ExpDefaultWinHandle, 0, hv_HalfW + 250, hv_Height, hv_HalfW + 250);
                     if (counter == 3 || counter == 4 )
                     {
                         ho_Rectangle.Dispose();
-                        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height, hv_HalfW + 100);
+                        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height, hv_HalfW + 90);
                         ho_Elipse.Dispose();
                         HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW + 70, (new HTuple(88)).TupleRad(), 1150, 130);
                         ho_ROIUnion.Dispose();
@@ -78,7 +72,7 @@ namespace VizijskiSustavWPF.VisionControl
                     else if (counter == 5 || counter == 6)
                     {
                         ho_Rectangle.Dispose();
-                        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 100, hv_Height, hv_HalfW + 250);
+                        HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 90, hv_Height, hv_HalfW + 250);
                         ho_Elipse.Dispose();
                         HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW - 70, (new HTuple(92)).TupleRad(), 1150, 130);
                         ho_ROIUnion.Dispose();
@@ -91,6 +85,7 @@ namespace VizijskiSustavWPF.VisionControl
                     }
                     else
                     {
+                        // Old ROI
                         HOperatorSet.DispLine(hv_ExpDefaultWinHandle, 0, hv_HalfW - 250, hv_Height, hv_HalfW - 250);
                         HOperatorSet.DispLine(hv_ExpDefaultWinHandle, 0, hv_HalfW + 250, hv_Height, hv_HalfW + 250); 
                     }

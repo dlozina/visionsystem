@@ -124,14 +124,14 @@ namespace VizijskiSustavWPF
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindowTeach.HalconID;
-            //App.HDevExp.RunHalcon7(windowId);
+            App.HDevExp.RunDia5side1(windowId);
         }
 
         private void AnalizeD5S2()
         {
             App.HDevExp.InitHalcon();
             HTuple windowId = hwindowTeach.HalconID;
-            //App.HDevExp.RunHalcon8(windowId);
+            App.HDevExp.RunDia5side2(windowId);
         }
 
         private void b_sTOPKamere_Click(object sender, RoutedEventArgs e)
@@ -272,13 +272,16 @@ namespace VizijskiSustavWPF
                     // Prvi Klik D5S1
                     else if (_clickNumber == 9)
                     {
-
-
+                        App.HDevExp.Exitloop4 = true;
+                        Thread TestAnalizeD5S1 = new Thread(AnalizeD5S1) { Name = "TestAnalizeD5S1Thread" };
+                        TestAnalizeD5S1.Start();
                     }
                     // Prvi Klik D5S2
                     else if (_clickNumber == 10)
                     {
-
+                        App.HDevExp.Exitloop4 = true;
+                        Thread TestAnalizeD5S2 = new Thread(AnalizeD5S2) { Name = "TestAnalizeD5S2Thread" };
+                        TestAnalizeD5S2.Start();
                     }
                 //}
             //}
@@ -354,7 +357,7 @@ namespace VizijskiSustavWPF
                 // Omoguci idi na drugu poziciju
                 BpozicijaDijametri.Content = "POZICIJA D5S2";
                 //PLC kontrola
-                //App.ActivateControl1();
+                App.ActivateTeachD5S1();
             }
             // Prvi Klik D5S2
             else if (_clickNumber == 10)
@@ -363,9 +366,9 @@ namespace VizijskiSustavWPF
                 BpozicijaDijametri.IsEnabled = false;
                 BpozicijaDijametri.Content = "SPREMLJENO";
                 BpozicijaDijametri.Foreground = new SolidColorBrush(Colors.Green);
-                BnauciPozicijuDijametri.IsEnabled = false;
-                BnauciPozicijuDijametri.Foreground = new SolidColorBrush(Colors.Gray);
-                //App.ActivateControl2();
+                //BnauciPozicijuDijametri.IsEnabled = false;
+                //BnauciPozicijuDijametri.Foreground = new SolidColorBrush(Colors.Gray);
+                App.ActivateTeachD5S2();
             }
             _clickNumber++; 
         }
