@@ -318,8 +318,8 @@ namespace VizijskiSustavWPF.VisionControl
             //Image Acquisition
             try
             {
-                HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "acA130075gm_CAM", 0, -1, out hv_AcqHandle);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Continuous");
+                HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "RobotPick", 0, -1, out hv_AcqHandleCam1);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandleCam1, "ExposureAuto", "Continuous");
             }
             catch (HalconException HDevExpDefaultExceptionCamera)
             {
@@ -342,7 +342,7 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.ReadClassGmm(TrainegGmmPath, out hv_GMMHandle);
             // Grab operator
             ho_Image.Dispose();
-            HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
+            HOperatorSet.GrabImage(out ho_Image, hv_AcqHandleCam1);
             HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
             ho_FOV.Dispose();
             HOperatorSet.GenRectangle1(out ho_FOV, 0, 0, hv_Height, hv_Width);
@@ -665,7 +665,7 @@ namespace VizijskiSustavWPF.VisionControl
             ho_Arrow.Dispose();
             ho_Cross2.Dispose();
             ho_ContCircle.Dispose();
-            HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            HOperatorSet.CloseFramegrabber(hv_AcqHandleCam1);
             // Open the thread DOOR
             _waitHandleCam1.Set();
         }
@@ -673,7 +673,7 @@ namespace VizijskiSustavWPF.VisionControl
         public void RobotPick(HTuple window, bool trigger = false)
         {
             hv_ExpDefaultWinHandle = window;
-            HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
+            //HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             if (trigger == false)
             {
                 RunPick(false);
