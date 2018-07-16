@@ -32,25 +32,24 @@ namespace VizijskiSustavWPF.VisionControl
             _waitHandleCam4.Reset();
             //try
             //{
-                // OpenCamFrame();
-                // New Camera Matrix Vision
-                // Test allways on framegrabber - Working
-                //if (hv_AcqHandle.Length == 0)
-                //{
-                //    HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
-                //    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
-                //    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
-                //}
                 OpenCamFrame();
-                // Grab image
-                HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-                //HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
-                HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
+            // Exposition Change for D3 Diameter
+            if ((int) (new HTuple(hvSide.TupleEqual(3))) != 0)
+            {
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 100.0);
+            }
+            else
+            {
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
+            }
 
-                //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "do_abort_grab", 1);
+            // Grab image
+            HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+            //HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
+            HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
             //}
 
-            ////HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+            //HOperatorSet.CloseFramegrabber(hv_AcqHandle);
 
             //catch (HalconException HDevExpDefaultExceptionCamera)
             //{
@@ -59,7 +58,6 @@ namespace VizijskiSustavWPF.VisionControl
             //}
 
             _waitHandleCam4.Set();
-
             try
             {
                 HOperatorSet.GetImageSize(ho_Image, out hv_Width, out hv_Height);
