@@ -12,7 +12,6 @@ namespace VizijskiSustavWPF.VisionControl
             _waitHandleCam4.WaitOne();
             // Close te thread DOOR
             _waitHandleCam4.Reset();
-            
             // Initialize local and output iconic variables
             HOperatorSet.GenEmptyObj(out ho_Rectangle);
             HOperatorSet.GenEmptyObj(out ho_Elipse);
@@ -21,19 +20,10 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.GenEmptyObj(out ho_Contours);
             HOperatorSet.GenEmptyObj(out ho_Image);
             HOperatorSet.GenEmptyObj(out HObject ho_GammaImage);
-            // Image Acquisition OPEN frame
-            //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "GC3851M_CAM_4", 0, -1, out hv_AcqHandle);
-            //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 3500.0);
-            //HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
-            
-            // New Camera
+            // Open CAM 4 frame
             OpenCamFrame();
-            // Exposure
-            //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 200.0);
-            //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
-            //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
-            //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
-
+            // Set Exposure
+            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
             //
             while (Exitloop4 == false)
@@ -95,9 +85,7 @@ namespace VizijskiSustavWPF.VisionControl
             // Image Acquisition CLOSE frame
             ho_Image.Dispose();
             HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-
             //CloseCamFrame();
-
             //HOperatorSet.CloseFramegrabber(hv_AcqHandle);
             // Open the thread DOOR
             _waitHandleCam4.Set();
@@ -107,7 +95,6 @@ namespace VizijskiSustavWPF.VisionControl
         {
             hv_ExpDefaultWinHandle = window;
             HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-            // TEST Line Display - > Test call from main thread
             Livecam4(domainmarkup, counter);
         }
 

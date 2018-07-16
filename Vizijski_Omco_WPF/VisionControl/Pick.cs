@@ -340,9 +340,6 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.ReadCamPar(IntrinsicsPath, out hv_CamParam);
             HOperatorSet.ReadPose(ExtrinsicsPath, out hv_CamPose);
             HOperatorSet.ReadClassGmm(TrainegGmmPath, out hv_GMMHandle);
-            //HOperatorSet.ReadCamPar("C:/App/CamPar/intrinsics.cal", out hv_CamParam);
-            //HOperatorSet.ReadPose("C:/App/CamPar/extrinsics.dat", out hv_CamPose);
-            //HOperatorSet.ReadClassGmm("C:/App/Train/traineg_gmm_pick_1.4.ggc", out hv_GMMHandle);
             // Grab operator
             ho_Image.Dispose();
             HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
