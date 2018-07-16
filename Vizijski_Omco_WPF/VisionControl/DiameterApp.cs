@@ -34,7 +34,7 @@ namespace VizijskiSustavWPF.VisionControl
             //{
                 OpenCamFrame();
             // Exposition Change for D3 Diameter
-            if ((int) (new HTuple(hvSide.TupleEqual(3))) != 0)
+            if ((int) (new HTuple(hvDia.TupleEqual(3))) != 0)
             {
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 100.0);
             }
@@ -42,7 +42,8 @@ namespace VizijskiSustavWPF.VisionControl
             {
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
             }
-
+            //Thread pause to adjust exposition
+            Thread.Sleep(1000);
             // Grab image
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
             //HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
