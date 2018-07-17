@@ -252,7 +252,7 @@ namespace VizijskiSustavWPF.VisionControl
 
 
         // Main procedure 
-        private void RunPick(bool picktrigger)
+        private void RunPick(bool leftpallet)
         {
             // Stack for temporary objects 
             HObject[] OTemp = new HObject[20];
@@ -325,20 +325,38 @@ namespace VizijskiSustavWPF.VisionControl
             {
 
             }
+            // Constants
             hv_pi = 3.14159265359;
             hv_angle = (0 * hv_pi) / 180;
-            // Relative path to file
-            string IntrinsicsFileName = "intrinsics.cal";
-            string IntrinsicsPath = Path.Combine(Environment.CurrentDirectory, @"CamPar", IntrinsicsFileName);
-            //
-            string ExtrinsicsFileName = "extrinsics.dat";
-            string ExtrinsicsPath = Path.Combine(Environment.CurrentDirectory, @"CamPar", ExtrinsicsFileName);
+
+            // Pallet calibration selection
+            if (leftpallet)
+            {
+                // Relative path to file
+                string IntrinsicsFileName = "CamParametersLeft.cal";
+                string IntrinsicsPath = Path.Combine(Environment.CurrentDirectory, @"CamPar", IntrinsicsFileName);
+                //
+                string ExtrinsicsFileName = "CamPoseLeft.dat";
+                string ExtrinsicsPath = Path.Combine(Environment.CurrentDirectory, @"CamPar", ExtrinsicsFileName);
+                HOperatorSet.ReadCamPar(IntrinsicsPath, out hv_CamParam);
+                HOperatorSet.ReadPose(ExtrinsicsPath, out hv_CamPose);
+            }
+            else
+            {
+                // Relative path to file
+                string IntrinsicsFileName = "CamParametersRight.cal";
+                string IntrinsicsPath = Path.Combine(Environment.CurrentDirectory, @"CamPar", IntrinsicsFileName);
+                //
+                string ExtrinsicsFileName = "CamPoseRight.dat";
+                string ExtrinsicsPath = Path.Combine(Environment.CurrentDirectory, @"CamPar", ExtrinsicsFileName);
+                HOperatorSet.ReadCamPar(IntrinsicsPath, out hv_CamParam);
+                HOperatorSet.ReadPose(ExtrinsicsPath, out hv_CamPose);
+            }
             //
             string TrainegGmmFileName = "traineg_gmm_pick_1.4.ggc";
             string TrainegGmmPath = Path.Combine(Environment.CurrentDirectory, @"Train", TrainegGmmFileName);
             // Camera intrinsics and extrinsics call
-            HOperatorSet.ReadCamPar(IntrinsicsPath, out hv_CamParam);
-            HOperatorSet.ReadPose(ExtrinsicsPath, out hv_CamPose);
+            
             HOperatorSet.ReadClassGmm(TrainegGmmPath, out hv_GMMHandle);
             // Grab operator
             ho_Image.Dispose();
@@ -347,7 +365,14 @@ namespace VizijskiSustavWPF.VisionControl
             ho_FOV.Dispose();
             HOperatorSet.GenRectangle1(out ho_FOV, 0, 0, hv_Height, hv_Width);
             ho_Box.Dispose();
-            HOperatorSet.GenRectangle1(out ho_Box, 190, 160, 870, 1130);
+            if (leftpallet)
+            {
+                HOperatorSet.GenRectangle1(out ho_Box, 190, 160, 870, 1130);
+            }
+            else
+            {
+                HOperatorSet.GenRectangle1(out ho_Box, 190, 160, 870, 1130);
+            }
             HOperatorSet.ChangeRadialDistortionCamPar("adaptive", hv_CamParam, 0, out hv_CamParamOut);
             ho_ImageRectified.Dispose();
             HOperatorSet.ChangeRadialDistortionImage(ho_Image, ho_FOV, out ho_ImageRectified, hv_CamParam, hv_CamParamOut);
@@ -670,19 +695,11 @@ namespace VizijskiSustavWPF.VisionControl
             _waitHandleCam1.Set();
         }
 
-        public void RobotPick(HTuple window, bool trigger = false)
+        public void RobotPick(HTuple window, bool leftpallet)
         {
             hv_ExpDefaultWinHandle = window;
             //HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-            if (trigger == false)
-            {
-                RunPick(false);
-            }
-            else if (trigger)
-            {
-                RunPick(true);
-            }
-
+            RunPick(leftpallet);
             koordinate.RXcord = (float) hv_X.D;
             koordinate.RYcord = (float) hv_Y.D;
             koordinate.AngleDeg = (float)hv_angledeg.D;

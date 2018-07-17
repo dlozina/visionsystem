@@ -43,6 +43,7 @@ namespace VizijskiSustavWPF
         private bool _oneCallFlagPorHor = false;
         private bool _onceCallFlagPorVer = false;
         private bool _oneCallFlagPick = false;
+        private bool _oneCallFlagPickRight = false;
         private bool _oneCallFlagPorFound = false;
         private bool _oneCallFlagPorVerNotFound = false;
         private bool _oneCallFlagPorHorNotFound = false;
@@ -95,6 +96,8 @@ namespace VizijskiSustavWPF
 
         // Variable for empty window call
         HTuple windowID = new HTuple();
+        // Pellet selection - look at the pallet from robot side
+        private bool leftpallet;
 
         public class UserInputData
         {
@@ -300,12 +303,13 @@ namespace VizijskiSustavWPF
                 _oneCallFlagPorHor = true;
             }
 
-            // Start analize slike za robot PICK - TRIGGER 1 ***********************************************************
+            // Start analize slike za robot PICK - LEFT PALLET ***********************************************************
             if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT1.Value) && _oneCallFlagPick)
             {
                 _oneCallFlagPick = false;
+                leftpallet = true;
                 // We call public method in class pRobot
-                Thread pickTriggerT1 = new Thread(new ThreadStart(pRobot.RobotPickStartT1));
+                Thread pickTriggerT1 = new Thread(() => pRobot.RobotPickStartT1(leftpallet));
                 pickTriggerT1.Name = "Thread pickTriggerT1";
                 pickTriggerT1.Start();
             }
@@ -314,14 +318,19 @@ namespace VizijskiSustavWPF
                 _oneCallFlagPick = true;
             }
 
-            // Start analize slike za robot PICK - TRIGGER 2 ***********************************************************
-            //if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value) && (!_edgeDetection7))
-            //{
-            //    // We call public method in class pRobot
-            //    Thread pickTriggerT2 = new Thread(pRobot.RobotPickStartT2);
-            //    pickTriggerT2.Name = "Thread pickTriggerT2";
-            //    pickTriggerT2.Start();
-            //}
+            // Start analize slike za robot PICK - RIGHT PALLET **********************************************************
+            if (((bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value) && _oneCallFlagPickRight)
+            {
+                _oneCallFlagPickRight = false;
+                leftpallet = false;
+                Thread pickTriggerT2 = new Thread(() => pRobot.RobotPickStartT1(leftpallet));
+                pickTriggerT2.Name = "Thread pickTriggerT2";
+                pickTriggerT2.Start();
+            }
+            else if (!(bool)e.StatusData.Kamere.CAM1ZahtjevZaAnalizomT2.Value)
+            {
+                _oneCallFlagPickRight = true;
+            }
 
             // R-Os je prosla 360 i nije nasla porozni dio CAM2 
             if (((bool)e.StatusData.MjerenjePoroznosti.GotovoCAM2.Value) && _oneCallFlagPorVerNotFound)

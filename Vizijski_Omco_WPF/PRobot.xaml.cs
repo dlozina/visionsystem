@@ -38,13 +38,13 @@ namespace VizijskiSustavWPF
             App.HDevExp.RunCam1(windowId);
         }
 
-        public void RobotPickStartT1()
+        public void RobotPickStartT1(bool leftpallet)
         {
             Dispatcher.BeginInvoke((Action)(() => 
             {
                 App.HDevExp.InitHalcon();
                 HTuple windowId = HwindowRobot.HalconID;
-                App.HDevExp.RobotPick(windowId, false);
+                App.HDevExp.RobotPick(windowId, leftpallet);
 
             }));
 
@@ -83,7 +83,8 @@ namespace VizijskiSustavWPF
 
         private void BUzmiSliku1_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Thread robotPick1Thread = new Thread(RobotPickStartT1);
+            Thread robotPick1Thread = new Thread(() => RobotPickStartT1(true));
+
             robotPick1Thread.Start();
         }
 
