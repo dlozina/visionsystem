@@ -310,7 +310,9 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.GenEmptyObj(out ho_Arrow);
             HOperatorSet.GenEmptyObj(out ho_Cross2);
             HOperatorSet.GenEmptyObj(out ho_ContCircle);
-            //** GMM ***
+
+            // Set Default Variables
+            hv_angledeg = 0;
             // Wait for CAM4 thread to be closed
             _waitHandleCam1.WaitOne();
             // Close te thread DOOR
@@ -567,7 +569,6 @@ namespace VizijskiSustavWPF.VisionControl
                 HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_a);
                 HOperatorSet.WriteString(hv_ExpDefaultWinHandle, ", ");
                 HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_b);
-                hv_angledeg = 0;
                 HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, 20, 20);
                 HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_Length);
             }
