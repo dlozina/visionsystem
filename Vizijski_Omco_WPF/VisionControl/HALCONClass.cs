@@ -103,8 +103,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_AcqHandle.Length == 0)
             {
                 HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "Diameter", 0, -1, out hv_AcqHandle);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTimeAbs", 1000.0);
             }
         }
 

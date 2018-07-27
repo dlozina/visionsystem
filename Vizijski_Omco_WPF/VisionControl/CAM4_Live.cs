@@ -23,8 +23,7 @@ namespace VizijskiSustavWPF.VisionControl
             // Open CAM 4 frame
             OpenCamFrame();
             // Set Exposure
-            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
-            HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
+            HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTimeAbs", 1000.0);
             //
             while (Exitloop4 == false)
             {
@@ -48,7 +47,7 @@ namespace VizijskiSustavWPF.VisionControl
                         ho_Rectangle.Dispose();
                         HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height, hv_HalfW + 90);
                         ho_Elipse.Dispose();
-                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW + 70, (new HTuple(88)).TupleRad(), 1150, 130);
+                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW + 70, (new HTuple(90)).TupleRad(), 1150, 130);
                         ho_ROIUnion.Dispose();
                         HOperatorSet.Union2(ho_Rectangle, ho_Elipse, out ho_ROIUnion);
                         //* ROI
@@ -64,7 +63,7 @@ namespace VizijskiSustavWPF.VisionControl
                         ho_Rectangle.Dispose();
                         HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 90, hv_Height, hv_HalfW + 250);
                         ho_Elipse.Dispose();
-                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW - 70, (new HTuple(92)).TupleRad(), 1150, 130);
+                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW - 70, (new HTuple(90)).TupleRad(), 1150, 130);
                         ho_ROIUnion.Dispose();
                         HOperatorSet.Union2(ho_Rectangle, ho_Elipse, out ho_ROIUnion);
                         ho_ROI.Dispose();

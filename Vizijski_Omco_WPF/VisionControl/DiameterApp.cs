@@ -36,11 +36,11 @@ namespace VizijskiSustavWPF.VisionControl
             // Exposition Change for D3 Diameter
             if ((int) (new HTuple(hvDia.TupleEqual(3))) != 0)
             {
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 100.0);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTimeAbs", 300.0);
             }
             else
             {
-                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", 800.0);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTimeAbs", 1000.0);
             }
             //Thread pause to adjust exposition
             Thread.Sleep(1000);
@@ -75,7 +75,7 @@ namespace VizijskiSustavWPF.VisionControl
                         ho_Rectangle.Dispose();
                         HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 100, hv_Height, hv_HalfW + 250);
                         ho_Elipse.Dispose();
-                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW - 70, (new HTuple(92)).TupleRad(), 1150, 130);
+                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW - 70, (new HTuple(90)).TupleRad(), 1150, 130);
                         ho_ROIUnion.Dispose();
                         HOperatorSet.Union2(ho_Rectangle, ho_Elipse, out ho_ROIUnion);
                         ho_ROI.Dispose();
@@ -87,7 +87,7 @@ namespace VizijskiSustavWPF.VisionControl
                         ho_Rectangle.Dispose();
                         HOperatorSet.GenRectangle1(out ho_Rectangle, 0, hv_HalfW - 250, hv_Height, hv_HalfW + 100);
                         ho_Elipse.Dispose();
-                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW + 70, (new HTuple(88)).TupleRad(), 1150, 130);
+                        HOperatorSet.GenEllipse(out ho_Elipse, hv_HalfH, hv_HalfW + 70, (new HTuple(90)).TupleRad(), 1150, 130);
                         ho_ROIUnion.Dispose();
                         HOperatorSet.Union2(ho_Rectangle, ho_Elipse, out ho_ROIUnion);
                         //* ROI
