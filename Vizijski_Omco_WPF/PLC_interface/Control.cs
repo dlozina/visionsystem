@@ -125,10 +125,14 @@
             public plcTag PrekretKomada { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 1), false);
             public plcTag KomadOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 2), false);
             public plcTag KomadNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 3), false);
-            public plcTag ResetPaleteNovi { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 4), false);
-            public plcTag ResetPaleteOk { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 5), false);
-            public plcTag ResetPaleteNok { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 6), false);
-            public plcTag ResetPaleteLimova { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 7), false);
+            public plcTag ResetUlaznePaleteLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 4), false);
+            public plcTag ResetUlaznePaleteDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 5), false);
+            public plcTag ResetOkPaleteLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 6), false);
+            public plcTag ResetOkPaleteDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(52, 7), false);
+            public plcTag ResetNokPaleteLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(53, 0), false);
+            public plcTag ResetNokPaleteDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(53, 1), false);
+            public plcTag ResetLimovaPozicijaOdlaganja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(53, 2), false);
+            public plcTag PrekretKomadaDno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(53, 3), false);
         }
 
         public class ucenjereal

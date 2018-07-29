@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 
@@ -23,6 +24,8 @@ namespace VizijskiSustavWPF
             pomocniFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             pomocniFrame.Margin = new Thickness(10, 10, 10, 10);
             App.mwHandle = this;
+            srh.IsEnabled = false;
+            srh.Foreground = new SolidColorBrush(Colors.Gray);
         }
 
         #region POSTAVKE

@@ -87,7 +87,7 @@ namespace VizijskiSustavWPF
             IFBrojSlojevaKomadiOKDesno.IsEnabled = false;
             IFBrojSlojevaKomadiNOKLijevo.IsEnabled = false;
             IFBrojSlojevaKomadiNOKDesno.IsEnabled = false;
-            IFBrojLimova.IsEnabled = false;
+            //IFBrojLimova.IsEnabled = false;
             IFDebljinaLimova.IsEnabled = false;
         }
 
@@ -149,7 +149,7 @@ namespace VizijskiSustavWPF
             IFBrojSlojevaKomadiOKDesno.IsEnabled = true;
             IFBrojSlojevaKomadiNOKLijevo.IsEnabled = true;
             IFBrojSlojevaKomadiNOKDesno.IsEnabled = true;
-            IFBrojLimova.IsEnabled = true;
+            //IFBrojLimova.IsEnabled = true;
             IFDebljinaLimova.IsEnabled = true;
         }
 
@@ -173,7 +173,7 @@ namespace VizijskiSustavWPF
 
         private void BBpaletaLimova_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            IFBrojLimova.IsEnabled = true;
+            //IFBrojLimova.IsEnabled = true;
             IFDebljinaLimova.IsEnabled = true;
         }
 

@@ -204,10 +204,14 @@ namespace VizijskiSustavWPF
                     CONTROL.Robot.PrekretKomada.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.KomadOk.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Robot.KomadNok.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Robot.ResetPaleteNovi.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Robot.ResetPaleteOk.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Robot.ResetPaleteNok.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    CONTROL.Robot.ResetPaleteLimova.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetUlaznePaleteLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetUlaznePaleteDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetOkPaleteLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetOkPaleteDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetNokPaleteLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetNokPaleteDesno.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.ResetLimovaPozicijaOdlaganja.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Robot.PrekretKomadaDno.GetValueFromGroupBuffer(CyclicControlBuffer);
 
                     // Ucenjereal
                     CONTROL.UcenjeReal.ZadavanjeDijametara1.GetValueFromGroupBuffer(CyclicControlBuffer);
