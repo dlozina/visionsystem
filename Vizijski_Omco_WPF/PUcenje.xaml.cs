@@ -43,20 +43,6 @@ namespace VizijskiSustavWPF
 
         //}
 
-        private void TeachCam2()
-        {
-            App.HDevExp.InitHalcon();
-            HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunCam2(windowId, true);
-        }
-
-        private void TeachCam3()
-        {
-            App.HDevExp.InitHalcon();
-            HTuple windowId = hwindowTeach.HalconID;
-            App.HDevExp.RunCam3(windowId, true);
-        }
-
         private void TeachCam4()
         {
             App.HDevExp.InitHalcon();
@@ -373,20 +359,7 @@ namespace VizijskiSustavWPF
             _clickNumber++; 
         }
 
-        private void BpozicijaPoroznost_Click(object sender, RoutedEventArgs e)
-        {
-            App.ActivateControlPorosityPosition();
-        }
-
-        private void BnauciPozicijuPoroznost_Click(object sender, RoutedEventArgs e)
-        {
-            BpozicijaPoroznost.IsEnabled = false;
-            BpozicijaPoroznost.Foreground = new SolidColorBrush(Colors.Green);
-            BpozicijaPoroznost.Content = "SPREMLJENO";
-            BnauciPozicijuPoroznost.IsEnabled = false;
-            BnauciPozicijuPoroznost.Foreground = new SolidColorBrush(Colors.Gray);
-            App.ActivateControlTeachPorosityPosition();
-        }
+        
 
         private void BresetUcenjaDijametri_Click(object sender, RoutedEventArgs e)
         {
@@ -399,17 +372,6 @@ namespace VizijskiSustavWPF
             BnauciPozicijuDijametri.Foreground = new SolidColorBrush(Colors.Black);
         }
 
-        private void BresetUcenjaPoroznost_Click(object sender, RoutedEventArgs e)
-        {
-            BpozicijaPoroznost.IsEnabled = true;
-            BpozicijaPoroznost.Foreground = new SolidColorBrush(Colors.Black);
-            BpozicijaPoroznost.Content = "POZICIJA";
-            //
-            BnauciPozicijuPoroznost.IsEnabled = true;
-            BnauciPozicijuPoroznost.Foreground = new SolidColorBrush(Colors.Black);
-        }
-
-
         private void b_startKamere_Click(object sender, RoutedEventArgs e)
         {
             App.HDevExp.Exitloop2 = true;
@@ -420,30 +382,6 @@ namespace VizijskiSustavWPF
             hwindowTeach.HImagePart = new Rect(0, 0, 2448, 2050);
             Thread TeachCAM4Thread = new Thread(TeachCam4) { Name = "TeachCAM4Thread" };
             TeachCAM4Thread.Start();
-        }
-
-        private void BtestKamere1_Click(object sender, RoutedEventArgs e)
-        {
-            App.HDevExp.Exitloop2 = false;
-            App.HDevExp.Exitloop3 = true;
-            App.HDevExp.Exitloop4 = true;
-            App.DiameterLightOFF();
-            App.PorosityLightON();
-            hwindowTeach.HImagePart = new Rect(0, 0, 3856, 2764);
-            Thread teachCam2Thread = new Thread(TeachCam2) { Name = "TeachCAM2Thread" };
-            teachCam2Thread.Start();
-        }
-
-        private void BtestKamere2_Click(object sender, RoutedEventArgs e)
-        {
-            App.HDevExp.Exitloop2 = true;
-            App.HDevExp.Exitloop3 = false;
-            App.HDevExp.Exitloop4 = true;
-            App.DiameterLightOFF();
-            App.PorosityLightON();
-            hwindowTeach.HImagePart = new Rect(0, 0, 2592, 1944);
-            Thread teachCam3Thread = new Thread(TeachCam3) { Name = "TeachCAM3Thread" };
-            teachCam3Thread.Start();
         }
 
         private void BPrijasnjiRub_Click(object sender, RoutedEventArgs e)
