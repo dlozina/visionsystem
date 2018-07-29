@@ -17,6 +17,12 @@ namespace VizijskiSustavWPF
             InitializeComponent();
             //App.PLC.Update_1_s += new PLCInterface.UpdateHandler(updatePage);
             //App.PLC.Update_100_ms += new PLCInterface.UpdateHandler(updatePage_100);
+            BbUlaznaLijevo.IsEnabled = false;
+            BbUlaznaDesno.IsEnabled = false;
+            BbKomadiOkLijevo.IsEnabled = false;
+            BbKomadiOkDesno.IsEnabled = false;
+            BbKomadiNokLijevo.IsEnabled = false;
+            BbKomadiNokDesno.IsEnabled = false;
         }
 
         private void BiskljuciAplikaciju_Click(object sender, RoutedEventArgs e)
@@ -33,19 +39,6 @@ namespace VizijskiSustavWPF
                 App.HDevExp.Exitloop4 = true;
                 Thread.Sleep(1000);
                 App.Current.Shutdown();
-            }
-            else
-            {
-                // Do not close the window
-            }
-        }
-
-        private void BizbrisiPodatke_Click(object sender, RoutedEventArgs e)
-        {
-            if (MessageBox.Show("Da li ste sigurni da želite izbrisati cijelu bazu podataka?",
-            "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-            {
-                App.ResetData();
             }
             else
             {
@@ -182,86 +175,6 @@ namespace VizijskiSustavWPF
         {
             IFBrojLimova.IsEnabled = true;
             IFDebljinaLimova.IsEnabled = true;
-        }
-
-        private void CBdimenzija_Checked(object sender, RoutedEventArgs e)
-        {
-            App.ActivateDimenzije();
-        }
-
-        private void CBdimenzija_Unchecked(object sender, RoutedEventArgs e)
-        {
-            App.DeactivateDimenzije();
-        }
-
-        private void CBporoznost_Checked(object sender, RoutedEventArgs e)
-        {
-            App.ActivatePoroznost();
-        }
-
-        private void CBporoznost_Unchecked(object sender, RoutedEventArgs e)
-        {
-            App.DeactivatePoroznost();
-        }
-
-        private void CBstring_Checked(object sender, RoutedEventArgs e)
-        {
-            App.ActivateString();
-        }
-
-        private void CBstring_Unchecked(object sender, RoutedEventArgs e)
-        {
-            App.DeactivateString();
-        }
-
-        private void CbDiametar1_Checked(object sender, RoutedEventArgs e)
-        {
-            App.ActivateDiameter1();
-        }
-
-        private void CbDiametar1_Unchecked(object sender, RoutedEventArgs e)
-        {
-            App.DeactivateDiameter1();
-        }
-
-        private void CbDiametar2_Checked(object sender, RoutedEventArgs e)
-        {
-            App.ActivateDiameter2();
-        }
-
-        private void CbDiametar2_Unchecked(object sender, RoutedEventArgs e)
-        {
-            App.DeactivateDiameter2();
-        }
-
-        private void CbDiametar3_Checked(object sender, RoutedEventArgs e)
-        {
-            App.ActivateDiameter3();
-        }
-
-        private void CbDiametar3_Unchecked(object sender, RoutedEventArgs e)
-        {
-            App.DeactivateDiameter3();
-        }
-
-        private void CbDiametar4_Checked(object sender, RoutedEventArgs e)
-        {
-            App.ActivateDiameter4();
-        }
-
-        private void CbDiametar4_Unchecked(object sender, RoutedEventArgs e)
-        {
-            App.DeactivateDiameter4();
-        }
-
-        private void CbDiametar5_Checked(object sender, RoutedEventArgs e)
-        {
-            App.ActivateDiameter5();
-        }
-
-        private void CbDiametar5_Unchecked(object sender, RoutedEventArgs e)
-        {
-            App.DeactivateDiameter5();
         }
 
         //private void updatePage(object sender, PLCInterfaceEventArgs e)

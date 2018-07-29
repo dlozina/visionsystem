@@ -106,7 +106,7 @@ namespace VizijskiSustavWPF
         { 
             Dispatcher.BeginInvoke((Action)(() =>
             {
-                    try
+                try
                 {
                     StatusTag.GetValueFromGroupBuffer(e.CyclicStatusBuffer);
                     if ((bool)StatusTag.Value)

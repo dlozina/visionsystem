@@ -604,7 +604,7 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciPoroznost, true);
             App.PLC.WriteTag(PLC.CONTROL.UcenjeBool.NauciPoroznost, false);
         }
-
+        // Backup marker
         public static void ActivateDimenzije()
         {
             App.PLC.WriteTag(PLC.CONTROL.NacinRada.Dimenzije, true);
@@ -664,6 +664,36 @@ namespace VizijskiSustavWPF
         public static void DeactivateDiameter5()
         {
             App.PLC.WriteTag(PLC.CONTROL.OdabirDijametra.Dijametar5, false);
+        }
+
+        public static void ActivateHeight1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirVisina.Visina1, true);
+        }
+
+        public static void DeactivateHeight1()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirVisina.Visina1, false);
+        }
+
+        public static void ActivateHeight2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirVisina.Visina2, true);
+        }
+
+        public static void DeactivateHeight2()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirVisina.Visina2, false);
+        }
+
+        public static void ActivateHeight3()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirVisina.Visina3, true);
+        }
+
+        public static void DeactivateHeight3()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.OdabirVisina.Visina3, false);
         }
 
         public static void ActivatePoroznost()

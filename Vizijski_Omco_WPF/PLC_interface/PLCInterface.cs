@@ -102,9 +102,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    Client.ConnectTo("192.168.0.1", 0, 1);
+                    //Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    //Client.ConnectTo("192.168.111.108", 0, 1);
+                    Client.ConnectTo("192.168.125.88", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -303,6 +303,11 @@ namespace VizijskiSustavWPF
                     CONTROL.OdabirDijametra.Dijametar3.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.OdabirDijametra.Dijametar4.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.OdabirDijametra.Dijametar5.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    
+                    // OdabirVisina
+                    CONTROL.OdabirVisina.Visina1.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.OdabirVisina.Visina2.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.OdabirVisina.Visina3.GetValueFromGroupBuffer(CyclicControlBuffer);
                 }
             }
             return result;

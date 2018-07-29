@@ -28,6 +28,7 @@ namespace VizijskiSustavWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            of_porosity.Text = "NE";
             // Fetch data from JSON file
             // Load saved data from JSON file
             string DataBaseFileName = "savedata.JSON";
@@ -52,7 +53,6 @@ namespace VizijskiSustavWPF
                 BIspisPodataka.IsEnabled = true;
                 BIspisPodataka.Foreground = new SolidColorBrush(Colors.Black);
             }
-
         }
 
         private void saveValues_Click(object sender, RoutedEventArgs e)
@@ -242,7 +242,6 @@ namespace VizijskiSustavWPF
             }
         }
 
-
         private void BIspisPodataka_Click(object sender, RoutedEventArgs e)
         {
             Thread excelExportThread = new Thread(ExcelExport);
@@ -254,6 +253,19 @@ namespace VizijskiSustavWPF
         {
             string ReportPath = string.Format(@"{0}\Reports\", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)); ;
             Process.Start("explorer.exe", ReportPath);
+        }
+
+        private void BizbrisiPodatke_Click(object sender, RoutedEventArgs e)
+        {
+            if (System.Windows.MessageBox.Show("Da li ste sigurni da želite izbrisati cijelu bazu podataka?",
+                    "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                App.ResetData();
+            }
+            else
+            {
+                // Do not close the window
+            }
         }
     }
 }

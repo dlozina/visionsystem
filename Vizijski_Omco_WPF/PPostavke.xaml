@@ -190,7 +190,7 @@
 
             </Grid>
             <!-- Stupac Unos Slojeva Paleta i Broj Limova -->
-            <Grid Grid.Row="1" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="0,2,4,2">
+            <Grid Grid.Row="2" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,2,0,4">
                 <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -214,7 +214,7 @@
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="ULAZNE LIJEVO"  Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <Label Content="ULAZNA LIJEVO"  Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="IFBrojSlojevaUlaznaLijevo"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.BrojSlojevaUlaznaPaletaLijevo, ElementName=IFBrojSlojevaUlaznaLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,0">
@@ -222,7 +222,7 @@
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="ULAZNE DESNO" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
+                        <Label Content="ULAZNA DESNO" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
                         <vizijskiSustavWpf:InputField Grid.Column="1" x:Name="IFBrojSlojevaUlaznaDesno"  ControlTag="{Binding PLCConnection.CONTROL.UzimanjeKomada.BrojSlojevaUlaznaPaletaDesno, ElementName=IFBrojSlojevaUlaznaDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
@@ -329,7 +329,7 @@
             </Grid>
 
             <!-- Stupac Zatvori Aplikaciju -->
-            <Grid Grid.Row="2" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="0,2,4,4">
+            <Grid Grid.Row="1" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="0,2,4,2">
                 <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -345,199 +345,14 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0" Grid.Row="1" Background="Black" Margin="4,0,4,0">
-                        <vizijskiSustavWpf:BitButton x:Name="BBresetSvihMjerenja" Text="RESET AKTIVNOG MJERENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.ResetSvihMjerenja, ElementName=BBresetSvihMjerenja}" />
-                    </Grid>
-                    <Grid Grid.Column="0" Grid.Row="2" Background="Black" Margin="4,0,4,0">
-                        <Button  x:Name="BiskljuciAplikaciju" Margin="1,0,1,1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI APLIKACIJU" Click="BiskljuciAplikaciju_Click"/>
-                    </Grid>
-                    <Grid Grid.Column="0" Grid.Row="3" Background="Black" Margin="4,0,4,0">
-                        <Button  x:Name="BizbrisiPodatke" Margin="1,0,1,1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZBRISI PODATKE" Click="BizbrisiPodatke_Click" />
-                    </Grid>
-                </Grid>
-            </Grid>
-            <!-- Stupac Prazan -->
-            <Grid Grid.Row="2" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,2,0,4">
-                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="ODABIR NACINA RADA"/></TextBlock>
-
-                    <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <Label  Grid.Column="0" Content="DIMENZIJE" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBdimenzija" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CBdimenzija_Checked" Unchecked="CBdimenzija_Unchecked" >
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
+                    
+                    <Grid Grid.Column="0" Grid.Row="1" Background="Black" Margin="4">
+                        <Button  x:Name="BiskljuciAplikaciju" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ZATVORI APLIKACIJU" Click="BiskljuciAplikaciju_Click"/>
                     </Grid>
                     
-                    <Grid Grid.Row="2" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <Label  Grid.Column="0" Content="DIAMETAR 1" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CbDiametar1" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar1_Checked" Unchecked="CbDiametar1_Unchecked">
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                    </Grid>
-
-
-                    <Grid Grid.Row="3" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <Label  Grid.Column="0" Content="DIAMETAR 2" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CbDiametar2" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar2_Checked" Unchecked="CbDiametar2_Unchecked">
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                    </Grid>
-
-                    <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <Label  Grid.Column="0" Content="DIAMETAR 3" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CbDiametar3" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar3_Checked" Unchecked="CbDiametar3_Unchecked">
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                    </Grid>
-
-                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <Label  Grid.Column="0" Content="DIAMETAR 4" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CbDiametar4" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar4_Checked" Unchecked="CbDiametar4_Unchecked">
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                    </Grid>
-
-                    <Grid Grid.Row="6" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <Label  Grid.Column="0" Content="DIAMETAR 5" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CbDiametar5" Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CbDiametar5_Checked" Unchecked="CbDiametar5_Unchecked">
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                    </Grid>
-
-                    <Grid Grid.Row="8" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <Label  Grid.Column="0" Content="POROZNOST" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBporoznost"  Style="{DynamicResource CheckBoxStyle1}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CBporoznost_Checked" Unchecked="CBporoznost_Unchecked" >
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                    </Grid>
-                    
-                    <Grid Grid.Row="9" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15,0,15,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" Background="Black" Margin="1">
-                            <Label  Grid.Column="0" Content="STRING" Margin="1" Background="{DynamicResource pozadina1}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="12" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <CheckBox Grid.Column="1" x:Name="CBstring"  Style="{DynamicResource CheckBoxStyle1}"  HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Checked="CBstring_Checked" Unchecked="CBstring_Unchecked" >
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                    </Grid>
-
                 </Grid>
             </Grid>
+            
             <!-- Stupac Unos Zaglavlja Za Izvjestaj -->
             <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4,2,0,2">
                 <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
@@ -623,6 +438,82 @@
                             <Button  x:Name="BSaveDataReport"  Margin="1" Grid.Column="1" Content="SPREMI" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Click="BSaveDataReport_Click" />
                         </Grid>
                     </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2" Background="{DynamicResource pozadina1}" Margin="2,2,4,4">
+                <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="1" Grid.Row="0" Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="AKTIVNE PALETE I BROJ SLOJEVA"/></TextBlock>
+
+                    <Grid Grid.Row="1" Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfUlaznaLijevo" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfUlaznaLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbUlaznaLijevo" Text="ULAZNA LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbUlaznaLijevo}" OnColor="LightGreen" OffColor="Black" />
+                    </Grid>
+
+                    <Grid Grid.Row="2" Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfUlaznaDesno" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfUlaznaDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbUlaznaDesno" Text="ULAZNA DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbUlaznaDesno}" OnColor="LightGreen" OffColor="Black" />
+                    </Grid>
+
+                    <Grid Grid.Row="3" Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiOkLijevo" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfKomadiOkLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiOkLijevo" Text="KOMADI OK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbKomadiOkLijevo}" OnColor="LightGreen" OffColor="Black" />
+                    </Grid>
+
+                    <Grid Grid.Row="4" Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiOkDesno" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfKomadiOkDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiOkDesno" Text="KOMADI OK DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbKomadiOkDesno}" OnColor="LightGreen" OffColor="Black" />
+                    </Grid>
+
+                    <Grid Grid.Row="5" Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiNokLijevo" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfKomadiNokLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiNokLijevo" Text="KOMADI NOK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbKomadiNokLijevo}" OnColor="LightGreen" OffColor="Black" />
+                    </Grid>
+
+                    <Grid Grid.Row="6" Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiNokDesno" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfKomadiNokDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiNokDesno" Text="KOMADI NOK DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbKomadiNokDesno}" OnColor="LightGreen" OffColor="Black" />
+                    </Grid>
+
+
+
 
                 </Grid>
             </Grid>

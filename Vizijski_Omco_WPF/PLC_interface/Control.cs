@@ -21,6 +21,7 @@
         public tolerance Tolerance { get; set; } = new tolerance();
         public nacinrada NacinRada { get; set; } = new nacinrada();
         public odabirdijametra OdabirDijametra { get; set; } = new odabirdijametra();
+        public odabirvisina OdabirVisina { get; set; } = new odabirvisina();
 
         public class horizontalnaOs
         {
@@ -239,6 +240,13 @@
             public plcTag Dijametar3 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(196, 2), false);
             public plcTag Dijametar4 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(196, 3), false);
             public plcTag Dijametar5 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(196, 4), false);
+        }
+
+        public class odabirvisina
+        {
+            public plcTag Visina1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(198, 0), false);
+            public plcTag Visina2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(198, 1), false);
+            public plcTag Visina3 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(198, 2), false);
         }
     }
 }
