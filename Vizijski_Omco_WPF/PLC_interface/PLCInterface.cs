@@ -102,9 +102,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    //Client.ConnectTo("192.168.0.1", 0, 1);
+                    Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    Client.ConnectTo("192.168.125.88", 0, 1);
+                    //Client.ConnectTo("192.168.125.88", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -120,7 +120,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 196, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 200, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -321,7 +321,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(11, 0, 256, CyclicStatusBuffer);
+                result = Client.DBRead(11, 0, 286, CyclicStatusBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -459,6 +459,21 @@ namespace VizijskiSustavWPF
                     STATUS.Upisanevrijednosti.Visina3.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Upisanevrijednosti.Visina3DeltaMinus.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Upisanevrijednosti.Visina3DeltaPlus.GetValueFromGroupBuffer(CyclicStatusBuffer);
+
+                    // Trenutni slojevi
+                    STATUS.TrenutniSlojevi.UlaznaLijevo.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.UlaznaDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.KomadiOKLijevo.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.KomadiOKDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.KomadiNOKLijevo.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.KomadiNOKDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.AktivnaUlaznaLijevo.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.AktivnaUlaznaDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.AktivnaKomadiOKLijevo.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.AktivnaKomadiOKDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.AktivnaKomadiNOKLijevo.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.AktivnaKomadiNOKDesno.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.TrenutniSlojevi.BrojLimovaPozicijaOdlaganja.GetValueFromGroupBuffer(CyclicStatusBuffer);
                 }
             }
             return result;

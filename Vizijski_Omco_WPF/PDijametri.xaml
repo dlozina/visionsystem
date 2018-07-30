@@ -64,7 +64,7 @@
                         <local:BitButton Grid.Column="1" x:Name="bb_preset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjePoroznosti.Reset , ElementName=bb_preset}" />
                     </Grid>
 
-                    <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -84,7 +84,7 @@
                         </CheckBox>
                     </Grid>
 
-                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -139,7 +139,7 @@
                         <local:BitButton Grid.Column="1" x:Name="bb_reset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeDiametara.Reset , ElementName=bb_reset}" />
                     </Grid>
 
-                    <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -159,7 +159,7 @@
                         </CheckBox>
                     </Grid>
 
-                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -179,7 +179,7 @@
                         </CheckBox>
                     </Grid>
 
-                    <Grid Grid.Row="6" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="6" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -199,7 +199,7 @@
                         </CheckBox>
                     </Grid>
 
-                    <Grid Grid.Row="7" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="7" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -219,7 +219,7 @@
                         </CheckBox>
                     </Grid>
 
-                    <Grid Grid.Row="8" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="8" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -277,7 +277,7 @@
                         <local:BitButton Grid.Column="1" x:Name="bb_vreset" Text="RESET" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.MjerenjeTicalom.Reset , ElementName=bb_vreset}" />
                     </Grid>
 
-                    <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="4" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -297,7 +297,7 @@
                         </CheckBox>
                     </Grid>
 
-                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="5" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>
@@ -317,7 +317,7 @@
                         </CheckBox>
                     </Grid>
 
-                    <Grid Grid.Row="6" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="15">
+                    <Grid Grid.Row="6" Grid.Column="0" Background="{DynamicResource pozadina1}" Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="2*"/>

@@ -299,38 +299,38 @@
                     <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetUlaznaLijevo" Text="RESET ULAZNE LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetUlaznePaleteLijevo, ElementName=BbResetUlaznaLijevo}" PreviewMouseDown="BBkomadiZaMjerenje_PreviewMouseDown" />
+                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetUlaznaLijevo" Text="RESET ULAZNE LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetUlaznePaleteLijevo, ElementName=BbResetUlaznaLijevo}" />
                     </Grid>
                     <Grid Grid.Row="2" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetUlaznaDesno" Text="RESET ULAZNE LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetUlaznePaleteDesno, ElementName=BbResetUlaznaDesno}" PreviewMouseDown="BBkomadiNok_PreviewMouseDown" />
+                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetUlaznaDesno" Text="RESET ULAZNE DESNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetUlaznePaleteDesno, ElementName=BbResetUlaznaDesno}"  />
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetKomadiOkLijevo" Text="RESET KOMADI OK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetOkPaleteLijevo, ElementName=BbResetKomadiOkLijevo}" PreviewMouseDown="BBkomadiOK_PreviewMouseDown"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetKomadiOkLijevo" Text="RESET KOMADI OK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetOkPaleteLijevo, ElementName=BbResetKomadiOkLijevo}" />
                     </Grid>
                     <Grid Grid.Row="4" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetKomadiOkDesno" Text="RESET KOMADI OK DESNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetOkPaleteDesno, ElementName=BbResetKomadiOkDesno}" PreviewMouseDown="BBkomadiOK_PreviewMouseDown"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetKomadiOkDesno" Text="RESET KOMADI OK DESNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetOkPaleteDesno, ElementName=BbResetKomadiOkDesno}" />
                     </Grid>
                     <Grid Grid.Row="5" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetKomadiNokLijevo" Text="RESET KOMADI NOK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetNokPaleteLijevo, ElementName=BbResetKomadiNokLijevo}" PreviewMouseDown="BBkomadiOK_PreviewMouseDown"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetKomadiNokLijevo" Text="RESET KOMADI NOK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetNokPaleteLijevo, ElementName=BbResetKomadiNokLijevo}" />
                     </Grid>
                     <Grid Grid.Row="6" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetKomadiNokDesno" Text="RESET KOMADI NOK DESNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetNokPaleteDesno, ElementName=BbResetKomadiNokDesno}" PreviewMouseDown="BBkomadiOK_PreviewMouseDown"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BbResetKomadiNokDesno" Text="RESET KOMADI NOK DESNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetNokPaleteDesno, ElementName=BbResetKomadiNokDesno}" />
                     </Grid>
                     <TextBlock Grid.Row="7" Margin="1"  Grid.Column="0" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="PALETA ZA ODLAGANJE LIMOVA"/></TextBlock>
                     <Grid Grid.Row="8" Grid.Column="0" Background="Black" Margin="4,0,4,0">
                         <Grid.ColumnDefinitions>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBpaletaLimova" Text="RESET PALETE SA LIMOVIMA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetLimovaPozicijaOdlaganja, ElementName=BBpaletaLimova}" PreviewMouseDown="BBpaletaLimova_PreviewMouseDown" />
+                        <vizijskiSustavWpf:BitButton Grid.Column="0" x:Name="BBpaletaLimova" Text="RESET PALETE SA LIMOVIMA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ResetLimovaPozicijaOdlaganja, ElementName=BBpaletaLimova}"  />
                     </Grid>
                 </Grid>
             </Grid>
@@ -470,8 +470,8 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfUlaznaLijevo" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfUlaznaLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
-                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbUlaznaLijevo" Text="ULAZNA LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbUlaznaLijevo}" OnColor="LightGreen" OffColor="Black" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfUlaznaLijevo" ControlTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.UlaznaLijevo, ElementName=OfUlaznaLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbUlaznaLijevo" Text="ULAZNA LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.AktivnaUlaznaLijevo, ElementName=BbUlaznaLijevo}" OnColor="LightGreen" OffColor="Black" />
                     </Grid>
 
                     <Grid Grid.Row="2" Background="Black">
@@ -479,8 +479,8 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfUlaznaDesno" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfUlaznaDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
-                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbUlaznaDesno" Text="ULAZNA DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbUlaznaDesno}" OnColor="LightGreen" OffColor="Black" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfUlaznaDesno" ControlTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.UlaznaDesno, ElementName=OfUlaznaDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbUlaznaDesno" Text="ULAZNA DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.AktivnaUlaznaDesno, ElementName=BbUlaznaDesno}" OnColor="LightGreen" OffColor="Black" />
                     </Grid>
 
                     <Grid Grid.Row="3" Background="Black">
@@ -488,8 +488,8 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiOkLijevo" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfKomadiOkLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
-                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiOkLijevo" Text="KOMADI OK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbKomadiOkLijevo}" OnColor="LightGreen" OffColor="Black" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiOkLijevo" ControlTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.KomadiOKLijevo, ElementName=OfKomadiOkLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiOkLijevo" Text="KOMADI OK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.AktivnaKomadiOKLijevo, ElementName=BbKomadiOkLijevo}" OnColor="LightGreen" OffColor="Black" />
                     </Grid>
 
                     <Grid Grid.Row="4" Background="Black">
@@ -497,8 +497,8 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiOkDesno" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfKomadiOkDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
-                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiOkDesno" Text="KOMADI OK DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbKomadiOkDesno}" OnColor="LightGreen" OffColor="Black" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiOkDesno" ControlTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.KomadiOKDesno, ElementName=OfKomadiOkDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiOkDesno" Text="KOMADI OK DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.AktivnaKomadiOKDesno, ElementName=BbKomadiOkDesno}" OnColor="LightGreen" OffColor="Black" />
                     </Grid>
 
                     <Grid Grid.Row="5" Background="Black">
@@ -506,8 +506,8 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiNokLijevo" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfKomadiNokLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
-                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiNokLijevo" Text="KOMADI NOK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbKomadiNokLijevo}" OnColor="LightGreen" OffColor="Black" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiNokLijevo" ControlTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.KomadiNOKLijevo, ElementName=OfKomadiNokLijevo}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiNokLijevo" Text="KOMADI NOK LIJEVO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.AktivnaKomadiNOKLijevo, ElementName=BbKomadiNokLijevo}" OnColor="LightGreen" OffColor="Black" />
                     </Grid>
 
                     <Grid Grid.Row="6" Background="Black">
@@ -515,8 +515,8 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiNokDesno" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfKomadiNokDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
-                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiNokDesno" Text="KOMADI NOK DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbKomadiNokDesno}" OnColor="LightGreen" OffColor="Black" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfKomadiNokDesno" ControlTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.KomadiNOKDesno, ElementName=OfKomadiNokDesno}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbKomadiNokDesno" Text="KOMADI NOK DESNO" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.AktivnaKomadiNOKDesno, ElementName=BbKomadiNokDesno}" OnColor="LightGreen" OffColor="Black" />
                     </Grid>
 
                     <Grid Grid.Row="7" Background="Black">
@@ -524,8 +524,8 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfBrojLimova" ControlTag="{Binding PLCConnection.STATUS.Ticalo.AktualnaPozicija, ElementName=OfBrojLimova}" PLCConnection="{DynamicResource PLCinterf}"/>
-                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbBrojLimova" Text="BROJ LIMOVA U POZICIJI ODLAGANJA" PLCConnection="{DynamicResource PLCinterf}" StatusTag="{Binding PLCConnection.STATUS.RotacijskaOs.UHome, ElementName=BbBrojLimova}" OnColor="LightGreen" OffColor="Black" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="0" x:Name="OfBrojLimova" ControlTag="{Binding PLCConnection.STATUS.TrenutniSlojevi.BrojLimovaPozicijaOdlaganja, ElementName=OfBrojLimova}" PLCConnection="{DynamicResource PLCinterf}"/>
+                        <vizijskiSustavWpf:BitButton Grid.Column="1" x:Name="BbBrojLimova" Text="BROJ LIMOVA U POZICIJI ODLAGANJA"/>
                     </Grid>
 
 

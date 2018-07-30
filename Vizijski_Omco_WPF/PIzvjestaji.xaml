@@ -126,7 +126,7 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" Content="POROZNOST" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
-                            <TextBox Background="{DynamicResource pozadina1}" Grid.Column="1" x:Name="of_porosity" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12"/>
+                            <TextBox Margin="1" Background="{DynamicResource pozadina1}" Grid.Column="1" x:Name="of_porosity" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12"/>
                     </Grid>
 
                 </Grid>

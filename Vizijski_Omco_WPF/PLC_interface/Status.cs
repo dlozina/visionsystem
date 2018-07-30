@@ -14,6 +14,7 @@
         public prekret Prekret { get; set; } = new prekret();
         public automatika Automatika { get; set; } = new automatika();
         public upisanevrijednosti Upisanevrijednosti { get; set; } = new upisanevrijednosti();
+        public trenutnislojevi TrenutniSlojevi { get; set; } = new trenutnislojevi();
 
         public class horizontalnaOs
         {
@@ -173,6 +174,24 @@
             public plcTag Visina3 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(244, 0), 0.0f);
             public plcTag Visina3DeltaMinus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(248, 0), 0.0f);
             public plcTag Visina3DeltaPlus { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(252, 0), 0.0f);
+        }
+
+        public class trenutnislojevi
+        {
+            public plcTag UlaznaLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(256, 0), 0.0f);
+            public plcTag UlaznaDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(260, 0), 0.0f);
+            public plcTag KomadiOKLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(264, 0), 0.0f);
+            public plcTag KomadiOKDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(268, 0), 0.0f);
+            public plcTag KomadiNOKLijevo { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(272, 0), 0.0f);
+            public plcTag KomadiNOKDesno { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(276, 0), 0.0f);
+            public plcTag AktivnaUlaznaLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 0), false);
+            public plcTag AktivnaUlaznaDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 1), false);
+            public plcTag AktivnaKomadiOKLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 2), false);
+            public plcTag AktivnaKomadiOKDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 3), false);
+            public plcTag AktivnaKomadiNOKLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 4), false);
+            public plcTag AktivnaKomadiNOKDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 5), false);
+            public plcTag BrojLimovaPozicijaOdlaganja { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(282, 0), 0.0f);
+
         }
     }
 }

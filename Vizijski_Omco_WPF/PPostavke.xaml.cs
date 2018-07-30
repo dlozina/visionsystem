@@ -153,29 +153,29 @@ namespace VizijskiSustavWPF
             IFDebljinaLimova.IsEnabled = true;
         }
 
-        private void BBkomadiZaMjerenje_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            IFBrojSlojevaUlaznaLijevo.IsEnabled = true;
-            IFBrojSlojevaUlaznaDesno.IsEnabled = true;
-        }
+        //private void BBkomadiZaMjerenje_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    IFBrojSlojevaUlaznaLijevo.IsEnabled = true;
+        //    IFBrojSlojevaUlaznaDesno.IsEnabled = true;
+        //}
 
-        private void BBkomadiNok_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            IFBrojSlojevaKomadiNOKLijevo.IsEnabled = true;
-            IFBrojSlojevaKomadiNOKDesno.IsEnabled = true;
-        }
+        //private void BBkomadiNok_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    IFBrojSlojevaKomadiNOKLijevo.IsEnabled = true;
+        //    IFBrojSlojevaKomadiNOKDesno.IsEnabled = true;
+        //}
 
-        private void BBkomadiOK_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            IFBrojSlojevaKomadiOKLijevo.IsEnabled = true;
-            IFBrojSlojevaKomadiOKDesno.IsEnabled = true;
-        }
+        //private void BBkomadiOK_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    IFBrojSlojevaKomadiOKLijevo.IsEnabled = true;
+        //    IFBrojSlojevaKomadiOKDesno.IsEnabled = true;
+        //}
 
-        private void BBpaletaLimova_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            //IFBrojLimova.IsEnabled = true;
-            IFDebljinaLimova.IsEnabled = true;
-        }
+        //private void BBpaletaLimova_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    //IFBrojLimova.IsEnabled = true;
+        //    IFDebljinaLimova.IsEnabled = true;
+        //}
 
         //private void updatePage(object sender, PLCInterfaceEventArgs e)
         //{
