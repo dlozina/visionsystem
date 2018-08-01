@@ -54,6 +54,12 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
+                    <local:BitButton Grid.Row="0" Grid.Column="0" x:Name="BbStartUcenja" Text="START UCENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.StartUcenja, ElementName=BbStartUcenja}" StatusTag="{Binding PLCConnection.STATUS.Automatika.StatusUcenja, ElementName=BbStartUcenja}" OnColor="LightGreen" OffColor="Black"/>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1" Background="Black" Margin="4,0,4,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
                     <local:BitButton Grid.Row="0" Grid.Column="0" x:Name="BBuzimanjeKomada" Text="UZIMANJE KOMADA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.ZahtijevZaKomadom, ElementName=BBuzimanjeKomada}"/>
                 </Grid>
                 <TextBlock Margin="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="PREKRET KOMADA ZA UCENJE"/></TextBlock>
@@ -69,12 +75,18 @@
                     </Grid.ColumnDefinitions>
                     <local:BitButton Grid.Row="0" Grid.Column="1" x:Name="BBprekretKomadaDno" Text="PREKRET KOMADA DNO" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Robot.PrekretKomadaDno, ElementName=BBprekretKomadaDno}"/>
                 </Grid>
-                <TextBlock Margin="1" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="RESETIRANJE POZICIJA"/></TextBlock>
+                <TextBlock Margin="1" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource pozadina1}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" ><Run Language="hr-hr" Text="RESETIRANJE POZICIJA I REFERENCIRANJE"/></TextBlock>
                 <Grid Grid.Row="5" Grid.Column="0" Background="Black" Margin="4,0,4,4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Row="0" Grid.Column="0" Margin="1" x:Name="BresetUcenjaDijametri" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="RESET POZICIJA UČENJA" Click="BresetUcenjaDijametri_Click" />
+                </Grid>
+                <Grid Grid.Row="5" Grid.Column="1" Background="Black" Margin="4,0,4,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:BitButton Grid.Row="0" Grid.Column="1" x:Name="BbReferenciranjeTicala" Text="REFERENCIRANJE TICALA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ticalo.Nuliraj, ElementName=BbReferenciranjeTicala}"/>
                 </Grid>
                 
                 <!-- Stupac Ucenje -->

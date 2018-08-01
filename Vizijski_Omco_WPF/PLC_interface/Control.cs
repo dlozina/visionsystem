@@ -183,6 +183,7 @@
         public class automatika
         {
             public plcTag ResetSvihMjerenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(94, 0), false);
+            public plcTag StartUcenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(94, 1), false);
         }
 
         public class prekret

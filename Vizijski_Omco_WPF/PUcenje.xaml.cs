@@ -349,7 +349,7 @@ namespace VizijskiSustavWPF
             else if (_clickNumber == 10)
             {
                 // Omoguci idi na prvu poziciju
-                BpozicijaDijametri.IsEnabled = false;
+                BpozicijaDijametri.IsEnabled = true;
                 BpozicijaDijametri.Content = "SPREMLJENO";
                 BpozicijaDijametri.Foreground = new SolidColorBrush(Colors.Green);
                 //BnauciPozicijuDijametri.IsEnabled = false;
