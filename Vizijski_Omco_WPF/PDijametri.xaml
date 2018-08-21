@@ -354,7 +354,7 @@
 
                 <Grid Grid.Row="1" Background="{DynamicResource pozadina1}">
                     <Grid Background="Black" Margin="4">
-                        <Label Content="ČELIJA U AUTOMATSKOM RADU"  Margin="4" Name="LbStatusLabel" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label Content="----"  Margin="4" Name="LbStatusLabel" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                     </Grid>
                 </Grid>
 
@@ -362,7 +362,7 @@
 
                 <Grid Grid.Row="3" Background="{DynamicResource pozadina1}">
                     <Grid Background="Black" Margin="4">
-                        <Label Content="ŠIFRA1 - PALETA PRAZNA ! - POTREBNO PROMJENITI PALETU"  Margin="4" Name="LbAlarmLabel" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label Content="----"  Margin="4" Name="LbAlarmLabel" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                     </Grid>
                 </Grid>
             

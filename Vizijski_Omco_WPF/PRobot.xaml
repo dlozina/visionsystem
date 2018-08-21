@@ -59,7 +59,7 @@
 
                 <halconDotNet:HSmartWindowControlWPF x:Name="HwindowRobot" 
                                                      HImagePart="0,0,1280,1024"
-                                                     Margin="4"
+                                                     Margin="4" HMoveContent="False" HDoubleClickToFitContent="False" HZoomContent="Off" HKeepAspectRatio="False"
                 />
             </Grid>
         </Grid>

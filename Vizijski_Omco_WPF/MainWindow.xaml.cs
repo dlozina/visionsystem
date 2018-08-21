@@ -26,6 +26,8 @@ namespace VizijskiSustavWPF
             App.mwHandle = this;
             srh.IsEnabled = false;
             srh.Foreground = new SolidColorBrush(Colors.Gray);
+            sablja.IsEnabled = false;
+            sablja.Foreground = new SolidColorBrush(Colors.Gray);
         }
 
         #region POSTAVKE

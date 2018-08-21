@@ -191,6 +191,8 @@
             public plcTag AktivnaKomadiOKDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 3), false);
             public plcTag AktivnaKomadiNOKLijevo { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 4), false);
             public plcTag AktivnaKomadiNOKDesno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 5), false);
+            public plcTag ZadnjiSlojLijeva { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 6), false);
+            public plcTag ZadnjiSlojDesna { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(280, 7), false);
             public plcTag BrojLimovaPozicijaOdlaganja { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(282, 0), 0.0f);
 
         }

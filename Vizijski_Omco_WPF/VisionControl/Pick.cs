@@ -252,7 +252,7 @@ namespace VizijskiSustavWPF.VisionControl
 
 
         // Main procedure 
-        private void RunPick(bool leftpallet)
+        private void RunPick(bool leftpallet, bool lastlayer)
         {
             // Stack for temporary objects 
             HObject[] OTemp = new HObject[20];
@@ -323,7 +323,7 @@ namespace VizijskiSustavWPF.VisionControl
                 HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1, "default", -1, "false", "default", "RobotPick", 0, -1, out hv_AcqHandleCam1);
                 HOperatorSet.SetFramegrabberParam(hv_AcqHandleCam1, "ExposureAuto", "Continuous");
             }
-            catch (HalconException HDevExpDefaultExceptionCamera)
+            catch (HalconException exceptionCameraNotConnected)
             {
 
             }
@@ -416,6 +416,7 @@ namespace VizijskiSustavWPF.VisionControl
             HOperatorSet.DiameterRegion(ho_Objects, out hv_Row1, out hv_Column1, out hv_Row2, out hv_Column2, out hv_Diameter);
             HOperatorSet.AreaCenter(ho_Objects, out hv_Area1, out hv_Row3, out hv_Column3);
             HOperatorSet.TupleLength(hv_Area1, out hv_len_area);
+            //* If objects exist sort them and find their 2D position
             if ((int)(new HTuple(hv_len_area.TupleGreater(0))) != 0)
             {
                 hv_MAX = 0;
@@ -572,106 +573,144 @@ namespace VizijskiSustavWPF.VisionControl
                 HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, 20, 20);
                 HOperatorSet.WriteString(hv_ExpDefaultWinHandle, hv_Length);
             }
-            else
+            //* If objects not found check for layer holes
+            else if((int)(new HTuple(hv_len_area.TupleGreater(0))) == 0  && lastlayer)
             {
-                ho_GripPoint.Dispose();
-                HOperatorSet.GenRectangle1(out ho_GripPoint, 420, 520, 620, 770);
-                ho_ImageReducedGripPoint.Dispose();
-                HOperatorSet.ReduceDomain(ho_ImageRectified, ho_GripPoint, out ho_ImageReducedGripPoint);
-                ho_ImageMedian.Dispose();
-                HOperatorSet.MedianImage(ho_ImageReducedGripPoint, out ho_ImageMedian, "circle", 3, "mirrored");
-                ho_ObjectGripPoint.Dispose();
-                segment(ho_ImageMedian, out ho_ObjectGripPoint);
-                {
-                    HObject ExpTmpOutVar_0;
-                    HOperatorSet.Connection(ho_ObjectGripPoint, out ExpTmpOutVar_0);
-                    ho_ObjectGripPoint.Dispose();
-                    ho_ObjectGripPoint = ExpTmpOutVar_0;
-                }
-                {
-                    HObject ExpTmpOutVar_0;
-                    HOperatorSet.SelectShape(ho_ObjectGripPoint, out ExpTmpOutVar_0, "circularity", "and", 0.5, 1.0);
-                    ho_ObjectGripPoint.Dispose();
-                    ho_ObjectGripPoint = ExpTmpOutVar_0;
-                }
-                {
-                    HObject ExpTmpOutVar_0;
-                    HOperatorSet.SelectShape(ho_ObjectGripPoint, out ExpTmpOutVar_0, "area", "and", 100, 1000);
-                    ho_ObjectGripPoint.Dispose();
-                    ho_ObjectGripPoint = ExpTmpOutVar_0;
-                }
-                HOperatorSet.AreaCenter(ho_ObjectGripPoint, out hv_Area2, out hv_Row5, out hv_Column5);
-                HOperatorSet.TupleSum(hv_Row5, out hv_SumX);
-                HOperatorSet.TupleSum(hv_Column5, out hv_SumY);
-                hv_GripPointX = hv_SumX / 9;
-                hv_GripPointY = hv_SumY / 9;
-                ho_Cross1.Dispose();
-                HOperatorSet.GenCrossContourXld(out ho_Cross1, hv_GripPointX, hv_GripPointY, 10, 0);
-                hv_maxdist = 0;
-                hv_distgrippoints = new HTuple();
-                hv_indexgrip = 0;
-                for (hv_i = 1; (int)hv_i <= 9; hv_i = (int)hv_i + 1)
-                {
-                    HOperatorSet.DistancePp(hv_Row5.TupleSelect(hv_i - 1), hv_Column5.TupleSelect(hv_i - 1), hv_GripPointX, hv_GripPointY, out hv_distgrip);
-                    HOperatorSet.TupleConcat(hv_distgrippoints, hv_distgrip, out hv_distgrippoints);
-                    if ((int)(new HTuple(hv_distgrip.TupleGreater(hv_maxdist))) != 0)
-                    {
-                        hv_indexgrip = hv_i - 1;
-                        hv_maxdist = hv_distgrip.Clone();
-                    }
-                }
-                hv_indexgrip = new HTuple();
-                for (hv_i = 1; (int)hv_i <= 9; hv_i = (int)hv_i + 1)
-                {
-                    if ((int)(new HTuple(((hv_distgrippoints.TupleSelect(hv_i - 1))).TupleGreater(0.9 * hv_maxdist))) != 0)
-                    {
-                        HOperatorSet.TupleConcat(hv_indexgrip, hv_i - 1, out hv_indexgrip);
-                    }
-                }
-                hv_OrientX = 0;
-                hv_OrientY = 0;
-                hv_maxX = 0;
-                HOperatorSet.TupleAbs((hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(0))) - (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(1))), out hv_diff01);
-                HOperatorSet.TupleAbs((hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(0))) - (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(2))), out hv_diff02);
-                HOperatorSet.TupleAbs((hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(1))) - (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(2))), out hv_diff12);
-                HOperatorSet.TupleMin(((hv_diff01.TupleConcat(hv_diff02))).TupleConcat(hv_diff12), out hv_mindiff);
-                if ((int)(new HTuple(hv_mindiff.TupleEqual(hv_diff01))) != 0)
-                {
-                    hv_OrientX = hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(2));
-                    hv_OrientY = hv_Column5.TupleSelect(hv_indexgrip.TupleSelect(2));
-                }
-                else if ((int)(new HTuple(hv_mindiff.TupleEqual(hv_diff02))) != 0)
-                {
-                    hv_OrientX = hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(1));
-                    hv_OrientY = hv_Column5.TupleSelect(hv_indexgrip.TupleSelect(1));
-                }
-                else if ((int)(new HTuple(hv_mindiff.TupleEqual(hv_diff12))) != 0)
-                {
-                    hv_OrientX = hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(0));
-                    hv_OrientY = hv_Column5.TupleSelect(hv_indexgrip.TupleSelect(0));
-                }
+                hv_X = 0;
+                hv_Y = 0;
+                hv_angledeg = 0;
+                HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
                 HOperatorSet.DispObj(ho_ImageReduced, hv_ExpDefaultWinHandle);
                 HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "red");
-                ho_Arrow.Dispose();
-                gen_arrow_contour_xld(out ho_Arrow, hv_GripPointX, hv_GripPointY, hv_OrientX, hv_OrientY, 15, 15);
-                HOperatorSet.DispObj(ho_Arrow, hv_ExpDefaultWinHandle);
-                HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "green");
-                ho_Cross2.Dispose();
-                HOperatorSet.GenCrossContourXld(out ho_Cross2, hv_GripPointX, hv_GripPointY, 30, 0);
-                HOperatorSet.DispObj(ho_Cross2, hv_ExpDefaultWinHandle);
-                HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0.00, out hv_WorldPose);
-                HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_GripPointX, hv_GripPointY, "mm", out hv_GX, out hv_GY);
-                HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_OrientX, hv_OrientY, "mm", out hv_OX, out hv_OY);
-                hv_DY = hv_OY - hv_GY;
-                hv_DX = hv_OX - hv_GX;
-                HOperatorSet.TupleAtan2(hv_DY, hv_DX, out hv_theta);
-                hv_theta = hv_theta.Clone();
-                hv_anglerad = (hv_pi / 2) - hv_theta;
-                hv_X = hv_GX;
-                hv_Y = hv_GY;
-                hv_angledeg = (hv_theta * 180) / hv_pi;
+                HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, 120, 450);
+                HOperatorSet.WriteString(hv_ExpDefaultWinHandle, "NA ZADNJEM SLOJU NISU PRONADENI KOMADI! ROBOT IDE NA IDUCU ULAZNU PALETU");
+                App.PaletaPrazna();
             }
+            else
+            {
+                try
+                {
+                    ho_GripPoint.Dispose();
+                    HOperatorSet.GenRectangle1(out ho_GripPoint, 420, 520, 620, 770);
+                    ho_ImageReducedGripPoint.Dispose();
+                    HOperatorSet.ReduceDomain(ho_ImageRectified, ho_GripPoint, out ho_ImageReducedGripPoint);
+                    ho_ImageMedian.Dispose();
+                    HOperatorSet.MedianImage(ho_ImageReducedGripPoint, out ho_ImageMedian, "circle", 3, "mirrored");
+                    ho_ObjectGripPoint.Dispose();
+                    segment(ho_ImageMedian, out ho_ObjectGripPoint);
+                    {
+                        HObject ExpTmpOutVar_0;
+                        HOperatorSet.Connection(ho_ObjectGripPoint, out ExpTmpOutVar_0);
+                        ho_ObjectGripPoint.Dispose();
+                        ho_ObjectGripPoint = ExpTmpOutVar_0;
+                    }
+                    {
+                        HObject ExpTmpOutVar_0;
+                        HOperatorSet.SelectShape(ho_ObjectGripPoint, out ExpTmpOutVar_0, "circularity", "and", 0.5,
+                            1.0);
+                        ho_ObjectGripPoint.Dispose();
+                        ho_ObjectGripPoint = ExpTmpOutVar_0;
+                    }
+                    {
+                        HObject ExpTmpOutVar_0;
+                        HOperatorSet.SelectShape(ho_ObjectGripPoint, out ExpTmpOutVar_0, "area", "and", 100, 1000);
+                        ho_ObjectGripPoint.Dispose();
+                        ho_ObjectGripPoint = ExpTmpOutVar_0;
+                    }
+                    HOperatorSet.AreaCenter(ho_ObjectGripPoint, out hv_Area2, out hv_Row5, out hv_Column5);
+                    HOperatorSet.TupleSum(hv_Row5, out hv_SumX);
+                    HOperatorSet.TupleSum(hv_Column5, out hv_SumY);
+                    hv_GripPointX = hv_SumX / 9;
+                    hv_GripPointY = hv_SumY / 9;
+                    ho_Cross1.Dispose();
+                    HOperatorSet.GenCrossContourXld(out ho_Cross1, hv_GripPointX, hv_GripPointY, 10, 0);
+                    hv_maxdist = 0;
+                    hv_distgrippoints = new HTuple();
+                    hv_indexgrip = 0;
+                    for (hv_i = 1; (int) hv_i <= 9; hv_i = (int) hv_i + 1)
+                    {
+                        HOperatorSet.DistancePp(hv_Row5.TupleSelect(hv_i - 1), hv_Column5.TupleSelect(hv_i - 1),
+                            hv_GripPointX, hv_GripPointY, out hv_distgrip);
+                        HOperatorSet.TupleConcat(hv_distgrippoints, hv_distgrip, out hv_distgrippoints);
+                        if ((int) (new HTuple(hv_distgrip.TupleGreater(hv_maxdist))) != 0)
+                        {
+                            hv_indexgrip = hv_i - 1;
+                            hv_maxdist = hv_distgrip.Clone();
+                        }
+                    }
 
+                    hv_indexgrip = new HTuple();
+                    for (hv_i = 1; (int) hv_i <= 9; hv_i = (int) hv_i + 1)
+                    {
+                        if ((int) (new HTuple(
+                                ((hv_distgrippoints.TupleSelect(hv_i - 1))).TupleGreater(0.9 * hv_maxdist))) != 0)
+                        {
+                            HOperatorSet.TupleConcat(hv_indexgrip, hv_i - 1, out hv_indexgrip);
+                        }
+                    }
+
+                    hv_OrientX = 0;
+                    hv_OrientY = 0;
+                    hv_maxX = 0;
+                    HOperatorSet.TupleAbs(
+                        (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(0))) -
+                        (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(1))), out hv_diff01);
+                    HOperatorSet.TupleAbs(
+                        (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(0))) -
+                        (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(2))), out hv_diff02);
+                    HOperatorSet.TupleAbs(
+                        (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(1))) -
+                        (hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(2))), out hv_diff12);
+                    HOperatorSet.TupleMin(((hv_diff01.TupleConcat(hv_diff02))).TupleConcat(hv_diff12), out hv_mindiff);
+                    if ((int) (new HTuple(hv_mindiff.TupleEqual(hv_diff01))) != 0)
+                    {
+                        hv_OrientX = hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(2));
+                        hv_OrientY = hv_Column5.TupleSelect(hv_indexgrip.TupleSelect(2));
+                    }
+                    else if ((int) (new HTuple(hv_mindiff.TupleEqual(hv_diff02))) != 0)
+                    {
+                        hv_OrientX = hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(1));
+                        hv_OrientY = hv_Column5.TupleSelect(hv_indexgrip.TupleSelect(1));
+                    }
+                    else if ((int) (new HTuple(hv_mindiff.TupleEqual(hv_diff12))) != 0)
+                    {
+                        hv_OrientX = hv_Row5.TupleSelect(hv_indexgrip.TupleSelect(0));
+                        hv_OrientY = hv_Column5.TupleSelect(hv_indexgrip.TupleSelect(0));
+                    }
+
+                    HOperatorSet.DispObj(ho_ImageReduced, hv_ExpDefaultWinHandle);
+                    HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "red");
+                    ho_Arrow.Dispose();
+                    gen_arrow_contour_xld(out ho_Arrow, hv_GripPointX, hv_GripPointY, hv_OrientX, hv_OrientY, 15, 15);
+                    HOperatorSet.DispObj(ho_Arrow, hv_ExpDefaultWinHandle);
+                    HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "green");
+                    ho_Cross2.Dispose();
+                    HOperatorSet.GenCrossContourXld(out ho_Cross2, hv_GripPointX, hv_GripPointY, 30, 0);
+                    //HOperatorSet.DispObj(ho_Cross2, hv_ExpDefaultWinHandle);
+                    HOperatorSet.SetOriginPose(hv_CamPose, 0, 0, 0.00, out hv_WorldPose);
+                    HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_GripPointX, hv_GripPointY, "mm", out hv_GX, out hv_GY);
+                    HOperatorSet.ImagePointsToWorldPlane(hv_CamParamOut, hv_WorldPose, hv_OrientX, hv_OrientY, "mm", out hv_OX, out hv_OY);
+                    hv_DY = hv_OY - hv_GY;
+                    hv_DX = hv_OX - hv_GX;
+                    HOperatorSet.TupleAtan2(hv_DY, hv_DX, out hv_theta);
+                    hv_theta = hv_theta.Clone();
+                    hv_X = hv_GX;
+                    hv_Y = hv_GY;
+                    hv_angledeg = (hv_theta * 180) / hv_pi;
+                }
+                catch (HalconException exceptionLayerNotFound)
+                {
+                    hv_X = 0;
+                    hv_Y = 0;
+                    hv_angledeg = 0;
+                    HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
+                    HOperatorSet.DispObj(ho_ImageReduced, hv_ExpDefaultWinHandle);
+                    HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "red");
+                    HOperatorSet.SetTposition(hv_ExpDefaultWinHandle, 120, 512);
+                    HOperatorSet.WriteString(hv_ExpDefaultWinHandle, "NA PALETI NISU PRONADENI KOMADI NI SLOJEVI!!!");
+                    App.LayerNijePronaden();
+                }
+            }
             // HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
             HOperatorSet.SetColor(hv_ExpDefaultWinHandle, "red");
             ho_ContCircle.Dispose();
@@ -696,11 +735,11 @@ namespace VizijskiSustavWPF.VisionControl
             _waitHandleCam1.Set();
         }
 
-        public void RobotPick(HTuple window, bool leftpallet)
+        public void RobotPick(HTuple window, bool leftpallet, bool lastlayer)
         {
             hv_ExpDefaultWinHandle = window;
-            //HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
-            RunPick(leftpallet);
+            HOperatorSet.ClearWindow(hv_ExpDefaultWinHandle);
+            RunPick(leftpallet, lastlayer);
             koordinate.RXcord = (float) hv_X.D;
             koordinate.RYcord = (float) hv_Y.D;
             koordinate.AngleDeg = (float)hv_angledeg.D;

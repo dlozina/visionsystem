@@ -261,6 +261,7 @@ namespace VizijskiSustavWPF
                     "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 App.ResetData();
+                LbrojKomada.Content = "BROJ ANALIZIRANIH KOMADA U BAZI:   " + database.Count;
             }
             else
             {

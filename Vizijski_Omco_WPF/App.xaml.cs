@@ -98,6 +98,8 @@ namespace VizijskiSustavWPF
         HTuple windowID = new HTuple();
         // Pellet selection - look at the pallet from robot side
         private bool leftpallet;
+        private bool lastlayerleft;
+        private bool lastlayerright;
 
         public class UserInputData
         {
@@ -308,8 +310,9 @@ namespace VizijskiSustavWPF
             {
                 _oneCallFlagPick = false;
                 leftpallet = true;
+                lastlayerleft = (bool)e.StatusData.TrenutniSlojevi.ZadnjiSlojLijeva.Value;
                 // We call public method in class pRobot
-                Thread pickTriggerT1 = new Thread(() => pRobot.RobotPickStartT1(leftpallet));
+                Thread pickTriggerT1 = new Thread(() => pRobot.RobotPickStartT1(leftpallet, lastlayerleft));
                 pickTriggerT1.Name = "Thread pickTriggerT1";
                 pickTriggerT1.Start();
             }
@@ -323,7 +326,8 @@ namespace VizijskiSustavWPF
             {
                 _oneCallFlagPickRight = false;
                 leftpallet = false;
-                Thread pickTriggerT2 = new Thread(() => pRobot.RobotPickStartT1(leftpallet));
+                lastlayerright = (bool) e.StatusData.TrenutniSlojevi.ZadnjiSlojDesna.Value;
+                Thread pickTriggerT2 = new Thread(() => pRobot.RobotPickStartT1(leftpallet, lastlayerright));
                 pickTriggerT2.Name = "Thread pickTriggerT2";
                 pickTriggerT2.Start();
             }
@@ -470,6 +474,20 @@ namespace VizijskiSustavWPF
         {
             App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, true);
             App.PLC.WriteTag(PLC.STATUS.MjerenjePoroznosti.PoroznostPronadena, false);
+        }
+
+        // Paleta prazna
+        public static void PaletaPrazna()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.Automatika.PaletaPrazna, true);
+            App.PLC.WriteTag(PLC.CONTROL.Automatika.PaletaPrazna, false);
+        }
+
+        // Paleta prazna
+        public static void LayerNijePronaden()
+        {
+            App.PLC.WriteTag(PLC.CONTROL.Automatika.LayerNijePronaden, true);
+            App.PLC.WriteTag(PLC.CONTROL.Automatika.LayerNijePronaden, false);
         }
 
         // Control

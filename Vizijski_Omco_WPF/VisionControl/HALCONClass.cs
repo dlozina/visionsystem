@@ -82,6 +82,8 @@ namespace VizijskiSustavWPF.VisionControl
         HTuple hv_colToMin0 = new HTuple(), hv_Exception = null;
         HTuple hv_MessageError = new HTuple();
 
+        public HalconException exceptionLayerNotFound;
+
         // Diameter teach CAM4 image
         HObject ho_TestImage = null;
 
