@@ -186,6 +186,7 @@
             public plcTag StartUcenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(94, 1), false);
             public plcTag PaletaPrazna { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(94, 2), false);
             public plcTag LayerNijePronaden { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(94, 3), false);
+            public plcTag AktivacijaTestnePetlje { get; set; } = new plcTag(varType.BOOL, dataType.DB, 6, new Offset(94, 4), false);
         }
 
         public class prekret

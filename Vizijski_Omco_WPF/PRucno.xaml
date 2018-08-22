@@ -361,7 +361,7 @@
                                 </Grid>
 
                             <Grid Grid.Row="3" Background="Black">
-                                <local:BitButton Grid.Row="0" Grid.Column="1" x:Name="bb_ticaloNuliraj" Text="NULIRANJE" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ticalo.Nuliraj, ElementName=bb_ticaloNuliraj}" StatusTag="{Binding PLCConnection.STATUS.Ticalo.Referencirano, ElementName=bb_ticaloNuliraj}" OnColor="LightGreen" OffColor="Black"/>
+                                <local:BitButton Grid.Row="0" Grid.Column="1" x:Name="BbReferenciranjeTicala" Text="REFERENCIRANJE TICALA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Ticalo.Nuliraj, ElementName=BbReferenciranjeTicala}"/>
                             </Grid>
 
 

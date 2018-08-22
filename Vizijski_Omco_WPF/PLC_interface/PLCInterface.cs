@@ -259,6 +259,7 @@ namespace VizijskiSustavWPF
                     CONTROL.Automatika.StartUcenja.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Automatika.PaletaPrazna.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.Automatika.LayerNijePronaden.GetValueFromGroupBuffer(CyclicControlBuffer);
+                    CONTROL.Automatika.AktivacijaTestnePetlje.GetValueFromGroupBuffer(CyclicControlBuffer);
 
                     // Prekret
                     CONTROL.Prekret.PrekretLijevo.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -437,6 +438,7 @@ namespace VizijskiSustavWPF
                     STATUS.Automatika.SnimiMjerenja.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Automatika.StopNaKrajuCiklusa.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Automatika.StatusUcenja.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Automatika.AktivnaTestnaPetlja.GetValueFromGroupBuffer(CyclicStatusBuffer);
 
                     // Upisane Vrijednosti
                     STATUS.Upisanevrijednosti.Dijametar1.GetValueFromGroupBuffer(CyclicStatusBuffer);
