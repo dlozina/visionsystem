@@ -120,7 +120,7 @@ namespace VizijskiSustavWPF
         {
             int result = -99;
             if (Client.Connected())
-                result = Client.DBRead(6, 0, 200, CyclicControlBuffer);
+                result = Client.DBRead(6, 0, 204, CyclicControlBuffer);
             if (result == 0)
             {
                 lock (StatusControlLock)
@@ -223,7 +223,8 @@ namespace VizijskiSustavWPF
                     CONTROL.UcenjeReal.ZadavanjeVisineV2.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeReal.ZadavanjeVisineV3.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeReal.ZadavanjeVisineBaze.GetValueFromGroupBuffer(CyclicControlBuffer);
-                    
+                    CONTROL.UcenjeReal.ZadavanjeDijametraBaze.GetValueFromGroupBuffer(CyclicControlBuffer);
+
                     // Ucenjebool
                     CONTROL.UcenjeBool.NoviNalog.GetValueFromGroupBuffer(CyclicControlBuffer);
                     CONTROL.UcenjeBool.ResetUcenja.GetValueFromGroupBuffer(CyclicControlBuffer);
@@ -362,8 +363,8 @@ namespace VizijskiSustavWPF
                     STATUS.MjerenjeTicalom.Aktivno.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjeTicalom.Greska.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjeTicalom.IzvrsavanjeKoraka.GetValueFromGroupBuffer(CyclicStatusBuffer);
-                    STATUS.MjerenjeTicalom.BrojPonavljanjaSekvence.GetValueFromGroupBuffer(CyclicStatusBuffer);
-                    STATUS.MjerenjeTicalom.RotacijskaOs.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.MjerenjeTicalom.VisinaBaze.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.MjerenjeTicalom.DevijacijaVisine.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjeTicalom.HorizontalnaOs.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjeTicalom.Visina1.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.MjerenjeTicalom.Visina2.GetValueFromGroupBuffer(CyclicStatusBuffer);

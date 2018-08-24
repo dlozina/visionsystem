@@ -43,6 +43,8 @@
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Content="DIJAMETRI KOMADA U OBRADI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
                     <Grid Grid.Row="1" Background="Black" >
@@ -118,9 +120,27 @@
                         <vizijskiSustavWpf:OutputField Grid.Column="1" x:Name="of_vdiameterNo3" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeTicalom.Visina3, ElementName=of_vdiameterNo3}" />
                     </Grid>
 
-                    <Label Grid.Row="10" Content="POROZNOST KOMADA U OBRADI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                    <Grid Grid.Row="10" Background="Black" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="VISINA BAZE" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="1" x:Name="OfVisinaBaze" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeTicalom.VisinaBaze, ElementName=of_vdiameterNo3}" />
+                    </Grid>
 
                     <Grid Grid.Row="11" Background="Black" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="DEVIJACIJA VISINE" Margin="1" Background="{DynamicResource pozadina1}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"  FontSize="12" />
+                        <vizijskiSustavWpf:OutputField Grid.Column="1" x:Name="OfDevijacijaVisine" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.STATUS.MjerenjeTicalom.DevijacijaVisine, ElementName=of_vdiameterNo3}" />
+                    </Grid>
+
+                        <Label Grid.Row="12" Content="POROZNOST KOMADA U OBRADI" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+
+                    <Grid Grid.Row="13" Background="Black" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="2*"/>

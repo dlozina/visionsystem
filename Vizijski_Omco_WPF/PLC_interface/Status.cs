@@ -59,8 +59,8 @@
             public plcTag Aktivno { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(28, 1), false);
             public plcTag Greska { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(28, 2), false);
             public plcTag IzvrsavanjeKoraka { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(30, 0), 0.0f);
-            public plcTag BrojPonavljanjaSekvence { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(34, 0), 0.0f);
-            public plcTag RotacijskaOs { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(38, 0), 0.0f);
+            public plcTag VisinaBaze { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(34, 0), 0.0f);
+            public plcTag DevijacijaVisine { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(38, 0), 0.0f);
             public plcTag HorizontalnaOs { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(42, 0), 0.0f);
             public plcTag Visina1 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(46, 0), 0.0f);
             public plcTag Visina2 { get; set; } = new plcTag(varType.REAL, dataType.DB, 11, new Offset(50, 0), 0.0f);
