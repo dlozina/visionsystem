@@ -127,52 +127,56 @@ namespace VizijskiSustavWPF
                     workSheet.Cells[11, 7 + j] = database[i].String;    // String - Redni broj
 
                     workSheet.Cells[12, 7 + j] = database[i].MjerenoD2; // Kota A
-                    if (database[i].DeltaBrushD2 == System.Drawing.Brushes.Red)
-                    {
-                        workSheet.Cells[12, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    }
+                    //if (database[i].DeltaBrushD2 == System.Drawing.Brushes.Red)
+                    //{
+                    //    workSheet.Cells[12, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //}
 
                     workSheet.Cells[13, 7 + j] = database[i].MjerenoD3; // Kota B
-                    if (database[i].DeltaBrushD3 == System.Drawing.Brushes.Red)
-                    {
-                        workSheet.Cells[13, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    }
+                    //if (database[i].DeltaBrushD3 == System.Drawing.Brushes.Red)
+                    //{
+                    //    workSheet.Cells[13, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //}
 
                     workSheet.Cells[14, 7 + j] = database[i].MjerenoD4; // Kota C
-                    if (database[i].DeltaBrushD4 == System.Drawing.Brushes.Red)
-                    {
-                        workSheet.Cells[14, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    }
+                    //if (database[i].DeltaBrushD4 == System.Drawing.Brushes.Red)
+                    //{
+                    //    workSheet.Cells[14, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //}
 
                     workSheet.Cells[15, 7 + j] = database[i].MjerenoD5; // Kota D
-                    if (database[i].DeltaBrushD5 == System.Drawing.Brushes.Red)
-                    {
-                        workSheet.Cells[15, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    }
+                    //if (database[i].DeltaBrushD5 == System.Drawing.Brushes.Red)
+                    //{
+                    //    workSheet.Cells[15, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //}
 
                     workSheet.Cells[16, 7 + j] = database[i].MjerenoD1; // Kota E
-                    if (database[i].DeltaBrushD1 == System.Drawing.Brushes.Red)
-                    {
-                        workSheet.Cells[16, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    }
+                    //if (database[i].DeltaBrushD1 == System.Drawing.Brushes.Red)
+                    //{
+                    //    workSheet.Cells[16, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //}
 
                     workSheet.Cells[18, 7 + j] = database[i].MjerenoV3; // Kota G
-                    if (database[i].DeltaBrushV3 == System.Drawing.Brushes.Red)
-                    {
-                         workSheet.Cells[18, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    }
+                    //if (database[i].DeltaBrushV3 == System.Drawing.Brushes.Red)
+                    //{
+                    //     workSheet.Cells[18, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //}
 
                     workSheet.Cells[19, 7 + j] = database[i].MjerenoV2; // Kota H
-                    if (database[i].DeltaBrushV2 == System.Drawing.Brushes.Red)
-                    {
-                        workSheet.Cells[19, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    }
+                    //if (database[i].DeltaBrushV2 == System.Drawing.Brushes.Red)
+                    //{
+                    //    workSheet.Cells[19, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //}
 
                     workSheet.Cells[20, 7 + j] = database[i].MjerenoV1; // Kota I
-                    if (database[i].DeltaBrushV1 == System.Drawing.Brushes.Red)
-                    {
-                        workSheet.Cells[20, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    }
+                    //if (database[i].DeltaBrushV1 == System.Drawing.Brushes.Red)
+                    //{
+                    //    workSheet.Cells[20, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //}
+
+                    workSheet.Cells[21, 7 + j] = database[i].MjerenoV1; // Kota VB
+
+                    workSheet.Cells[22, 7 + j] = database[i].MjerenoV1; // Devijacija Visine 2
 
                     if (database[i].Poroznost == true)
                     {
@@ -200,6 +204,11 @@ namespace VizijskiSustavWPF
                             workSheet.Cells[18, 7 + k] = null; // Kota G
                             workSheet.Cells[19, 7 + k] = null; // Kota H
                             workSheet.Cells[20, 7 + k] = null; // Kota I
+
+                            workSheet.Cells[21, 7 + k] = null; // Kota VB
+                            workSheet.Cells[22, 7 + k] = null; // Devijacija Visine 2
+
+
                             workSheet.Cells[23, 7 + k] = null; // Poroznost
                         }
                         filenumber++;

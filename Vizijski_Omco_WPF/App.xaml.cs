@@ -410,6 +410,10 @@ namespace VizijskiSustavWPF
                     MjerenoV3 = (float)e.StatusData.MjerenjeTicalom.Visina3.Value,
                     DeltaPlusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaPlus.Value,
                     DeltaMinusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaMinus.Value,
+                    // VB
+                    MjerenoVB = (float)e.StatusData.MjerenjeTicalom.VisinaBaze.Value,
+                    // V2 Devijacija
+                    MjerenoV2Devijacija = (float)e.StatusData.MjerenjeTicalom.DevijacijaVisine.Value
                 });
 
                 string json = JsonConvert.SerializeObject(savedata.ToArray(), Formatting.Indented);

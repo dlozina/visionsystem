@@ -742,6 +742,47 @@ namespace VizijskiSustavWPF.Reports
                 }
             }
 
+            // Dimenzija VB
+            private float nazivnoVB;
+            public float NazivnoVB
+            {
+                get { return nazivnoVB; }
+                set
+                {
+                    if (nazivnoVB != value)
+                    {
+                        nazivnoVB = value;
+                    }
+                }
+            }
+
+            private float mjerenoVB;
+            public float MjerenoVB
+            {
+                get { return mjerenoVB; }
+                set
+                {
+                    if (mjerenoV3 != value)
+                    {
+                        mjerenoV3 = value;
+                    }
+                }
+            }
+
+            // Dimenzija V2 Devijacija
+            private float mjerenoV2Devijacija;
+            public float MjerenoV2Devijacija
+            {
+                get { return mjerenoV2Devijacija; }
+                set
+                {
+                    if (mjerenoV2Devijacija != value)
+                    {
+                        mjerenoV2Devijacija = value;
+                    }
+                }
+            }
+
             protected virtual void OnPropertyChanged(string propertyName)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
