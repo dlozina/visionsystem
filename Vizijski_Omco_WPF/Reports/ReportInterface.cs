@@ -762,9 +762,9 @@ namespace VizijskiSustavWPF.Reports
                 get { return mjerenoVB; }
                 set
                 {
-                    if (mjerenoV3 != value)
+                    if (mjerenoVB != value)
                     {
-                        mjerenoV3 = value;
+                        mjerenoVB = value;
                     }
                 }
             }

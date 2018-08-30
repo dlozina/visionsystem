@@ -101,6 +101,8 @@ namespace VizijskiSustavWPF
                 workSheet.Cells[18, 3] = database[0].NazivnoV3;  // Kota G
                 workSheet.Cells[19, 3] = database[0].NazivnoV2;  // Kota H
                 workSheet.Cells[20, 3] = database[0].NazivnoV1;  // Kota I
+                workSheet.Cells[21, 3] = database[0].NazivnoVB;  // Visina Baze
+                workSheet.Cells[22, 3] = "Devijacija";  // Devijacija V2
                 // Tolerance Delta +
                 workSheet.Cells[12, 4] = database[0].DeltaPlusD2;  // Kota A
                 workSheet.Cells[13, 4] = database[0].DeltaPlusD3;  // Kota B
@@ -174,9 +176,9 @@ namespace VizijskiSustavWPF
                     //    workSheet.Cells[20, 7 + j].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Red);
                     //}
 
-                    workSheet.Cells[21, 7 + j] = database[i].MjerenoV1; // Kota VB
+                    workSheet.Cells[21, 7 + j] = database[i].MjerenoVB; // Kota VB
 
-                    workSheet.Cells[22, 7 + j] = database[i].MjerenoV1; // Devijacija Visine 2
+                    workSheet.Cells[22, 7 + j] = database[i].MjerenoV2Devijacija; // Devijacija Visine 2
 
                     if (database[i].Poroznost == true)
                     {

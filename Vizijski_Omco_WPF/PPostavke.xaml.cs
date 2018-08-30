@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Windows;
+using HalconDotNet;
 
 namespace VizijskiSustavWPF
 {
@@ -37,6 +38,7 @@ namespace VizijskiSustavWPF
                 App.HDevExp.Exitloop2 = true;
                 App.HDevExp.Exitloop3 = true;
                 App.HDevExp.Exitloop4 = true;
+                HOperatorSet.CloseAllFramegrabbers();
                 Thread.Sleep(1000);
                 App.Current.Shutdown();
             }

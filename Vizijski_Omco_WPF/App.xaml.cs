@@ -411,6 +411,8 @@ namespace VizijskiSustavWPF
                     DeltaPlusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaPlus.Value,
                     DeltaMinusV3 = (float)e.StatusData.Upisanevrijednosti.Visina3DeltaMinus.Value,
                     // VB
+                    // Dodati naknadno - nije potrebno ispisivati u izvjestaju
+                    // NazivnoVB = (float)e.StatusData.Upisanevrijednosti.
                     MjerenoVB = (float)e.StatusData.MjerenjeTicalom.VisinaBaze.Value,
                     // V2 Devijacija
                     MjerenoV2Devijacija = (float)e.StatusData.MjerenjeTicalom.DevijacijaVisine.Value
