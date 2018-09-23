@@ -148,6 +148,8 @@
             public plcTag StopNaKrajuCiklusa { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 3), false);
             public plcTag StatusUcenja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 4), false);
             public plcTag AktivnaTestnaPetlja { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 5), false);
+            public plcTag SnimiMjerenjaS1 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 6), false);
+            public plcTag SnimiMjerenjaS2 { get; set; } = new plcTag(varType.BOOL, dataType.DB, 11, new Offset(158, 7), false);
         }
 
         public class upisanevrijednosti

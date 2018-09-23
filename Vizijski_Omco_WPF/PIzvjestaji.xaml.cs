@@ -279,5 +279,20 @@ namespace VizijskiSustavWPF
                 // Do not close the window
             }
         }
+
+        private void BBispisTestnogMjerenja_Click(object sender, RoutedEventArgs e)
+        {
+            // Export of test values 
+            // S1 - meassuring from hor axis and px value [2 data for export]
+            // S2 - meassuring from hor axis and px value [2 data for export]
+            // Final meassurement [1 data for export]
+
+            // Fetch data from JSON file
+            // Load saved data from JSON file
+            string DataBaseFileName = "testdata.JSON";
+            string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+
+
+        }
     }
 }

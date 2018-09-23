@@ -48,9 +48,12 @@ namespace VizijskiSustavWPF
         private bool _oneCallFlagPorVerNotFound = false;
         private bool _oneCallFlagPorHorNotFound = false;
         private bool _oneCallFlagSaveData = false;
+        private bool _oneCallFlagTestDataS1 = false;
+        private bool _oneCallFlagTestDataS2 = false;
 
         // Database
         public static List<ReportInterface.DimensionLine> savedata = new List<ReportInterface.DimensionLine>();
+        public static List<ReportInterface.TestData> testdata = new List<ReportInterface.TestData>();
 
         public App()
         {
@@ -64,6 +67,17 @@ namespace VizijskiSustavWPF
             if (savedata == null)
             {
                 savedata = new List<ReportInterface.DimensionLine>();
+            }
+
+            // Load test data from JSON file
+            string TestDataBaseFileName = "testdata.JSON";
+            string TestDataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", TestDataBaseFileName);
+            String TestJSONstring = File.ReadAllText(TestDataBasePath);
+            testdata = JsonConvert.DeserializeObject<List<ReportInterface.TestData>>(TestJSONstring);
+            // If JSON is empty we have null
+            if (testdata == null)
+            {
+                testdata = new List<ReportInterface.TestData>();
             }
 
             System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
@@ -423,9 +437,54 @@ namespace VizijskiSustavWPF
                 string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
                 File.WriteAllText(DataBasePath, json);
             }
+
             else if (!(bool)e.StatusData.Automatika.SnimiMjerenja.Value)
             {
                 _oneCallFlagSaveData = true;
+            }
+
+            // Save TEST DATA S1
+            if (((bool) e.StatusData.Automatika.SnimiMjerenjaS1.Value) && _oneCallFlagTestDataS1)
+            {
+                _oneCallFlagTestDataS1 = false;
+                // Code
+                testdata.Add(new ReportInterface.TestData
+                {
+                    ValueHorS1 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value,
+                    ValueVerS1 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
+                    ValuePxS1 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
+                });
+                // Save to memory
+                string json = JsonConvert.SerializeObject(savedata.ToArray(), Formatting.Indented);
+                string DataBaseFileName = "testdata.JSON";
+                string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+                File.WriteAllText(DataBasePath, json);
+
+            }
+
+            else if (!(bool)e.StatusData.Automatika.SnimiMjerenjaS1.Value)
+            {
+                _oneCallFlagTestDataS1 = true;
+            }
+
+
+            // Save TEST DATA S2
+            if (((bool)e.StatusData.Automatika.SnimiMjerenjaS2.Value) && _oneCallFlagTestDataS2)
+            {
+                _oneCallFlagTestDataS2 = false;
+                // Code
+                testdata.Add(new ReportInterface.TestData
+                {
+                    ValueHorS2 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value,
+                    ValueVerS2 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
+                    ValuePxS2 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
+                });
+
+            }
+
+            else if (!(bool)e.StatusData.Automatika.SnimiMjerenjaS2.Value)
+            {
+                _oneCallFlagTestDataS2 = true;
             }
 
             if (mwHandle != null)

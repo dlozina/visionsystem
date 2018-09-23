@@ -102,9 +102,9 @@ namespace VizijskiSustavWPF
                 while (!Client.Connected())
                 {
                     // Real PLC
-                    Client.ConnectTo("192.168.0.1", 0, 1);
+                    //Client.ConnectTo("192.168.0.1", 0, 1);
                     // Simulation PLC
-                    //Client.ConnectTo("192.168.125.88", 0, 1);
+                    Client.ConnectTo("192.168.0.88", 0, 1);
                     Thread.Sleep(200);
                     if (Client.Connected())
                     {
@@ -440,6 +440,8 @@ namespace VizijskiSustavWPF
                     STATUS.Automatika.StopNaKrajuCiklusa.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Automatika.StatusUcenja.GetValueFromGroupBuffer(CyclicStatusBuffer);
                     STATUS.Automatika.AktivnaTestnaPetlja.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Automatika.SnimiMjerenjaS1.GetValueFromGroupBuffer(CyclicStatusBuffer);
+                    STATUS.Automatika.SnimiMjerenjaS2.GetValueFromGroupBuffer(CyclicStatusBuffer);
 
                     // Upisane Vrijednosti
                     STATUS.Upisanevrijednosti.Dijametar1.GetValueFromGroupBuffer(CyclicStatusBuffer);

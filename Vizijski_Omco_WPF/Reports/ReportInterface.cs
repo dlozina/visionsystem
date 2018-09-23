@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -801,6 +802,102 @@ namespace VizijskiSustavWPF.Reports
             //    DeltaMinus = _deltaMinus;
             //    Delta = _delta;
             //}
+        }
+
+        public class TestData : INotifyPropertyChanged
+        {   
+            // Property changed implementation
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            // Value hor S1
+            private float valueHorS1;
+            public float ValueHorS1
+            {
+                get { return valueHorS1; }
+                set
+                {
+                    if (valueHorS1 != value)
+                    {
+                        valueHorS1 = value;
+                    }
+                }
+            }
+
+            // Value ver S1
+            private float valueVerS1;
+            public float ValueVerS1
+            {
+                get { return valueVerS1; }
+                set
+                {
+                    if (valueVerS1 != value)
+                    {
+                        valueVerS1 = value;
+                    }
+                }
+            }
+
+            // Value px S1
+            private float valuePxS1;
+            public float ValuePxS1
+            {
+                get { return valuePxS1; }
+                set
+                {
+                    if (valuePxS1 != value)
+                    {
+                        valuePxS1 = value;
+                    }
+                }
+            }
+
+            // Value hor S2
+            private float valueHorS2;
+            public float ValueHorS2
+            {
+                get { return valueHorS2; }
+                set
+                {
+                    if (valueHorS2 != value)
+                    {
+                        valueHorS2 = value;
+                    }
+                }
+            }
+
+            // Value ver S2
+            private float valueVerS2;
+            public float ValueVerS2
+            {
+                get { return valueVerS2; }
+                set
+                {
+                    if (valueVerS2 != value)
+                    {
+                        valueVerS2 = value;
+                    }
+                }
+            }
+
+            // Value px S1
+            private float valuePxS2;
+            public float ValuePxS2
+            {
+                get { return valuePxS2; }
+                set
+                {
+                    if (valuePxS2 != value)
+                    {
+                        valuePxS2 = value;
+                    }
+                }
+            }
+
+            // Property changed implementation
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }
