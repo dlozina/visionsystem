@@ -20,6 +20,7 @@ namespace VizijskiSustavWPF
     public partial class PIzvjestaji
     {
         public static List<ReportInterface.DimensionLine> database = new List<ReportInterface.DimensionLine>();
+        public static List<ReportInterface.TestData> testdatabase = new List<ReportInterface.TestData>();
 
         public PIzvjestaji()
         {
@@ -52,6 +53,31 @@ namespace VizijskiSustavWPF
             {
                 BIspisPodataka.IsEnabled = true;
                 BIspisPodataka.Foreground = new SolidColorBrush(Colors.Black);
+            }
+
+            // Fetch data from JSON file
+            // Load saved data from JSON file
+            string TestDataBaseFileName = "testdata.JSON";
+            string TestDataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", TestDataBaseFileName);
+            String TestJSONstring = File.ReadAllText(TestDataBasePath);
+            testdatabase = JsonConvert.DeserializeObject<List<ReportInterface.TestData>>(TestJSONstring);
+            // If JSON is empty we have null
+            if (testdatabase == null)
+            {
+                testdatabase = new List<ReportInterface.TestData>();
+            }
+            LtestnaMjerenja.Content = "BROJ TESTNIH MJERENJA U BAZI:   " + testdatabase.Count;
+
+            // Disable export if database is empty
+            if (testdatabase.Count == 0)
+            {
+                BispisTestnogMjerenja.IsEnabled = false;
+                BispisTestnogMjerenja.Foreground = new SolidColorBrush(Colors.Gray);
+            }
+            else
+            {
+                BispisTestnogMjerenja.IsEnabled = true;
+                BispisTestnogMjerenja.Foreground = new SolidColorBrush(Colors.Black);
             }
         }
 
@@ -280,7 +306,7 @@ namespace VizijskiSustavWPF
             }
         }
 
-        private void BBispisTestnogMjerenja_Click(object sender, RoutedEventArgs e)
+        private void TestExcelExport()
         {
             // Export of test values 
             // S1 - meassuring from hor axis and px value [2 data for export]
@@ -291,8 +317,77 @@ namespace VizijskiSustavWPF
             // Load saved data from JSON file
             string DataBaseFileName = "testdata.JSON";
             string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+            String JSONstring = File.ReadAllText(DataBasePath);
+            testdatabase = JsonConvert.DeserializeObject<List<ReportInterface.TestData>>(JSONstring);
+            // If JSON is empty we have null
+            if (database == null)
+            {
+                database = new List<ReportInterface.DimensionLine>();
+            }
+            // Open EXCEL app and template file
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            string TemplateFileName = "Test_template.xlsx";
+            string TemplatePath = Path.Combine(Environment.CurrentDirectory, @"reporttemplate", TemplateFileName);
+            Workbook workbook = excel.Workbooks.Open(TemplatePath, ReadOnly: false, Editable: true);
+            // Select first and only sheet
+            Worksheet workSheet = excel.ActiveSheet;
+            // Populate data
+            try
+            {
+                for (int i = 0; i < testdatabase.Count; i++)
+                {
+                    workSheet.Cells[2 + i, 1] = "Broj Mjerenja: " + i;
+                    // S1 export
+                    workSheet.Cells[2 + i, 2] = testdatabase[i].ValueHorS1;
+                    workSheet.Cells[2 + i, 3] = testdatabase[i].ValueVerS1;
+                    workSheet.Cells[2 + i, 4] = testdatabase[i].ValuePxS1;
+                    // S2 export
+                    workSheet.Cells[2 + i, 5] = testdatabase[i].ValueHorS2;
+                    workSheet.Cells[2 + i, 6] = testdatabase[i].ValueVerS2;
+                    workSheet.Cells[2 + i, 7] = testdatabase[i].ValuePxS2;
+                }
+                string fileName = string.Format(@"{0}\Reports\" + "TestData.xlsx", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+                workSheet.SaveAs(fileName);
 
 
+            }
+            catch (Exception exception)
+            {
+
+
+            }
+            finally
+            {
+                // Close Excel workbook
+                workbook.Close();
+                // Quit Excel application
+                excel.Quit();
+                // Release COM objects (very important!)
+                if (excel != null)
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excel);
+                }
+                if (workSheet != null)
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(workSheet);
+                }
+                if (workbook != null)
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                }
+                // Empty variables
+                excel = null;
+                workSheet = null;
+                // Force garbage collector cleaning
+                GC.Collect();
+            }
+        }
+
+        private void BispisTestnogMjerenja_Click(object sender, RoutedEventArgs e)
+        {
+            Thread testExcelExportThread = new Thread(TestExcelExport);
+            testExcelExportThread.Name = "Thread ExcelExport";
+            testExcelExportThread.Start();
         }
     }
 }

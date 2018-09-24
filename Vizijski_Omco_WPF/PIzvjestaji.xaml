@@ -188,17 +188,17 @@
                     </Grid.ColumnDefinitions>
                     <Button Margin="1" x:Name="BotvoriDatoteku" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="OTVORI DATOTEKU IZVJEŠTAJA" Click="BotvoriDatoteku_Click"/>
                 </Grid>
-                <Label Grid.Row="4" Content="RESET TRENUTNOG MJERENJA" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                <Label Grid.Row="4" Name="LtestnaMjerenja"  Content="*INCODE*" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
                 <Grid Grid.Row="5" Background="Black" Margin="4">
-                    <Button Margin="1" x:Name="BBispisTestnogMjerenja" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISPIS TESTNOG MJERENJA" Click="BBispisTestnogMjerenja_Click" />
+                    <Button Margin="1" x:Name="BispisTestnogMjerenja" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="ISPIS TESTNOG MJERENJA" Click="BispisTestnogMjerenja_Click" />
                 </Grid>
-                <Label Grid.Row="6" Content="RESET TRENUTNOG MJERENJA" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                <Label Grid.Row="6" Content="PONIŠTAVANJE" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
                 <Grid Grid.Row="7" Background="Black" Margin="4">
                     <vizijskiSustavWpf:BitButton x:Name="BBresetSvihMjerenja" Text="RESET AKTIVNOG MJERENJA" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.ResetSvihMjerenja, ElementName=BBresetSvihMjerenja}" />
                 </Grid>
-                <Label Grid.Row="8" Content="IZBRISI BAZU PODATAKA" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                <Label Grid.Row="8" Content="IZBRIŠI BAZU PODATAKA" Background="{DynamicResource pozadina1}" FontWeight="Bold" VerticalAlignment="Bottom"/>
                 <Grid Grid.Row="9" Background="Black" Margin="4">
-                    <Button  x:Name="BizbrisiPodatke" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZBRISI PODATKE" Click="BizbrisiPodatke_Click" />
+                    <Button  x:Name="BizbrisiPodatke" Margin="1" Style="{DynamicResource ButtonStill1}" FontWeight="Bold" Content="IZBRIŠI PODATKE" Click="BizbrisiPodatke_Click" />
                 </Grid>
             </Grid>
 
