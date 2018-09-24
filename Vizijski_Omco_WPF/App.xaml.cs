@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.IO;
 using VizijskiSustavWPF.Reports;
 using System.Collections.Generic;
+using System.Linq;
 using HalconDotNet;
 using VizijskiSustavWPF.VisionControl;
 
@@ -134,13 +135,20 @@ namespace VizijskiSustavWPF
 
         public static void ResetData()
         {
+            // Savedata reset
             savedata.Clear();
             string json = JsonConvert.SerializeObject(savedata.ToArray());
             string DataBaseFileName = "savedata.JSON";
             string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
             String JSONstring = File.ReadAllText(DataBasePath);
-            //File.WriteAllText(@"C:\Users\kontakt\Documents\Work\Projekti\Vision_System_OMCO\App\VisionApp\Vizijski_Omco_WPF\bin\x64\Debug\database\savedata.JSON", json);
             File.WriteAllText(DataBasePath, json);
+            // Testdata reset
+            testdata.Clear();
+            string testjson = JsonConvert.SerializeObject(testdata.ToArray());
+            string TestDataBaseFileName = "testdata.JSON";
+            string TestDataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", TestDataBaseFileName);
+            String TestJSONstring = File.ReadAllText(TestDataBasePath);
+            File.WriteAllText(TestDataBasePath, testjson);
         }
 
         private void PLC_Update_100_ms(PLCInterface sender, PLCInterfaceEventArgs e)
@@ -448,14 +456,34 @@ namespace VizijskiSustavWPF
             {
                 _oneCallFlagTestDataS1 = false;
                 // Code
-                testdata.Add(new ReportInterface.TestData
+                // Update list values
+                var updateHor = testdata.FirstOrDefault(v => v.ValueHorS1 == 0.0);
+                if (updateHor != null)
                 {
-                    ValueHorS1 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value,
-                    ValueVerS1 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
-                    ValuePxS1 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
-                });
+                    updateHor.ValueHorS1 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value; 
+                }
+
+                var updateVer = testdata.FirstOrDefault(v => v.ValueVerS1 == 0.0);
+                if (updateVer != null)
+                {
+                    updateVer.ValueVerS1 = (float) e.StatusData.VertikalnaOs.AktualnaPozicija.Value;
+                }
+
+                var updatePx = testdata.FirstOrDefault(v => v.ValuePxS1 == 0.0);
+                if (updateVer != null)
+                {
+                    updateVer.ValuePxS1 = (float)e.StatusData.Kamere.CAM4Rezultat.Value;
+                }
+
+                //testdata.Insert(0, new ReportInterface.TestData
+                //{
+                //    ValueHorS1 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value,
+                //    ValueVerS1 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
+                //    ValuePxS1 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
+                //});
+
                 // Save to memory
-                string json = JsonConvert.SerializeObject(savedata.ToArray(), Formatting.Indented);
+                string json = JsonConvert.SerializeObject(testdata.ToArray(), Formatting.Indented);
                 string DataBaseFileName = "testdata.JSON";
                 string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
                 File.WriteAllText(DataBasePath, json);
