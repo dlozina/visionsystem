@@ -29,8 +29,8 @@ namespace VizijskiSustavWPF
             App.HDevExp.Exitloop2 = true;
             App.HDevExp.Exitloop3 = true;
             App.HDevExp.Exitloop4 = true;
-            App.DiameterLightOFF();
-            App.PorosityLightOFF();
+            //App.DiameterLightOFF();
+            //App.PorosityLightOFF();
         }
 
         //private void updatePagePRucno_100ms(object sender, PLCInterfaceEventArgs e)

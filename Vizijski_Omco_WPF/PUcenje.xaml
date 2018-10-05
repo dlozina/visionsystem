@@ -86,7 +86,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <local:BitButton Grid.Row="0" x:Name="BbAktivacijaTestnePetlje" Text="START TESTNE PETLJE" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.AktivacijaTestnePetlje, ElementName=BbAktivacijaTestnePetlje}" StatusTag="{Binding PLCConnection.STATUS.Automatika.AktivnaTestnaPetlja, ElementName=BbAktivacijaTestnePetlje}" OnColor="LightGreen" OffColor="Black"/>
+                    <local:BitButton Grid.Row="0" x:Name="BbAktivacijaTestnePetlje" Text="START TESTNE PETLJE" PLCConnection="{DynamicResource PLCinterf}" ControlTag="{Binding PLCConnection.CONTROL.Automatika.AktivacijaTestnePetlje, ElementName=BbAktivacijaTestnePetlje}" StatusTag="{Binding PLCConnection.STATUS.Automatika.AktivnaTestnaPetlja, ElementName=BbAktivacijaTestnePetlje}" OnColor="LightGreen" OffColor="Black" ButtonFunction="InvertBit"/>
                 </Grid>
                 
                 <!-- Stupac Ucenje -->
