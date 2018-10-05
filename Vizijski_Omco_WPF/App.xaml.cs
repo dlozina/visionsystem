@@ -507,6 +507,12 @@ namespace VizijskiSustavWPF
                     ValueVerS2 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
                     ValuePxS2 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
                 });
+                // Added to record one edge data
+                // Save to memory
+                string json = JsonConvert.SerializeObject(testdata.ToArray(), Formatting.Indented);
+                string DataBaseFileName = "testdata.JSON";
+                string DataBasePath = Path.Combine(Environment.CurrentDirectory, @"database", DataBaseFileName);
+                File.WriteAllText(DataBasePath, json);
 
             }
 
