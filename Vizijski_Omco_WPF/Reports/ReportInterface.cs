@@ -893,6 +893,20 @@ namespace VizijskiSustavWPF.Reports
                 }
             }
 
+            // Value px S1
+            private float temperatureCam4;
+            public float TemperatureCam4
+            {
+                get { return temperatureCam4; }
+                set
+                {
+                    if (temperatureCam4 != value)
+                    {
+                        temperatureCam4 = value;
+                    }
+                }
+            }
+
             // Property changed implementation
             protected virtual void OnPropertyChanged(string propertyName)
             {

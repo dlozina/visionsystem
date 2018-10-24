@@ -38,5 +38,12 @@ namespace VizijskiSustavWPF.VisionControl
             get { return workpieceDiameter; }
             set { workpieceDiameter = value; }
         }
+
+        private float cameraTemp;
+        public float CameraTemp
+        {
+            get { return cameraTemp; }
+            set { cameraTemp = value; }
+        }
     }
 }

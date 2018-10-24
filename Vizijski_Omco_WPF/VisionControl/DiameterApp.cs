@@ -46,6 +46,8 @@ namespace VizijskiSustavWPF.VisionControl
             }
             //Thread pause to adjust exposition
             Thread.Sleep(1000);
+            // Grab Camara temp
+            HOperatorSet.GetFramegrabberParam(hv_AcqHandle, "TemperatureAbs", out hv_TempValue);
             // Grab image
             HOperatorSet.GrabImageStart(hv_AcqHandle, -1);
             //HOperatorSet.GrabImageAsync(out ho_Image, hv_AcqHandle, -1);
@@ -571,6 +573,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float) hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {

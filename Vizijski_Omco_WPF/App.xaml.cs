@@ -506,6 +506,7 @@ namespace VizijskiSustavWPF
                     ValueHorS2 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value,
                     ValueVerS2 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
                     ValuePxS2 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
+                    TemperatureCam4 = (float)e.StatusData.Kamere.CAM3Rezultat.Value,
                 });
                 // Added to record one edge data
                 // Save to memory
@@ -541,6 +542,7 @@ namespace VizijskiSustavWPF
         private static void HalconUpdate(HDevelopExport sender, HalconEventArgs e)
         {
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4Rezultat, e.PXvalue);
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM3Rezultat, e.CameraTemp);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, true);
             Thread.Sleep(100);
             App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaOk, false);

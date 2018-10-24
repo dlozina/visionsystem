@@ -55,7 +55,7 @@ namespace VizijskiSustavWPF.VisionControl
         // Output from pick
         HTuple hv_x_cross = new HTuple(), hv_y_cross = new HTuple();
         HTuple hv_X = new HTuple(), hv_Y= new HTuple();
-        HTuple hv_angledeg = new HTuple();
+        HTuple hv_angledeg = new HTuple(), hv_TempValue = null;
         // Layer check information for PLC
         HTuple hv_distance_mean = new HTuple();
         // Local iconic variables 
