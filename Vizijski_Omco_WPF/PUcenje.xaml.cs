@@ -377,8 +377,8 @@ namespace VizijskiSustavWPF
             App.HDevExp.Exitloop2 = true;
             App.HDevExp.Exitloop3 = true;
             App.HDevExp.Exitloop4 = false;
-            App.DiameterLightON();
-            App.PorosityLightOFF();
+            //App.DiameterLightON();
+            //App.PorosityLightOFF();
             hwindowTeach.HImagePart = new Rect(0, 0, 2448, 2050);
             Thread TeachCAM4Thread = new Thread(TeachCam4) { Name = "TeachCAM4Thread" };
             TeachCAM4Thread.Start();
