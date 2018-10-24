@@ -26,6 +26,8 @@ namespace VizijskiSustavWPF.VisionControl
 
             // Reset Vison output signal
             hv_output = 0;
+            // Reset Error detection for PLC
+            App.ResetCAM4Error();
             // Wait for CAM4 thread to be closed
             _waitHandleCam4.WaitOne();
             // Close te thread DOOR
@@ -304,17 +306,10 @@ namespace VizijskiSustavWPF.VisionControl
                 }
             } //TRY
 
-            catch (HalconException HDevExpDefaultExceptionVision)
+            catch (HalconException hDevExceptionVision)
             {
-            //    ho_Image.Dispose();
-            //    ho_DerivGauss.Dispose();
-            //    ho_RegionCrossings.Dispose();
-            //    ho_Region.Dispose();
-            //    ho_region_outer.Dispose();
-            //    ho_contour_outer.Dispose();
-            //    ho_ContCircle.Dispose();
-            //    //throw HDevExpDefaultException;
-            //    // Potrebno preskociti poziciju
+            // Error detection for PLC
+            App.AnaliseCAM4Error();
             //    //HOperatorSet.SetColor(hv_TeachWinHandle, "spring green");
             //    HOperatorSet.SetTposition(hv_TeachWinHandle, hv_Height/2, hv_Width/4);
             //    HOperatorSet.WriteString(hv_TeachWinHandle, "NIJE PRONADEN RUB KOMADA! PONOVITI AKCIJU ILI PRESKOCITI RUB");

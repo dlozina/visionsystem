@@ -853,6 +853,16 @@ namespace VizijskiSustavWPF
             App.PLC.WriteTag(PLC.CONTROL.Kamere.RasvjetaZaPoroznost, false);
         }
 
+        public static void AnaliseCAM4Error()
+        {
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaError, true);
+        }
+
+        public static void ResetCAM4Error()
+        {
+            App.PLC.WriteTag(PLC.STATUS.Kamere.CAM4AnalizaError, false);
+        }
+
         // Event handler koji se poziva kad PLC postane online ili offline (Ethernet kabel se spoji ili odspoji).
         private void PLCInterface_PLCOnlineChanged(object sender, OnlineMarkerEventArgs e)
         {
