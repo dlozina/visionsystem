@@ -457,23 +457,23 @@ namespace VizijskiSustavWPF
                 _oneCallFlagTestDataS1 = false;
                 // Code
                 // Update list values
-                var updateHor = testdata.FirstOrDefault(v => v.ValueHorS1 == 0.0);
-                if (updateHor != null)
-                {
-                    updateHor.ValueHorS1 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value; 
-                }
+                //var updateHor = testdata.FirstOrDefault(v => v.ValueHorS1 == 0.0);
+                //if (updateHor != null)
+                //{
+                //    updateHor.ValueHorS1 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value; 
+                //}
 
-                var updateVer = testdata.FirstOrDefault(v => v.ValueVerS1 == 0.0);
-                if (updateVer != null)
-                {
-                    updateVer.ValueVerS1 = (float) e.StatusData.VertikalnaOs.AktualnaPozicija.Value;
-                }
+                //var updateVer = testdata.FirstOrDefault(v => v.ValueVerS1 == 0.0);
+                //if (updateVer != null)
+                //{
+                //    updateVer.ValueVerS1 = (float) e.StatusData.VertikalnaOs.AktualnaPozicija.Value;
+                //}
 
-                var updatePx = testdata.FirstOrDefault(v => v.ValuePxS1 == 0.0);
-                if (updateVer != null)
-                {
-                    updateVer.ValuePxS1 = (float)e.StatusData.Kamere.CAM4Rezultat.Value;
-                }
+                //var updatePx = testdata.FirstOrDefault(v => v.ValuePxS1 == 0.0);
+                //if (updateVer != null)
+                //{
+                //    updateVer.ValuePxS1 = (float)e.StatusData.Kamere.CAM4Rezultat.Value;
+                //}
 
                 //testdata.Insert(0, new ReportInterface.TestData
                 //{
@@ -481,6 +481,13 @@ namespace VizijskiSustavWPF
                 //    ValueVerS1 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
                 //    ValuePxS1 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
                 //});
+                testdata.Add(new ReportInterface.TestData
+                {
+                    ValueHorS1 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value,
+                    ValueVerS1 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
+                    ValuePxS1 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
+                    TemperatureCam4S1 = (float)e.StatusData.Kamere.CAM3Rezultat.Value,
+                });
 
                 // Save to memory
                 string json = JsonConvert.SerializeObject(testdata.ToArray(), Formatting.Indented);
@@ -506,7 +513,7 @@ namespace VizijskiSustavWPF
                     ValueHorS2 = (float)e.StatusData.HorizontalnaOs.AktualnaPozicija.Value,
                     ValueVerS2 = (float)e.StatusData.VertikalnaOs.AktualnaPozicija.Value,
                     ValuePxS2 = (float)e.StatusData.Kamere.CAM4Rezultat.Value,
-                    TemperatureCam4 = (float)e.StatusData.Kamere.CAM3Rezultat.Value,
+                    TemperatureCam4S2 = (float)e.StatusData.Kamere.CAM3Rezultat.Value,
                 });
                 // Added to record one edge data
                 // Save to memory

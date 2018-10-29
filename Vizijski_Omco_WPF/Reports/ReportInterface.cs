@@ -893,16 +893,30 @@ namespace VizijskiSustavWPF.Reports
                 }
             }
 
-            // Value px S1
-            private float temperatureCam4;
-            public float TemperatureCam4
+            // Value cam temp S1
+            private float temperatureCam4S1;
+            public float TemperatureCam4S1
             {
-                get { return temperatureCam4; }
+                get { return temperatureCam4S1; }
                 set
                 {
-                    if (temperatureCam4 != value)
+                    if (temperatureCam4S1 != value)
                     {
-                        temperatureCam4 = value;
+                        temperatureCam4S1 = value;
+                    }
+                }
+            }
+
+            // Value cam temp S2
+            private float temperatureCam4S2;
+            public float TemperatureCam4S2
+            {
+                get { return temperatureCam4S2; }
+                set
+                {
+                    if (temperatureCam4S2 != value)
+                    {
+                        temperatureCam4S2 = value;
                     }
                 }
             }
