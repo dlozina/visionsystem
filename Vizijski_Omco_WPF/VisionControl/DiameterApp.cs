@@ -338,6 +338,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0 )
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
@@ -364,6 +365,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
@@ -390,6 +392,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
@@ -416,6 +419,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
@@ -442,6 +446,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
@@ -468,6 +473,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
@@ -494,6 +500,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
@@ -520,6 +527,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 //hv_output = 0;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
@@ -547,6 +555,7 @@ namespace VizijskiSustavWPF.VisionControl
             if (hv_output.Length != 0)
             {
                 argumenti.PXvalue = (float)hv_output.D;
+                argumenti.CameraTemp = (float)hv_TempValue.D;
                 // Chech for infinity Double to float conversion
                 if (float.IsPositiveInfinity(argumenti.PXvalue))
                 {
